@@ -126,7 +126,7 @@ const startServer = (port = normalizePort(PORT), attempt = 1) => {
   });
 };
 
-mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/campusconnect')
+mongoose.connect(process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campusconnect')
   .then(() => {
     console.log('MongoDB connected');
     startServer();

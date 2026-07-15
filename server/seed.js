@@ -12,8 +12,14 @@ const Activity = require('./models/Activity');
 const Notification = require('./models/Notification');
 const Newsletter = require('./models/Newsletter');
 const ContactMessage = require('./models/ContactMessage');
+const path = require('path');
+const dotenv = require('dotenv');
 
-const MONGO_URI = 'mongodb://127.0.0.1:27017/campusconnect';
+// Load environment variables from potential locations (.env in root or server folder)
+dotenv.config({ path: path.join(__dirname, '.env') });
+dotenv.config({ path: path.join(__dirname, '../.env') });
+
+const MONGO_URI = process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campusconnect';
 
 async function seed() {
   try {
