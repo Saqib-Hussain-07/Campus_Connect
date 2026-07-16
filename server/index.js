@@ -148,15 +148,17 @@ const startServer = (port = normalizePort(PORT), attempt = 1) => {
   });
 };
 
-mongoose.connect(process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campusconnect')
+const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campusconnect';
+
+mongoose.connect(mongoUri, { serverSelectionTimeoutMS: 5000 })
   .then(() => {
     console.log('MongoDB connected');
-    startServer();
   })
   .catch((err) => {
     lastConnError = err.message || err.toString();
     console.error('MongoDB connection failed:', err.message);
-    startServer();
   });
+
+startServer();
 
 module.exports = { app, startServer };

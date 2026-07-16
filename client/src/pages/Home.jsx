@@ -9,17 +9,28 @@ export default function Home() {
   const loggedInUser = JSON.parse(localStorage.getItem('campusconnect_user'));
 
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [peerFilter, setPeerFilter] = useState('all');
   const [groupFilter, setGroupFilter] = useState('all');
 
   const fetchHomeData = () => {
+    setLoading(true);
     fetch('/api/home')
       .then((res) => {
-        if (!res.ok) throw new Error();
+        if (!res.ok) throw new Error('Failed to load portal content from backend API');
         return res.json();
       })
-      .then((json) => setData(json))
-      .catch(() => setData(null));
+      .then((json) => {
+        setData(json);
+        setError(null);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setData(null);
+        setError(err.message || 'Connection refused or server timeout');
+        setLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -64,7 +75,33 @@ export default function Home() {
     } catch (err) {}
   };
 
-  if (!data) return <div className="loading">Loading CampusConnect…</div>;
+  if (loading) return <div className="loading">Loading CampusConnect…</div>;
+
+  if (error) {
+    return (
+      <div className="d-flex flex-column align-items-center justify-content-center min-vh-100 p-4 text-center" style={{ background: '#f5f3eb' }}>
+        <div style={{ maxWidth: '500px', border: '2px solid var(--ink, #111)', background: 'var(--paper, #fcfbf7)', padding: '40px', boxShadow: '6px 6px 0 var(--ink, #111)' }}>
+          <div style={{ fontSize: '3rem', color: 'var(--rust, #e15b34)', marginBottom: '20px' }}>
+            <i className="fas fa-circle-exclamation"></i>
+          </div>
+          <h2 style={{ fontFamily: 'var(--font-display, inherit)', fontSize: '1.8rem', color: 'var(--ink, #111)', marginBottom: '12px' }}>
+            Database Unreachable
+          </h2>
+          <p style={{ fontSize: '.9rem', color: '#555', marginBottom: '24px', lineHeight: '1.6' }}>
+            We couldn't connect to the backend database service. Please ensure that your local MongoDB service and Express API server are both running.
+          </p>
+          <div style={{ fontSize: '.72rem', fontFamily: 'var(--font-mono, monospace)', color: '#777', background: '#f4ece1', padding: '12px', marginBottom: '24px', border: '1px solid #ddd', textAlign: 'left', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>
+            <strong>Detail:</strong> {error}
+          </div>
+          <button onClick={fetchHomeData} className="cc-btn-lg-dark" style={{ border: 'none', cursor: 'pointer', padding: '12px 24px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+            <span>Retry Connection</span><i className="fas fa-rotate-right"></i>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (!data) return null;
 
   const { recentStudents, recentGroups, liveStats } = data;
 
