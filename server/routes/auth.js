@@ -14,24 +14,23 @@ const router = express.Router();
 // Register
 router.post('/register', async (req, res) => {
   try {
-    const { name, email, password, department, semester, university, skills, bio } = req.body;
-    const existing = await User.findOne({ email });
-    if (existing) return res.status(400).json({ message: 'Email already registered' });
+    const { name, email, registrationNo, password } = req.body;
+    
+    const existingEmail = await User.findOne({ email });
+    if (existingEmail) return res.status(400).json({ message: 'Email already registered' });
+
+    if (registrationNo) {
+      const existingReg = await User.findOne({ registrationNo });
+      if (existingReg) return res.status(400).json({ message: 'Registration number already registered' });
+    }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
       name,
       email,
+      registrationNo,
       password: hashedPassword,
-      department,
-      semester: semester ? Number(semester) : undefined,
-      skills: Array.isArray(skills)
-        ? skills.map((s) => s.trim()).filter(Boolean)
-        : typeof skills === 'string' && skills
-        ? skills.split(',').map((s) => s.trim()).filter(Boolean)
-        : [],
-      bio,
-      isVerified: true // Set verified by default to match PHP register functionality
+      isVerified: true // Set verified by default
     });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'devsecret', { expiresIn: '7d' });
@@ -56,7 +55,19 @@ router.post('/login', async (req, res) => {
     await user.save();
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'devsecret', { expiresIn: '7d' });
-    res.json({ token, user: { id: user._id, name: user.name, email: user.email } });
+    res.json({
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        department: user.department,
+        semester: user.semester,
+        university: user.university,
+        skills: user.skills,
+        bio: user.bio
+      }
+    });
   } catch (err) {
     res.status(500).json({ message: 'Login failed', error: err.message });
   }

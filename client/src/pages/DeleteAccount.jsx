@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+
 import Footer from '../components/Footer';
 
 export default function DeleteAccount() {
@@ -47,9 +47,9 @@ export default function DeleteAccount() {
 
       <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
         <div className="row g-0">
-          <Sidebar />
+          
 
-          <div className="col-xl-10 col-lg-9 cc-dash-content">
+          <div className="col-12 cc-dash-content">
             <div className="row justify-content-center">
               <div className="col-lg-6">
                 <div style={{ border: '1.5px solid var(--rust)', background: 'var(--white)', padding: '36px', boxShadow: '4px 4px 0px var(--ink)' }}>

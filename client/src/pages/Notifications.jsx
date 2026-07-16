@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+
 import Footer from '../components/Footer';
 
 export default function Notifications() {
@@ -54,9 +54,9 @@ export default function Notifications() {
 
       <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
         <div className="row g-0">
-          <Sidebar />
+          
 
-          <div className="col-xl-10 col-lg-9 cc-dash-content">
+          <div className="col-12 cc-dash-content">
             <div style={{ background: 'var(--ink)', padding: '24px 40px', color: '#fff', marginBottom: '30px' }}>
               <div className="cc-section-label white-lbl">Inbox Logs</div>
               <h1 className="cc-heading on-dark">MY <em>Notifications</em></h1>

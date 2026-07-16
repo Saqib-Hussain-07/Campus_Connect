@@ -60,6 +60,9 @@ export default function Sidebar() {
   };
 
   const avatarUrl = (u) => {
+    if (u?.avatar && u.avatar.startsWith('data:')) {
+      return u.avatar;
+    }
     if (u?.avatar && u.avatar !== 'default.jpg') {
       return `/assets/uploads/avatars/${u.avatar}`;
     }

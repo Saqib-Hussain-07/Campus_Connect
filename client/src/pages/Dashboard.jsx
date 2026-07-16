@@ -3,6 +3,75 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
+import Loader from '../components/Loader';
+
+const DEPT_COURSES = {
+  'Computer Science Engineering': [
+    { name: 'Computer Science', sem: 8, label: 'B.Tech · 8 Semesters' },
+    { name: 'CSE – Artificial Intelligence', sem: 8, label: 'B.Tech · 8 Semesters' },
+    { name: 'CSE – Data Science', sem: 8, label: 'B.Tech · 8 Semesters' },
+    { name: 'CSE – Cybersecurity', sem: 8, label: 'B.Tech · 8 Semesters' },
+    { name: 'CSE – Cloud Computing', sem: 8, label: 'B.Tech · 8 Semesters' },
+    { name: 'CSE – IoT', sem: 8, label: 'B.Tech · 8 Semesters' },
+  ],
+  'Mechanical Engineering': [
+    { name: 'Mechanical Engineering', sem: 8, label: 'B.E. · 8 Semesters' },
+    { name: 'Mechanical – Robotics & Automation', sem: 8, label: 'B.E. · 8 Semesters' },
+    { name: 'Mechanical – Automobile', sem: 8, label: 'B.E. · 8 Semesters' },
+  ],
+  'Electrical Engineering': [
+    { name: 'Electrical Engineering', sem: 8, label: 'B.E. · 8 Semesters' },
+    { name: 'Electrical & Electronics (EEE)', sem: 8, label: 'B.E. · 8 Semesters' },
+    { name: 'Electrical – Power Systems', sem: 8, label: 'B.E. · 8 Semesters' },
+  ],
+  'Civil Engineering': [
+    { name: 'Civil Engineering', sem: 8, label: 'B.E. · 8 Semesters' },
+    { name: 'Civil – Construction Management', sem: 8, label: 'B.E. · 8 Semesters' },
+    { name: 'Civil – Environmental Engineering', sem: 8, label: 'B.E. · 8 Semesters' },
+  ],
+  'Information Technology': [
+    { name: 'Information Technology', sem: 8, label: 'B.Tech · 8 Semesters' },
+    { name: 'IT – Cloud & DevOps', sem: 8, label: 'B.Tech · 8 Semesters' },
+    { name: 'IT – IoT & Embedded Systems', sem: 8, label: 'B.Tech · 8 Semesters' },
+  ],
+  'Electronics': [
+    { name: 'Electronics & Communication', sem: 8, label: 'B.E. · 8 Semesters' },
+    { name: 'Electronics – VLSI Design', sem: 8, label: 'B.E. · 8 Semesters' },
+    { name: 'Electronics – Embedded Systems', sem: 8, label: 'B.E. · 8 Semesters' },
+  ],
+  'Chemical Engineering': [
+    { name: 'Chemical Engineering', sem: 8, label: 'B.E. · 8 Semesters' },
+    { name: 'Chemical – Petrochemical', sem: 8, label: 'B.E. · 8 Semesters' },
+  ],
+  'Data Science': [
+    { name: 'Data Science', sem: 6, label: 'B.Sc. · 6 Semesters' },
+    { name: 'Data Science & Analytics', sem: 6, label: 'B.Sc. · 6 Semesters' },
+    { name: 'Statistics & Data Science', sem: 6, label: 'B.Sc. · 6 Semesters' },
+  ],
+  'Business Administration': [
+    { name: 'Business Administration', sem: 6, label: 'BBA · 6 Semesters' },
+    { name: 'BBA – Finance', sem: 6, label: 'BBA · 6 Semesters' },
+    { name: 'BBA – Marketing', sem: 6, label: 'BBA · 6 Semesters' },
+    { name: 'BBA – Human Resources', sem: 6, label: 'BBA · 6 Semesters' },
+    { name: 'MBA', sem: 4, label: 'MBA · 4 Semesters (2 Yrs)' },
+    { name: 'MBA – Finance', sem: 4, label: 'MBA · 4 Semesters (2 Yrs)' },
+    { name: 'MBA – Marketing', sem: 4, label: 'MBA · 4 Semesters (2 Yrs)' },
+    { name: 'MBA – Business Analytics', sem: 4, label: 'MBA · 4 Semesters (2 Yrs)' },
+  ],
+  'UX & Design': [
+    { name: 'UX Design', sem: 8, label: 'B.Des · 8 Semesters' },
+    { name: 'UX – Interaction Design', sem: 8, label: 'B.Des · 8 Semesters' },
+    { name: 'UX – Product Design', sem: 8, label: 'B.Des · 8 Semesters' },
+  ],
+  'MCA (Postgraduate)': [
+    { name: 'MCA', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
+    { name: 'MCA – Artificial Intelligence', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
+    { name: 'MCA – Data Science & Analytics', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
+    { name: 'MCA – Cloud Computing', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
+    { name: 'MCA – Cybersecurity', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
+    { name: 'MCA – Software Engineering', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
+  ],
+};
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -10,6 +79,19 @@ export default function Dashboard() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  // Profile completion states
+  const [showCompletionModal, setShowCompletionModal] = useState(false);
+  const [completionForm, setCompletionForm] = useState({
+    departmentGroup: '',
+    department: '',
+    semester: '',
+    university: '',
+    skills: '',
+    bio: ''
+  });
+  const [completionError, setCompletionError] = useState('');
+  const [completionSaving, setCompletionSaving] = useState(false);
 
   useEffect(() => {
     if (!token) {
@@ -27,6 +109,21 @@ export default function Dashboard() {
         })
         .then((json) => {
           setData(json);
+          
+          // Check if profile is incomplete
+          const u = json.user;
+          const isIncomplete = !u?.department || !u?.semester || !u?.university || !u?.skills || u.skills.length === 0 || !u?.bio;
+          if (isIncomplete) {
+            setShowCompletionModal(true);
+            setCompletionForm({
+              departmentGroup: '',
+              department: u?.department || '',
+              semester: u?.semester || '',
+              university: u?.university || '',
+              skills: u?.skills ? u.skills.join(', ') : '',
+              bio: u?.bio || ''
+            });
+          }
           setLoading(false);
         })
         .catch((err) => {
@@ -37,6 +134,75 @@ export default function Dashboard() {
 
     fetchDashboard();
   }, [token, navigate]);
+
+  const handleCompletionSubmit = async (e) => {
+    e.preventDefault();
+    setCompletionError('');
+
+    if (!completionForm.departmentGroup) {
+      setCompletionError('Please select a department category.');
+      return;
+    }
+    if (!completionForm.department) {
+      setCompletionError('Please select a course / program.');
+      return;
+    }
+    if (!completionForm.semester) {
+      setCompletionError('Please select your current semester.');
+      return;
+    }
+    if (!completionForm.university.trim()) {
+      setCompletionError('Please enter your university or college.');
+      return;
+    }
+    if (!completionForm.skills.trim()) {
+      setCompletionError('Please enter at least one skill.');
+      return;
+    }
+    if (!completionForm.bio.trim()) {
+      setCompletionError('Please enter a short bio.');
+      return;
+    }
+
+    setCompletionSaving(true);
+    try {
+      const res = await fetch('/api/users/profile', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          department: completionForm.department,
+          semester: Number(completionForm.semester),
+          university: completionForm.university.trim(),
+          skills: completionForm.skills,
+          bio: completionForm.bio.trim()
+        })
+      });
+      const resData = await res.json();
+      if (!res.ok) {
+        throw new Error(resData.message || 'Failed to save profile');
+      }
+
+      // Update local storage user object
+      localStorage.setItem('campusconnect_user', JSON.stringify(resData.user));
+
+      // Dismiss modal
+      setShowCompletionModal(false);
+
+      // Refresh dashboard data
+      const refreshRes = await fetch('/api/dashboard', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const refreshJson = await refreshRes.json();
+      setData(refreshJson);
+    } catch (err) {
+      setCompletionError(err.message || 'Something went wrong while saving.');
+    } finally {
+      setCompletionSaving(false);
+    }
+  };
 
   const handleConnectionResponse = async (connId, action) => {
     try {
@@ -49,7 +215,6 @@ export default function Dashboard() {
         body: JSON.stringify({ action })
       });
       if (res.ok) {
-        // Refresh dashboard data
         const refreshRes = await fetch('/api/dashboard', {
           headers: { Authorization: `Bearer ${token}` }
         });
@@ -66,7 +231,6 @@ export default function Dashboard() {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
-        // Refresh dashboard data
         const refreshRes = await fetch('/api/dashboard', {
           headers: { Authorization: `Bearer ${token}` }
         });
@@ -76,8 +240,30 @@ export default function Dashboard() {
     } catch (err) {}
   };
 
-  if (loading) return <div className="loading">Loading CampusConnect Dashboard…</div>;
-  if (error) return <div className="loading">Error: {error}</div>;
+  if (loading) return <Loader message="Loading CampusConnect Dashboard..." />;
+  if (error) {
+    return (
+      <div className="d-flex flex-column align-items-center justify-content-center min-vh-100 p-4 text-center" style={{ background: '#f5f3eb' }}>
+        <div style={{ maxWidth: '500px', border: '2px solid var(--ink, #111)', background: 'var(--paper, #fcfbf7)', padding: '40px', boxShadow: '6px 6px 0 var(--ink, #111)' }}>
+          <div style={{ fontSize: '3rem', color: 'var(--rust, #e15b34)', marginBottom: '20px' }}>
+            <i className="fas fa-circle-exclamation"></i>
+          </div>
+          <h2 style={{ fontFamily: 'var(--font-display, inherit)', fontSize: '1.8rem', color: 'var(--ink, #111)', marginBottom: '12px' }}>
+            Dashboard Error
+          </h2>
+          <p style={{ fontSize: '.9rem', color: '#555', marginBottom: '24px', lineHeight: '1.6' }}>
+            An error occurred while loading your personalized dashboard. Please ensure you are logged in correctly and try again.
+          </p>
+          <div style={{ fontSize: '.72rem', fontFamily: 'var(--font-mono, monospace)', color: '#777', background: '#f4ece1', padding: '12px', marginBottom: '24px', border: '1px solid #ddd', textAlign: 'left', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>
+            <strong>Detail:</strong> {error}
+          </div>
+          <button onClick={() => window.location.reload()} className="cc-btn-lg-dark" style={{ border: 'none', cursor: 'pointer', padding: '12px 24px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+            <span>Refresh Page</span><i className="fas fa-arrows-rotate"></i>
+          </button>
+        </div>
+      </div>
+    );
+  }
   if (!data) return null;
 
   const { stats, requests, myGroupsData, myProjects, feed, suggestions, stEvents, recentNotices } = data;
@@ -109,6 +295,177 @@ export default function Dashboard() {
     <div>
       <Navbar />
 
+      {/* Profile Completion Modal Overlay */}
+      {showCompletionModal && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(13, 13, 13, 0.75)',
+          backdropFilter: 'blur(5px)',
+          zIndex: 99999,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '20px',
+          overflowY: 'auto'
+        }}>
+          <div style={{
+            maxWidth: '560px',
+            width: '100%',
+            background: 'var(--white, #fafaf8)',
+            border: '3px solid var(--ink, #0d0d0d)',
+            boxShadow: '8px 8px 0 var(--ink, #0d0d0d)',
+            padding: '36px',
+            margin: 'auto',
+            textAlign: 'left'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px' }}>
+              <div style={{ background: 'var(--rust)', width: '48px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '20px', border: '2px solid var(--ink)' }}>
+                <i className="fas fa-user-pen"></i>
+              </div>
+              <div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', color: 'var(--ink)', margin: 0, letterSpacing: '.03em' }}>Complete Your Profile</h3>
+                <p style={{ fontSize: '.72rem', fontFamily: 'var(--font-mono)', color: '#888', margin: 0 }}>Academic profile completion required</p>
+              </div>
+            </div>
+            
+            <p style={{ fontSize: '.84rem', color: '#555', lineHeight: '1.6', marginBottom: '24px', paddingBottom: '16px', borderBottom: '1.5px dashed var(--cream)' }}>
+              Welcome to CampusConnect! To interact with the student network, join circles, and post projects, please complete your profile.
+            </p>
+
+            {completionError && (
+              <div className="alert alert-danger p-3 mb-4" style={{ borderRadius: '0', fontSize: '.8rem' }}>
+                <i className="fas fa-triangle-exclamation me-2"></i>
+                {completionError}
+              </div>
+            )}
+
+            <form onSubmit={handleCompletionSubmit}>
+              <div className="row g-3">
+                {/* Department Group */}
+                <div className="col-12">
+                  <label className="cc-form-label" style={{ fontSize: '.72rem', letterSpacing: '.05em', textTransform: 'uppercase', color: '#666' }}>Department Category *</label>
+                  <select
+                    value={completionForm.departmentGroup}
+                    onChange={(e) => {
+                      const group = e.target.value;
+                      setCompletionForm(prev => ({ ...prev, departmentGroup: group, department: '', semester: '' }));
+                    }}
+                    className="cc-form-input"
+                    style={{ padding: '10px 14px', fontSize: '.86rem', outline: 'none' }}
+                    required
+                  >
+                    <option value="">— Select Category —</option>
+                    {Object.keys(DEPT_COURSES).map(dept => (
+                      <option key={dept} value={dept}>{dept}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Course & Semester */}
+                <div className="col-8">
+                  <label className="cc-form-label" style={{ fontSize: '.72rem', letterSpacing: '.05em', textTransform: 'uppercase', color: '#666' }}>Course / Program *</label>
+                  <select
+                    value={completionForm.department}
+                    onChange={(e) => {
+                      setCompletionForm(prev => ({ ...prev, department: e.target.value, semester: '' }));
+                    }}
+                    className="cc-form-input"
+                    style={{ padding: '10px 14px', fontSize: '.86rem', outline: 'none' }}
+                    disabled={!completionForm.departmentGroup}
+                    required
+                  >
+                    <option value="">
+                      {completionForm.departmentGroup ? '— Pick course —' : '— Select department first —'}
+                    </option>
+                    {(DEPT_COURSES[completionForm.departmentGroup] || []).map(c => (
+                      <option key={c.name} value={c.name}>{c.name}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="col-4">
+                  <label className="cc-form-label" style={{ fontSize: '.72rem', letterSpacing: '.05em', textTransform: 'uppercase', color: '#666' }}>Semester *</label>
+                  <select
+                    value={completionForm.semester}
+                    onChange={(e) => setCompletionForm(prev => ({ ...prev, semester: e.target.value }))}
+                    className="cc-form-input"
+                    style={{ padding: '10px 14px', fontSize: '.86rem', outline: 'none' }}
+                    disabled={!completionForm.department}
+                    required
+                  >
+                    <option value="">—</option>
+                    {Array.from(
+                      { length: ((DEPT_COURSES[completionForm.departmentGroup] || []).find(c => c.name === completionForm.department)?.sem || 0) },
+                      (_, i) => i + 1
+                    ).map(sem => (
+                      <option key={sem} value={sem}>Sem {sem}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* University */}
+                <div className="col-12">
+                  <label className="cc-form-label" style={{ fontSize: '.72rem', letterSpacing: '.05em', textTransform: 'uppercase', color: '#666' }}>University / College *</label>
+                  <input
+                    type="text"
+                    value={completionForm.university}
+                    onChange={(e) => setCompletionForm(prev => ({ ...prev, university: e.target.value }))}
+                    className="cc-form-input"
+                    style={{ padding: '10px 14px', fontSize: '.86rem', outline: 'none' }}
+                    placeholder="e.g. IIT Mumbai"
+                    required
+                  />
+                </div>
+
+                {/* Skills */}
+                <div className="col-12">
+                  <label className="cc-form-label" style={{ fontSize: '.72rem', letterSpacing: '.05em', textTransform: 'uppercase', color: '#666' }}>Skills (comma-separated) *</label>
+                  <input
+                    type="text"
+                    value={completionForm.skills}
+                    onChange={(e) => setCompletionForm(prev => ({ ...prev, skills: e.target.value }))}
+                    className="cc-form-input"
+                    style={{ padding: '10px 14px', fontSize: '.86rem', outline: 'none' }}
+                    placeholder="e.g. Python, React, AutoCAD, SolidWorks"
+                    required
+                  />
+                </div>
+
+                {/* Short Bio */}
+                <div className="col-12">
+                  <label className="cc-form-label" style={{ fontSize: '.72rem', letterSpacing: '.05em', textTransform: 'uppercase', color: '#666' }}>Short Bio *</label>
+                  <textarea
+                    value={completionForm.bio}
+                    onChange={(e) => setCompletionForm(prev => ({ ...prev, bio: e.target.value }))}
+                    className="cc-form-input"
+                    style={{ padding: '10px 14px', fontSize: '.86rem', resize: 'vertical', outline: 'none' }}
+                    rows="2"
+                    placeholder="Briefly state your academic focus, background, or goals..."
+                    required
+                  />
+                </div>
+
+                {/* Submit button */}
+                <div className="col-12 mt-3">
+                  <button
+                    type="submit"
+                    className="cc-btn-fill py-3 w-100"
+                    style={{ fontSize: '.82rem', textTransform: 'uppercase', letterSpacing: '.05em', border: 'none' }}
+                    disabled={completionSaving}
+                  >
+                    {completionSaving ? 'Saving Profile...' : 'Save & Enter Dashboard'} <i className="fas fa-arrow-right ms-2"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
       <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
         <div className="row g-0">
           <Sidebar />
@@ -118,7 +475,7 @@ export default function Dashboard() {
             <div className="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-5">
               <div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '.62rem', letterSpacing: '.1em', textTransform: 'uppercase', color: '#aaa' }}>Dashboard</div>
-                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.8rem', color: 'var(--ink)', lineHeight: '.95', marginTop: '4px' }}>
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.8rem', color: 'var(--ink)', marginTop: '4px' }}>
                   Hello, <span style={{ color: 'var(--rust)' }}>{JSON.parse(localStorage.getItem('campusconnect_user'))?.name.split(' ')[0]}</span>.
                 </h2>
               </div>

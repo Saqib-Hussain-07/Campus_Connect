@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+
 import Footer from '../components/Footer';
 
 export default function Groups() {
@@ -74,9 +74,9 @@ export default function Groups() {
 
       <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
         <div className="row g-0">
-          <Sidebar />
+          
 
-          <div className={token ? "col-xl-10 col-lg-9" : "col-12"} style={{ minHeight: '100vh' }}>
+          <div className="col-12" style={{ minHeight: '100vh' }}>
             {/* Header Box (Flush with Navbar) */}
             <div style={{ background: 'var(--ink)', padding: '48px 40px', color: '#fff', marginBottom: '30px', position: 'relative' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#999', marginBottom: '12px' }}>

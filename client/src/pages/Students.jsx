@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+
 import Footer from '../components/Footer';
 
 export default function Students() {
@@ -74,6 +74,9 @@ export default function Students() {
   };
 
   const avatarUrl = (u) => {
+    if (u?.avatar && u.avatar.startsWith('data:')) {
+      return u.avatar;
+    }
     if (u?.avatar && u.avatar !== 'default.jpg') {
       return `/assets/uploads/avatars/${u.avatar}`;
     }
@@ -100,9 +103,9 @@ export default function Students() {
 
       <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
         <div className="row g-0">
-          <Sidebar />
+          
 
-          <div className={token ? "col-xl-10 col-lg-9" : "col-12"} style={{ minHeight: '100vh' }}>
+          <div className="col-12" style={{ minHeight: '100vh' }}>
             {/* Header Box (Flush with Navbar) */}
             <div style={{ background: 'var(--ink)', padding: '48px 40px', color: '#fff', marginBottom: '30px' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#999', marginBottom: '12px' }}>

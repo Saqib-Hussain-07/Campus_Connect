@@ -1,26 +1,46 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export default function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('campusconnect_token');
+    const localUser = JSON.parse(localStorage.getItem('campusconnect_user'));
+    if (token && localUser) {
+      const isComplete = localUser.department && localUser.semester && localUser.university && localUser.skills && localUser.skills.length > 0 && localUser.bio;
+      if (isComplete) {
+        navigate('/projects');
+      } else {
+        navigate('/dashboard');
+      }
+    }
+    // Check if redirect came with state messaging
+    if (location.state && location.state.message) {
+      setSuccessMessage(location.state.message);
+    }
+  }, [navigate, location]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setSuccessMessage('');
     setLoading(true);
 
     try {
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email: email.trim(), password })
       });
       const data = await res.json();
 
@@ -31,8 +51,14 @@ export default function Login() {
       localStorage.setItem('campusconnect_token', data.token);
       localStorage.setItem('campusconnect_user', JSON.stringify(data.user));
 
-      navigate('/dashboard');
-      window.location.reload();
+      const u = data.user;
+      const isComplete = u.department && u.semester && u.university && u.skills && u.skills.length > 0 && u.bio;
+
+      if (isComplete) {
+        window.location.href = '/projects';
+      } else {
+        window.location.href = '/dashboard';
+      }
     } catch (err) {
       setError(err.message || 'Something went wrong.');
     } finally {
@@ -75,6 +101,13 @@ export default function Login() {
               <p style={{ fontSize: '.88rem', color: '#666', marginBottom: '32px' }}>
                 New here? <Link to="/register" style={{ color: 'var(--rust)', fontWeight: '700' }}>Create an account</Link>
               </p>
+
+              {successMessage && (
+                <div className="alert alert-success p-3 mb-4" style={{ borderRadius: '0', fontSize: '.84rem', borderLeft: '4px solid var(--moss, #2d4a3e)' }}>
+                  <i className="fas fa-circle-check me-2" style={{ color: 'var(--moss)' }}></i>
+                  {successMessage}
+                </div>
+              )}
 
               {error && (
                 <div className="alert alert-danger p-3 mb-4" style={{ borderRadius: '0', fontSize: '.84rem' }}>

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer id="contact" className="cc-footer pt-5 pb-4">
+    <footer id="contact" className="cc-footer pt-2 pb-2">
       <div className="container">
-        <div className="row g-5 mb-5">
+        <div className="row g-2 mb-2">
           {/* Brand */}
           <div className="col-lg-4 col-md-6">
             <div className="cc-brand d-flex align-items-center gap-2 mb-3">
@@ -60,7 +60,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="cc-footer-bottom d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 pt-4">
+        <div className="cc-footer-bottom d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 pt-2">
           <p className="cc-footer-copy mb-0">© {new Date().getFullYear()} CampusConnect. All rights reserved.</p>
           <div className="d-flex gap-4">
             <a href="#" className="cc-footer-legal-link">Privacy</a>

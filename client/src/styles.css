@@ -48,6 +48,11 @@ a {
   text-decoration: none;
 }
 
+section {
+  margin: 0;
+  padding: 0;
+}
+
 /* ── Typography helpers ─────────────────────────────────────── */
 .font-display {
   font-family: var(--font-display) !important;
@@ -320,22 +325,24 @@ a {
 
 /* ── Hero ────────────────────────────────────────────────────── */
 .cc-hero {
-  margin-top: 10px;
-  min-height: calc(100vh - 62px);
+  margin: 0;
+  padding: 0;
+  display: block;
+  min-height: auto;
 }
 
 .cc-hero-left {
-  padding: 72px 48px 72px 60px;
+  padding: 48px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: calc(100vh - 62px);
+  min-height: auto;
 }
 
 .cc-hero-title {
   font-family: var(--font-display);
-  font-size: clamp(80px, 9vw, 130px);
-  line-height: .88;
+  font-size: clamp(54px, 7vw, 100px);
+  line-height: .9;
   letter-spacing: .01em;
   color: var(--ink);
 }
@@ -401,9 +408,42 @@ a {
 .cc-hero-right {
   background: var(--ink);
   border-left: 1.5px solid var(--ink);
-  min-height: 90vh;
+  min-height: 400px;
   position: relative;
   overflow: hidden;
+}
+
+/* Fixed viewport height on desktop for scroll-free landing */
+@media (min-width: 992px) {
+  .cc-hero {
+    height: calc(100vh - 92px);
+    min-height: 600px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  /* Pass height down to Bootstrap row and both columns */
+  .cc-hero > .row {
+    height: 100%;
+    margin: 0;
+  }
+  .cc-hero > .row > [class*='col-'] {
+    height: 100%;
+    padding: 0;
+  }
+  .cc-hero-left {
+    padding: 32px 48px 32px 60px;
+    height: 100%;
+    min-height: auto;
+    overflow: hidden;
+    justify-content: center;
+    border-right: 1.5px solid var(--ink);
+  }
+  .cc-hero-right {
+    height: 100%;
+    min-height: auto;
+  }
 }
 
 .cc-hero-grid {
@@ -1419,11 +1459,11 @@ a {
   letter-spacing: .12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, .3);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .cc-footer-links li {
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .cc-footer-links a {
@@ -1440,7 +1480,7 @@ a {
   display: flex;
   gap: 9px;
   align-items: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .cc-contact-item i {
@@ -1455,14 +1495,14 @@ a {
 }
 
 .cc-social-btn {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   border: 1px solid rgba(255, 255, 255, .1);
   display: flex;
   align-items: center;
   justify-content: center;
   color: rgba(255, 255, 255, .4);
-  font-size: 12px;
+  font-size: 11px;
   transition: all .2s;
 }
 
@@ -1508,7 +1548,7 @@ a {
 
 .cc-footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, .06);
-  padding-top: 24px;
+  padding-top: 12px;
 }
 
 .cc-footer-copy {
@@ -1740,6 +1780,12 @@ a {
 
 .cc-dash-content {
   padding: 12px 40px 40px 40px;
+}
+
+@media (max-width: 767px) {
+  .cc-dash-content {
+    padding: 16px 16px 32px 16px;
+  }
 }
 
 .cc-dash-content .container.py-4 {
@@ -2344,4 +2390,56 @@ a {
   text-align: center;
   font-family: var(--font-display);
   font-size: 2rem;
+}
+
+/* ── Projects page responsive ───────────────────────────────── */
+@media (max-width: 575px) {
+  /* Hero banner inside pages */
+  .cc-hero-subtitle {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  /* Stats divider hide */
+  .cc-stat-divider {
+    display: none;
+  }
+
+  /* Project card image */
+  .cc-proj-card-img {
+    height: 120px !important;
+  }
+
+  /* Dashboard stat cards: stack two per row on mobile */
+  .cc-dash-stat-card {
+    min-height: auto;
+  }
+
+  /* Profile completion modal */
+  div[style*="maxWidth: '560px'"] {
+    padding: 24px !important;
+  }
+}
+
+/* Mobile hero layout stacking fix */
+@media (max-width: 991px) {
+  .cc-hero {
+    min-height: auto;
+  }
+  .cc-hero-left {
+    padding: 40px 24px;
+  }
+  .cc-hero-title {
+    font-size: clamp(42px, 11vw, 72px);
+  }
+  .cc-hero-right {
+    min-height: 300px;
+    border-left: none;
+    border-top: 1.5px solid var(--ink);
+  }
+  /* Project inner content padding on tablet */
+  .px-4 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
 }

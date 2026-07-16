@@ -109,6 +109,9 @@ export default function Messages() {
   };
 
   const avatarUrl = (name, avatar) => {
+    if (avatar && avatar.startsWith('data:')) {
+      return avatar;
+    }
     if (avatar && avatar !== 'default.jpg') {
       return `/assets/uploads/avatars/${avatar}`;
     }

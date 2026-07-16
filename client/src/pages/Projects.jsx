@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+
 import Footer from '../components/Footer';
 
 export default function Projects() {
@@ -57,18 +57,15 @@ export default function Projects() {
       <Navbar />
 
       <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
-        <div className="row g-0">
-          <Sidebar />
-
-          <div className={token ? "col-xl-10 col-lg-9" : "col-12"} style={{ minHeight: '100vh' }}>
+          <div className="col-12" style={{ minHeight: '100vh' }}>
             {/* Header Box (Flush with Navbar) */}
-            <div style={{ background: 'var(--ink)', padding: '48px 40px', color: '#fff', marginBottom: '30px', position: 'relative' }}>
+            <div style={{ background: 'var(--ink)', padding: 'clamp(24px, 4vw, 48px) clamp(16px, 3vw, 40px)', color: '#fff', marginBottom: '30px', position: 'relative' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#999', marginBottom: '12px' }}>
                 —— Student Work
               </div>
               <div className="d-flex justify-content-between align-items-end flex-wrap gap-3">
                 <div>
-                  <h1 className="cc-heading on-dark" style={{ fontSize: '4.5rem', fontWeight: 'normal', lineHeight: '0.95', margin: '0 0 16px 0' }}>
+                  <h1 className="cc-heading on-dark" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 'normal', lineHeight: '0.95', margin: '0 0 16px 0' }}>
                     PROJECTS <em>Showcase</em>
                   </h1>
                   <p style={{ color: 'rgba(255,255,255,.4)', margin: '0 0 4px', fontSize: '.9rem', lineHeight: '1.4' }}>
@@ -99,7 +96,7 @@ export default function Projects() {
             </div>
 
             {/* Inner Content */}
-            <div className={token ? "px-4 pb-5" : "container pb-5"}>
+            <div className="cc-dash-content pb-5">
               {/* Filter Panel */}
               <div style={{ border: '1.5px solid var(--ink)', background: 'var(--white)', padding: '24px', marginBottom: '24px' }}>
                 <form onSubmit={handleSearchSubmit}>
@@ -459,7 +456,6 @@ export default function Projects() {
             </div>
           </div>
         </div>
-      </div>
       <Footer />
     </div>
   );

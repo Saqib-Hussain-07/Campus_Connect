@@ -3,110 +3,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const DEPT_COURSES = {
-  'Computer Science Engineering': [
-    { name: 'Computer Science', sem: 8, label: 'B.Tech · 8 Semesters' },
-    { name: 'CSE – Artificial Intelligence', sem: 8, label: 'B.Tech · 8 Semesters' },
-    { name: 'CSE – Data Science', sem: 8, label: 'B.Tech · 8 Semesters' },
-    { name: 'CSE – Cybersecurity', sem: 8, label: 'B.Tech · 8 Semesters' },
-    { name: 'CSE – Cloud Computing', sem: 8, label: 'B.Tech · 8 Semesters' },
-    { name: 'CSE – IoT', sem: 8, label: 'B.Tech · 8 Semesters' },
-  ],
-  'Mechanical Engineering': [
-    { name: 'Mechanical Engineering', sem: 8, label: 'B.E. · 8 Semesters' },
-    { name: 'Mechanical – Robotics & Automation', sem: 8, label: 'B.E. · 8 Semesters' },
-    { name: 'Mechanical – Automobile', sem: 8, label: 'B.E. · 8 Semesters' },
-  ],
-  'Electrical Engineering': [
-    { name: 'Electrical Engineering', sem: 8, label: 'B.E. · 8 Semesters' },
-    { name: 'Electrical & Electronics (EEE)', sem: 8, label: 'B.E. · 8 Semesters' },
-    { name: 'Electrical – Power Systems', sem: 8, label: 'B.E. · 8 Semesters' },
-  ],
-  'Civil Engineering': [
-    { name: 'Civil Engineering', sem: 8, label: 'B.E. · 8 Semesters' },
-    { name: 'Civil – Construction Management', sem: 8, label: 'B.E. · 8 Semesters' },
-    { name: 'Civil – Environmental Engineering', sem: 8, label: 'B.E. · 8 Semesters' },
-  ],
-  'Information Technology': [
-    { name: 'Information Technology', sem: 8, label: 'B.Tech · 8 Semesters' },
-    { name: 'IT – Cloud & DevOps', sem: 8, label: 'B.Tech · 8 Semesters' },
-    { name: 'IT – IoT & Embedded Systems', sem: 8, label: 'B.Tech · 8 Semesters' },
-  ],
-  'Electronics': [
-    { name: 'Electronics & Communication', sem: 8, label: 'B.E. · 8 Semesters' },
-    { name: 'Electronics – VLSI Design', sem: 8, label: 'B.E. · 8 Semesters' },
-    { name: 'Electronics – Embedded Systems', sem: 8, label: 'B.E. · 8 Semesters' },
-  ],
-  'Chemical Engineering': [
-    { name: 'Chemical Engineering', sem: 8, label: 'B.E. · 8 Semesters' },
-    { name: 'Chemical – Petrochemical', sem: 8, label: 'B.E. · 8 Semesters' },
-  ],
-  'Data Science': [
-    { name: 'Data Science', sem: 6, label: 'B.Sc. · 6 Semesters' },
-    { name: 'Data Science & Analytics', sem: 6, label: 'B.Sc. · 6 Semesters' },
-    { name: 'Statistics & Data Science', sem: 6, label: 'B.Sc. · 6 Semesters' },
-  ],
-  'Business Administration': [
-    { name: 'Business Administration', sem: 6, label: 'BBA · 6 Semesters' },
-    { name: 'BBA – Finance', sem: 6, label: 'BBA · 6 Semesters' },
-    { name: 'BBA – Marketing', sem: 6, label: 'BBA · 6 Semesters' },
-    { name: 'BBA – Human Resources', sem: 6, label: 'BBA · 6 Semesters' },
-    { name: 'MBA', sem: 4, label: 'MBA · 4 Semesters (2 Yrs)' },
-    { name: 'MBA – Finance', sem: 4, label: 'MBA · 4 Semesters (2 Yrs)' },
-    { name: 'MBA – Marketing', sem: 4, label: 'MBA · 4 Semesters (2 Yrs)' },
-    { name: 'MBA – Business Analytics', sem: 4, label: 'MBA · 4 Semesters (2 Yrs)' },
-  ],
-  'UX & Design': [
-    { name: 'UX Design', sem: 8, label: 'B.Des · 8 Semesters' },
-    { name: 'UX – Interaction Design', sem: 8, label: 'B.Des · 8 Semesters' },
-    { name: 'UX – Product Design', sem: 8, label: 'B.Des · 8 Semesters' },
-  ],
-  'MCA (Postgraduate)': [
-    { name: 'MCA', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
-    { name: 'MCA – Artificial Intelligence', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
-    { name: 'MCA – Data Science & Analytics', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
-    { name: 'MCA – Cloud Computing', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
-    { name: 'MCA – Cybersecurity', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
-    { name: 'MCA – Software Engineering', sem: 4, label: 'MCA · 4 Semesters (2 Yrs)' },
-  ],
-};
-
 export default function Register() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     name: '',
     email: '',
-    departmentGroup: '',
-    department: '', // course name
-    semester: '',
-    university: '',
-    skills: '',
-    bio: '',
+    registrationNo: '',
     password: '',
     confirmPassword: ''
   });
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-
-  const handleDeptGroupChange = (e) => {
-    const group = e.target.value;
-    setForm((prev) => ({
-      ...prev,
-      departmentGroup: group,
-      department: '',
-      semester: ''
-    }));
-  };
-
-  const handleCourseChange = (e) => {
-    const course = e.target.value;
-    setForm((prev) => ({
-      ...prev,
-      department: course,
-      semester: ''
-    }));
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -115,11 +23,9 @@ export default function Register() {
 
   const validateForm = () => {
     const errs = {};
-    if (form.name.length < 2) errs.name = 'Name must be at least 2 characters.';
+    if (form.name.trim().length < 2) errs.name = 'Name must be at least 2 characters.';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = 'Enter a valid email address.';
-    if (!form.departmentGroup) errs.deptGroup = 'Please select a department category.';
-    if (!form.department) errs.department = 'Please select a course.';
-    if (!form.semester) errs.semester = 'Please select your current semester.';
+    if (!form.registrationNo.trim()) errs.registrationNo = 'Registration number is required.';
     if (form.password.length < 8) errs.password = 'Password must be at least 8 characters.';
     if (form.password !== form.confirmPassword) errs.confirmPassword = 'Passwords do not match.';
     return errs;
@@ -140,13 +46,9 @@ export default function Register() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          department: form.department,
-          semester: Number(form.semester),
-          university: form.university,
-          skills: form.skills,
-          bio: form.bio,
+          name: form.name.trim(),
+          email: form.email.trim(),
+          registrationNo: form.registrationNo.trim(),
           password: form.password
         })
       });
@@ -156,20 +58,19 @@ export default function Register() {
         throw new Error(data.message || 'Registration failed');
       }
 
-      localStorage.setItem('campusconnect_token', data.token);
-      localStorage.setItem('campusconnect_user', JSON.stringify(data.user));
-      navigate('/dashboard');
-      window.location.reload();
+      // Redirect to login page on successful registration
+      navigate('/login', { 
+        state: { 
+          registered: true, 
+          message: 'Account created successfully! Please login to set up your profile.' 
+        } 
+      });
     } catch (err) {
       setErrors({ server: err.message });
     } finally {
       setLoading(false);
     }
   };
-
-  const selectedCourses = DEPT_COURSES[form.departmentGroup] || [];
-  const selectedCourseMeta = selectedCourses.find((c) => c.name === form.department);
-  const totalSemesters = selectedCourseMeta ? selectedCourseMeta.sem : 0;
 
   return (
     <div>
@@ -202,7 +103,7 @@ export default function Register() {
 
           {/* Right panel */}
           <div className="col-lg-7 cc-auth-right" style={{ background: 'var(--cream)', padding: '40px 20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <div className="cc-auth-form-card" style={{ maxWidth: '580px', width: '100%', background: 'var(--white)', padding: '36px', border: '1.5px solid var(--ink)', boxShadow: '4px 4px 0px var(--ink)' }}>
+            <div className="cc-auth-form-card" style={{ maxWidth: '500px', width: '100%', background: 'var(--white)', padding: '36px', border: '1.5px solid var(--ink)', boxShadow: '4px 4px 0px var(--ink)' }}>
               <h1 className="cc-auth-heading mb-1" style={{ fontSize: '2rem', fontFamily: 'var(--font-display)' }}>Create Account</h1>
               <p className="mb-4" style={{ fontSize: '.88rem', color: '#888' }}>
                 Already have an account? <Link to="/login" style={{ color: 'var(--rust)', fontWeight: '700' }}>Login</Link>
@@ -247,123 +148,19 @@ export default function Register() {
                     {errors.email && <div className="invalid-feedback d-block">{errors.email}</div>}
                   </div>
 
-                  {/* Department Group */}
+                  {/* Registration No */}
                   <div className="col-12">
-                    <label className="cc-form-label">
-                      Department *
-                      <span style={{ fontSize: '.58rem', color: '#bbb', fontFamily: 'var(--font-mono)', fontWeight: '400', marginLeft: '4px' }}>
-                        ① Choose category
-                      </span>
-                    </label>
-                    <select
-                      value={form.departmentGroup}
-                      onChange={handleDeptGroupChange}
-                      className={`cc-form-input ${errors.deptGroup ? 'is-invalid' : ''}`}
-                    >
-                      <option value="">— Select Department —</option>
-                      {Object.keys(DEPT_COURSES).map((dept) => (
-                        <option key={dept} value={dept}>
-                          {dept}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.deptGroup && <div className="invalid-feedback d-block">{errors.deptGroup}</div>}
-                  </div>
-
-                  {/* Course */}
-                  <div className="col-8">
-                    <label className="cc-form-label">
-                      Course / Programme *
-                      <span style={{ fontSize: '.58rem', color: '#bbb', fontFamily: 'var(--font-mono)', fontWeight: '400', marginLeft: '4px' }}>
-                        ② Pick course
-                      </span>
-                    </label>
-                    <select
-                      value={form.department}
-                      onChange={handleCourseChange}
-                      className={`cc-form-input ${errors.department ? 'is-invalid' : ''}`}
-                      disabled={!form.departmentGroup}
-                    >
-                      <option value="">
-                        {form.departmentGroup ? '— Select course / programme —' : '— Select department first —'}
-                      </option>
-                      {selectedCourses.map((c) => (
-                        <option key={c.name} value={c.name}>
-                          {c.name}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.department && <div className="invalid-feedback d-block">{errors.department}</div>}
-                  </div>
-
-                  {/* Semester */}
-                  <div className="col-4">
-                    <label className="cc-form-label">
-                      Semester *
-                      <span style={{ fontSize: '.58rem', color: '#bbb', fontFamily: 'var(--font-mono)', fontWeight: '400', marginLeft: '4px' }}>
-                        ③ Auto-set
-                      </span>
-                    </label>
-                    <select
-                      name="semester"
-                      value={form.semester}
-                      onChange={handleChange}
-                      className={`cc-form-input ${errors.semester ? 'is-invalid' : ''}`}
-                      disabled={!form.department}
-                    >
-                      <option value="">—</option>
-                      {Array.from({ length: totalSemesters }, (_, i) => i + 1).map((sem) => (
-                        <option key={sem} value={sem}>
-                          Semester {sem}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.semester && <div className="invalid-feedback d-block">{errors.semester}</div>}
-                    {selectedCourseMeta && (
-                      <div id="regCourseInfo" style={{ fontSize: '.64rem', color: 'var(--rust)', fontFamily: 'var(--font-mono)', marginTop: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                        📚 {selectedCourseMeta.label}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* University */}
-                  <div className="col-12">
-                    <label className="cc-form-label">University / College</label>
+                    <label className="cc-form-label">Registration No *</label>
                     <input
                       type="text"
-                      name="university"
-                      value={form.university}
+                      name="registrationNo"
+                      value={form.registrationNo}
                       onChange={handleChange}
-                      className="cc-form-input"
-                      placeholder="e.g. IIT Mumbai"
+                      className={`cc-form-input ${errors.registrationNo ? 'is-invalid' : ''}`}
+                      placeholder="e.g. CC/2026/0045"
+                      required
                     />
-                  </div>
-
-                  {/* Skills */}
-                  <div className="col-12">
-                    <label className="cc-form-label">Skills (comma-separated)</label>
-                    <input
-                      type="text"
-                      name="skills"
-                      value={form.skills}
-                      onChange={handleChange}
-                      className="cc-form-input"
-                      placeholder="e.g. Python, React, MATLAB, Figma"
-                    />
-                  </div>
-
-                  {/* Bio */}
-                  <div className="col-12">
-                    <label className="cc-form-label">Short Bio</label>
-                    <textarea
-                      name="bio"
-                      value={form.bio}
-                      onChange={handleChange}
-                      rows="2"
-                      className="cc-form-input"
-                      style={{ resize: 'vertical' }}
-                      placeholder="Tell others what you're working on or looking for..."
-                    />
+                    {errors.registrationNo && <div className="invalid-feedback d-block">{errors.registrationNo}</div>}
                   </div>
 
                   {/* Password */}

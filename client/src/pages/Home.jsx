@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Loader from '../components/Loader';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -75,7 +76,7 @@ export default function Home() {
     } catch (err) {}
   };
 
-  if (loading) return <div className="loading">Loading CampusConnect…</div>;
+  if (loading) return <Loader message="Loading CampusConnect Portal..." />;
 
   if (error) {
     return (

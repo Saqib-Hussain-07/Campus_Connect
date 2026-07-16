@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+
 import Footer from '../components/Footer';
+import Loader from '../components/Loader';
 
 export default function ViewStudent() {
   const { id } = useParams();
@@ -91,8 +92,30 @@ export default function ViewStudent() {
     } catch (err) {}
   };
 
-  if (loading) return <div className="loading">Loading Student Profile…</div>;
-  if (error) return <div className="loading">Error: {error}</div>;
+  if (loading) return <Loader message="Loading Student Profile..." />;
+  if (error) {
+    return (
+      <div className="d-flex flex-column align-items-center justify-content-center min-vh-100 p-4 text-center" style={{ background: '#f5f3eb' }}>
+        <div style={{ maxWidth: '500px', border: '2px solid var(--ink, #111)', background: 'var(--paper, #fcfbf7)', padding: '40px', boxShadow: '6px 6px 0 var(--ink, #111)' }}>
+          <div style={{ fontSize: '3rem', color: 'var(--rust, #e15b34)', marginBottom: '20px' }}>
+            <i className="fas fa-circle-exclamation"></i>
+          </div>
+          <h2 style={{ fontFamily: 'var(--font-display, inherit)', fontSize: '1.8rem', color: 'var(--ink, #111)', marginBottom: '12px' }}>
+            Profile Load Error
+          </h2>
+          <p style={{ fontSize: '.9rem', color: '#555', marginBottom: '24px', lineHeight: '1.6' }}>
+            We could not find the student profile you were looking for, or there was a problem communicating with the server.
+          </p>
+          <div style={{ fontSize: '.72rem', fontFamily: 'var(--font-mono, monospace)', color: '#777', background: '#f4ece1', padding: '12px', marginBottom: '24px', border: '1px solid #ddd', textAlign: 'left', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>
+            <strong>Detail:</strong> {error}
+          </div>
+          <button onClick={() => navigate('/students')} className="cc-btn-lg-dark" style={{ border: 'none', cursor: 'pointer', padding: '12px 24px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+            <span>Back to Students</span><i className="fas fa-arrow-left"></i>
+          </button>
+        </div>
+      </div>
+    );
+  }
   if (!studentData) return null;
 
   const { profile, groups, projects, endorsements } = studentData;
@@ -116,9 +139,9 @@ export default function ViewStudent() {
 
       <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
         <div className="row g-0">
-          <Sidebar />
+          
 
-          <div className={token ? "col-xl-10 col-lg-9 cc-dash-content" : "col-12 cc-dash-content"}>
+          <div className="col-12 cc-dash-content">
             <div className={token ? "" : "container py-4"}>
               
               {/* Hero Banner */}

@@ -97,6 +97,7 @@ router.get('/', auth, async (req, res) => {
       .limit(3);
 
     res.json({
+      user: currentUserObj,
       stats: {
         connCount,
         grpCount,

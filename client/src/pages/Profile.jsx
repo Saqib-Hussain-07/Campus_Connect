@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+
 import Footer from '../components/Footer';
+import Loader from '../components/Loader';
 
 const DEPT_COURSES = {
   'Computer Science Engineering': [
@@ -202,7 +203,7 @@ export default function Profile() {
     }
   };
 
-  if (loading) return <div className="loading">Loading Profile Settings…</div>;
+  if (loading) return <Loader message="Loading Profile Settings..." />;
 
   const selectedCourses = DEPT_COURSES[form.departmentGroup] || [];
   const selectedCourseMeta = selectedCourses.find((c) => c.name === form.department);
@@ -224,9 +225,9 @@ export default function Profile() {
 
       <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
         <div className="row g-0">
-          <Sidebar />
+          
 
-          <div className="col-xl-10 col-lg-9 cc-dash-content">
+          <div className="col-12 cc-dash-content">
             <div className="row g-4">
               {/* Left Profile Card Preview */}
               <div className="col-lg-3">

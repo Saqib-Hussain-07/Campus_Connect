@@ -60,7 +60,20 @@ router.put('/profile', auth, async (req, res) => {
     }
 
     await user.save();
-    res.json({ message: 'Profile updated successfully', user: { id: user._id, name: user.name, email: user.email } });
+    res.json({
+      message: 'Profile updated successfully',
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        department: user.department,
+        semester: user.semester,
+        university: user.university,
+        skills: user.skills,
+        bio: user.bio,
+        avatar: user.avatar
+      }
+    });
   } catch (err) {
     res.status(500).json({ message: 'Failed to update profile', error: err.message });
   }

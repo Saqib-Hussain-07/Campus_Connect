@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+
 import Footer from '../components/Footer';
 
 export default function Contact() {
@@ -126,9 +126,9 @@ export default function Contact() {
 
       <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
         <div className="row g-0">
-          <Sidebar />
+          
 
-          <div className={token ? "col-xl-10 col-lg-9 cc-dash-content" : "col-12 cc-dash-content"}>
+          <div className="col-12 cc-dash-content">
             <div className={token ? "" : "container py-4"}>
               {/* Header Box */}
               <div style={{ background: 'var(--ink)', padding: '24px 40px', color: '#fff', marginBottom: '30px' }}>

@@ -143,6 +143,9 @@ export default function Navbar() {
   };
 
   const avatarUrl = (u) => {
+    if (u?.avatar && u.avatar.startsWith('data:')) {
+      return u.avatar; // base64 uploaded image
+    }
     if (u?.avatar && u.avatar !== 'default.jpg') {
       return `/assets/uploads/avatars/${u.avatar}`;
     }
