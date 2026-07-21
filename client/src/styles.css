@@ -37,7 +37,7 @@ body {
   font-family: var(--font-body);
   background: var(--paper);
   color: var(--ink);
-  overflow-x: hidden;
+  overflow-x: clip; /* clip instead of hidden so fixed/absolute dropdowns aren't clipped */
 }
 
 img {
@@ -256,6 +256,196 @@ section {
   font-size: 1.1rem;
 }
 
+/* ── Navbar Actions ─────────────────────────────────────────── */
+.cc-navbar-actions {
+  flex-shrink: 0;
+}
+
+.cc-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  font-size: .88rem;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+  text-decoration: none;
+  border-radius: 0;
+}
+
+.cc-icon-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.cc-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  font-size: .6rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  line-height: 1;
+}
+
+.cc-notif-badge {
+  background: var(--rust);
+  color: #fff;
+  border: 1.5px solid var(--paper);
+}
+
+.cc-msg-badge {
+  background: var(--sky);
+  color: #fff;
+  border: 1.5px solid var(--paper);
+}
+
+.cc-user-btn {
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  padding: 4px 10px 4px 4px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: .8rem;
+  font-weight: 600;
+  transition: background .2s, color .2s;
+  border-radius: 0;
+}
+
+.cc-user-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Dropdown menus */
+.cc-dropdown-menu {
+  border: 1.5px solid var(--ink) !important;
+  border-radius: 0 !important;
+  background: var(--paper) !important;
+  box-shadow: 4px 4px 0 var(--ink) !important;
+  margin-top: 4px !important;
+}
+
+/* Prevent right-side overflow: always anchor to right when near screen edge */
+.dropdown-menu-end.cc-dropdown-menu {
+  right: 0 !important;
+  left: auto !important;
+}
+
+.cc-dd-item {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px !important;
+  border-radius: 0 !important;
+  color: var(--ink) !important;
+  font-size: .82rem;
+  transition: background .15s;
+}
+
+.cc-dd-item:hover {
+  background: var(--cream) !important;
+  color: var(--ink) !important;
+}
+
+.cc-dd-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.cc-dd-title {
+  font-weight: 600;
+  font-size: .8rem;
+  color: var(--ink);
+}
+
+.cc-dd-sub {
+  font-size: .68rem;
+  color: #888;
+  margin-top: 1px;
+}
+
+/* Notification panel */
+.cc-notif-menu {
+  border: 1.5px solid var(--ink) !important;
+  border-radius: 0 !important;
+  background: var(--paper) !important;
+  box-shadow: 4px 4px 0 var(--ink) !important;
+}
+
+.cc-notif-header {
+  padding: 10px 14px;
+  border-bottom: 1.5px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink);
+}
+
+.cc-notif-item {
+  display: flex;
+  text-decoration: none;
+  transition: background .15s;
+}
+
+.cc-notif-item:hover {
+  background: var(--cream);
+}
+
+.cc-notif-unread {
+  background: rgba(201, 79, 44, .04);
+}
+
+.cc-notif-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--rust);
+  margin-top: 4px;
+}
+
+.cc-notif-footer {
+  padding: 9px;
+  border-top: 1.5px solid var(--ink);
+  font-size: .72rem;
+  font-family: var(--font-mono);
+}
+
+.cc-notif-footer a {
+  color: var(--rust);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.cc-menu-label {
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #aaa;
+  padding: 8px 14px 4px;
+}
+
 /* Alert */
 .cc-alert {
   border-radius: 0;
@@ -416,7 +606,7 @@ section {
 /* Fixed viewport height on desktop for scroll-free landing */
 @media (min-width: 992px) {
   .cc-hero {
-    height: calc(100vh - 92px);
+    height: calc(104vh - 92px);
     min-height: 600px;
     overflow: hidden;
     margin: 0;
@@ -1790,10 +1980,6 @@ section {
 
 .cc-dash-content .container.py-4 {
   padding-top: 0 !important;
-}
-
-.cc-navbar + div {
-  margin-top: 30px !important;
 }
 
 .cc-dash-stat-card {

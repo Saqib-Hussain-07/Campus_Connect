@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export default function Register() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('campusconnect_token');
+    const localUser = JSON.parse(localStorage.getItem('campusconnect_user'));
+    if (token && localUser) {
+      const isComplete = localUser.department && localUser.semester && localUser.university && localUser.skills && localUser.skills.length > 0 && localUser.bio;
+      if (isComplete) {
+        navigate('/projects');
+      } else {
+        navigate('/dashboard');
+      }
+    }
+  }, [navigate]);
+
   const [form, setForm] = useState({
     name: '',
     email: '',

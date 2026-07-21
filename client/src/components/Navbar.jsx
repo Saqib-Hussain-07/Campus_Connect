@@ -5,7 +5,14 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const token = localStorage.getItem('campusconnect_token');
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    try {
+      const localUser = localStorage.getItem('campusconnect_user');
+      return localUser ? JSON.parse(localUser) : null;
+    } catch (e) {
+      return null;
+    }
+  });
   const [notifCount, setNotifCount] = useState(0);
   const [msgCount, setMsgCount] = useState(0);
   const [notifications, setNotifications] = useState([]);

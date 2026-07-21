@@ -55,8 +55,8 @@ export default function Footer() {
           <div className="col-lg-4 col-md-6">
             <div className="cc-footer-col-title">Get In Touch</div>
             <div className="cc-contact-item"><i className="fas fa-envelope"></i><span>hello@campusconnect.edu</span></div>
-            <div className="cc-contact-item"><i className="fas fa-phone"></i><span>+91 98765 43210</span></div>
-            <div className="cc-contact-item"><i className="fas fa-location-dot"></i><span>Mumbai, India</span></div>
+            <div className="cc-contact-item"><i className="fas fa-phone"></i><span>+91 88888888</span></div>
+            <div className="cc-contact-item"><i className="fas fa-location-dot"></i><span>Punjab, India</span></div>
           </div>
         </div>
 

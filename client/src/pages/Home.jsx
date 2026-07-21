@@ -157,7 +157,7 @@ export default function Home() {
   ];
 
   return (
-    <div>
+    <div style={{ background: 'var(--paper)' }}>
       <Navbar />
 
       {/* 1. HERO SECTION */}
@@ -176,8 +176,8 @@ export default function Home() {
               </h1>
               <p className="cc-hero-subtitle mt-4 mb-5 reveal d2">{data.hero.subtitle}</p>
               <div className="d-flex gap-3 flex-wrap reveal d3">
-                <Link to="/register" className="cc-btn-lg-dark">
-                  <span>Get Started Free</span><i className="fas fa-arrow-right"></i>
+                <Link to={token ? "/dashboard" : "/register"} className="cc-btn-lg-dark">
+                  <span>{token ? "Go to Dashboard" : "Get Started Free"}</span><i className="fas fa-arrow-right"></i>
                 </Link>
                 <Link to="/students" className="cc-btn-lg-ghost">
                   Browse Students <i className="fas fa-arrow-right"></i>
@@ -570,8 +570,14 @@ export default function Home() {
             Start connecting with students, join study groups, and unlock new academic and career opportunities — completely free.
           </p>
           <div className="d-flex gap-3 justify-content-center flex-wrap mt-4 reveal d3">
-            <Link to="/register" className="cc-btn-cta-fill">Sign Up Free <i className="fas fa-arrow-right"></i></Link>
-            <Link to="/login" className="cc-btn-cta-ghost">Login</Link>
+            {token ? (
+              <Link to="/dashboard" className="cc-btn-cta-fill">Go to Dashboard <i className="fas fa-arrow-right"></i></Link>
+            ) : (
+              <>
+                <Link to="/register" className="cc-btn-cta-fill">Sign Up Free <i className="fas fa-arrow-right"></i></Link>
+                <Link to="/login" className="cc-btn-cta-ghost">Login</Link>
+              </>
+            )}
           </div>
           <p className="cc-footer-copy mt-4 reveal d4" style={{ color: 'rgba(255,255,255,.25)' }}>
             Free forever for students · No credit card required
