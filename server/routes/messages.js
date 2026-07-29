@@ -1,22 +1,74 @@
 const express = require('express');
 const Message = require('../models/Message');
+const Conversation = require('../models/Conversation');
 const Connection = require('../models/Connection');
 const User = require('../models/User');
 const auth = require('../middleware/auth');
+const asyncHandler = require('../utils/asyncHandler');
+const { sendSuccess, sendError } = require('../utils/apiResponse');
+const { messageRules } = require('../middleware/validators');
 
 const router = express.Router();
 
-// Fetch conversation list (all users with whom the caller has messages)
-router.get('/conversations', auth, async (req, res) => {
-  try {
-    const me = req.user.id;
+// Helper to get or create a 1-to-1 conversation
+const getOrCreateConversation = async (userA, userB) => {
+  let conversation = await Conversation.findOne({
+    type: 'direct',
+    participants: { $all: [userA, userB], $size: 2 }
+  });
 
-    // Get all messages where user is sender or recipient
+  if (!conversation) {
+    conversation = await Conversation.create({
+      participants: [userA, userB],
+      type: 'direct'
+    });
+  }
+
+  return conversation;
+};
+
+// Fetch conversation list using Conversation model
+router.get('/conversations', auth, asyncHandler(async (req, res) => {
+  const me = req.user.id;
+
+  // Find all conversations where caller is a participant
+  const dbConversations = await Conversation.find({ participants: me })
+    .populate('participants', 'name department isOnline skills avatar')
+    .populate('lastMessage')
+    .sort({ lastMessageAt: -1 });
+
+  const conversations = [];
+
+  for (const conv of dbConversations) {
+    const partner = conv.participants.find((p) => p._id.toString() !== me);
+    if (!partner) continue;
+
+    const unreadCount = await Message.countDocuments({
+      conversationId: conv._id,
+      fromUser: partner._id,
+      isRead: false
+    });
+
+    conversations.push({
+      conversationId: conv._id,
+      id: partner._id,
+      name: partner.name,
+      department: partner.department,
+      isOnline: partner.isOnline,
+      skills: partner.skills,
+      avatar: partner.avatar,
+      last_msg: conv.lastMessageText || (conv.lastMessage ? conv.lastMessage.body : null),
+      last_time: conv.lastMessageAt || (conv.lastMessage ? conv.lastMessage.sentAt : null),
+      unread: unreadCount
+    });
+  }
+
+  // Fallback for legacy messages that might not have a conversation model yet
+  if (conversations.length === 0) {
     const messages = await Message.find({
       $or: [{ fromUser: me }, { toUser: me }]
     }).sort({ sentAt: -1 });
 
-    // Collect conversation partner IDs
     const partnerIds = new Set();
     messages.forEach((msg) => {
       const fromStr = msg.fromUser.toString();
@@ -25,25 +77,17 @@ router.get('/conversations', auth, async (req, res) => {
       if (toStr !== me) partnerIds.add(toStr);
     });
 
-    const partnerArray = Array.from(partnerIds);
-
-    // Load partner user details
-    const partners = await User.find({ _id: { $in: partnerArray } })
-      .select('name department isOnline skills');
-
-    const conversations = [];
+    const partners = await User.find({ _id: { $in: Array.from(partnerIds) } })
+      .select('name department isOnline skills avatar');
 
     for (const partner of partners) {
       const partnerIdStr = partner._id.toString();
-
-      // Find last message
       const lastMsgObj = messages.find(
         (m) =>
           (m.fromUser.toString() === me && m.toUser.toString() === partnerIdStr) ||
           (m.fromUser.toString() === partnerIdStr && m.toUser.toString() === me)
       );
 
-      // Count unread messages from this partner to me
       const unreadCount = await Message.countDocuments({
         fromUser: partner._id,
         toUser: me,
@@ -56,91 +100,103 @@ router.get('/conversations', auth, async (req, res) => {
         department: partner.department,
         isOnline: partner.isOnline,
         skills: partner.skills,
+        avatar: partner.avatar,
         last_msg: lastMsgObj ? lastMsgObj.body : null,
         last_time: lastMsgObj ? lastMsgObj.sentAt : null,
         unread: unreadCount
       });
     }
 
-    // Sort by last message time descending
     conversations.sort((a, b) => new Date(b.last_time || 0) - new Date(a.last_time || 0));
-
-    res.json(conversations);
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to retrieve conversations', error: err.message });
   }
-});
 
-// Fetch chat thread history with user :withId (marks messages as read)
-router.get('/thread/:withId', auth, async (req, res) => {
-  try {
-    const me = req.user.id;
-    const withId = req.params.withId;
+  return sendSuccess(res, conversations, 'Conversations retrieved successfully');
+}));
 
-    // Verify chat partner exists
-    const partner = await User.findById(withId).select('name department isOnline skills');
-    if (!partner) return res.status(404).json({ message: 'Chat user not found' });
+// Fetch chat thread history
+router.get('/thread/:withId', auth, asyncHandler(async (req, res) => {
+  const me = req.user.id;
+  const withId = req.params.withId;
+  const { page = 1, limit = 50 } = req.query;
 
-    // Mark messages from partner to me as read
-    await Message.updateMany(
-      { fromUser: withId, toUser: me, isRead: false },
-      { isRead: true }
-    );
+  const partner = await User.findById(withId).select('name department isOnline skills avatar');
+  if (!partner) return sendError(res, 'Chat user not found', 404);
 
-    // Fetch thread
-    const thread = await Message.find({
+  const conversation = await getOrCreateConversation(me, withId);
+
+  // Mark unread messages from partner as read
+  await Message.updateMany(
+    {
       $or: [
-        { fromUser: me, toUser: withId },
+        { conversationId: conversation._id, fromUser: withId },
         { fromUser: withId, toUser: me }
-      ]
-    }).sort({ sentAt: 1 }).limit(100);
-
-    res.json({
-      partner,
-      thread
-    });
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to fetch message thread', error: err.message });
-  }
-});
-
-// Send Message (requires connection accepted status)
-router.post('/', auth, async (req, res) => {
-  try {
-    const me = req.user.id;
-    const { toUser, body } = req.body;
-
-    if (!toUser || !body || body.trim() === '') {
-      return res.status(400).json({ message: 'Recipient and message body are required' });
-    }
-
-    if (me === toUser) {
-      return res.status(400).json({ message: 'Cannot message yourself' });
-    }
-
-    // Check connection status
-    const connected = await Connection.findOne({
-      $or: [
-        { fromUser: me, toUser },
-        { fromUser: toUser, toUser: me }
       ],
-      status: 'accepted'
-    });
+      isRead: false
+    },
+    { isRead: true, status: 'read' }
+  );
 
-    if (!connected) {
-      return res.status(403).json({ message: 'You must be connected to exchange messages' });
-    }
+  const pageNum = Math.max(1, parseInt(page, 10) || 1);
+  const limitNum = Math.min(100, Math.max(1, parseInt(limit, 10) || 50));
+  const skip = (pageNum - 1) * limitNum;
 
-    const message = await Message.create({
-      fromUser: me,
-      toUser,
-      body: body.trim()
-    });
+  const thread = await Message.find({
+    $or: [
+      { conversationId: conversation._id },
+      { fromUser: me, toUser: withId },
+      { fromUser: withId, toUser: me }
+    ]
+  })
+    .sort({ sentAt: 1 })
+    .skip(skip)
+    .limit(limitNum)
+    .populate('replyTo', 'body fromUser');
 
-    res.status(201).json(message);
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to send message', error: err.message });
+  return sendSuccess(res, { conversationId: conversation._id, partner, thread }, 'Message thread retrieved successfully');
+}));
+
+// Send Message (with Conversation tracking, attachments & status)
+router.post('/', auth, messageRules, asyncHandler(async (req, res) => {
+  const me = req.user.id;
+  const { toUser, content, body, attachments, replyTo } = req.body;
+  const messageBody = (content || body || '').trim();
+
+  if (me === toUser) {
+    return sendError(res, 'Cannot message yourself', 400);
   }
-});
+
+  const connected = await Connection.findOne({
+    $or: [
+      { fromUser: me, toUser },
+      { fromUser: toUser, toUser: me }
+    ],
+    status: 'accepted'
+  });
+
+  if (!connected) {
+    return sendError(res, 'You must be connected to exchange messages', 403);
+  }
+
+  const conversation = await getOrCreateConversation(me, toUser);
+
+  const message = await Message.create({
+    conversationId: conversation._id,
+    fromUser: me,
+    toUser,
+    body: messageBody,
+    status: 'sent',
+    isRead: false,
+    attachments: Array.isArray(attachments) ? attachments : [],
+    replyTo: replyTo || undefined
+  });
+
+  // Update conversation last message details
+  conversation.lastMessage = message._id;
+  conversation.lastMessageText = messageBody;
+  conversation.lastMessageAt = new Date();
+  await conversation.save();
+
+  return sendSuccess(res, message, 'Message sent successfully', 201);
+}));
 
 module.exports = router;

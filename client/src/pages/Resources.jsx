@@ -93,7 +93,7 @@ export default function Resources() {
     <div>
       <Navbar />
 
-      <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
+      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0">
           
 
@@ -205,7 +205,7 @@ export default function Resources() {
 
                           <div style={{ borderTop: '1px solid var(--cream)', paddingTop: '12px', marginTop: '12px' }} className="d-flex align-items-center justify-content-between">
                             <span style={{ fontSize: '.74rem', color: '#777' }}>
-                              Shared by: <strong style={{ color: 'var(--ink)' }}>{r.userId?.name.split(' ')[0] || 'Peer'}</strong>
+                              Shared by: <strong style={{ color: 'var(--ink)' }}>{r.userId?.name ? r.userId.name.split(' ')[0] : 'Peer'}</strong>
                             </span>
                             {r.url ? (
                               <a

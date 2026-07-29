@@ -48,6 +48,33 @@ a {
   text-decoration: none;
 }
 
+/* ── Accessibility & Focus Rings ────────────────────────────── */
+.cc-skip-link {
+  position: absolute;
+  top: -100px;
+  left: 12px;
+  background: var(--rust);
+  color: #fff !important;
+  padding: 10px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 99999;
+  transition: top 0.2s ease;
+  outline: 3px solid var(--ink);
+}
+
+.cc-skip-link:focus {
+  top: 10px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--rust) !important;
+  outline-offset: 2px !important;
+}
+
 section {
   margin: 0;
   padding: 0;
@@ -101,6 +128,8 @@ section {
   display: flex;
   white-space: nowrap;
   animation: ticker-run 35s linear infinite;
+  will-change: transform;
+  contain: layout paint;
 }
 
 .cc-ticker-inner span {
@@ -117,11 +146,11 @@ section {
 
 @keyframes ticker-run {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -1969,7 +1998,7 @@ section {
 }
 
 .cc-dash-content {
-  padding: 12px 40px 40px 40px;
+  padding: 32px 40px 40px 40px;
 }
 
 @media (max-width: 767px) {
@@ -2628,4 +2657,113 @@ section {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
+}
+
+/* ── Footer Styling & Precise Text Alignment ───────────────── */
+.cc-footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding-top: 36px;
+  padding-bottom: 24px;
+  border-top: 2px solid var(--ink);
+}
+
+.cc-footer-about {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  max-width: 320px;
+  margin-bottom: 0;
+}
+
+.cc-footer-col-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.cc-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cc-footer-links li {
+  margin-bottom: 8px;
+}
+
+.cc-footer-links a {
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.cc-footer-links a:hover {
+  color: var(--rust);
+}
+
+.cc-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: var(--font-mono);
+}
+
+.cc-contact-item i {
+  color: var(--rust);
+  width: 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.cc-social-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.cc-social-btn:hover {
+  background: var(--rust);
+  border-color: var(--rust);
+  color: #fff;
+}
+
+.cc-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 24px;
+  padding-top: 16px;
+}
+
+.cc-footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.cc-footer-legal-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cc-footer-legal-link:hover {
+  color: var(--rust);
 }

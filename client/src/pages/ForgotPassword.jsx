@@ -40,7 +40,7 @@ export default function ForgotPassword() {
   return (
     <div>
       <Navbar />
-      <div style={{ marginTop: '92px', minHeight: 'calc(100vh - 92px)', display: 'flex', alignItems: 'center' }}>
+      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)', display: 'flex', alignItems: 'center' }}>
         <div className="container py-5">
           <div className="row justify-content-center">
             <div className="col-lg-6 col-md-8">

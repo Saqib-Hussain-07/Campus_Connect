@@ -90,7 +90,7 @@ export default function Register() {
     <div>
       <Navbar />
 
-      <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
+      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0" style={{ minHeight: 'calc(100vh - 92px)' }}>
           {/* Left panel */}
           <div className="col-lg-5 cc-auth-left d-none d-lg-flex" style={{ background: 'var(--ink)', padding: '60px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', color: '#fff' }}>

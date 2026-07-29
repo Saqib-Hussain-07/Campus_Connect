@@ -13,6 +13,10 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  // Progressive Lockout Timer State
+  const [isLocked, setIsLocked] = useState(false);
+  const [lockoutSeconds, setLockoutSeconds] = useState(0);
+
   useEffect(() => {
     const token = localStorage.getItem('campusconnect_token');
     const localUser = JSON.parse(localStorage.getItem('campusconnect_user'));
@@ -24,14 +28,40 @@ export default function Login() {
         navigate('/dashboard');
       }
     }
-    // Check if redirect came with state messaging
     if (location.state && location.state.message) {
       setSuccessMessage(location.state.message);
     }
   }, [navigate, location]);
 
+  // Ticking countdown timer effect
+  useEffect(() => {
+    let timer;
+    if (isLocked && lockoutSeconds > 0) {
+      timer = setInterval(() => {
+        setLockoutSeconds((prev) => {
+          if (prev <= 1) {
+            clearInterval(timer);
+            setIsLocked(false);
+            setError('');
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [isLocked, lockoutSeconds]);
+
+  const formatCountdown = (secs) => {
+    const m = Math.floor(secs / 60);
+    const s = secs % 60;
+    return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isLocked) return;
+
     setError('');
     setSuccessMessage('');
     setLoading(true);
@@ -45,7 +75,14 @@ export default function Login() {
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || 'Login failed');
+        if (res.status === 429 || data.locked || data.retryAfterSeconds) {
+          setIsLocked(true);
+          setLockoutSeconds(data.retryAfterSeconds || 300);
+          setError('');
+        } else {
+          setError(data.message || 'Login failed');
+        }
+        return;
       }
 
       localStorage.setItem('campusconnect_token', data.token);
@@ -70,7 +107,7 @@ export default function Login() {
     <div>
       <Navbar />
 
-      <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
+      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0" style={{ minHeight: 'calc(100vh - 92px)' }}>
           {/* Left Panel */}
           <div className="col-lg-5 cc-auth-left d-none d-lg-flex" style={{ background: 'var(--ink)', padding: '60px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', color: '#fff', textAlign: 'center' }}>
@@ -109,12 +146,23 @@ export default function Login() {
                 </div>
               )}
 
-              {error && (
+              {/* Compact Lockout Alert with Live Timer */}
+              {isLocked ? (
+                <div className="alert alert-danger p-3 mb-4 d-flex align-items-center justify-content-between" style={{ borderRadius: '0', fontSize: '.84rem', borderLeft: '4px solid var(--rust, #e15b34)' }}>
+                  <div>
+                    <i className="fas fa-lock me-2"></i>
+                    Too many failed attempts. Try again in:
+                  </div>
+                  <span style={{ fontFamily: 'var(--font-mono, monospace)', fontWeight: 'bold', fontSize: '0.95rem', color: 'var(--rust, #e15b34)', background: '#fff', padding: '2px 8px', border: '1px solid #f5c6cb' }}>
+                    {formatCountdown(lockoutSeconds)}
+                  </span>
+                </div>
+              ) : error ? (
                 <div className="alert alert-danger p-3 mb-4" style={{ borderRadius: '0', fontSize: '.84rem' }}>
                   <i className="fas fa-circle-exclamation me-2"></i>
                   {error}
                 </div>
-              )}
+              ) : null}
 
               <form onSubmit={handleSubmit} className="d-flex flex-column gap-4">
                 {/* Email */}
@@ -127,15 +175,17 @@ export default function Login() {
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
                     placeholder="you@university.edu"
+                    disabled={isLocked}
                     style={{
-                      background: '#fafaf8',
+                      background: isLocked ? '#eee' : '#fafaf8',
                       border: '1px solid #d3c9b9',
                       padding: '12px 16px',
                       fontSize: '0.95rem',
                       color: 'var(--ink)',
                       width: '100%',
                       outline: 'none',
-                      borderRadius: '0'
+                      borderRadius: '0',
+                      cursor: isLocked ? 'not-allowed' : 'text'
                     }} 
                     required 
                   />
@@ -152,8 +202,9 @@ export default function Login() {
                       value={password} 
                       onChange={(e) => setPassword(e.target.value)} 
                       placeholder="Your password"
+                      disabled={isLocked}
                       style={{
-                        background: '#fafaf8',
+                        background: isLocked ? '#eee' : '#fafaf8',
                         border: '1px solid #d3c9b9',
                         padding: '12px 16px',
                         paddingRight: '44px',
@@ -161,13 +212,15 @@ export default function Login() {
                         color: 'var(--ink)',
                         width: '100%',
                         outline: 'none',
-                        borderRadius: '0'
+                        borderRadius: '0',
+                        cursor: isLocked ? 'not-allowed' : 'text'
                       }} 
                       required 
                     />
                     <button 
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
+                      disabled={isLocked}
                       style={{
                         position: 'absolute',
                         right: '12px',
@@ -176,7 +229,7 @@ export default function Login() {
                         background: 'none',
                         border: 'none',
                         color: '#888',
-                        cursor: 'pointer',
+                        cursor: isLocked ? 'not-allowed' : 'pointer',
                         fontSize: '0.9rem'
                       }}
                     >
@@ -193,9 +246,9 @@ export default function Login() {
                 {/* Submit */}
                 <button 
                   type="submit" 
-                  disabled={loading}
+                  disabled={loading || isLocked}
                   style={{
-                    background: 'var(--rust)',
+                    background: isLocked ? '#aaa' : 'var(--rust)',
                     color: 'var(--white)',
                     border: 'none',
                     padding: '14px',
@@ -207,16 +260,24 @@ export default function Login() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '8px',
-                    cursor: 'pointer',
+                    cursor: isLocked || loading ? 'not-allowed' : 'pointer',
                     marginTop: '12px',
                     transition: 'background 0.2s ease',
                     width: '100%'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = 'var(--rust-light)'}
-                  onMouseLeave={(e) => e.currentTarget.style.background = 'var(--rust)'}
+                  onMouseEnter={(e) => { if (!isLocked && !loading) e.currentTarget.style.background = 'var(--rust-light)'; }}
+                  onMouseLeave={(e) => { if (!isLocked && !loading) e.currentTarget.style.background = 'var(--rust)'; }}
                 >
-                  {loading ? 'Logging in...' : 'Login'}
-                  <i className="fas fa-arrow-right"></i>
+                  {isLocked ? (
+                    `LOCKED OUT (${formatCountdown(lockoutSeconds)})`
+                  ) : loading ? (
+                    'Logging in...'
+                  ) : (
+                    <>
+                      Login
+                      <i className="fas fa-arrow-right"></i>
+                    </>
+                  )}
                 </button>
               </form>
             </div>

@@ -95,7 +95,7 @@ export default function Events() {
     <div>
       <Navbar />
 
-      <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
+      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0">
           
 
@@ -178,7 +178,7 @@ export default function Events() {
                           
                           {/* Banner Image */}
                           <div style={{ height: '140px', position: 'relative', overflow: 'hidden' }}>
-                            <img src={banner} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={ev.title} />
+                            <img src={banner} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={`${ev.title} event banner`} />
                             <span style={{ position: 'absolute', top: '10px', left: '10px', fontSize: '.6rem', fontFamily: 'var(--font-mono)', background: 'var(--ink)', color: '#fff', padding: '2px 8px', textTransform: 'uppercase' }}>
                               {catNames[ev.category] || ev.category}
                             </span>
@@ -192,14 +192,14 @@ export default function Events() {
                           {/* Content Body */}
                           <div style={{ padding: '20px' }} className="flex-grow-1">
                             <div style={{ fontSize: '.72rem', color: 'var(--rust)', fontFamily: 'var(--font-mono)', marginBottom: '4px' }}>
-                              <i className="fas fa-calendar-alt me-1"></i>
+                              <i className="fas fa-calendar-alt me-1" aria-hidden="true"></i>
                               {eventDateObj.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })} · {eventDateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </div>
                             <h4 style={{ fontWeight: '700', fontSize: '1.15rem', margin: '0 0 8px' }}>
                               {ev.title}
                             </h4>
                             <div style={{ fontSize: '.78rem', color: '#666', marginBottom: '8px' }}>
-                              <i className="fas fa-map-marker-alt me-1"></i>{ev.venue || 'TBD'}
+                              <i className="fas fa-map-marker-alt me-1" aria-hidden="true"></i>{ev.venue || 'TBD'}
                             </div>
                             <p style={{ fontSize: '.84rem', color: '#555', lineHeight: '1.5', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', margin: 0 }}>
                               {ev.description}
@@ -208,9 +208,16 @@ export default function Events() {
 
                           {/* Action Footer */}
                           <div style={{ borderTop: '1px solid var(--cream)', padding: '16px 20px', background: 'var(--paper)' }} className="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                            <span style={{ fontSize: '.68rem', fontFamily: 'var(--font-mono)', color: '#777' }}>
-                              👍 {goingCount} going · {intCount} interested
-                            </span>
+                            <div className="d-flex align-items-center gap-2">
+                              <span style={{ fontSize: '.68rem', fontFamily: 'var(--font-mono)', color: '#777' }}>
+                                👍 {goingCount} going · {intCount} interested
+                              </span>
+                              {myRsvp && (
+                                <span style={{ fontSize: '.58rem', fontFamily: 'var(--font-mono)', padding: '2px 6px', background: myRsvp.status === 'going' ? 'var(--moss)' : 'var(--gold)', color: '#fff', textTransform: 'uppercase' }}>
+                                  RSVP: {myRsvp.status}
+                                </span>
+                              )}
+                            </div>
 
                             <div className="d-flex gap-1">
                               <button

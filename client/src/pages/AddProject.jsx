@@ -61,7 +61,7 @@ export default function AddProject() {
     <div>
       <Navbar />
 
-      <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
+      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0">
           
 

@@ -83,7 +83,22 @@ export default function Messages() {
   const handleSendMessage = async (e) => {
     e.preventDefault();
     if (!newMessage.trim() || !activeWithId) return;
+    const msgText = newMessage.trim();
+    setNewMessage('');
     setError('');
+
+    const tempId = 'temp-' + Date.now();
+    const optimisticMsg = {
+      _id: tempId,
+      fromUser: loggedInUser?.id,
+      toUser: activeWithId,
+      body: msgText,
+      createdAt: new Date().toISOString(),
+      isRead: false
+    };
+
+    setThread((prev) => [...prev, optimisticMsg]);
+    scrollToBottom();
 
     try {
       const res = await fetch('/api/messages', {
@@ -92,7 +107,7 @@ export default function Messages() {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify({ toUser: activeWithId, body: newMessage })
+        body: JSON.stringify({ toUser: activeWithId, body: msgText })
       });
       const data = await res.json();
 
@@ -100,11 +115,10 @@ export default function Messages() {
         throw new Error(data.message || 'Failed to send message');
       }
 
-      setThread((prev) => [...prev, data]);
-      setNewMessage('');
-      scrollToBottom();
+      setThread((prev) => prev.map((m) => (m._id === tempId ? (data.data || data) : m)));
     } catch (err) {
       setError(err.message);
+      setThread((prev) => prev.filter((m) => m._id !== tempId));
     }
   };
 
@@ -122,7 +136,7 @@ export default function Messages() {
     <div>
       <Navbar />
 
-      <div style={{ marginTop: '92px', background: 'var(--paper)' }}>
+      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="container-fluid p-0" style={{ minHeight: 'calc(100vh - 92px)' }}>
           <div className="row g-0" style={{ minHeight: 'calc(100vh - 92px)' }}>
             
@@ -272,14 +286,23 @@ export default function Messages() {
                           </div>
                           <div
                             style={{
-                              fontSize: '.55rem',
+                              fontSize: '.6rem',
                               fontFamily: 'var(--font-mono)',
                               color: '#999',
                               marginTop: '4px',
-                              textAlign: isMe ? 'right' : 'left'
+                              textAlign: isMe ? 'right' : 'left',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: isMe ? 'flex-end' : 'flex-start',
+                              gap: '4px'
                             }}
                           >
-                            {new Date(msg.sentAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                            <span>{new Date(msg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                            {isMe && (
+                              <span style={{ color: msg.isRead ? 'var(--moss)' : '#888', fontWeight: 'bold' }} title={msg.isRead ? 'Read' : 'Sent'}>
+                                {msg.isRead ? '✓✓' : '✓'}
+                              </span>
+                            )}
                           </div>
                         </div>
                       );

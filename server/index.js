@@ -1,8 +1,18 @@
 const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const path = require('path');
+const helmet = require('helmet');
+const morgan = require('morgan');
+
+const { validateEnv } = require('./config/env');
+const getCorsOptions = require('./middleware/corsConfig');
+const { apiLimiter } = require('./middleware/rateLimiter');
+const { errorHandler } = require('./middleware/errorHandler');
+const logger = require('./utils/logger');
+const { sendSuccess } = require('./utils/apiResponse');
+
+// Validate environment variables BEFORE app initialization
+validateEnv();
 
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
@@ -12,42 +22,47 @@ const noticesRoutes = require('./routes/notices');
 const resourcesRoutes = require('./routes/resources');
 const messagesRoutes = require('./routes/messages');
 const notificationsRoutes = require('./routes/notifications');
+const compression = require('compression');
 const generalRoutes = require('./routes/general');
-
-dotenv.config();
-
-let lastConnError = null;
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// Response Compression (Gzip / Brotli)
+app.use(compression());
+
+// Security Middlewares
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: "cross-origin" },
+  crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" },
+  referrerPolicy: { policy: "strict-origin-when-cross-origin" }
+}));
+app.use(getCorsOptions());
+
+// HTTP Request Logging
+app.use(morgan('combined', {
+  stream: {
+    write: (message) => logger.info(message.trim())
+  }
+}));
+
+// Body Parsers & Static Files with Browser Caching Headers
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true, limit: '5mb' }));
-app.use('/assets/uploads', express.static(path.join(__dirname, '../assets/uploads')));
-
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' });
-});
-
-app.get('/api/db-debug', (req, res) => {
-  const uri = process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campusconnect';
-  let obfuscatedUri = uri;
-  try {
-    const urlObj = new URL(uri.replace('mongodb+srv://', 'http://').replace('mongodb://', 'http://'));
-    obfuscatedUri = `${uri.startsWith('mongodb+srv') ? 'mongodb+srv' : 'mongodb'}://***:***@${urlObj.host}${urlObj.pathname}`;
-  } catch (e) {
-    obfuscatedUri = 'Failed to parse URI for obfuscation';
+app.use('/assets/uploads', express.static(path.join(__dirname, '../assets/uploads'), {
+  maxAge: '1y',
+  immutable: true,
+  setHeaders: (res) => {
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
   }
+}));
 
-  res.json({
-    readyState: mongoose.connection.readyState,
-    readyStateLabel: ['disconnected', 'connected', 'connecting', 'disconnecting'][mongoose.connection.readyState],
-    lastError: lastConnError,
-    uriUsed: obfuscatedUri,
-    hasMongoUriEnv: !!process.env.MONGO_URI,
-    hasMongodbUriEnv: !!process.env.MONGODB_URI,
-  });
+// General API Rate Limiter
+app.use('/api', apiLimiter);
+
+// Minimal Health Check Endpoint (Debug endpoint /api/db-debug removed)
+app.get('/api/health', (req, res) => {
+  return sendSuccess(res, { status: 'ok', timestamp: new Date().toISOString() }, 'CampusConnect API is healthy');
 });
 
 const User = require('./models/User');
@@ -55,25 +70,23 @@ const Group = require('./models/Group');
 const Connection = require('./models/Connection');
 const Message = require('./models/Message');
 
-app.get('/api/home', async (req, res) => {
+app.get('/api/home', async (req, res, next) => {
   try {
     const userCount = await User.countDocuments();
     const groupCount = await Group.countDocuments();
     const connCount = await Connection.countDocuments({ status: 'accepted' });
     const messageCount = await Message.countDocuments();
 
-    // Fetch 6 recent students
     const recentStudents = await User.find({}, 'name department semester university skills isOnline avatar')
       .sort({ _id: -1 })
       .limit(6);
 
-    // Fetch 6 recent groups
     const recentGroups = await Group.find()
       .populate('createdBy', 'name')
       .sort({ _id: -1 })
       .limit(6);
 
-    res.json({
+    return sendSuccess(res, {
       hero: {
         eyebrow: 'Trusted by 50+ Universities',
         title: ['Connect.', 'Collaborate.', 'Grow.'],
@@ -111,12 +124,13 @@ app.get('/api/home', async (req, res) => {
         groupCount,
         messageCount
       }
-    });
+    }, 'Home data retrieved successfully');
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    next(err);
   }
 });
 
+// API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/content', contentRoutes);
@@ -127,6 +141,9 @@ app.use('/api/messages', messagesRoutes);
 app.use('/api/notifications', notificationsRoutes);
 app.use('/api/general', generalRoutes);
 
+// Centralized Error Handling Middleware
+app.use(errorHandler);
+
 const normalizePort = (value) => {
   const port = Number(value);
   return Number.isInteger(port) && port > 0 && port < 65536 ? port : 5000;
@@ -134,16 +151,16 @@ const normalizePort = (value) => {
 
 const startServer = (port = normalizePort(PORT), attempt = 1) => {
   const server = app.listen(port, '0.0.0.0', () => {
-    console.log(`Server running on port ${port}`);
+    logger.info(`Server running on port ${port}`);
   });
 
   server.on('error', (err) => {
     if (err.code === 'EADDRINUSE' && attempt < 10) {
       const fallbackPort = normalizePort(port + 1);
-      console.warn(`Port ${port} is busy, trying ${fallbackPort} instead.`);
+      logger.warn(`Port ${port} is busy, trying ${fallbackPort} instead.`);
       startServer(fallbackPort, attempt + 1);
     } else {
-      console.error('Server failed to start:', err.message);
+      logger.error('Server failed to start:', err.message);
       process.exit(1);
     }
   });
@@ -153,11 +170,10 @@ const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://
 
 mongoose.connect(mongoUri, { serverSelectionTimeoutMS: 5000 })
   .then(() => {
-    console.log('MongoDB connected');
+    logger.info('MongoDB connected');
   })
   .catch((err) => {
-    lastConnError = err.message || err.toString();
-    console.error('MongoDB connection failed:', err.message);
+    logger.error(`MongoDB connection failed: ${err.message || err.toString()}`);
   });
 
 startServer();

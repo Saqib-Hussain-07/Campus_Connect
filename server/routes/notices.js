@@ -2,76 +2,80 @@ const express = require('express');
 const Notice = require('../models/Notice');
 const Activity = require('../models/Activity');
 const auth = require('../middleware/auth');
+const asyncHandler = require('../utils/asyncHandler');
+const { sendSuccess, sendPaginated, sendError } = require('../utils/apiResponse');
 
 const router = express.Router();
 
-// List notices (active, sorted by pinned first, then created date)
-router.get('/', async (req, res) => {
-  try {
-    const notices = await Notice.find({
-      $or: [
-        { expiresAt: { $exists: false } },
-        { expiresAt: null },
-        { expiresAt: { $gt: new Date() } }
-      ]
-    })
-      .sort({ isPinned: -1, createdAt: -1 })
-      .populate('userId', 'name department avatar');
+// List notices with pagination
+router.get('/', asyncHandler(async (req, res) => {
+  const { page = 1, limit = 10 } = req.query;
+  const query = {
+    $or: [
+      { expiresAt: { $exists: false } },
+      { expiresAt: null },
+      { expiresAt: { $gt: new Date() } }
+    ]
+  };
 
-    res.json(notices);
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to load notices', error: err.message });
-  }
-});
+  const pageNum = Math.max(1, parseInt(page, 10) || 1);
+  const limitNum = Math.min(50, Math.max(1, parseInt(limit, 10) || 10));
+  const skip = (pageNum - 1) * limitNum;
+
+  const total = await Notice.countDocuments(query);
+  const notices = await Notice.find(query)
+    .sort({ isPinned: -1, createdAt: -1 })
+    .skip(skip)
+    .limit(limitNum)
+    .populate('userId', 'name department avatar');
+
+  return sendPaginated(res, notices, pageNum, limitNum, total, 'Notices loaded successfully');
+}));
 
 // Post Notice
-router.post('/', auth, async (req, res) => {
-  try {
-    const { title, body, category, tags, expiresAt, isPinned } = req.body;
-    const userId = req.user.id;
+router.post('/', auth, asyncHandler(async (req, res) => {
+  const { title, body, category, tags, expiresAt, isPinned } = req.body;
+  if (!title || !body) return sendError(res, 'Title and notice body are required', 400);
 
-    const notice = await Notice.create({
-      userId,
-      title,
-      body,
-      category: category || 'general',
-      tags: tags ? tags.split(',').map((t) => t.trim()).filter(Boolean) : [],
-      expiresAt: expiresAt ? new Date(expiresAt) : undefined,
-      isPinned: Boolean(isPinned)
-    });
+  const userId = req.user.id;
 
-    // Log Activity
-    await Activity.create({
-      userId,
-      type: 'notice_posted',
-      refId: notice._id,
-      refTitle: notice.title
-    });
+  const notice = await Notice.create({
+    userId,
+    title: title.trim(),
+    body: body.trim(),
+    category: category || 'general',
+    tags: Array.isArray(tags)
+      ? tags
+      : tags
+      ? tags.split(',').map((t) => t.trim()).filter(Boolean)
+      : [],
+    expiresAt: expiresAt ? new Date(expiresAt) : undefined,
+    isPinned: Boolean(isPinned)
+  });
 
-    res.status(201).json(notice);
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to post notice', error: err.message });
-  }
-});
+  await Activity.create({
+    userId,
+    type: 'notice_posted',
+    refId: notice._id,
+    refTitle: notice.title
+  });
+
+  return sendSuccess(res, notice, 'Notice posted successfully', 201);
+}));
 
 // Toggle Pinned status
-router.put('/:id/pin', auth, async (req, res) => {
-  try {
-    const notice = await Notice.findById(req.params.id);
-    if (!notice) return res.status(404).json({ message: 'Notice not found' });
+router.put('/:id/pin', auth, asyncHandler(async (req, res) => {
+  const notice = await Notice.findById(req.params.id);
+  if (!notice) return sendError(res, 'Notice not found', 404);
 
-    // Check if user is the post author or maybe admin (here author check is sufficient)
-    if (notice.userId.toString() !== req.user.id) {
-      return res.status(403).json({ message: 'Unauthorized to pin this notice' });
-    }
-
-    notice.isPinned = !notice.isPinned;
-    await notice.save();
-
-    res.json(notice);
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to update pin status', error: err.message });
+  if (notice.userId.toString() !== req.user.id) {
+    return sendError(res, 'Unauthorized to pin this notice', 403);
   }
-});
+
+  notice.isPinned = !notice.isPinned;
+  await notice.save();
+
+  return sendSuccess(res, notice, `Notice ${notice.isPinned ? 'pinned' : 'unpinned'} successfully`);
+}));
 
 module.exports = router;

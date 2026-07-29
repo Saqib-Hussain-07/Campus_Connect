@@ -1,21 +1,31 @@
 const jwt = require('jsonwebtoken');
+const { sendError } = require('../utils/apiResponse');
 
 module.exports = (req, res, next) => {
   const authHeader = req.header('Authorization');
   if (!authHeader) {
-    return res.status(401).json({ message: 'No authentication token, authorization denied' });
+    return sendError(res, 'No authentication token provided, authorization denied', 401);
   }
 
   const token = authHeader.replace('Bearer ', '');
   if (!token) {
-    return res.status(401).json({ message: 'No authentication token, authorization denied' });
+    return sendError(res, 'No authentication token provided, authorization denied', 401);
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'devsecret');
-    req.user = decoded; // holds decoded token e.g. { id: user._id }
+    const jwtSecret = process.env.JWT_SECRET;
+    if (!jwtSecret) {
+      console.error('FATAL: JWT_SECRET environment variable is missing.');
+      return sendError(res, 'Internal server authentication error', 500);
+    }
+
+    const decoded = jwt.verify(token, jwtSecret);
+    req.user = decoded; // { id: user._id }
     next();
   } catch (err) {
-    res.status(401).json({ message: 'Token is invalid or expired' });
+    if (err.name === 'TokenExpiredError') {
+      return sendError(res, 'Access token has expired', 401, { code: 'TOKEN_EXPIRED' });
+    }
+    return sendError(res, 'Invalid authentication token', 401);
   }
 };

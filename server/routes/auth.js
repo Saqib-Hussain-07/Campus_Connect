@@ -1,62 +1,152 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 const User = require('../models/User');
+const RefreshToken = require('../models/RefreshToken');
 const Project = require('../models/Project');
 const Group = require('../models/Group');
 const Event = require('../models/Event');
 const Message = require('../models/Message');
 const Connection = require('../models/Connection');
 const auth = require('../middleware/auth');
+const asyncHandler = require('../utils/asyncHandler');
+const { sendSuccess, sendError } = require('../utils/apiResponse');
+const { authLimiter, registerLimiter } = require('../middleware/rateLimiter');
+const {
+  checkLoginLockout,
+  recordFailedAttempt,
+  clearLoginAttempt
+} = require('../utils/loginRateLimiter');
+const {
+  registerRules,
+  loginRules,
+  forgotPasswordRules,
+  resetPasswordRules,
+  changePasswordRules
+} = require('../middleware/validators');
 
 const router = express.Router();
 
-// Register
-router.post('/register', async (req, res) => {
-  try {
-    const { name, email, registrationNo, password } = req.body;
-    
-    const existingEmail = await User.findOne({ email });
-    if (existingEmail) return res.status(400).json({ message: 'Email already registered' });
-
-    if (registrationNo) {
-      const existingReg = await User.findOne({ registrationNo });
-      if (existingReg) return res.status(400).json({ message: 'Registration number already registered' });
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({
-      name,
-      email,
-      registrationNo,
-      password: hashedPassword,
-      isVerified: true // Set verified by default
-    });
-
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'devsecret', { expiresIn: '7d' });
-    res.status(201).json({ token, user: { id: user._id, name: user.name, email: user.email } });
-  } catch (err) {
-    res.status(500).json({ message: 'Registration failed', error: err.message });
+// Helper to generate access token (15m expiration)
+const generateAccessToken = (userId) => {
+  if (!process.env.JWT_SECRET) {
+    throw new Error('FATAL: JWT_SECRET environment variable is missing.');
   }
-});
+  return jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: '15m' });
+};
 
-// Login
-router.post('/login', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: 'Invalid credentials' });
+// Helper to generate refresh token (7d expiration) & save to DB
+const generateRefreshToken = async (userId, ipAddress) => {
+  const token = crypto.randomBytes(40).toString('hex');
+  const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days
 
-    const valid = await bcrypt.compare(password, user.password);
-    if (!valid) return res.status(400).json({ message: 'Invalid credentials' });
+  const refreshToken = await RefreshToken.create({
+    token,
+    user: userId,
+    expiresAt,
+    createdByIp: ipAddress
+  });
 
-    // Mark as online
-    user.isOnline = true;
-    await user.save();
+  return refreshToken.token;
+};
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'devsecret', { expiresIn: '7d' });
-    res.json({
-      token,
+// Register
+router.post('/register', registerLimiter, registerRules, asyncHandler(async (req, res) => {
+  const { name, email, registrationNo, password } = req.body;
+  
+  const existingEmail = await User.findOne({ email });
+  if (existingEmail) return sendError(res, 'Email already registered', 400);
+
+  if (registrationNo) {
+    const existingReg = await User.findOne({ registrationNo });
+    if (existingReg) return sendError(res, 'Registration number already registered', 400);
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const user = await User.create({
+    name,
+    email,
+    registrationNo,
+    password: hashedPassword,
+    isVerified: true
+  });
+
+  const accessToken = generateAccessToken(user._id);
+  const refreshToken = await generateRefreshToken(user._id, req.ip);
+
+  return sendSuccess(
+    res,
+    {
+      token: accessToken,
+      refreshToken,
+      user: { id: user._id, name: user.name, email: user.email }
+    },
+    'Registration successful',
+    201
+  );
+}));
+
+// Login with progressive rate limiting lockout (5m -> 7m -> 10m)
+router.post('/login', authLimiter, loginRules, asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+  const ip = req.ip || req.connection.remoteAddress;
+
+  // 1. Check if user/IP is currently locked out
+  const lockoutStatus = await checkLoginLockout(ip, email);
+  if (lockoutStatus.isLocked) {
+    return res.status(429).json({
+      success: false,
+      message: lockoutStatus.message,
+      locked: true,
+      retryAfterSeconds: lockoutStatus.retryAfterSeconds,
+      lockoutUntil: lockoutStatus.lockoutUntil,
+      lockoutMinutes: lockoutStatus.lockoutMinutes
+    });
+  }
+
+  // 2. Validate credentials
+  const user = await User.findOne({ email: (email || '').toLowerCase() });
+  let valid = false;
+  if (user) {
+    valid = await bcrypt.compare(password, user.password);
+  }
+
+  // 3. Handle invalid credentials
+  if (!user || !valid) {
+    const failedResult = await recordFailedAttempt(ip, email);
+    if (failedResult.isLocked) {
+      return res.status(429).json({
+        success: false,
+        message: failedResult.message,
+        locked: true,
+        retryAfterSeconds: failedResult.retryAfterSeconds,
+        lockoutUntil: failedResult.lockoutUntil,
+        lockoutMinutes: failedResult.lockoutMinutes
+      });
+    }
+    return res.status(400).json({
+      success: false,
+      message: failedResult.message,
+      remainingAttempts: failedResult.remainingAttempts
+    });
+  }
+
+  // 4. Successful Login: Clear failed attempt record
+  await clearLoginAttempt(ip, email);
+
+  // Mark user as online
+  user.isOnline = true;
+  await user.save();
+
+  const accessToken = generateAccessToken(user._id);
+  const refreshToken = await generateRefreshToken(user._id, req.ip);
+
+  return sendSuccess(
+    res,
+    {
+      token: accessToken,
+      refreshToken,
       user: {
         id: user._id,
         name: user.name,
@@ -65,122 +155,144 @@ router.post('/login', async (req, res) => {
         semester: user.semester,
         university: user.university,
         skills: user.skills,
-        bio: user.bio
+        bio: user.bio,
+        avatar: user.avatar
       }
-    });
-  } catch (err) {
-    res.status(500).json({ message: 'Login failed', error: err.message });
+    },
+    'Login successful'
+  );
+}));
+
+// Refresh Token (Token Rotation)
+router.post('/refresh', asyncHandler(async (req, res) => {
+  const { refreshToken: tokenStr } = req.body;
+  if (!tokenStr) return sendError(res, 'Refresh token is required', 400);
+
+  const refreshToken = await RefreshToken.findOne({ token: tokenStr });
+
+  if (!refreshToken || !refreshToken.isActive) {
+    return sendError(res, 'Invalid or expired refresh token', 401);
   }
-});
+
+  refreshToken.revokedAt = new Date();
+  const newRefreshTokenStr = await generateRefreshToken(refreshToken.user, req.ip);
+  refreshToken.replacedByToken = newRefreshTokenStr;
+  await refreshToken.save();
+
+  const newAccessToken = generateAccessToken(refreshToken.user);
+
+  return sendSuccess(
+    res,
+    {
+      token: newAccessToken,
+      refreshToken: newRefreshTokenStr
+    },
+    'Token refreshed successfully'
+  );
+}));
 
 // Get current user details
-router.get('/me', auth, async (req, res) => {
-  try {
-    const user = await User.findById(req.user.id).select('-password');
-    if (!user) return res.status(404).json({ message: 'User not found' });
-    res.json(user);
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to fetch user info', error: err.message });
-  }
-});
+router.get('/me', auth, asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user.id).select('-password');
+  if (!user) return sendError(res, 'User not found', 404);
+  return sendSuccess(res, user, 'User details fetched successfully');
+}));
 
-// Logout (mostly frontend removes token, but we set online to false)
-router.post('/logout', auth, async (req, res) => {
-  try {
-    await User.findByIdAndUpdate(req.user.id, { isOnline: false });
-    res.json({ message: 'Logged out successfully' });
-  } catch (err) {
-    res.status(500).json({ message: 'Logout failed', error: err.message });
+// Logout
+router.post('/logout', auth, asyncHandler(async (req, res) => {
+  const { refreshToken: tokenStr } = req.body;
+  
+  await User.findByIdAndUpdate(req.user.id, { isOnline: false });
+
+  if (tokenStr) {
+    await RefreshToken.findOneAndUpdate(
+      { token: tokenStr, user: req.user.id },
+      { revokedAt: new Date() }
+    );
   }
-});
+
+  return sendSuccess(res, null, 'Logged out successfully');
+}));
 
 // Change Password
-router.post('/change-password', auth, async (req, res) => {
-  try {
-    const { oldPassword, newPassword } = req.body;
-    const user = await User.findById(req.user.id);
-    if (!user) return res.status(404).json({ message: 'User not found' });
+router.post('/change-password', auth, changePasswordRules, asyncHandler(async (req, res) => {
+  const { oldPassword, newPassword } = req.body;
+  const user = await User.findById(req.user.id);
+  if (!user) return sendError(res, 'User not found', 404);
 
-    const valid = await bcrypt.compare(oldPassword, user.password);
-    if (!valid) return res.status(400).json({ message: 'Current password is incorrect' });
+  const valid = await bcrypt.compare(oldPassword, user.password);
+  if (!valid) return sendError(res, 'Current password is incorrect', 400);
 
-    user.password = await bcrypt.hash(newPassword, 10);
-    await user.save();
-    res.json({ message: 'Password updated successfully' });
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to update password', error: err.message });
-  }
-});
+  user.password = await bcrypt.hash(newPassword, 10);
+  await user.save();
+
+  await RefreshToken.updateMany(
+    { user: user._id, revokedAt: null },
+    { revokedAt: new Date() }
+  );
+
+  return sendSuccess(res, null, 'Password updated successfully');
+}));
 
 // Forgot Password
-router.post('/forgot-password', async (req, res) => {
-  try {
-    const { email } = req.body;
-    const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: 'No user registered with this email' });
+router.post('/forgot-password', forgotPasswordRules, asyncHandler(async (req, res) => {
+  const { email } = req.body;
+  const user = await User.findOne({ email });
+  if (!user) return sendError(res, 'No user registered with this email', 400);
 
-    // Generate token
-    const token = require('crypto').randomBytes(32).toString('hex');
-    user.resetToken = token;
-    user.resetExpires = Date.now() + 3600000; // 1 hour
-    await user.save();
+  const token = crypto.randomBytes(32).toString('hex');
+  user.resetToken = token;
+  user.resetExpires = Date.now() + 3600000; // 1 hour
+  await user.save();
 
-    // In a real application, we would email this link.
-    // For local testing, we return it in the API response.
-    const resetUrl = `http://localhost:3000/reset-password?token=${token}&email=${encodeURIComponent(email)}`;
-    res.json({ message: 'Password reset link generated successfully.', resetUrl });
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to process request', error: err.message });
-  }
-});
+  const resetUrl = `http://localhost:3000/reset-password?token=${token}&email=${encodeURIComponent(email)}`;
+  return sendSuccess(
+    res,
+    { resetUrl },
+    'Password reset link generated successfully'
+  );
+}));
 
 // Reset Password
-router.post('/reset-password', async (req, res) => {
-  try {
-    const { email, token, password } = req.body;
-    const user = await User.findOne({
-      email,
-      resetToken: token,
-      resetExpires: { $gt: Date.now() }
-    });
+router.post('/reset-password', resetPasswordRules, asyncHandler(async (req, res) => {
+  const { email, token, password } = req.body;
+  const user = await User.findOne({
+    email,
+    resetToken: token,
+    resetExpires: { $gt: Date.now() }
+  });
 
-    if (!user) {
-      return res.status(400).json({ message: 'Invalid or expired password reset token' });
-    }
-
-    user.password = await bcrypt.hash(password, 10);
-    user.resetToken = undefined;
-    user.resetExpires = undefined;
-    await user.save();
-
-    res.json({ message: 'Password has been reset successfully. You can now log in.' });
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to reset password', error: err.message });
+  if (!user) {
+    return sendError(res, 'Invalid or expired password reset token', 400);
   }
-});
+
+  user.password = await bcrypt.hash(password, 10);
+  user.resetToken = undefined;
+  user.resetExpires = undefined;
+  await user.save();
+
+  await RefreshToken.updateMany(
+    { user: user._id, revokedAt: null },
+    { revokedAt: new Date() }
+  );
+
+  return sendSuccess(res, null, 'Password has been reset successfully. You can now log in.');
+}));
 
 // Delete Account
-router.delete('/delete-account', auth, async (req, res) => {
-  try {
-    const userId = req.user.id;
+router.delete('/delete-account', auth, asyncHandler(async (req, res) => {
+  const userId = req.user.id;
 
-    // Delete related items to prevent orphaned data
-    await Project.deleteMany({ userId });
-    await Group.deleteMany({ createdBy: userId });
-    await Event.deleteMany({ userId });
-    await Message.deleteMany({ $or: [{ fromUser: userId }, { toUser: userId }] });
-    await Connection.deleteMany({ $or: [{ fromUser: userId }, { toUser: userId }] });
-    
-    // Also remove from study group memberships
-    await Group.updateMany({ members: userId }, { $pull: { members: userId } });
+  await Project.deleteMany({ userId });
+  await Group.deleteMany({ createdBy: userId });
+  await Event.deleteMany({ userId });
+  await Message.deleteMany({ $or: [{ fromUser: userId }, { toUser: userId }] });
+  await Connection.deleteMany({ $or: [{ fromUser: userId }, { toUser: userId }] });
+  await RefreshToken.deleteMany({ user: userId });
+  await Group.updateMany({ members: userId }, { $pull: { members: userId } });
+  await User.findByIdAndDelete(userId);
 
-    // Finally delete user
-    await User.findByIdAndDelete(userId);
-
-    res.json({ message: 'Account and all associated data deleted successfully.' });
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to delete account', error: err.message });
-  }
-});
+  return sendSuccess(res, null, 'Account and all associated data deleted successfully.');
+}));
 
 module.exports = router;

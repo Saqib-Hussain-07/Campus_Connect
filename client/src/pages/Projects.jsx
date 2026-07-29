@@ -56,7 +56,7 @@ export default function Projects() {
     <div>
       <Navbar />
 
-      <div style={{ marginTop: '92px', background: 'var(--paper)', minHeight: '100vh' }}>
+      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
           <div className="col-12" style={{ minHeight: '100vh' }}>
             {/* Header Box (Flush with Navbar) */}
             <div style={{ background: 'var(--ink)', padding: 'clamp(24px, 4vw, 48px) clamp(16px, 3vw, 40px)', color: '#fff', marginBottom: '30px', position: 'relative' }}>

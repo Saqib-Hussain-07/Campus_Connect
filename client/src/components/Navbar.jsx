@@ -1,18 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { getAvatarUrl } from '../utils/avatar';
 
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const token = localStorage.getItem('campusconnect_token');
-  const [user, setUser] = useState(() => {
+  const { user: authUser, token: authToken } = useAuth();
+  const token = authToken || localStorage.getItem('campusconnect_token');
+  const [localUser] = useState(() => {
     try {
-      const localUser = localStorage.getItem('campusconnect_user');
-      return localUser ? JSON.parse(localUser) : null;
+      const stored = localStorage.getItem('campusconnect_user');
+      return stored ? JSON.parse(stored) : null;
     } catch (e) {
       return null;
     }
   });
+  const user = authUser || localUser;
   const [notifCount, setNotifCount] = useState(0);
   const [msgCount, setMsgCount] = useState(0);
   const [notifications, setNotifications] = useState([]);
@@ -156,7 +160,7 @@ export default function Navbar() {
     if (u?.avatar && u.avatar !== 'default.jpg') {
       return `/assets/uploads/avatars/${u.avatar}`;
     }
-    return `https://picsum.photos/seed/${encodeURIComponent(u?.name || 'user')}/120/120`;
+    return getAvatarUrl(u?.name);
   };
 
   const notifIconMap = {
@@ -172,6 +176,10 @@ export default function Navbar() {
 
   return (
     <>
+      <a href="#main-content" className="cc-skip-link">
+        Skip to main content
+      </a>
+
       {/* Ticker Board */}
       <div className="cc-ticker">
         <div className="cc-ticker-inner">
@@ -193,11 +201,11 @@ export default function Navbar() {
       </div>
 
       {/* Main Navbar */}
-      <nav className="navbar navbar-expand-xl cc-navbar sticky-top">
+      <nav className="navbar navbar-expand-xl cc-navbar sticky-top" aria-label="Main navigation">
         <div className="container-fluid px-3 px-lg-4">
-          <Link className="navbar-brand cc-brand d-flex align-items-center gap-2" to="/">
+          <Link className="navbar-brand cc-brand d-flex align-items-center gap-2" to="/" aria-label="CampusConnect Home">
             <div className="cc-brand-mark">
-              <i className="fas fa-graduation-cap"></i>
+              <i className="fas fa-graduation-cap" aria-hidden="true"></i>
             </div>
             Campus<span className="cc-brand-accent">Connect</span>
           </Link>
@@ -208,6 +216,7 @@ export default function Navbar() {
             onClick={() => setIsNavCollapsed(!isNavCollapsed)}
             aria-controls="ccNavbarContent"
             aria-expanded={!isNavCollapsed}
+            aria-label="Toggle navigation menu"
           >
             <i className="fas fa-bars"></i>
           </button>
@@ -478,16 +487,16 @@ export default function Navbar() {
                       <img
                         src={avatarUrl(user)}
                         style={{ width: '28px', height: '28px', objectFit: 'cover', border: '1.5px solid var(--ink)' }}
-                        alt={user.name}
+                        alt={user?.name || 'User'}
                       />
-                      <span className="d-none d-xxl-inline">{user.name.split(' ')[0]}</span>
+                      <span className="d-none d-xxl-inline">{user?.name ? user.name.split(' ')[0] : 'User'}</span>
                       <i className="fas fa-chevron-down" style={{ fontSize: '.55rem', color: '#888' }}></i>
                     </button>
                     <ul className={`dropdown-menu cc-dropdown-menu dropdown-menu-end shadow-lg p-2 ${showUserMenu ? 'show' : ''}`} style={{ minWidth: '210px' }}>
                       <li className="px-3 py-2" style={{ borderBottom: '1px solid var(--cream)' }}>
-                        <div style={{ fontWeight: '700', fontSize: '.84rem', color: 'var(--ink)' }}>{user.name}</div>
+                        <div style={{ fontWeight: '700', fontSize: '.84rem', color: 'var(--ink)' }}>{user?.name || 'User'}</div>
                         <div style={{ fontSize: '.68rem', color: '#888', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                          {user.email}
+                          {user?.email || ''}
                         </div>
                       </li>
                       <li>

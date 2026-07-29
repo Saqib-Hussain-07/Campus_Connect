@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const User = require('../models/User');
 const Project = require('../models/Project');
 const Group = require('../models/Group');
@@ -8,85 +9,84 @@ const Message = require('../models/Message');
 const Notice = require('../models/Notice');
 const Activity = require('../models/Activity');
 const auth = require('../middleware/auth');
+const asyncHandler = require('../utils/asyncHandler');
+const { sendSuccess } = require('../utils/apiResponse');
 
 const router = express.Router();
 
-router.get('/', auth, async (req, res) => {
-  try {
-    const me = req.user.id;
+router.get('/', auth, asyncHandler(async (req, res) => {
+  const me = req.user.id;
+  const meObjectId = new mongoose.Types.ObjectId(me);
 
-    // 1. Counts
-    const connCount = await Connection.countDocuments({
+  // Parallel database calls
+  const [
+    connCount,
+    grpCount,
+    myProjectCount,
+    likesAggregation,
+    currentUserObj,
+    pendingCount,
+    unreadCount,
+    requests,
+    myGroupsData,
+    myProjects,
+    feed,
+    existingConns,
+    stEvents,
+    recentNotices
+  ] = await Promise.all([
+    Connection.countDocuments({
       $or: [{ fromUser: me }, { toUser: me }],
       status: 'accepted'
-    });
+    }),
+    Group.countDocuments({ members: me, isDeleted: { $ne: true } }),
+    Project.countDocuments({ userId: me, isDeleted: { $ne: true } }),
+    
+    // Aggregation pipeline for computing total project likes
+    Project.aggregate([
+      { $match: { userId: meObjectId, isDeleted: { $ne: true } } },
+      { $project: { likesCount: { $size: { $ifNull: ['$likes', []] } } } },
+      { $group: { _id: null, totalLikes: { $sum: '$likesCount' } } }
+    ]),
 
-    const grpCount = await Group.countDocuments({ members: me });
-    const myProjectCount = await Project.countDocuments({ userId: me });
-
-    // Sum likes on my projects
-    const myProjectsList = await Project.find({ userId: me });
-    const myLikesTotal = myProjectsList.reduce((acc, proj) => acc + (proj.likes ? proj.likes.length : 0), 0);
-
-    const currentUserObj = await User.findById(me);
-    const myEndorseCount = currentUserObj ? currentUserObj.endorsements.length : 0;
-
-    const pendingCount = await Connection.countDocuments({ toUser: me, status: 'pending' });
-    const unreadCount = await Message.countDocuments({ toUser: me, isRead: false });
-
-    // 2. Pending Requests (with fromUser details)
-    const requests = await Connection.find({ toUser: me, status: 'pending' })
-      .populate('fromUser', 'name department skills university')
+    User.findById(me).select('-password'),
+    Connection.countDocuments({ toUser: me, status: 'pending' }),
+    Message.countDocuments({ toUser: me, isRead: false, isDeleted: { $ne: true } }),
+    
+    Connection.find({ toUser: me, status: 'pending' })
+      .populate('fromUser', 'name department skills university avatar')
       .sort({ createdAt: -1 })
-      .limit(5);
+      .limit(5),
 
-    // 3. My groups
-    const myGroupsData = await Group.find({ members: me })
+    Group.find({ members: me, isDeleted: { $ne: true } })
       .sort({ createdAt: -1 })
-      .limit(5);
+      .limit(5),
 
-    // 4. My projects
-    const myProjects = await Project.find({ userId: me })
+    Project.find({ userId: me, isDeleted: { $ne: true } })
       .sort({ createdAt: -1 })
-      .limit(4);
+      .limit(4),
 
-    // 5. Activity Feed
-    const feed = await Activity.find()
+    Activity.find()
       .populate('userId', 'name department avatar')
       .sort({ createdAt: -1 })
-      .limit(10);
+      .limit(10),
 
-    // 6. Suggestions (exclude me and any user who is already connected/pending)
-    const existingConns = await Connection.find({
+    Connection.find({
       $or: [{ fromUser: me }, { toUser: me }]
-    });
+    }),
 
-    const connectedUserIds = [me];
-    existingConns.forEach((c) => {
-      connectedUserIds.push(c.fromUser.toString());
-      connectedUserIds.push(c.toUser.toString());
-    });
-
-    // Select random users prioritized by online status
-    const suggestions = await User.find({
-      _id: { $not: { $in: connectedUserIds } }
-    })
-      .select('name department skills university isOnline')
-      .sort({ isOnline: -1, name: 1 })
-      .limit(4);
-
-    // 7. Upcoming events (RSVP is 'going' and eventDate >= now)
-    const stEvents = await Event.find({
+    Event.find({
       rsvps: {
         $elemMatch: { userId: me, status: 'going' }
       },
-      eventDate: { $gte: new Date() }
+      eventDate: { $gte: new Date() },
+      isDeleted: { $ne: true }
     })
       .sort({ eventDate: 1 })
-      .limit(3);
+      .limit(3),
 
-    // 8. Recent Notices (active)
-    const recentNotices = await Notice.find({
+    Notice.find({
+      isDeleted: { $ne: true },
       $or: [
         { expiresAt: { $exists: false } },
         { expiresAt: null },
@@ -94,30 +94,45 @@ router.get('/', auth, async (req, res) => {
       ]
     })
       .sort({ isPinned: -1, createdAt: -1 })
-      .limit(3);
+      .limit(3)
+  ]);
 
-    res.json({
-      user: currentUserObj,
-      stats: {
-        connCount,
-        grpCount,
-        myProjectCount,
-        myLikesTotal,
-        myEndorseCount,
-        pendingCount,
-        unreadCount
-      },
-      requests,
-      myGroupsData,
-      myProjects,
-      feed,
-      suggestions,
-      stEvents,
-      recentNotices
-    });
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to build dashboard stats', error: err.message });
-  }
-});
+  const myLikesTotal = likesAggregation[0] ? likesAggregation[0].totalLikes : 0;
+  const myEndorseCount = currentUserObj ? (currentUserObj.endorsements || []).length : 0;
+
+  const connectedUserIds = [me];
+  existingConns.forEach((c) => {
+    connectedUserIds.push(c.fromUser.toString());
+    connectedUserIds.push(c.toUser.toString());
+  });
+
+  const suggestions = await User.find({
+    _id: { $not: { $in: connectedUserIds } },
+    isDeleted: { $ne: true }
+  })
+    .select('name department skills university isOnline avatar')
+    .sort({ isOnline: -1, name: 1 })
+    .limit(4);
+
+  return sendSuccess(res, {
+    user: currentUserObj,
+    stats: {
+      connCount,
+      grpCount,
+      myProjectCount,
+      myLikesTotal,
+      myEndorseCount,
+      pendingCount,
+      unreadCount
+    },
+    requests,
+    myGroupsData,
+    myProjects,
+    feed,
+    suggestions,
+    stEvents,
+    recentNotices
+  }, 'Dashboard data retrieved successfully');
+}));
 
 module.exports = router;
