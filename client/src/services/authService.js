@@ -24,6 +24,7 @@ export const authService = {
       await apiClient('/api/auth/logout', { method: 'POST' });
     } catch (e) {}
     localStorage.removeItem('campusconnect_token');
+    localStorage.removeItem('campusconnect_refresh_token');
     localStorage.removeItem('campusconnect_user');
   },
 
@@ -34,10 +35,10 @@ export const authService = {
     });
   },
 
-  resetPassword: async (token, newPassword) => {
+  resetPassword: async (email, token, password) => {
     return apiClient('/api/auth/reset-password', {
       method: 'POST',
-      body: JSON.stringify({ token, newPassword })
+      body: JSON.stringify({ email, token, password })
     });
   },
 
@@ -48,10 +49,10 @@ export const authService = {
     });
   },
 
-  deleteAccount: async (password) => {
+  deleteAccount: async (password, confirmText = 'DELETE') => {
     return apiClient('/api/auth/delete-account', {
       method: 'POST',
-      body: JSON.stringify({ password })
+      body: JSON.stringify({ password, confirmText })
     });
   }
 };

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { authService } from '../services/authService';
 
 export default function ResetPassword() {
   const [searchParams] = useSearchParams();
@@ -31,19 +32,11 @@ export default function ResetPassword() {
 
     setLoading(true);
     try {
-      const res = await fetch('/api/auth/reset-password', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, token, password })
-      });
-      const data = await res.json();
-
-      if (!res.ok) throw new Error(data.message || 'Reset failed');
-
-      setMessage(data.message);
+      const resData = await authService.resetPassword(email, token, password);
+      setMessage(resData.message || 'Password reset successful!');
       setTimeout(() => {
         navigate('/login');
-      }, 3000);
+      }, 2500);
     } catch (err) {
       setError(err.message || 'Something went wrong.');
     } finally {

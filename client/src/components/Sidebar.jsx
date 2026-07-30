@@ -8,8 +8,6 @@ export default function Sidebar() {
   const [user, setUser] = useState(null);
   const [unreadCount, setUnreadCount] = useState(0);
 
-  if (!token) return null;
-
   useEffect(() => {
     if (!token) return;
 
@@ -38,6 +36,8 @@ export default function Sidebar() {
     const interval = setInterval(fetchUnread, 20000);
     return () => clearInterval(interval);
   }, [token]);
+
+  if (!token) return null;
 
   const handleLogout = async (e) => {
     e.preventDefault();

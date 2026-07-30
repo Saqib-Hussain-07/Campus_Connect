@@ -10,22 +10,26 @@ const auth = require('../middleware/auth');
 const asyncHandler = require('../utils/asyncHandler');
 const { sendSuccess, sendPaginated, sendError } = require('../utils/apiResponse');
 const { projectRules } = require('../middleware/validators');
+const { buildSafeRegexQuery } = require('../utils/regex');
 
 const router = express.Router();
 
 // ── Projects ──────────────────────────────────────────────────
 
-// Get Projects (with search/filter and pagination)
+// Get Projects (with safe search/filter and pagination)
 router.get('/projects', asyncHandler(async (req, res) => {
   const { search, category, status, page = 1, limit = 12 } = req.query;
   const query = { isDeleted: { $ne: true } };
 
   if (search) {
-    query.$or = [
-      { title: { $regex: search, $options: 'i' } },
-      { techStack: { $regex: search, $options: 'i' } },
-      { description: { $regex: search, $options: 'i' } }
-    ];
+    const safeRegex = buildSafeRegexQuery(search);
+    if (safeRegex) {
+      query.$or = [
+        { title: safeRegex },
+        { techStack: safeRegex },
+        { description: safeRegex }
+      ];
+    }
   }
   if (category) {
     query.category = category;
@@ -56,9 +60,6 @@ router.get('/projects/:id', asyncHandler(async (req, res) => {
     .populate('requests.userId', 'name department skills university avatar');
 
   if (!project) return sendError(res, 'Project not found', 404);
-
-  project.views = (project.views || 0) + 1;
-  await project.save();
 
   return sendSuccess(res, project, 'Project details fetched successfully');
 }));
@@ -92,6 +93,45 @@ router.post('/projects', auth, projectRules, asyncHandler(async (req, res) => {
   });
 
   return sendSuccess(res, project, 'Project created successfully', 201);
+}));
+
+// Edit Project (PUT /projects/:id)
+router.put('/projects/:id', auth, asyncHandler(async (req, res) => {
+  const project = await Project.findOne({ _id: req.params.id, isDeleted: { $ne: true } });
+  if (!project) return sendError(res, 'Project not found', 404);
+
+  if (project.userId.toString() !== req.user.id) {
+    return sendError(res, 'Not authorized to edit this project', 403);
+  }
+
+  const { title, description, category, techStack, githubUrl, liveUrl, status, teamSize } = req.body;
+  if (title) project.title = title.trim();
+  if (description) project.description = description.trim();
+  if (category) project.category = category;
+  if (techStack) project.techStack = Array.isArray(techStack) ? techStack : techStack.split(',').map(s => s.trim());
+  if (githubUrl !== undefined) project.githubUrl = githubUrl;
+  if (liveUrl !== undefined) project.liveUrl = liveUrl;
+  if (status) project.status = status;
+  if (teamSize) project.teamSize = Number(teamSize);
+
+  await project.save();
+  return sendSuccess(res, project, 'Project updated successfully');
+}));
+
+// Delete Project (DELETE /projects/:id)
+router.delete('/projects/:id', auth, asyncHandler(async (req, res) => {
+  const project = await Project.findOne({ _id: req.params.id, isDeleted: { $ne: true } });
+  if (!project) return sendError(res, 'Project not found', 404);
+
+  if (project.userId.toString() !== req.user.id) {
+    return sendError(res, 'Not authorized to delete this project', 403);
+  }
+
+  project.isDeleted = true;
+  project.deletedAt = new Date();
+  await project.save();
+
+  return sendSuccess(res, null, 'Project deleted successfully');
 }));
 
 // Toggle Project Like
@@ -153,60 +193,6 @@ router.post('/projects/:id/comment', auth, asyncHandler(async (req, res) => {
   return sendSuccess(res, updatedProject.comments, 'Comment posted successfully');
 }));
 
-// Submit Join/Team Request for Project
-router.post('/projects/:id/request', auth, asyncHandler(async (req, res) => {
-  const { message } = req.body;
-  const project = await Project.findOne({ _id: req.params.id, isDeleted: { $ne: true } });
-  if (!project) return sendError(res, 'Project not found', 404);
-
-  const userId = req.user.id;
-  const existing = project.requests.find((r) => r.userId.toString() === userId);
-  if (existing) return sendError(res, 'Request already submitted', 400);
-
-  project.requests.push({ userId, message });
-  await project.save();
-
-  const me = await User.findById(userId);
-
-  await Notification.create({
-    userId: project.userId,
-    actorId: userId,
-    type: 'project_join_request',
-    refId: project._id,
-    message: `${me.name} requested to join your project "${project.title}"`
-  });
-
-  return sendSuccess(res, { requests: project.requests }, 'Team join request submitted successfully');
-}));
-
-// Accept/Reject Team Join Request
-router.post('/projects/:id/request/:reqId', auth, asyncHandler(async (req, res) => {
-  const { action } = req.body;
-  const project = await Project.findOne({ _id: req.params.id, isDeleted: { $ne: true } });
-  if (!project) return sendError(res, 'Project not found', 404);
-
-  if (project.userId.toString() !== req.user.id) {
-    return sendError(res, 'Unauthorized to moderate requests for this project', 403);
-  }
-
-  const subReq = project.requests.id(req.params.reqId);
-  if (!subReq) return sendError(res, 'Request not found', 404);
-
-  subReq.status = action === 'accept' ? 'accepted' : 'rejected';
-  await project.save();
-
-  const me = await User.findById(req.user.id);
-  await Notification.create({
-    userId: subReq.userId,
-    actorId: req.user.id,
-    type: 'project_comment',
-    refId: project._id,
-    message: `${me.name} ${action}ed your request to join "${project.title}"`
-  });
-
-  return sendSuccess(res, { requests: project.requests }, `Request successfully ${action}ed`);
-}));
-
 // ── Groups ────────────────────────────────────────────────────
 
 // Get Groups (with filtering and pagination)
@@ -216,10 +202,13 @@ router.get('/groups', asyncHandler(async (req, res) => {
 
   if (type) query.type = type;
   if (search) {
-    query.$or = [
-      { name: { $regex: search, $options: 'i' } },
-      { description: { $regex: search, $options: 'i' } }
-    ];
+    const safeRegex = buildSafeRegexQuery(search);
+    if (safeRegex) {
+      query.$or = [
+        { name: safeRegex },
+        { description: safeRegex }
+      ];
+    }
   }
 
   const pageNum = Math.max(1, parseInt(page, 10) || 1);
@@ -262,6 +251,41 @@ router.post('/groups', auth, asyncHandler(async (req, res) => {
   return sendSuccess(res, group, 'Group created successfully', 201);
 }));
 
+// Edit Group (PUT /groups/:id)
+router.put('/groups/:id', auth, asyncHandler(async (req, res) => {
+  const group = await Group.findOne({ _id: req.params.id, isDeleted: { $ne: true } });
+  if (!group) return sendError(res, 'Group not found', 404);
+
+  if (group.createdBy.toString() !== req.user.id) {
+    return sendError(res, 'Not authorized to edit this group', 403);
+  }
+
+  const { name, description, type, status } = req.body;
+  if (name) group.name = name.trim();
+  if (description) group.description = description.trim();
+  if (type) group.type = type;
+  if (status) group.status = status;
+
+  await group.save();
+  return sendSuccess(res, group, 'Group updated successfully');
+}));
+
+// Delete Group (DELETE /groups/:id)
+router.delete('/groups/:id', auth, asyncHandler(async (req, res) => {
+  const group = await Group.findOne({ _id: req.params.id, isDeleted: { $ne: true } });
+  if (!group) return sendError(res, 'Group not found', 404);
+
+  if (group.createdBy.toString() !== req.user.id) {
+    return sendError(res, 'Not authorized to delete this group', 403);
+  }
+
+  group.isDeleted = true;
+  group.deletedAt = new Date();
+  await group.save();
+
+  return sendSuccess(res, null, 'Group deleted successfully');
+}));
+
 // Join/Leave Study Group
 router.post('/groups/:id/join', auth, asyncHandler(async (req, res) => {
   const group = await Group.findOne({ _id: req.params.id, isDeleted: { $ne: true } });
@@ -298,10 +322,13 @@ router.get('/events', asyncHandler(async (req, res) => {
 
   if (category) query.category = category;
   if (search) {
-    query.$or = [
-      { title: { $regex: search, $options: 'i' } },
-      { description: { $regex: search, $options: 'i' } }
-    ];
+    const safeRegex = buildSafeRegexQuery(search);
+    if (safeRegex) {
+      query.$or = [
+        { title: safeRegex },
+        { description: safeRegex }
+      ];
+    }
   }
 
   const pageNum = Math.max(1, parseInt(page, 10) || 1);
@@ -316,7 +343,6 @@ router.get('/events', asyncHandler(async (req, res) => {
     .populate('userId', 'name department avatar')
     .lean();
 
-  // Populate RSVPs from EventRsvp collection for each event
   const eventIds = events.map((e) => e._id);
   const rsvps = await EventRsvp.find({ eventId: { $in: eventIds } });
 
@@ -365,7 +391,44 @@ router.post('/events', auth, asyncHandler(async (req, res) => {
   return sendSuccess(res, { ...event.toObject(), rsvps: [] }, 'Event created successfully', 201);
 }));
 
-// RSVP to Event (using EventRsvp collection)
+// Edit Event (PUT /events/:id)
+router.put('/events/:id', auth, asyncHandler(async (req, res) => {
+  const event = await Event.findOne({ _id: req.params.id, isDeleted: { $ne: true } });
+  if (!event) return sendError(res, 'Event not found', 404);
+
+  if (event.userId.toString() !== req.user.id) {
+    return sendError(res, 'Not authorized to edit this event', 403);
+  }
+
+  const { title, description, category, eventDate, venue, isOnline } = req.body;
+  if (title) event.title = title.trim();
+  if (description) event.description = description.trim();
+  if (category) event.category = category;
+  if (eventDate) event.eventDate = new Date(eventDate);
+  if (venue !== undefined) event.venue = venue;
+  if (isOnline !== undefined) event.isOnline = Boolean(isOnline);
+
+  await event.save();
+  return sendSuccess(res, event, 'Event updated successfully');
+}));
+
+// Delete Event (DELETE /events/:id)
+router.delete('/events/:id', auth, asyncHandler(async (req, res) => {
+  const event = await Event.findOne({ _id: req.params.id, isDeleted: { $ne: true } });
+  if (!event) return sendError(res, 'Event not found', 404);
+
+  if (event.userId.toString() !== req.user.id) {
+    return sendError(res, 'Not authorized to delete this event', 403);
+  }
+
+  event.isDeleted = true;
+  event.deletedAt = new Date();
+  await event.save();
+
+  return sendSuccess(res, null, 'Event deleted successfully');
+}));
+
+// RSVP to Event
 router.post('/events/:id/rsvp', auth, asyncHandler(async (req, res) => {
   const { status } = req.body;
   if (!['going', 'interested', 'not_going'].includes(status)) {

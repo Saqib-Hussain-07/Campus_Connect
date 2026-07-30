@@ -237,19 +237,21 @@ router.post('/change-password', auth, changePasswordRules, asyncHandler(async (r
 // Forgot Password
 router.post('/forgot-password', forgotPasswordRules, asyncHandler(async (req, res) => {
   const { email } = req.body;
-  const user = await User.findOne({ email });
-  if (!user) return sendError(res, 'No user registered with this email', 400);
+  const user = await User.findOne({ email: (email || '').toLowerCase() });
 
-  const token = crypto.randomBytes(32).toString('hex');
-  user.resetToken = token;
-  user.resetExpires = Date.now() + 3600000; // 1 hour
-  await user.save();
+  if (user) {
+    const token = crypto.randomBytes(32).toString('hex');
+    user.resetToken = token;
+    user.resetExpires = Date.now() + 3600000; // 1 hour
+    await user.save();
 
-  const resetUrl = `http://localhost:3000/reset-password?token=${token}&email=${encodeURIComponent(email)}`;
+    console.log(`[AUTH LOG] Password reset token generated for ${email}: ${token}`);
+  }
+
   return sendSuccess(
     res,
-    { resetUrl },
-    'Password reset link generated successfully'
+    null,
+    'If an account with that email exists, a password reset link has been processed.'
   );
 }));
 
@@ -257,7 +259,7 @@ router.post('/forgot-password', forgotPasswordRules, asyncHandler(async (req, re
 router.post('/reset-password', resetPasswordRules, asyncHandler(async (req, res) => {
   const { email, token, password } = req.body;
   const user = await User.findOne({
-    email,
+    email: (email || '').toLowerCase(),
     resetToken: token,
     resetExpires: { $gt: Date.now() }
   });
@@ -266,7 +268,8 @@ router.post('/reset-password', resetPasswordRules, asyncHandler(async (req, res)
     return sendError(res, 'Invalid or expired password reset token', 400);
   }
 
-  user.password = await bcrypt.hash(password, 10);
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(password, salt);
   user.resetToken = undefined;
   user.resetExpires = undefined;
   await user.save();
@@ -276,12 +279,31 @@ router.post('/reset-password', resetPasswordRules, asyncHandler(async (req, res)
     { revokedAt: new Date() }
   );
 
-  return sendSuccess(res, null, 'Password has been reset successfully. You can now log in.');
+  return sendSuccess(res, null, 'Password updated successfully');
 }));
 
-// Delete Account
-router.delete('/delete-account', auth, asyncHandler(async (req, res) => {
+// Delete Account (With password re-authentication & typed DELETE confirmation)
+router.post('/delete-account', auth, asyncHandler(async (req, res) => {
   const userId = req.user.id;
+  const { password, confirmText } = req.body;
+
+  if (!password) {
+    return sendError(res, 'Password is required to confirm account deletion', 400);
+  }
+
+  if (confirmText !== 'DELETE') {
+    return sendError(res, 'Please type DELETE to confirm account deletion', 400);
+  }
+
+  const user = await User.findById(userId);
+  if (!user) {
+    return sendError(res, 'User not found', 404);
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) {
+    return sendError(res, 'Incorrect password. Account deletion aborted.', 400);
+  }
 
   await Project.deleteMany({ userId });
   await Group.deleteMany({ createdBy: userId });

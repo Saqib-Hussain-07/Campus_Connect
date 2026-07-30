@@ -6,18 +6,21 @@ const Connection = require('../models/Connection');
 const Notification = require('../models/Notification');
 const Activity = require('../models/Activity');
 const auth = require('../middleware/auth');
+const upload = require('../middleware/upload');
 const asyncHandler = require('../utils/asyncHandler');
 const { sendSuccess, sendPaginated, sendError } = require('../utils/apiResponse');
+const { buildSafeRegexQuery } = require('../utils/regex');
 
 const router = express.Router();
 
-// Get users list (with optional query filters: search, department, university, skill, and pagination)
+// Get users list (with safe query filters: search, department, university, skill, and pagination)
 router.get('/', asyncHandler(async (req, res) => {
   const { search, department, university, semester, skill, page = 1, limit = 12 } = req.query;
   const query = {};
 
   if (search) {
-    query.name = { $regex: search, $options: 'i' };
+    const safeRegex = buildSafeRegexQuery(search);
+    if (safeRegex) query.name = safeRegex;
   }
   if (department) {
     query.department = department;
@@ -29,7 +32,8 @@ router.get('/', asyncHandler(async (req, res) => {
     query.semester = Number(semester);
   }
   if (skill) {
-    query.skills = { $regex: skill, $options: 'i' };
+    const safeSkillRegex = buildSafeRegexQuery(skill);
+    if (safeSkillRegex) query.skills = safeSkillRegex;
   }
 
   const pageNum = Math.max(1, parseInt(page, 10) || 1);
@@ -44,6 +48,26 @@ router.get('/', asyncHandler(async (req, res) => {
     .limit(limitNum);
 
   return sendPaginated(res, users, pageNum, limitNum, total, 'Users retrieved successfully');
+}));
+
+// Upload Avatar Photo
+router.put('/avatar', auth, upload.single('avatar'), asyncHandler(async (req, res) => {
+  if (!req.file) {
+    return sendError(res, 'Please upload an image file', 400);
+  }
+
+  const user = await User.findById(req.user.id);
+  if (!user) return sendError(res, 'User not found', 404);
+
+  // Store relative avatar upload path
+  user.avatar = req.file.filename;
+  await user.save();
+
+  return sendSuccess(
+    res,
+    { avatar: user.avatar },
+    'Avatar photo uploaded successfully'
+  );
 }));
 
 // Update Profile
@@ -105,8 +129,8 @@ router.get('/:id', asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id).select('-password');
   if (!user) return sendError(res, 'User not found', 404);
 
-  const groups = await Group.find({ members: user._id }).limit(6).select('name type status');
-  const projects = await Project.find({ userId: user._id }).sort({ likes: -1 }).limit(4);
+  const groups = await Group.find({ members: user._id, isDeleted: { $ne: true } }).limit(6).select('name type status');
+  const projects = await Project.find({ userId: user._id, isDeleted: { $ne: true } }).sort({ likes: -1 }).limit(4);
 
   const endorsementCounts = {};
   (user.skills || []).forEach(skill => {

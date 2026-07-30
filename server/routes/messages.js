@@ -58,7 +58,7 @@ router.get('/conversations', auth, asyncHandler(async (req, res) => {
       skills: partner.skills,
       avatar: partner.avatar,
       last_msg: conv.lastMessageText || (conv.lastMessage ? conv.lastMessage.body : null),
-      last_time: conv.lastMessageAt || (conv.lastMessage ? conv.lastMessage.sentAt : null),
+      last_time: conv.lastMessageAt || (conv.lastMessage ? conv.lastMessage.createdAt : null),
       unread: unreadCount
     });
   }
@@ -67,7 +67,7 @@ router.get('/conversations', auth, asyncHandler(async (req, res) => {
   if (conversations.length === 0) {
     const messages = await Message.find({
       $or: [{ fromUser: me }, { toUser: me }]
-    }).sort({ sentAt: -1 });
+    }).sort({ createdAt: -1 });
 
     const partnerIds = new Set();
     messages.forEach((msg) => {
@@ -102,7 +102,7 @@ router.get('/conversations', auth, asyncHandler(async (req, res) => {
         skills: partner.skills,
         avatar: partner.avatar,
         last_msg: lastMsgObj ? lastMsgObj.body : null,
-        last_time: lastMsgObj ? lastMsgObj.sentAt : null,
+        last_time: lastMsgObj ? lastMsgObj.createdAt : null,
         unread: unreadCount
       });
     }
@@ -147,7 +147,7 @@ router.get('/thread/:withId', auth, asyncHandler(async (req, res) => {
       { fromUser: withId, toUser: me }
     ]
   })
-    .sort({ sentAt: 1 })
+    .sort({ createdAt: 1 })
     .skip(skip)
     .limit(limitNum)
     .populate('replyTo', 'body fromUser');

@@ -8,7 +8,7 @@ export default function Navbar() {
   const location = useLocation();
   const { user: authUser, token: authToken } = useAuth();
   const token = authToken || localStorage.getItem('campusconnect_token');
-  const [localUser] = useState(() => {
+  const [localUser, setLocalUser] = useState(() => {
     try {
       const stored = localStorage.getItem('campusconnect_user');
       return stored ? JSON.parse(stored) : null;
@@ -80,7 +80,7 @@ export default function Navbar() {
         if (!res.ok) throw new Error();
         return res.json();
       })
-      .then((data) => setUser(data))
+      .then((data) => setLocalUser(data))
       .catch(() => {
         // Token might be invalid/expired, clear it
         localStorage.removeItem('campusconnect_token');
@@ -126,7 +126,7 @@ export default function Navbar() {
     }
     localStorage.removeItem('campusconnect_token');
     localStorage.removeItem('campusconnect_user');
-    setUser(null);
+    setLocalUser(null);
     navigate('/');
     window.location.reload();
   };

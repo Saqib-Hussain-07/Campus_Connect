@@ -1,19 +1,30 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useAuth } from '../context/AuthContext';
+import { authService } from '../services/authService';
 
 export default function DeleteAccount() {
-  const navigate = useNavigate();
-  const token = localStorage.getItem('campusconnect_token');
+  const { logout } = useAuth();
+  const [password, setPassword] = useState('');
+  const [confirmText, setConfirmText] = useState('');
+  const [confirmCheckbox, setConfirmCheckbox] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [confirm, setConfirm] = useState(false);
 
-  const handleDelete = async () => {
-    if (!confirm) {
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    if (!confirmCheckbox) {
       setError('Please check the confirmation box first.');
+      return;
+    }
+    if (!password) {
+      setError('Please enter your password to confirm deletion.');
+      return;
+    }
+    if (confirmText !== 'DELETE') {
+      setError('Please type DELETE in the confirmation box.');
       return;
     }
 
@@ -21,22 +32,11 @@ export default function DeleteAccount() {
     setError('');
 
     try {
-      const res = await fetch('/api/auth/delete-account', {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      const data = await res.json();
-
-      if (!res.ok) throw new Error(data.message || 'Failed to delete account');
-
-      localStorage.removeItem('campusconnect_token');
-      localStorage.removeItem('campusconnect_user');
-      navigate('/');
-      window.location.reload();
+      await authService.deleteAccount(password, confirmText);
+      await logout();
+      window.location.href = '/';
     } catch (err) {
-      setError(err.message || 'Something went wrong.');
+      setError(err.message || 'Failed to delete account.');
       setLoading(false);
     }
   };
@@ -47,8 +47,6 @@ export default function DeleteAccount() {
 
       <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0">
-          
-
           <div className="col-12 cc-dash-content">
             <div className="row justify-content-center">
               <div className="col-lg-6">
@@ -62,28 +60,54 @@ export default function DeleteAccount() {
                     Deleting your account is permanent and cannot be undone. All your profile information, shared projects, study groups created, notifications, and chat histories will be permanently wiped out from our databases.
                   </p>
 
-                  <div className="form-check mb-4">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="confirmCheck"
-                      checked={confirm}
-                      onChange={(e) => setConfirm(e.target.checked)}
-                      style={{ cursor: 'pointer' }}
-                    />
-                    <label className="form-check-label" htmlFor="confirmCheck" style={{ fontSize: '.84rem', userSelect: 'none', cursor: 'pointer', fontWeight: '600' }}>
-                      I understand that this action is irreversible and I want to delete my account.
-                    </label>
-                  </div>
+                  <form onSubmit={handleDelete}>
+                    <div className="mb-3">
+                      <label className="cc-form-label">Account Password *</label>
+                      <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="cc-form-input"
+                        placeholder="Enter your current password"
+                        required
+                      />
+                    </div>
 
-                  <button
-                    onClick={handleDelete}
-                    className="btn cc-btn-fill"
-                    style={{ border: '1.5px solid var(--rust)', padding: '12px 28px', background: 'var(--rust)', color: '#fff', fontSize: '.8rem' }}
-                    disabled={loading}
-                  >
-                    {loading ? 'Deleting Account…' : 'Delete Account Permanently'}
-                  </button>
+                    <div className="mb-4">
+                      <label className="cc-form-label">Type "DELETE" to confirm *</label>
+                      <input
+                        type="text"
+                        value={confirmText}
+                        onChange={(e) => setConfirmText(e.target.value)}
+                        className="cc-form-input"
+                        placeholder="DELETE"
+                        required
+                      />
+                    </div>
+
+                    <div className="form-check mb-4">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id="confirmCheck"
+                        checked={confirmCheckbox}
+                        onChange={(e) => setConfirmCheckbox(e.target.checked)}
+                        style={{ cursor: 'pointer' }}
+                      />
+                      <label className="form-check-label" htmlFor="confirmCheck" style={{ fontSize: '.84rem', userSelect: 'none', cursor: 'pointer', fontWeight: '600' }}>
+                        I understand that this action is irreversible and I want to delete my account.
+                      </label>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="btn cc-btn-fill w-100 py-3"
+                      style={{ border: '1.5px solid var(--rust)', background: 'var(--rust)', color: '#fff', fontSize: '.8rem' }}
+                      disabled={loading}
+                    >
+                      {loading ? 'Deleting Account…' : 'Delete Account Permanently'}
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>

@@ -14,6 +14,7 @@ export function AuthProvider({ children }) {
   });
 
   const [token, setToken] = useState(() => localStorage.getItem('campusconnect_token') || null);
+  const [refreshToken, setRefreshToken] = useState(() => localStorage.getItem('campusconnect_refresh_token') || null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -35,9 +36,13 @@ export function AuthProvider({ children }) {
       });
   }, [token]);
 
-  const login = (authToken, userData) => {
+  const login = (authToken, userData, newRefreshToken) => {
     localStorage.setItem('campusconnect_token', authToken);
     localStorage.setItem('campusconnect_user', JSON.stringify(userData));
+    if (newRefreshToken) {
+      localStorage.setItem('campusconnect_refresh_token', newRefreshToken);
+      setRefreshToken(newRefreshToken);
+    }
     setToken(authToken);
     setUser(userData);
   };
@@ -45,7 +50,11 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     await authService.logout();
     setToken(null);
+    setRefreshToken(null);
     setUser(null);
+    localStorage.removeItem('campusconnect_token');
+    localStorage.removeItem('campusconnect_refresh_token');
+    localStorage.removeItem('campusconnect_user');
   };
 
   const updateUser = (updatedUser) => {
@@ -54,7 +63,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, login, logout, updateUser, isAuthenticated: !!token }}>
+    <AuthContext.Provider value={{ user, token, refreshToken, loading, login, logout, updateUser, isAuthenticated: !!token }}>
       {children}
     </AuthContext.Provider>
   );
