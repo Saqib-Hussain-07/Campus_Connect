@@ -32,6 +32,8 @@ const PORT = process.env.PORT || 5000;
 // Response Compression (Gzip / Brotli)
 app.use(compression());
 
+const cookieParser = require('./middleware/cookieParser');
+
 // Security Middlewares
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" },
@@ -39,6 +41,7 @@ app.use(helmet({
   referrerPolicy: { policy: "strict-origin-when-cross-origin" }
 }));
 app.use(getCorsOptions());
+app.use(cookieParser);
 
 // HTTP Request Logging
 app.use(morgan('combined', {

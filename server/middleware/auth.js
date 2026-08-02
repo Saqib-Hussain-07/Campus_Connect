@@ -3,11 +3,12 @@ const { sendError } = require('../utils/apiResponse');
 
 module.exports = (req, res, next) => {
   const authHeader = req.header('Authorization');
-  if (!authHeader) {
-    return sendError(res, 'No authentication token provided, authorization denied', 401);
+  let token = authHeader ? authHeader.replace('Bearer ', '') : null;
+
+  if (!token && req.cookies) {
+    token = req.cookies.token || req.cookies.accessToken;
   }
 
-  const token = authHeader.replace('Bearer ', '');
   if (!token) {
     return sendError(res, 'No authentication token provided, authorization denied', 401);
   }

@@ -75,6 +75,19 @@ router.post('/register', registerLimiter, registerRules, asyncHandler(async (req
   const accessToken = generateAccessToken(user._id);
   const refreshToken = await generateRefreshToken(user._id, req.ip);
 
+  res.cookie('token', accessToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 15 * 60 * 1000 // 15m
+  });
+  res.cookie('refreshToken', refreshToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7d
+  });
+
   return sendSuccess(
     res,
     {
@@ -142,6 +155,19 @@ router.post('/login', authLimiter, loginRules, asyncHandler(async (req, res) => 
   const accessToken = generateAccessToken(user._id);
   const refreshToken = await generateRefreshToken(user._id, req.ip);
 
+  res.cookie('token', accessToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 15 * 60 * 1000 // 15m
+  });
+  res.cookie('refreshToken', refreshToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7d
+  });
+
   return sendSuccess(
     res,
     {
@@ -165,7 +191,7 @@ router.post('/login', authLimiter, loginRules, asyncHandler(async (req, res) => 
 
 // Refresh Token (Token Rotation)
 router.post('/refresh', asyncHandler(async (req, res) => {
-  const { refreshToken: tokenStr } = req.body;
+  const tokenStr = req.cookies?.refreshToken || req.body?.refreshToken;
   if (!tokenStr) return sendError(res, 'Refresh token is required', 400);
 
   const refreshToken = await RefreshToken.findOne({ token: tokenStr });
@@ -180,6 +206,19 @@ router.post('/refresh', asyncHandler(async (req, res) => {
   await refreshToken.save();
 
   const newAccessToken = generateAccessToken(refreshToken.user);
+
+  res.cookie('token', newAccessToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 15 * 60 * 1000 // 15m
+  });
+  res.cookie('refreshToken', newRefreshTokenStr, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7d
+  });
 
   return sendSuccess(
     res,
@@ -200,7 +239,7 @@ router.get('/me', auth, asyncHandler(async (req, res) => {
 
 // Logout
 router.post('/logout', auth, asyncHandler(async (req, res) => {
-  const { refreshToken: tokenStr } = req.body;
+  const tokenStr = req.cookies?.refreshToken || req.body?.refreshToken;
   
   await User.findByIdAndUpdate(req.user.id, { isOnline: false });
 
@@ -210,6 +249,9 @@ router.post('/logout', auth, asyncHandler(async (req, res) => {
       { revokedAt: new Date() }
     );
   }
+
+  res.clearCookie('token', { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax' });
+  res.clearCookie('refreshToken', { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax' });
 
   return sendSuccess(res, null, 'Logged out successfully');
 }));

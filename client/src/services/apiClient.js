@@ -43,6 +43,7 @@ export const apiClient = async (endpoint, options = {}) => {
   });
 
   const config = {
+    credentials: 'same-origin',
     ...options,
     headers: buildHeaders(token)
   };
@@ -52,16 +53,16 @@ export const apiClient = async (endpoint, options = {}) => {
 
   // Automatic 401 TOKEN_EXPIRED interceptor to auto-refresh access token seamlessly
   if (res.status === 401 && (data.code === 'TOKEN_EXPIRED' || data.errors?.code === 'TOKEN_EXPIRED' || data.message?.includes('expired'))) {
-    const refreshToken = localStorage.getItem('campusconnect_refresh_token');
-    if (refreshToken && !options._isRetry) {
+    if (!options._isRetry) {
       try {
         if (!refreshPromise) {
           refreshPromise = (async () => {
             const currentRefreshToken = localStorage.getItem('campusconnect_refresh_token');
             const refreshRes = await fetch('/api/auth/refresh', {
               method: 'POST',
+              credentials: 'same-origin',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ refreshToken: currentRefreshToken })
+              body: JSON.stringify({ refreshToken: currentRefreshToken || '' })
             });
             const refreshData = await refreshRes.json();
             const newAccessToken = refreshData.token || refreshData.data?.token || refreshData.accessToken || refreshData.data?.accessToken;
