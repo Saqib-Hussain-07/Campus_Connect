@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 import Footer from '../components/Footer';
 
 export default function PostResource() {
   const navigate = useNavigate();
+  const location = useLocation();
   const token = localStorage.getItem('campusconnect_token');
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login', { state: { from: location, message: 'Please log in to share study materials or academic resources.' } });
+    }
+  }, [token, navigate, location]);
 
   const [form, setForm] = useState({
     title: '',

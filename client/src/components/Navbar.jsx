@@ -126,6 +126,11 @@ export default function Navbar() {
     }
     localStorage.removeItem('campusconnect_token');
     localStorage.removeItem('campusconnect_user');
+    if ('caches' in window) {
+      try {
+        await caches.delete('campusconnect-dynamic-v2');
+      } catch (err) {}
+    }
     setLocalUser(null);
     navigate('/');
     window.location.reload();

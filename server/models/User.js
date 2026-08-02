@@ -90,5 +90,7 @@ const userSchema = new mongoose.Schema({
 userSchema.index({ department: 1, semester: 1 });
 userSchema.index({ skills: 1 });
 userSchema.index({ isOnline: 1 });
+userSchema.index({ isDeleted: 1, isOnline: -1, name: 1 });
+userSchema.index({ department: 1, semester: 1, isDeleted: 1 });
 
 module.exports = mongoose.model('User', userSchema);

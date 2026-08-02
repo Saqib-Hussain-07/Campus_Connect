@@ -153,8 +153,8 @@ export default function Events() {
 
               {/* Quick Actions */}
               <div className="d-flex justify-content-end mb-4">
-                <Link to="/create-event" className="cc-btn-lg-dark" style={{ padding: '10px 20px', fontSize: '.76rem' }}>
-                  <span>Host Event</span><i className="fas fa-plus ms-2"></i>
+                <Link to={token ? "/create-event" : "/login"} state={token ? null : { message: 'Please log in to host campus events and hackathons.' }} className="cc-btn-lg-dark" style={{ padding: '10px 20px', fontSize: '.76rem' }}>
+                  <span>{token ? 'Host Event / Hackathon' : 'Login to Host Event'}</span><i className="fas fa-plus ms-2"></i>
                 </Link>
               </div>
 

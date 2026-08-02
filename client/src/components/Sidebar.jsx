@@ -51,6 +51,11 @@ export default function Sidebar() {
     }
     localStorage.removeItem('campusconnect_token');
     localStorage.removeItem('campusconnect_user');
+    if ('caches' in window) {
+      try {
+        await caches.delete('campusconnect-dynamic-v2');
+      } catch (err) {}
+    }
     navigate('/');
     window.location.reload();
   };
@@ -168,6 +173,17 @@ export default function Sidebar() {
         <a href="#logout" className="cc-dash-nav-link" onClick={handleLogout} style={{ color: 'rgba(220,53,69,.7)' }}>
           <i className="fas fa-sign-out-alt"></i>Logout
         </a>
+
+        <div style={{ height: '1px', background: 'rgba(255,255,255,.06)', margin: '15px 0 10px 0' }}></div>
+
+        <div className="d-flex align-items-center gap-2 px-2 py-2 rounded-3" style={{ background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.05)' }}>
+          <div className="cc-brand-mark" style={{ width: '20px', height: '20px' }}>
+            <i className="fas fa-graduation-cap" style={{ fontSize: '8px' }}></i>
+          </div>
+          <div style={{ fontSize: '.68rem', fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,.7)' }}>
+            CampusConnect <span style={{ color: 'var(--rust-light)', fontWeight: '600' }}>v1.0.0</span>
+          </div>
+        </div>
       </nav>
     </div>
   );

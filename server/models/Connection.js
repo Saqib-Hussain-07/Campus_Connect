@@ -9,5 +9,7 @@ const connectionSchema = new mongoose.Schema({
 
 // Ensure uniqueness per connection pair
 connectionSchema.index({ fromUser: 1, toUser: 1 }, { unique: true });
+connectionSchema.index({ toUser: 1, status: 1 });
+connectionSchema.index({ fromUser: 1, status: 1 });
 
 module.exports = mongoose.model('Connection', connectionSchema);

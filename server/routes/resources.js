@@ -5,35 +5,43 @@ const auth = require('../middleware/auth');
 const asyncHandler = require('../utils/asyncHandler');
 const { sendSuccess, sendPaginated, sendError } = require('../utils/apiResponse');
 const { resourceRules } = require('../middleware/validators');
+const { cache, cacheMiddleware } = require('../utils/cache');
+const { buildSafeRegexQuery } = require('../utils/regex');
 
 const router = express.Router();
 
-// List resources (with optional filters and pagination)
-router.get('/', asyncHandler(async (req, res) => {
+// List resources (with optional filters, pagination, and caching)
+router.get('/', cacheMiddleware(60), asyncHandler(async (req, res) => {
   const { department, semester, search, type, page = 1, limit = 10 } = req.query;
-  const query = {};
+  const query = { isDeleted: { $ne: true } };
 
   if (department) query.department = department;
   if (semester) query.semester = Number(semester);
   if (type) query.type = type;
   if (search) {
-    query.$or = [
-      { title: { $regex: search, $options: 'i' } },
-      { description: { $regex: search, $options: 'i' } },
-      { subject: { $regex: search, $options: 'i' } }
-    ];
+    const safeRegex = buildSafeRegexQuery(search);
+    if (safeRegex) {
+      query.$or = [
+        { title: safeRegex },
+        { description: safeRegex },
+        { subject: safeRegex }
+      ];
+    }
   }
 
   const pageNum = Math.max(1, parseInt(page, 10) || 1);
   const limitNum = Math.min(50, Math.max(1, parseInt(limit, 10) || 10));
   const skip = (pageNum - 1) * limitNum;
 
-  const total = await Resource.countDocuments(query);
-  const resources = await Resource.find(query)
-    .sort({ createdAt: -1 })
-    .skip(skip)
-    .limit(limitNum)
-    .populate('userId', 'name department avatar');
+  const [total, resources] = await Promise.all([
+    Resource.countDocuments(query),
+    Resource.find(query)
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limitNum)
+      .populate('userId', 'name department avatar')
+      .lean()
+  ]);
 
   return sendPaginated(res, resources, pageNum, limitNum, total, 'Resources retrieved successfully');
 }));
@@ -61,6 +69,8 @@ router.post('/', auth, resourceRules, asyncHandler(async (req, res) => {
     refTitle: resource.title
   });
 
+  cache.delByPattern('/api/resources');
+
   return sendSuccess(res, resource, 'Resource shared successfully', 201);
 }));
 
@@ -75,10 +85,12 @@ router.post('/:id/like', auth, asyncHandler(async (req, res) => {
   if (likeIdx > -1) {
     resource.likes.splice(likeIdx, 1);
     await resource.save();
+    cache.delByPattern('/api/resources');
     return sendSuccess(res, { likesCount: resource.likes.length, isLiked: false }, 'Unliked resource');
   } else {
     resource.likes.push(userId);
     await resource.save();
+    cache.delByPattern('/api/resources');
     return sendSuccess(res, { likesCount: resource.likes.length, isLiked: true }, 'Liked resource');
   }
 }));

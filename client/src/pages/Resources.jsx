@@ -166,8 +166,8 @@ export default function Resources() {
 
               {/* Quick Actions */}
               <div className="d-flex justify-content-end mb-4">
-                <Link to="/post-resource" className="cc-btn-lg-dark" style={{ padding: '10px 20px', fontSize: '.76rem' }}>
-                  <span>Share Resource</span><i className="fas fa-plus"></i>
+                <Link to={token ? "/post-resource" : "/login"} state={token ? null : { message: 'Please log in to share study materials or academic resources.' }} className="cc-btn-lg-dark" style={{ padding: '10px 20px', fontSize: '.76rem' }}>
+                  <span>{token ? 'Share Resource' : 'Login to Share Resource'}</span><i className="fas fa-plus ms-2"></i>
                 </Link>
               </div>
 

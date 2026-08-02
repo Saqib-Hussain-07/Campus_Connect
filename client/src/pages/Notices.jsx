@@ -137,13 +137,11 @@ export default function Notices() {
                       )}
                     </div>
                   </div>
-                  {token && (
-                    <div className="col-md-4 text-end">
-                      <Link to="/post-notice" className="cc-btn-lg-dark w-100 justify-content-center" style={{ height: '42px', padding: '0 20px', fontSize: '.76rem' }}>
-                        <span>Post a Notice</span><i className="fas fa-plus ms-2"></i>
-                      </Link>
-                    </div>
-                  )}
+                  <div className="col-md-4 text-end">
+                    <Link to={token ? "/post-notice" : "/login"} state={token ? null : { message: 'Please log in to post campus announcements or notices.' }} className="cc-btn-lg-dark w-100 justify-content-center" style={{ height: '42px', padding: '0 20px', fontSize: '.76rem' }}>
+                      <span>{token ? 'Post a Notice' : 'Login to Post Notice'}</span><i className="fas fa-plus ms-2"></i>
+                    </Link>
+                  </div>
                 </div>
               </div>
 

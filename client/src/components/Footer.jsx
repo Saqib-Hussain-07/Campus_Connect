@@ -71,7 +71,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="cc-footer-bottom d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
-          <p className="cc-footer-copy mb-0">© {new Date().getFullYear()} CampusConnect. All rights reserved.</p>
+          <div className="d-flex align-items-center gap-2">
+            <div className="cc-brand-mark" style={{ width: '18px', height: '18px' }}>
+              <i className="fas fa-graduation-cap" style={{ fontSize: '7px' }}></i>
+            </div>
+            <p className="cc-footer-copy mb-0">
+              © {new Date().getFullYear()} CampusConnect <span style={{ opacity: 0.65, fontSize: '0.75rem', marginLeft: '4px' }}>v1.0.0</span>. All rights reserved.
+            </p>
+          </div>
           <div className="d-flex gap-4">
             <a href="#" className="cc-footer-legal-link">Privacy</a>
             <a href="#" className="cc-footer-legal-link">Terms</a>

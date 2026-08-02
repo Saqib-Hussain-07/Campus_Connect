@@ -42,12 +42,15 @@ router.get('/projects', asyncHandler(async (req, res) => {
   const limitNum = Math.min(50, Math.max(1, parseInt(limit, 10) || 12));
   const skip = (pageNum - 1) * limitNum;
 
-  const total = await Project.countDocuments(query);
-  const projects = await Project.find(query)
-    .sort({ createdAt: -1 })
-    .skip(skip)
-    .limit(limitNum)
-    .populate('userId', 'name department university avatar');
+  const [total, projects] = await Promise.all([
+    Project.countDocuments(query),
+    Project.find(query)
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limitNum)
+      .populate('userId', 'name department university avatar')
+      .lean()
+  ]);
 
   return sendPaginated(res, projects, pageNum, limitNum, total, 'Projects retrieved successfully');
 }));
@@ -57,7 +60,8 @@ router.get('/projects/:id', asyncHandler(async (req, res) => {
   const project = await Project.findOne({ _id: req.params.id, isDeleted: { $ne: true } })
     .populate('userId', 'name department university email avatar')
     .populate('comments.userId', 'name department avatar')
-    .populate('requests.userId', 'name department skills university avatar');
+    .populate('requests.userId', 'name department skills university avatar')
+    .lean();
 
   if (!project) return sendError(res, 'Project not found', 404);
 
@@ -215,12 +219,15 @@ router.get('/groups', asyncHandler(async (req, res) => {
   const limitNum = Math.min(50, Math.max(1, parseInt(limit, 10) || 12));
   const skip = (pageNum - 1) * limitNum;
 
-  const total = await Group.countDocuments(query);
-  const groups = await Group.find(query)
-    .sort({ createdAt: -1 })
-    .skip(skip)
-    .limit(limitNum)
-    .populate('createdBy', 'name department avatar');
+  const [total, groups] = await Promise.all([
+    Group.countDocuments(query),
+    Group.find(query)
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limitNum)
+      .populate('createdBy', 'name department avatar')
+      .lean()
+  ]);
 
   return sendPaginated(res, groups, pageNum, limitNum, total, 'Groups retrieved successfully');
 }));

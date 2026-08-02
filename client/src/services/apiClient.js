@@ -1,21 +1,33 @@
-// Central API Client fetch wrapper with token refresh interceptor & GET response caching
+// Central API Client fetch wrapper with token refresh interceptor & smart domain-scoped GET caching
 
 const apiCache = new Map();
-const MAX_CACHE_ENTRIES = 50;
-const TTL_MS = 30000; // 30s TTL cache
+const MAX_CACHE_ENTRIES = 100;
+const DEFAULT_TTL_MS = 30000; // 30s default TTL
+
+const getDomainPrefix = (endpoint) => {
+  if (!endpoint) return '';
+  const match = endpoint.match(/^\/api\/([^\/?#]+)/);
+  return match ? match[1] : '';
+};
 
 export const apiClient = async (endpoint, options = {}) => {
   const method = (options.method || 'GET').toUpperCase();
   let token = localStorage.getItem('campusconnect_token');
 
-  // Invalidate cache on state mutation requests (POST, PUT, DELETE, PATCH)
+  // Smart domain-scoped cache invalidation on state mutations
   if (['POST', 'PUT', 'DELETE', 'PATCH'].includes(method)) {
-    apiCache.clear();
+    const domain = getDomainPrefix(endpoint);
+    const invalidateTarget = options.invalidatePrefix || domain;
+    if (invalidateTarget) {
+      invalidateCacheByPattern(invalidateTarget);
+    } else {
+      apiCache.clear();
+    }
   }
 
   // Return cached payload for GET requests if fresh
+  const cacheKey = `${endpoint}_${JSON.stringify(options.params || {})}_${token || ''}`;
   if (method === 'GET' && !options.skipCache) {
-    const cacheKey = `${endpoint}_${JSON.stringify(options.params || {})}_${token || ''}`;
     const cached = apiCache.get(cacheKey);
     if (cached && Date.now() < cached.expiresAt) {
       return cached.data;
@@ -74,17 +86,25 @@ export const apiClient = async (endpoint, options = {}) => {
 
   const result = data.data !== undefined ? data.data : data;
 
-  // Cache GET successful response (with LRU bounds)
+  // Cache GET successful response (with LRU bounds and custom TTL)
   if (method === 'GET' && !options.skipCache) {
-    const cacheKey = `${endpoint}_${JSON.stringify(options.params || {})}_${token || ''}`;
+    const ttl = options.ttl || DEFAULT_TTL_MS;
     if (apiCache.size >= MAX_CACHE_ENTRIES) {
       const firstKey = apiCache.keys().next().value;
       apiCache.delete(firstKey);
     }
-    apiCache.set(cacheKey, { data: result, expiresAt: Date.now() + TTL_MS });
+    apiCache.set(cacheKey, { data: result, expiresAt: Date.now() + ttl });
   }
 
   return result;
+};
+
+export const invalidateCacheByPattern = (pattern) => {
+  for (const key of apiCache.keys()) {
+    if (key.includes(pattern)) {
+      apiCache.delete(key);
+    }
+  }
 };
 
 export const clearApiCache = () => {

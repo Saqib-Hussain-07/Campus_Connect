@@ -11,7 +11,8 @@ router.get('/', auth, asyncHandler(async (req, res) => {
   const notifications = await Notification.find({ userId: req.user.id })
     .populate('actorId', 'name department avatar')
     .sort({ createdAt: -1 })
-    .limit(30);
+    .limit(30)
+    .lean();
 
   return sendSuccess(res, notifications, 'Notifications fetched successfully');
 }));

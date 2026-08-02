@@ -40,12 +40,17 @@ router.get('/', asyncHandler(async (req, res) => {
   const limitNum = Math.min(50, Math.max(1, parseInt(limit, 10) || 12));
   const skip = (pageNum - 1) * limitNum;
 
-  const total = await User.countDocuments(query);
-  const users = await User.find(query)
-    .select('-password')
-    .sort({ isOnline: -1, name: 1 })
-    .skip(skip)
-    .limit(limitNum);
+  query.isDeleted = { $ne: true };
+
+  const [total, users] = await Promise.all([
+    User.countDocuments(query),
+    User.find(query)
+      .select('-password')
+      .sort({ isOnline: -1, name: 1 })
+      .skip(skip)
+      .limit(limitNum)
+      .lean()
+  ]);
 
   return sendPaginated(res, users, pageNum, limitNum, total, 'Users retrieved successfully');
 }));
@@ -118,19 +123,21 @@ router.get('/connections/status/:id', auth, asyncHandler(async (req, res) => {
       { fromUser: myId, toUser: theirId },
       { fromUser: theirId, toUser: myId }
     ]
-  });
+  }).lean();
 
   if (!conn) return sendSuccess(res, { status: null }, 'Connection status retrieved');
   return sendSuccess(res, { status: conn.status, connectionId: conn._id, fromUser: conn.fromUser }, 'Connection status retrieved');
 }));
 
-// Get user profile details by ID
+// Get user profile details by ID (Parallelized with .lean())
 router.get('/:id', asyncHandler(async (req, res) => {
-  const user = await User.findById(req.params.id).select('-password');
-  if (!user) return sendError(res, 'User not found', 404);
+  const [user, groups, projects] = await Promise.all([
+    User.findById(req.params.id).select('-password').lean(),
+    Group.find({ members: req.params.id, isDeleted: { $ne: true } }).limit(6).select('name type status').lean(),
+    Project.find({ userId: req.params.id, isDeleted: { $ne: true } }).sort({ likes: -1 }).limit(4).lean()
+  ]);
 
-  const groups = await Group.find({ members: user._id, isDeleted: { $ne: true } }).limit(6).select('name type status');
-  const projects = await Project.find({ userId: user._id, isDeleted: { $ne: true } }).sort({ likes: -1 }).limit(4);
+  if (!user) return sendError(res, 'User not found', 404);
 
   const endorsementCounts = {};
   (user.skills || []).forEach(skill => {

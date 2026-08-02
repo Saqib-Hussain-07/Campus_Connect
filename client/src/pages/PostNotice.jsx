@@ -1,20 +1,40 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
 import Footer from '../components/Footer';
 
 export default function PostNotice() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
   const token = localStorage.getItem('campusconnect_token');
 
+  useEffect(() => {
+    if (!token) {
+      navigate('/login', { state: { from: location, message: 'Please log in to post campus announcements or notices.' } });
+    }
+  }, [token, navigate, location]);
+
   const [form, setForm] = useState({
-    title: '',
-    body: '',
+    title: searchParams.get('title') || '',
+    body: [searchParams.get('text'), searchParams.get('url')].filter(Boolean).join(' ') || '',
     category: 'general',
     tags: '',
     expiresAt: ''
   });
+
+  useEffect(() => {
+    const sharedTitle = searchParams.get('title');
+    const sharedText = searchParams.get('text');
+    const sharedUrl = searchParams.get('url');
+    if (sharedTitle || sharedText || sharedUrl) {
+      setForm((prev) => ({
+        ...prev,
+        title: sharedTitle || prev.title,
+        body: [sharedText, sharedUrl].filter(Boolean).join(' ') || prev.body
+      }));
+    }
+  }, [searchParams]);
 
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);

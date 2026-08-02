@@ -49,31 +49,35 @@ router.get('/', auth, asyncHandler(async (req, res) => {
       { $group: { _id: null, totalLikes: { $sum: '$likesCount' } } }
     ]),
 
-    User.findById(me).select('-password'),
+    User.findById(me).select('-password').lean(),
     Connection.countDocuments({ toUser: me, status: 'pending' }),
     Message.countDocuments({ toUser: me, isRead: false, isDeleted: { $ne: true } }),
     
     Connection.find({ toUser: me, status: 'pending' })
       .populate('fromUser', 'name department skills university avatar')
       .sort({ createdAt: -1 })
-      .limit(5),
+      .limit(5)
+      .lean(),
 
     Group.find({ members: me, isDeleted: { $ne: true } })
       .sort({ createdAt: -1 })
-      .limit(5),
+      .limit(5)
+      .lean(),
 
     Project.find({ userId: me, isDeleted: { $ne: true } })
       .sort({ createdAt: -1 })
-      .limit(4),
+      .limit(4)
+      .lean(),
 
     Activity.find()
       .populate('userId', 'name department avatar')
       .sort({ createdAt: -1 })
-      .limit(10),
+      .limit(10)
+      .lean(),
 
     Connection.find({
       $or: [{ fromUser: me }, { toUser: me }]
-    }),
+    }).lean(),
 
     Event.find({
       rsvps: {
@@ -83,7 +87,8 @@ router.get('/', auth, asyncHandler(async (req, res) => {
       isDeleted: { $ne: true }
     })
       .sort({ eventDate: 1 })
-      .limit(3),
+      .limit(3)
+      .lean(),
 
     Notice.find({
       isDeleted: { $ne: true },
@@ -95,6 +100,7 @@ router.get('/', auth, asyncHandler(async (req, res) => {
     })
       .sort({ isPinned: -1, createdAt: -1 })
       .limit(3)
+      .lean()
   ]);
 
   const myLikesTotal = likesAggregation[0] ? likesAggregation[0].totalLikes : 0;
@@ -112,7 +118,8 @@ router.get('/', auth, asyncHandler(async (req, res) => {
   })
     .select('name department skills university isOnline avatar')
     .sort({ isOnline: -1, name: 1 })
-    .limit(4);
+    .limit(4)
+    .lean();
 
   return sendSuccess(res, {
     user: currentUserObj,

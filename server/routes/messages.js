@@ -35,39 +35,42 @@ router.get('/conversations', auth, asyncHandler(async (req, res) => {
   const dbConversations = await Conversation.find({ participants: me })
     .populate('participants', 'name department isOnline skills avatar')
     .populate('lastMessage')
-    .sort({ lastMessageAt: -1 });
+    .sort({ lastMessageAt: -1 })
+    .lean();
 
-  const conversations = [];
+  const conversations = await Promise.all(
+    dbConversations.map(async (conv) => {
+      const partner = conv.participants.find((p) => p._id.toString() !== me);
+      if (!partner) return null;
 
-  for (const conv of dbConversations) {
-    const partner = conv.participants.find((p) => p._id.toString() !== me);
-    if (!partner) continue;
+      const unreadCount = await Message.countDocuments({
+        conversationId: conv._id,
+        fromUser: partner._id,
+        isRead: false
+      });
 
-    const unreadCount = await Message.countDocuments({
-      conversationId: conv._id,
-      fromUser: partner._id,
-      isRead: false
-    });
+      return {
+        conversationId: conv._id,
+        id: partner._id,
+        name: partner.name,
+        department: partner.department,
+        isOnline: partner.isOnline,
+        skills: partner.skills,
+        avatar: partner.avatar,
+        last_msg: conv.lastMessageText || (conv.lastMessage ? conv.lastMessage.body : null),
+        last_time: conv.lastMessageAt || (conv.lastMessage ? conv.lastMessage.createdAt : null),
+        unread: unreadCount
+      };
+    })
+  );
 
-    conversations.push({
-      conversationId: conv._id,
-      id: partner._id,
-      name: partner.name,
-      department: partner.department,
-      isOnline: partner.isOnline,
-      skills: partner.skills,
-      avatar: partner.avatar,
-      last_msg: conv.lastMessageText || (conv.lastMessage ? conv.lastMessage.body : null),
-      last_time: conv.lastMessageAt || (conv.lastMessage ? conv.lastMessage.createdAt : null),
-      unread: unreadCount
-    });
-  }
+  const filteredConversations = conversations.filter(Boolean);
 
   // Fallback for legacy messages that might not have a conversation model yet
-  if (conversations.length === 0) {
+  if (filteredConversations.length === 0) {
     const messages = await Message.find({
       $or: [{ fromUser: me }, { toUser: me }]
-    }).sort({ createdAt: -1 });
+    }).sort({ createdAt: -1 }).lean();
 
     const partnerIds = new Set();
     messages.forEach((msg) => {
@@ -78,7 +81,8 @@ router.get('/conversations', auth, asyncHandler(async (req, res) => {
     });
 
     const partners = await User.find({ _id: { $in: Array.from(partnerIds) } })
-      .select('name department isOnline skills avatar');
+      .select('name department isOnline skills avatar')
+      .lean();
 
     for (const partner of partners) {
       const partnerIdStr = partner._id.toString();
@@ -94,7 +98,7 @@ router.get('/conversations', auth, asyncHandler(async (req, res) => {
         isRead: false
       });
 
-      conversations.push({
+      filteredConversations.push({
         id: partner._id,
         name: partner.name,
         department: partner.department,
@@ -107,10 +111,10 @@ router.get('/conversations', auth, asyncHandler(async (req, res) => {
       });
     }
 
-    conversations.sort((a, b) => new Date(b.last_time || 0) - new Date(a.last_time || 0));
+    filteredConversations.sort((a, b) => new Date(b.last_time || 0) - new Date(a.last_time || 0));
   }
 
-  return sendSuccess(res, conversations, 'Conversations retrieved successfully');
+  return sendSuccess(res, filteredConversations, 'Conversations retrieved successfully');
 }));
 
 // Fetch chat thread history
@@ -119,7 +123,7 @@ router.get('/thread/:withId', auth, asyncHandler(async (req, res) => {
   const withId = req.params.withId;
   const { page = 1, limit = 50 } = req.query;
 
-  const partner = await User.findById(withId).select('name department isOnline skills avatar');
+  const partner = await User.findById(withId).select('name department isOnline skills avatar').lean();
   if (!partner) return sendError(res, 'Chat user not found', 404);
 
   const conversation = await getOrCreateConversation(me, withId);
@@ -150,7 +154,8 @@ router.get('/thread/:withId', auth, asyncHandler(async (req, res) => {
     .sort({ createdAt: 1 })
     .skip(skip)
     .limit(limitNum)
-    .populate('replyTo', 'body fromUser');
+    .populate('replyTo', 'body fromUser')
+    .lean();
 
   return sendSuccess(res, { conversationId: conversation._id, partner, thread }, 'Message thread retrieved successfully');
 }));

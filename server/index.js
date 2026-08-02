@@ -10,6 +10,7 @@ const { apiLimiter } = require('./middleware/rateLimiter');
 const { errorHandler } = require('./middleware/errorHandler');
 const logger = require('./utils/logger');
 const { sendSuccess } = require('./utils/apiResponse');
+const { cacheMiddleware } = require('./utils/cache');
 
 // Validate environment variables BEFORE app initialization
 validateEnv();
@@ -70,21 +71,23 @@ const Group = require('./models/Group');
 const Connection = require('./models/Connection');
 const Message = require('./models/Message');
 
-app.get('/api/home', async (req, res, next) => {
+app.get('/api/home', cacheMiddleware(60), async (req, res, next) => {
   try {
-    const userCount = await User.countDocuments();
-    const groupCount = await Group.countDocuments();
-    const connCount = await Connection.countDocuments({ status: 'accepted' });
-    const messageCount = await Message.countDocuments();
-
-    const recentStudents = await User.find({}, 'name department semester university skills isOnline avatar')
-      .sort({ _id: -1 })
-      .limit(6);
-
-    const recentGroups = await Group.find()
-      .populate('createdBy', 'name')
-      .sort({ _id: -1 })
-      .limit(6);
+    const [userCount, groupCount, connCount, messageCount, recentStudents, recentGroups] = await Promise.all([
+      User.countDocuments({ isDeleted: { $ne: true } }),
+      Group.countDocuments({ isDeleted: { $ne: true } }),
+      Connection.countDocuments({ status: 'accepted' }),
+      Message.countDocuments({ isDeleted: { $ne: true } }),
+      User.find({ isDeleted: { $ne: true } }, 'name department semester university skills isOnline avatar')
+        .sort({ _id: -1 })
+        .limit(6)
+        .lean(),
+      Group.find({ isDeleted: { $ne: true } })
+        .populate('createdBy', 'name')
+        .sort({ _id: -1 })
+        .limit(6)
+        .lean()
+    ]);
 
     return sendSuccess(res, {
       hero: {

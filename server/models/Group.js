@@ -43,4 +43,8 @@ const groupSchema = new mongoose.Schema({
   deletedAt: Date
 }, { timestamps: true });
 
+groupSchema.index({ members: 1, isDeleted: 1 });
+groupSchema.index({ type: 1, isDeleted: 1 });
+groupSchema.index({ isDeleted: 1, createdAt: -1 });
+
 module.exports = mongoose.model('Group', groupSchema);

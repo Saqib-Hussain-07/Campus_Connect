@@ -4,13 +4,15 @@ const Activity = require('../models/Activity');
 const auth = require('../middleware/auth');
 const asyncHandler = require('../utils/asyncHandler');
 const { sendSuccess, sendPaginated, sendError } = require('../utils/apiResponse');
+const { cache, cacheMiddleware } = require('../utils/cache');
 
 const router = express.Router();
 
-// List notices with pagination
-router.get('/', asyncHandler(async (req, res) => {
+// List notices with pagination & caching
+router.get('/', cacheMiddleware(60), asyncHandler(async (req, res) => {
   const { page = 1, limit = 10 } = req.query;
   const query = {
+    isDeleted: { $ne: true },
     $or: [
       { expiresAt: { $exists: false } },
       { expiresAt: null },
@@ -22,12 +24,15 @@ router.get('/', asyncHandler(async (req, res) => {
   const limitNum = Math.min(50, Math.max(1, parseInt(limit, 10) || 10));
   const skip = (pageNum - 1) * limitNum;
 
-  const total = await Notice.countDocuments(query);
-  const notices = await Notice.find(query)
-    .sort({ isPinned: -1, createdAt: -1 })
-    .skip(skip)
-    .limit(limitNum)
-    .populate('userId', 'name department avatar');
+  const [total, notices] = await Promise.all([
+    Notice.countDocuments(query),
+    Notice.find(query)
+      .sort({ isPinned: -1, createdAt: -1 })
+      .skip(skip)
+      .limit(limitNum)
+      .populate('userId', 'name department avatar')
+      .lean()
+  ]);
 
   return sendPaginated(res, notices, pageNum, limitNum, total, 'Notices loaded successfully');
 }));
@@ -60,6 +65,9 @@ router.post('/', auth, asyncHandler(async (req, res) => {
     refTitle: notice.title
   });
 
+  cache.delByPattern('/api/notices');
+  cache.delByPattern('/api/home');
+
   return sendSuccess(res, notice, 'Notice posted successfully', 201);
 }));
 
@@ -74,6 +82,9 @@ router.put('/:id/pin', auth, asyncHandler(async (req, res) => {
 
   notice.isPinned = !notice.isPinned;
   await notice.save();
+
+  cache.delByPattern('/api/notices');
+  cache.delByPattern('/api/home');
 
   return sendSuccess(res, notice, `Notice ${notice.isPinned ? 'pinned' : 'unpinned'} successfully`);
 }));

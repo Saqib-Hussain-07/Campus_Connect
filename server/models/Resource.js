@@ -56,5 +56,7 @@ const resourceSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 resourceSchema.index({ type: 1, department: 1, semester: 1 });
+resourceSchema.index({ isDeleted: 1, createdAt: -1 });
+resourceSchema.index({ department: 1, semester: 1, type: 1, isDeleted: 1 });
 
 module.exports = mongoose.model('Resource', resourceSchema);

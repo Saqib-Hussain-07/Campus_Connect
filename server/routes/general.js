@@ -191,7 +191,7 @@ router.get('/leaderboard', asyncHandler(async (req, res) => {
   return sendSuccess(res, payload, 'Leaderboard data fetched successfully');
 }));
 
-// Global Search (With Safe Regex to prevent ReDoS)
+// Global Search (With Safe Regex & parallel lean execution)
 router.get('/search', asyncHandler(async (req, res) => {
   const { q } = req.query;
   const safeRegex = buildSafeRegexQuery(q);
@@ -200,41 +200,43 @@ router.get('/search', asyncHandler(async (req, res) => {
     return sendSuccess(res, { students: [], projects: [], groups: [], events: [] }, 'Search results');
   }
 
-  const students = await User.find({
-    isDeleted: { $ne: true },
-    $or: [
-      { name: safeRegex },
-      { department: safeRegex },
-      { university: safeRegex },
-      { skills: safeRegex }
-    ]
-  }).select('name department university skills avatar isOnline').limit(6);
+  const [students, projects, groups, events] = await Promise.all([
+    User.find({
+      isDeleted: { $ne: true },
+      $or: [
+        { name: safeRegex },
+        { department: safeRegex },
+        { university: safeRegex },
+        { skills: safeRegex }
+      ]
+    }).select('name department university skills avatar isOnline').limit(6).lean(),
 
-  const projects = await Project.find({
-    isDeleted: { $ne: true },
-    $or: [
-      { title: safeRegex },
-      { description: safeRegex },
-      { techStack: safeRegex }
-    ]
-  }).populate('userId', 'name department avatar').limit(6);
+    Project.find({
+      isDeleted: { $ne: true },
+      $or: [
+        { title: safeRegex },
+        { description: safeRegex },
+        { techStack: safeRegex }
+      ]
+    }).populate('userId', 'name department avatar').limit(6).lean(),
 
-  const groups = await Group.find({
-    isDeleted: { $ne: true },
-    $or: [
-      { name: safeRegex },
-      { description: safeRegex }
-    ]
-  }).populate('createdBy', 'name department avatar').limit(6);
+    Group.find({
+      isDeleted: { $ne: true },
+      $or: [
+        { name: safeRegex },
+        { description: safeRegex }
+      ]
+    }).populate('createdBy', 'name department avatar').limit(6).lean(),
 
-  const events = await Event.find({
-    isDeleted: { $ne: true },
-    $or: [
-      { title: safeRegex },
-      { description: safeRegex },
-      { venue: safeRegex }
-    ]
-  }).populate('userId', 'name department avatar').limit(6);
+    Event.find({
+      isDeleted: { $ne: true },
+      $or: [
+        { title: safeRegex },
+        { description: safeRegex },
+        { venue: safeRegex }
+      ]
+    }).populate('userId', 'name department avatar').limit(6).lean()
+  ]);
 
   return sendSuccess(res, { students, projects, groups, events }, 'Search results');
 }));

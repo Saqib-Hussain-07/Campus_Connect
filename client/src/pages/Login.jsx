@@ -90,12 +90,9 @@ export default function Login() {
 
       const u = data.user;
       const isComplete = u.department && u.semester && u.university && u.skills && u.skills.length > 0 && u.bio;
+      const returnUrl = location.state?.from?.pathname || (isComplete ? '/projects' : '/dashboard');
 
-      if (isComplete) {
-        window.location.href = '/projects';
-      } else {
-        window.location.href = '/dashboard';
-      }
+      window.location.href = returnUrl;
     } catch (err) {
       setError(err.message || 'Something went wrong.');
     } finally {
