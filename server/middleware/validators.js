@@ -55,7 +55,11 @@ const resetPasswordRules = [
 // Change Password rules
 const changePasswordRules = [
   body('oldPassword').notEmpty().withMessage('Old password is required'),
-  body('newPassword').isLength({ min: 6 }).withMessage('New password must be at least 6 characters long'),
+  body('newPassword')
+    .isLength({ min: 8 })
+    .withMessage('Password must be at least 8 characters long')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/)
+    .withMessage('Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%*?&)'),
   validate
 ];
 
@@ -82,6 +86,21 @@ const resourceRules = [
   validate
 ];
 
+// Contact Form rules
+const contactRules = [
+  body('name').trim().notEmpty().withMessage('Name is required').isLength({ max: 100 }).withMessage('Name cannot exceed 100 characters'),
+  body('email').trim().notEmpty().withMessage('Email is required').isEmail().withMessage('Please provide a valid email address').normalizeEmail(),
+  body('message').trim().notEmpty().withMessage('Message is required').isLength({ max: 2000 }).withMessage('Message cannot exceed 2000 characters'),
+  body('subject').optional().trim().isLength({ max: 200 }).withMessage('Subject cannot exceed 200 characters'),
+  validate
+];
+
+// Newsletter rules
+const newsletterRules = [
+  body('email').trim().notEmpty().withMessage('Email is required').isEmail().withMessage('Please provide a valid email address').normalizeEmail(),
+  validate
+];
+
 module.exports = {
   validate,
   registerRules,
@@ -91,5 +110,7 @@ module.exports = {
   changePasswordRules,
   messageRules,
   projectRules,
-  resourceRules
+  resourceRules,
+  contactRules,
+  newsletterRules
 };

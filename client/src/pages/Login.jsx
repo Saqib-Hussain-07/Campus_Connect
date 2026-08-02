@@ -86,6 +86,9 @@ export default function Login() {
       }
 
       localStorage.setItem('campusconnect_token', data.token);
+      if (data.refreshToken) {
+        localStorage.setItem('campusconnect_refresh_token', data.refreshToken);
+      }
       localStorage.setItem('campusconnect_user', JSON.stringify(data.user));
 
       const u = data.user;

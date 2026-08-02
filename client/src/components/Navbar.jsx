@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useNotifications } from '../context/NotificationContext';
 import { getAvatarUrl } from '../utils/avatar';
 
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user: authUser, token: authToken } = useAuth();
+  const { notifCount, msgCount, notifications, markAllRead: handleMarkAllRead } = useNotifications();
   const token = authToken || localStorage.getItem('campusconnect_token');
   const [localUser, setLocalUser] = useState(() => {
     try {
@@ -17,9 +19,6 @@ export default function Navbar() {
     }
   });
   const user = authUser || localUser;
-  const [notifCount, setNotifCount] = useState(0);
-  const [msgCount, setMsgCount] = useState(0);
-  const [notifications, setNotifications] = useState([]);
   const [showNotifMenu, setShowNotifMenu] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showExploreMenu, setShowExploreMenu] = useState(false);
@@ -86,33 +85,6 @@ export default function Navbar() {
         localStorage.removeItem('campusconnect_token');
         localStorage.removeItem('campusconnect_user');
       });
-
-    // Fetch notification log & badges
-    const fetchBadges = () => {
-      fetch('/api/notifications', {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setNotifications(data);
-          setNotifCount(data.filter((n) => !n.isRead).length);
-        })
-        .catch(() => {});
-
-      fetch('/api/messages/conversations', {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          const unreadSum = data.reduce((acc, conv) => acc + (conv.unread || 0), 0);
-          setMsgCount(unreadSum);
-        })
-        .catch(() => {});
-    };
-
-    fetchBadges();
-    const interval = setInterval(fetchBadges, 15000); // refresh every 15s
-    return () => clearInterval(interval);
   }, [token]);
 
   const handleLogout = async () => {
@@ -136,19 +108,10 @@ export default function Navbar() {
     window.location.reload();
   };
 
-  const handleMarkAllRead = async (e) => {
+  const onMarkAllReadClick = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    try {
-      const res = await fetch('/api/notifications/mark-read', {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      if (res.ok) {
-        setNotifCount(0);
-        setNotifications((prev) => prev.map((n) => ({ ...n, isRead: true })));
-      }
-    } catch (err) {}
+    handleMarkAllRead();
   };
 
   const handleSearchSubmit = (e) => {
@@ -158,15 +121,7 @@ export default function Navbar() {
     }
   };
 
-  const avatarUrl = (u) => {
-    if (u?.avatar && u.avatar.startsWith('data:')) {
-      return u.avatar; // base64 uploaded image
-    }
-    if (u?.avatar && u.avatar !== 'default.jpg') {
-      return `/assets/uploads/avatars/${u.avatar}`;
-    }
-    return getAvatarUrl(u?.name);
-  };
+  const avatarUrl = (u) => getAvatarUrl(u);
 
   const notifIconMap = {
     connection_request: { icon: 'fa-user-plus', color: 'var(--rust)' },
@@ -195,7 +150,7 @@ export default function Navbar() {
             'Study Resources — Shared by students for students',
             'Leaderboard — Top contributors this month',
             'Verified University Accounts Only',
-            'End-to-End Encrypted Messages',
+            'Direct Peer-to-Peer Messaging',
             '25,000+ Students · 1,200+ Groups · 50+ Universities'
           ].flatMap((tick) => [tick, tick]).map((tick, idx) => (
             <span key={idx}>
@@ -406,7 +361,7 @@ export default function Navbar() {
                         <span>Notifications</span>
                         {notifCount > 0 && (
                           <button
-                            onClick={handleMarkAllRead}
+                            onClick={onMarkAllReadClick}
                             style={{
                               background: 'none',
                               border: 'none',

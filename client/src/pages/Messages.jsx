@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { getAvatarUrl } from '../utils/avatar';
 
 export default function Messages() {
   const navigate = useNavigate();
@@ -122,15 +123,7 @@ export default function Messages() {
     }
   };
 
-  const avatarUrl = (name, avatar) => {
-    if (avatar && avatar.startsWith('data:')) {
-      return avatar;
-    }
-    if (avatar && avatar !== 'default.jpg') {
-      return `/assets/uploads/avatars/${avatar}`;
-    }
-    return `https://picsum.photos/seed/${encodeURIComponent(name || 'user')}/80/80`;
-  };
+  const avatarUrl = (name, avatar) => getAvatarUrl(avatar, name);
 
   return (
     <div>

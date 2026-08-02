@@ -7,9 +7,9 @@ import { authService } from '../services/authService';
 export default function ResetPassword() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const email = searchParams.get('email') || '';
-  const token = searchParams.get('token') || '';
 
+  const [email, setEmail] = useState(() => searchParams.get('email') || '');
+  const [token, setToken] = useState(() => searchParams.get('token') || '');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -20,6 +20,11 @@ export default function ResetPassword() {
     e.preventDefault();
     setMessage('');
     setError('');
+
+    if (!email.trim() || !token.trim()) {
+      setError('Both email and reset token are required.');
+      return;
+    }
 
     if (password.length < 8) {
       setError('Password must be at least 8 characters long.');
@@ -32,7 +37,7 @@ export default function ResetPassword() {
 
     setLoading(true);
     try {
-      const resData = await authService.resetPassword(email, token, password);
+      const resData = await authService.resetPassword(email.trim(), token.trim(), password);
       setMessage(resData.message || 'Password reset successful!');
       setTimeout(() => {
         navigate('/login');
@@ -43,6 +48,8 @@ export default function ResetPassword() {
       setLoading(false);
     }
   };
+
+  const isFromUrl = Boolean(searchParams.get('email') && searchParams.get('token'));
 
   return (
     <div>
@@ -59,39 +66,59 @@ export default function ResetPassword() {
                 {error && <div className="alert alert-danger p-3 mb-3">{error}</div>}
                 {message && <div className="alert alert-success p-3 mb-3">{message} Redirecting to login…</div>}
 
-                {!token || !email ? (
-                  <div className="alert alert-warning p-3">
-                    Invalid reset parameters. Please check your reset link or <Link to="/forgot-password" style={{ color: 'var(--rust)' }}>request a new link</Link>.
+                <form onSubmit={handleSubmit} className="d-flex flex-column gap-3">
+                  {!isFromUrl && (
+                    <>
+                      <div>
+                        <label className="cc-form-label">University Email *</label>
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="cc-form-input"
+                          placeholder="you@university.edu"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="cc-form-label">Reset Token *</label>
+                        <input
+                          type="text"
+                          value={token}
+                          onChange={(e) => setToken(e.target.value)}
+                          className="cc-form-input"
+                          placeholder="Paste your reset token here"
+                          required
+                        />
+                      </div>
+                    </>
+                  )}
+                  <div>
+                    <label className="cc-form-label">New Password *</label>
+                    <input
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="cc-form-input"
+                      placeholder="Min 8 characters"
+                      required
+                    />
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="d-flex flex-column gap-3">
-                    <div>
-                      <label className="cc-form-label">New Password *</label>
-                      <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="cc-form-input"
-                        placeholder="Min 8 characters"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="cc-form-label">Confirm New Password *</label>
-                      <input
-                        type="password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        className="cc-form-input"
-                        placeholder="Repeat new password"
-                        required
-                      />
-                    </div>
-                    <button type="submit" className="cc-btn-fill w-100 py-3 mt-2" disabled={loading}>
-                      {loading ? 'Resetting…' : 'Reset Password'}
-                    </button>
-                  </form>
-                )}
+                  <div>
+                    <label className="cc-form-label">Confirm New Password *</label>
+                    <input
+                      type="password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      className="cc-form-input"
+                      placeholder="Repeat new password"
+                      required
+                    />
+                  </div>
+                  <button type="submit" className="cc-btn-fill w-100 py-3 mt-2" disabled={loading}>
+                    {loading ? 'Resetting…' : 'Reset Password'}
+                  </button>
+                </form>
               </div>
             </div>
           </div>

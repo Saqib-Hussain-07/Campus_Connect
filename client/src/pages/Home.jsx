@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Loader from '../components/Loader';
+import { getAvatarUrl } from '../utils/avatar';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -146,7 +147,7 @@ export default function Home() {
 
   const securityPoints = [
     { icon: 'fa-envelope-circle-check', title: 'University Email Verification', desc: 'Every account is verified through an official .edu email, ensuring only genuine students join.' },
-    { icon: 'fa-lock', title: 'End-to-End Encryption', desc: 'All messages and data are encrypted in transit and at rest using industry-standard protocols.' },
+    { icon: 'fa-lock', title: 'Secure Authenticated Access', desc: 'All API requests and messaging endpoints are strictly authenticated over HTTPS with token verification.' },
     { icon: 'fa-sliders', title: 'Granular Privacy Controls', desc: 'Control who sees your profile, who can message you, and manage data visibility on your terms.' }
   ];
 
@@ -213,7 +214,7 @@ export default function Home() {
               <div className="cc-hero-overlay d-flex align-items-center gap-3">
                 <img
                   className="cc-hero-avatar"
-                  src={`https://picsum.photos/seed/${encodeURIComponent(firstStudent.name)}/100/100`}
+                  src={getAvatarUrl(firstStudent)}
                   alt={firstStudent.name}
                 />
                 <div className="flex-grow-1">
@@ -346,7 +347,7 @@ export default function Home() {
                     <div className="position-relative flex-shrink-0">
                       <img
                         className="cc-student-avatar"
-                        src={`https://picsum.photos/seed/${encodeURIComponent(stu.name)}/120/120`}
+                        src={getAvatarUrl(stu)}
                         alt={stu.name}
                       />
                       <span className={`cc-status-dot ${stu.isOnline ? 'online' : 'offline'}`}></span>

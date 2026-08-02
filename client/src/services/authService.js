@@ -1,4 +1,4 @@
-import { apiClient } from './apiClient';
+import { apiClient, clearApiCache } from './apiClient';
 
 export const authService = {
   login: async (email, password) => {
@@ -26,6 +26,7 @@ export const authService = {
     localStorage.removeItem('campusconnect_token');
     localStorage.removeItem('campusconnect_refresh_token');
     localStorage.removeItem('campusconnect_user');
+    clearApiCache();
   },
 
   forgotPassword: async (email) => {

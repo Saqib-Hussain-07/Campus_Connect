@@ -11,12 +11,19 @@ const { sendSuccess, sendError } = require('../utils/apiResponse');
 const { buildSafeRegexQuery } = require('../utils/regex');
 const cache = require('../utils/cache');
 
+const { contactLimiter, newsletterLimiter } = require('../middleware/rateLimiter');
+const { contactRules, newsletterRules } = require('../middleware/validators');
+
 const router = express.Router();
 
-// Newsletter Subscription
-router.post('/newsletter', asyncHandler(async (req, res) => {
-  const { email } = req.body;
-  if (!email) return sendError(res, 'Email is required', 400);
+// Newsletter Subscription (With dedicated rate limiting, validation & honeypot spam protection)
+router.post('/newsletter', newsletterLimiter, newsletterRules, asyncHandler(async (req, res) => {
+  const { email, hp, website, honeypot } = req.body;
+
+  // Silent drop for automated spam bots filling hidden honeypot fields
+  if (hp || website || honeypot) {
+    return sendSuccess(res, null, 'Subscribed successfully!');
+  }
 
   const existing = await Newsletter.findOne({ email: email.toLowerCase() });
   if (existing) {
@@ -27,11 +34,13 @@ router.post('/newsletter', asyncHandler(async (req, res) => {
   return sendSuccess(res, null, 'Subscribed successfully!');
 }));
 
-// Contact Message Submit
-router.post('/contact', asyncHandler(async (req, res) => {
-  const { name, email, subject, message } = req.body;
-  if (!name || !email || !message) {
-    return sendError(res, 'Name, email, and message are required', 400);
+// Contact Message Submit (With dedicated rate limiting, validation & honeypot spam protection)
+router.post('/contact', contactLimiter, contactRules, asyncHandler(async (req, res) => {
+  const { name, email, subject, message, hp, website, honeypot } = req.body;
+
+  // Silent drop for automated spam bots filling hidden honeypot fields
+  if (hp || website || honeypot) {
+    return sendSuccess(res, null, 'Message sent successfully. Thank you!');
   }
 
   await ContactMessage.create({ name, email, subject, message });

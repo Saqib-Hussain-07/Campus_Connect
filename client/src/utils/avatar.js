@@ -30,7 +30,48 @@ const heroPhotos = [
   'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&auto=format&fit=crop&q=80'
 ];
 
-export function getAvatarUrl(name = 'Student', size = 100) {
+export function getAvatarUrl(avatarOrUserOrName, fallbackName = 'Student', size = 100) {
+  let avatar = null;
+  let name = 'Student';
+
+  if (avatarOrUserOrName && typeof avatarOrUserOrName === 'object') {
+    avatar = avatarOrUserOrName.avatar || avatarOrUserOrName.userAvatar || avatarOrUserOrName.profileImage;
+    name = avatarOrUserOrName.name || avatarOrUserOrName.username || avatarOrUserOrName.author || avatarOrUserOrName.creator || 'Student';
+  } else if (typeof avatarOrUserOrName === 'string') {
+    const val = avatarOrUserOrName.trim();
+    if (
+      val.startsWith('data:') ||
+      val.startsWith('http://') ||
+      val.startsWith('https://') ||
+      val.startsWith('/') ||
+      /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(val)
+    ) {
+      avatar = val;
+      if (typeof fallbackName === 'string') {
+        name = fallbackName;
+      }
+    } else {
+      name = val;
+      if (
+        typeof fallbackName === 'string' &&
+        (fallbackName.startsWith('data:') ||
+          fallbackName.startsWith('http://') ||
+          fallbackName.startsWith('https://') ||
+          fallbackName.startsWith('/') ||
+          /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(fallbackName))
+      ) {
+        avatar = fallbackName;
+      }
+    }
+  }
+
+  if (avatar && avatar !== 'default.jpg' && avatar !== 'undefined' && avatar !== 'null') {
+    if (avatar.startsWith('data:') || avatar.startsWith('http://') || avatar.startsWith('https://') || avatar.startsWith('/')) {
+      return avatar;
+    }
+    return `/assets/uploads/avatars/${avatar}`;
+  }
+
   const cleanName = (name || 'Student').trim();
   let hash = 0;
   for (let i = 0; i < cleanName.length; i++) {

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
 import Footer from '../components/Footer';
+import { getAvatarUrl } from '../utils/avatar';
 
 export default function Leaderboard() {
   const token = localStorage.getItem('campusconnect_token');
@@ -78,15 +78,7 @@ export default function Leaderboard() {
 
   const remaining = currentList.slice(3);
 
-  const avatarUrl = (item) => {
-    if (item.avatar && item.avatar.startsWith('data:')) {
-      return item.avatar;
-    }
-    if (item.avatar && item.avatar !== 'default.jpg') {
-      return `/assets/uploads/avatars/${item.avatar}`;
-    }
-    return `https://picsum.photos/seed/${encodeURIComponent(item.name || 'user')}/120/120`;
-  };
+  const avatarUrl = (item) => getAvatarUrl(item);
 
   return (
     <div>

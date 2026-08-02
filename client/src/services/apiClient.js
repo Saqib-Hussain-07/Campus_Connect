@@ -10,6 +10,8 @@ const getDomainPrefix = (endpoint) => {
   return match ? match[1] : '';
 };
 
+let refreshPromise = null;
+
 export const apiClient = async (endpoint, options = {}) => {
   const method = (options.method || 'GET').toUpperCase();
   let token = localStorage.getItem('campusconnect_token');
@@ -49,20 +51,37 @@ export const apiClient = async (endpoint, options = {}) => {
   let data = await res.json().catch(() => ({}));
 
   // Automatic 401 TOKEN_EXPIRED interceptor to auto-refresh access token seamlessly
-  if (res.status === 401 && (data.code === 'TOKEN_EXPIRED' || data.message?.includes('expired'))) {
+  if (res.status === 401 && (data.code === 'TOKEN_EXPIRED' || data.errors?.code === 'TOKEN_EXPIRED' || data.message?.includes('expired'))) {
     const refreshToken = localStorage.getItem('campusconnect_refresh_token');
     if (refreshToken && !options._isRetry) {
       try {
-        const refreshRes = await fetch('/api/auth/refresh', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ refreshToken })
-        });
-        const refreshData = await refreshRes.json();
-        if (refreshRes.ok && (refreshData.data?.accessToken || refreshData.accessToken)) {
-          const newAccessToken = refreshData.data?.accessToken || refreshData.accessToken;
-          localStorage.setItem('campusconnect_token', newAccessToken);
+        if (!refreshPromise) {
+          refreshPromise = (async () => {
+            const currentRefreshToken = localStorage.getItem('campusconnect_refresh_token');
+            const refreshRes = await fetch('/api/auth/refresh', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ refreshToken: currentRefreshToken })
+            });
+            const refreshData = await refreshRes.json();
+            const newAccessToken = refreshData.token || refreshData.data?.token || refreshData.accessToken || refreshData.data?.accessToken;
+            const newRefreshToken = refreshData.refreshToken || refreshData.data?.refreshToken;
 
+            if (refreshRes.ok && newAccessToken) {
+              localStorage.setItem('campusconnect_token', newAccessToken);
+              if (newRefreshToken) {
+                localStorage.setItem('campusconnect_refresh_token', newRefreshToken);
+              }
+              return newAccessToken;
+            }
+            return null;
+          })().finally(() => {
+            refreshPromise = null;
+          });
+        }
+
+        const newAccessToken = await refreshPromise;
+        if (newAccessToken) {
           // Retry original request once with new token
           const retryConfig = {
             ...options,

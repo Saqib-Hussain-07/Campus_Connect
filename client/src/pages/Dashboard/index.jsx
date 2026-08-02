@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 import Loader from '../../components/Loader';
 import { useAuth } from '../../context/AuthContext';
 import { apiClient } from '../../services/apiClient';
+import { getAvatarUrl } from '../../utils/avatar';
 
 import DashboardHeader from './DashboardHeader';
 import StatsCards from './StatsCards';
@@ -120,7 +121,7 @@ export default function DashboardIndex() {
                     {requests.map((req) => (
                       <div key={req._id} className="d-flex align-items-center gap-3 mb-3 pb-3" style={{ borderBottom: '1px solid var(--cream)' }}>
                         <img
-                          src={`https://picsum.photos/seed/${encodeURIComponent(req.fromUser.name)}/80/80`}
+                          src={getAvatarUrl(req.fromUser)}
                           style={{ width: '40px', height: '40px', objectFit: 'cover', border: '1.5px solid var(--ink)' }}
                           alt={req.fromUser.name}
                         />
@@ -218,7 +219,7 @@ export default function DashboardIndex() {
                       {suggestions.map((s) => (
                         <div key={s._id} className="d-flex align-items-center gap-3">
                           <img
-                            src={`https://picsum.photos/seed/${encodeURIComponent(s.name)}/80/80`}
+                            src={getAvatarUrl(s)}
                             style={{ width: '36px', height: '36px', objectFit: 'cover', border: '1.5px solid var(--ink)', flexShrink: 0 }}
                             alt={s.name}
                           />

@@ -20,10 +20,10 @@ export default function Footer() {
               The secure student connection portal built to help university peers discover, collaborate, and grow together — verified, safe, and free.
             </p>
             <div className="d-flex gap-2 mt-3">
-              <a href="#" className="cc-social-btn" aria-label="X"><i className="fab fa-x-twitter" aria-hidden="true"></i></a>
-              <a href="#" className="cc-social-btn" aria-label="LinkedIn"><i className="fab fa-linkedin-in" aria-hidden="true"></i></a>
-              <a href="#" className="cc-social-btn" aria-label="Instagram"><i className="fab fa-instagram" aria-hidden="true"></i></a>
-              <a href="#" className="cc-social-btn" aria-label="GitHub"><i className="fab fa-github" aria-hidden="true"></i></a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="cc-social-btn" aria-label="X"><i className="fab fa-x-twitter" aria-hidden="true"></i></a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="cc-social-btn" aria-label="LinkedIn"><i className="fab fa-linkedin-in" aria-hidden="true"></i></a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="cc-social-btn" aria-label="Instagram"><i className="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="cc-social-btn" aria-label="GitHub"><i className="fab fa-github" aria-hidden="true"></i></a>
             </div>
           </div>
 
@@ -43,10 +43,10 @@ export default function Footer() {
           <div className="col-lg-3 col-md-3 col-6">
             <div className="cc-footer-col-title">Support</div>
             <ul className="cc-footer-links">
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-              <li><a href="#">Report Abuse</a></li>
+              <li><Link to="/contact">Help Center</Link></li>
+              <li><Link to="/contact">Privacy Policy</Link></li>
+              <li><Link to="/contact">Terms of Service</Link></li>
+              <li><a href="mailto:abuse@campusconnect.edu">Report Abuse</a></li>
               <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
@@ -80,9 +80,9 @@ export default function Footer() {
             </p>
           </div>
           <div className="d-flex gap-4">
-            <a href="#" className="cc-footer-legal-link">Privacy</a>
-            <a href="#" className="cc-footer-legal-link">Terms</a>
-            <a href="#" className="cc-footer-legal-link">Cookies</a>
+            <Link to="/contact" className="cc-footer-legal-link">Privacy</Link>
+            <Link to="/contact" className="cc-footer-legal-link">Terms</Link>
+            <Link to="/contact" className="cc-footer-legal-link">Cookies</Link>
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
 import Footer from '../components/Footer';
 import Loader from '../components/Loader';
+import { getAvatarUrl } from '../utils/avatar';
 
 export default function ViewProject() {
   const { id } = useParams();
@@ -253,7 +253,7 @@ export default function ViewProject() {
                       <div className="d-flex flex-column gap-4 mb-4">
                         {project.comments.map((c) => (
                           <div key={c._id} className="d-flex gap-3">
-                            <img src={`https://picsum.photos/seed/${encodeURIComponent(c.userId?.name || 'peer')}/60/60`} style={{ width: '38px', height: '38px', objectFit: 'cover', border: '1.5px solid var(--ink)', flexShrink: 0 }} alt="" />
+                            <img src={getAvatarUrl(c.userId)} style={{ width: '38px', height: '38px', objectFit: 'cover', border: '1.5px solid var(--ink)', flexShrink: 0 }} alt="" />
                             <div className="flex-grow-1">
                               <div className="d-flex align-items-center gap-2 mb-1">
                                 <span style={{ fontWeight: '700', fontSize: '.86rem', color: 'var(--ink)' }}>{c.userId?.name}</span>
@@ -274,7 +274,7 @@ export default function ViewProject() {
                     {token ? (
                       <form onSubmit={handleCommentSubmit}>
                         <div className="d-flex gap-2">
-                          <img src={`https://picsum.photos/seed/${encodeURIComponent(loggedInUser?.name || 'me')}/60/60`} style={{ width: '36px', height: '36px', objectFit: 'cover', border: '1.5px solid var(--ink)', flexShrink: 0 }} alt="" />
+                          <img src={getAvatarUrl(loggedInUser)} style={{ width: '36px', height: '36px', objectFit: 'cover', border: '1.5px solid var(--ink)', flexShrink: 0 }} alt="" />
                           <textarea
                             value={commentText}
                             onChange={(e) => setCommentText(e.target.value)}

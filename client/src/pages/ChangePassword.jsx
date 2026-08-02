@@ -18,7 +18,11 @@ export default function ChangePassword() {
     setError('');
 
     if (newPassword.length < 8) {
-      setError('New password must be at least 8 characters.');
+      setError('New password must be at least 8 characters long.');
+      return;
+    }
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/.test(newPassword)) {
+      setError('New password must contain at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%*?&).');
       return;
     }
     if (newPassword !== confirmPassword) {

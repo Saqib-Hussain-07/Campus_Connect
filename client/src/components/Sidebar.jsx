@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNotifications } from '../context/NotificationContext';
+import { getAvatarUrl } from '../utils/avatar';
 
 export default function Sidebar() {
   const navigate = useNavigate();
   const location = useLocation();
   const token = localStorage.getItem('campusconnect_token');
+  const { msgCount: unreadCount } = useNotifications();
   const [user, setUser] = useState(null);
-  const [unreadCount, setUnreadCount] = useState(0);
 
   useEffect(() => {
     if (!token) return;
@@ -18,23 +20,6 @@ export default function Sidebar() {
       .then((res) => res.json())
       .then((data) => setUser(data))
       .catch(() => {});
-
-    // Fetch messages to compute unread count
-    const fetchUnread = () => {
-      fetch('/api/messages/conversations', {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          const unreadSum = data.reduce((acc, conv) => acc + (conv.unread || 0), 0);
-          setUnreadCount(unreadSum);
-        })
-        .catch(() => {});
-    };
-
-    fetchUnread();
-    const interval = setInterval(fetchUnread, 20000);
-    return () => clearInterval(interval);
   }, [token]);
 
   if (!token) return null;
@@ -64,15 +49,7 @@ export default function Sidebar() {
     return location.pathname === path ? 'active' : '';
   };
 
-  const avatarUrl = (u) => {
-    if (u?.avatar && u.avatar.startsWith('data:')) {
-      return u.avatar;
-    }
-    if (u?.avatar && u.avatar !== 'default.jpg') {
-      return `/assets/uploads/avatars/${u.avatar}`;
-    }
-    return `https://picsum.photos/seed/${encodeURIComponent(u?.name || 'user')}/120/120`;
-  };
+  const avatarUrl = (u) => getAvatarUrl(u);
 
   if (!user) {
     return (

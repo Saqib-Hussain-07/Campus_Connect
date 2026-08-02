@@ -239,18 +239,28 @@ router.post('/forgot-password', forgotPasswordRules, asyncHandler(async (req, re
   const { email } = req.body;
   const user = await User.findOne({ email: (email || '').toLowerCase() });
 
+  let resetToken = null;
+  let resetUrl = null;
+
   if (user) {
     const token = crypto.randomBytes(32).toString('hex');
     user.resetToken = token;
     user.resetExpires = Date.now() + 3600000; // 1 hour
     await user.save();
 
+    resetToken = token;
+    const origin = req.get('origin') || `${req.protocol}://${req.get('host')}`;
+    resetUrl = `${origin}/reset-password?email=${encodeURIComponent(user.email)}&token=${token}`;
+
     console.log(`[AUTH LOG] Password reset token generated for ${email}: ${token}`);
   }
 
   return sendSuccess(
     res,
-    null,
+    {
+      resetToken,
+      resetUrl
+    },
     'If an account with that email exists, a password reset link has been processed.'
   );
 }));

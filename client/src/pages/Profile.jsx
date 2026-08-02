@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
 import Footer from '../components/Footer';
 import Loader from '../components/Loader';
+import { getAvatarUrl } from '../utils/avatar';
 
 const DEPT_COURSES = {
   'Computer Science Engineering': [
@@ -209,15 +209,7 @@ export default function Profile() {
   const selectedCourseMeta = selectedCourses.find((c) => c.name === form.department);
   const totalSemesters = selectedCourseMeta ? selectedCourseMeta.sem : 0;
 
-  const avatarUrl = () => {
-    if (form.avatar && form.avatar.startsWith('data:')) {
-      return form.avatar;
-    }
-    if (form.avatar && form.avatar !== 'default.jpg') {
-      return `/assets/uploads/avatars/${form.avatar}`;
-    }
-    return `https://picsum.photos/seed/${encodeURIComponent(form.name)}/120/120`;
-  };
+  const avatarUrl = () => getAvatarUrl(form.avatar, form.name);
 
   return (
     <div>

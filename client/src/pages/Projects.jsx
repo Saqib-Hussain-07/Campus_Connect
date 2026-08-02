@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
 import Footer from '../components/Footer';
+import { getAvatarUrl } from '../utils/avatar';
 
 export default function Projects() {
   const token = localStorage.getItem('campusconnect_token');
@@ -331,9 +331,11 @@ export default function Projects() {
                             <div style={{ padding: '20px 20px 0 20px' }}>
                               <div className="d-flex align-items-center gap-2 mb-3">
                                 <img
-                                  src={`https://picsum.photos/seed/${encodeURIComponent(proj.userId?.name || 'peer')}/80/80`}
+                                  src={getAvatarUrl(proj.userId)}
                                   style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--ink)' }}
                                   alt={proj.userId?.name}
+                                  loading="lazy"
+                                  decoding="async"
                                 />
                                 <div style={{ fontSize: '0.78rem', color: '#555' }}>
                                   <strong style={{ color: 'var(--ink)' }}>{proj.userId?.name || 'Peer'}</strong> · {proj.userId?.department || 'Engineering'}

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
 import Footer from '../components/Footer';
+import { getAvatarUrl } from '../utils/avatar';
 
 export default function Notices() {
   const token = localStorage.getItem('campusconnect_token');
@@ -259,7 +259,7 @@ export default function Notices() {
                               {/* Author & Expiry */}
                               <div className="d-flex align-items-center gap-2 mt-2 pt-2" style={{ borderTop: '1px solid #fcfbf9' }}>
                                 <img
-                                  src={`https://picsum.photos/seed/${encodeURIComponent(n.userId?.name || 'peer')}/40/40`}
+                                  src={getAvatarUrl(n.userId)}
                                   style={{ width: '24px', height: '24px', objectFit: 'cover', border: '1px solid var(--ink)' }}
                                   alt=""
                                 />

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
 import Footer from '../components/Footer';
+import { getAvatarUrl, getBannerUrl } from '../utils/avatar';
 
 export default function Groups() {
   const navigate = useNavigate();
@@ -248,7 +248,7 @@ export default function Groups() {
                             {/* Card Header (Image background with centered text) */}
                             <div style={{
                               height: '130px',
-                              backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url(https://picsum.photos/seed/${encodeURIComponent(group.name)}/400/200)`,
+                              backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url(${getBannerUrl(group.name)})`,
                               backgroundSize: 'cover',
                               backgroundPosition: 'center',
                               display: 'flex',
@@ -309,7 +309,9 @@ export default function Groups() {
                               {Array.from({ length: Math.min(3, group.members?.length || 1) }).map((_, idx) => (
                                 <img
                                   key={idx}
-                                  src={`https://picsum.photos/seed/member-${idx}-${encodeURIComponent(group.name)}/40/40`}
+                                  src={getAvatarUrl(null, `member-${idx}-${group.name}`)}
+                                  loading="lazy"
+                                  decoding="async"
                                   style={{
                                     width: '24px',
                                     height: '24px',

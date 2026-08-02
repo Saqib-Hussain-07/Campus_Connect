@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
 import Footer from '../components/Footer';
+import { getAvatarUrl } from '../utils/avatar';
 
 export default function Students() {
   const token = localStorage.getItem('campusconnect_token');
@@ -73,15 +73,7 @@ export default function Students() {
     } catch (err) {}
   };
 
-  const avatarUrl = (u) => {
-    if (u?.avatar && u.avatar.startsWith('data:')) {
-      return u.avatar;
-    }
-    if (u?.avatar && u.avatar !== 'default.jpg') {
-      return `/assets/uploads/avatars/${u.avatar}`;
-    }
-    return `https://picsum.photos/seed/${encodeURIComponent(u?.name || 'user')}/120/120`;
-  };
+  const avatarUrl = (u) => getAvatarUrl(u);
 
   const departments = [
     'Computer Science Engineering',
@@ -262,6 +254,8 @@ export default function Students() {
                                 src={avatarUrl(student)}
                                 style={{ width: '48px', height: '48px', objectFit: 'cover', border: '1.5px solid var(--ink)' }}
                                 alt={student.name}
+                                loading="lazy"
+                                decoding="async"
                               />
                               {student.isOnline && (
                                 <span style={{

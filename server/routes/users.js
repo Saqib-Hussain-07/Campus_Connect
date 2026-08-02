@@ -64,9 +64,15 @@ router.put('/avatar', auth, upload.single('avatar'), asyncHandler(async (req, re
   const user = await User.findById(req.user.id);
   if (!user) return sendError(res, 'User not found', 404);
 
-  // Store relative avatar upload path
+  const oldAvatar = user.avatar;
   user.avatar = req.file.filename;
   await user.save();
+
+  // Delete old avatar file from disk if it was a custom file
+  if (oldAvatar && oldAvatar !== 'default.jpg' && oldAvatar !== req.file.filename) {
+    const oldPath = path.join(__dirname, '../assets/uploads/avatars', oldAvatar);
+    fs.unlink(oldPath, () => {});
+  }
 
   return sendSuccess(
     res,

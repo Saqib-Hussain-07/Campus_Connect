@@ -9,6 +9,7 @@ export default function Contact() {
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const [hp, setHp] = useState('');
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -24,7 +25,7 @@ export default function Contact() {
       const res = await fetch('/api/general/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, subject, message })
+        body: JSON.stringify({ name, email, subject, message, hp })
       });
       const data = await res.json();
 
@@ -86,11 +87,11 @@ export default function Contact() {
   ];
 
   const socials = [
-    { icon: 'fab fa-twitter', link: '#' },
-    { icon: 'fab fa-linkedin-in', link: '#' },
-    { icon: 'fab fa-instagram', link: '#' },
-    { icon: 'fab fa-github', link: '#' },
-    { icon: 'fab fa-youtube', link: '#' }
+    { name: 'Twitter / X', icon: 'fab fa-twitter', link: 'https://twitter.com' },
+    { name: 'LinkedIn', icon: 'fab fa-linkedin-in', link: 'https://linkedin.com' },
+    { name: 'Instagram', icon: 'fab fa-instagram', link: 'https://instagram.com' },
+    { name: 'GitHub', icon: 'fab fa-github', link: 'https://github.com' },
+    { name: 'YouTube', icon: 'fab fa-youtube', link: 'https://youtube.com' }
   ];
 
   const faqs = [
@@ -193,7 +194,7 @@ export default function Contact() {
                     <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#999', marginBottom: '12px' }}>Follow Us</div>
                     <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                       {socials.map((s, idx) => (
-                        <a key={idx} href={s.link} target="_blank" rel="noopener noreferrer" style={{
+                        <a key={idx} href={s.link} target="_blank" rel="noopener noreferrer" aria-label={s.name} style={{
                           width: '36px',
                           height: '36px',
                           border: '1px solid #d3c9b9',
@@ -240,6 +241,7 @@ export default function Contact() {
                     {error && <div className="alert alert-danger" style={{ borderRadius: '0', border: '1px solid #dc3545' }}>{error}</div>}
 
                     <form onSubmit={handleSubmit}>
+                      <input type="text" name="hp" value={hp} onChange={(e) => setHp(e.target.value)} style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
                       <div className="row g-4">
                         <div className="col-md-6">
                           <label style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#666', marginBottom: '8px' }}>

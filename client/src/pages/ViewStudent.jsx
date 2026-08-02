@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
 import Footer from '../components/Footer';
 import Loader from '../components/Loader';
+import { getAvatarUrl } from '../utils/avatar';
 
 export default function ViewStudent() {
   const { id } = useParams();
@@ -160,7 +160,7 @@ export default function ViewStudent() {
               <div className="d-flex align-items-end gap-4 flex-wrap pb-4 mb-4 justify-content-between" style={{ borderBottom: '1.5px solid var(--ink)' }}>
                 <div className="d-flex align-items-end gap-3 flex-wrap">
                   <img
-                    src={`https://picsum.photos/seed/${encodeURIComponent(profile.name)}/200/200`}
+                    src={getAvatarUrl(profile)}
                     style={{ width: '100px', height: '100px', objectFit: 'cover', border: '4px solid var(--paper)', background: 'var(--ink)', marginTop: '-50px', zIndex: 5, flexShrink: 0 }}
                     alt={profile.name}
                   />

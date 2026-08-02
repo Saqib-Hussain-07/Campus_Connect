@@ -103,7 +103,7 @@ app.get('/api/home', cacheMiddleware(60), async (req, res, next) => {
       features: [
         ['01', 'fa-id-card', 'Rich Student Profiles', 'Build a detailed academic identity — your skills, courses, availability, and project interests all in one verified page.'],
         ['02', 'fa-sliders', 'Smart Filtering', 'Search by department, skills, semester, or active courses. Find exactly who you need in under a minute.'],
-        ['03', 'fa-comment-dots', 'Real-Time Messaging', 'Encrypted direct messages with read receipts, file sharing, and group threads — no third-party apps needed.'],
+        ['03', 'fa-comment-dots', 'Direct Messaging', 'Instant 1-on-1 direct messaging with read receipts and active status — communicate directly with campus peers.'],
         ['04', 'fa-users-rectangle', 'Study Groups', 'Create subject-specific groups. Schedule sessions, share notes, and track collective progress toward exams.'],
         ['05', 'fa-handshake', 'Project Partner Finder', 'Match with students who complement your skillset for hackathons, assignments, and research projects.'],
         ['06', 'fa-shield-halved', 'Verified Accounts Only', 'Every account is verified via university email. A trusted, safe environment — no bots, no strangers.']

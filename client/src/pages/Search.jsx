@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
 import Footer from '../components/Footer';
+import { getAvatarUrl } from '../utils/avatar';
 
 export default function Search() {
   const [searchParams] = useSearchParams();
@@ -62,7 +62,7 @@ export default function Search() {
                           <div key={student._id} className="col-md-6 col-lg-4">
                             <div style={{ border: '1.5px solid var(--ink)', background: 'var(--white)', padding: '16px', boxShadow: '3px 3px 0 var(--ink)' }} className="d-flex align-items-center gap-3">
                               <img
-                                src={`https://picsum.photos/seed/${encodeURIComponent(student.name)}/80/80`}
+                                src={getAvatarUrl(student)}
                                 style={{ width: '42px', height: '42px', objectFit: 'cover', border: '1.5px solid var(--ink)' }}
                                 alt={student.name}
                               />

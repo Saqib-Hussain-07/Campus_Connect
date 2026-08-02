@@ -105,7 +105,7 @@ export default function Register() {
                 Join 25,000+ verified students finding study partners, building projects, and growing their network.
               </p>
               <div className="mt-5 d-flex flex-column gap-3 align-items-center">
-                {['Verified university accounts only', 'End-to-end encrypted messages', 'Free forever for students'].map((f, idx) => (
+                {['Verified university accounts only', 'Direct peer-to-peer messaging', 'Free forever for students'].map((f, idx) => (
                   <div key={idx} className="d-flex align-items-center gap-3 text-start" style={{ color: 'rgba(255,255,255,.55)', fontSize: '.84rem', width: '220px' }}>
                     <i className="fas fa-check-circle" style={{ color: 'var(--rust)' }}></i>
                     {f}
