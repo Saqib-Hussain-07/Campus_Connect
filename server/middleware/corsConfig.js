@@ -1,14 +1,8 @@
 const cors = require('cors');
+const { DEFAULT_ALLOWED_ORIGINS } = require('../config/env');
 
 const getCorsOptions = () => {
-  const defaultOrigins = [
-    'https://campus-connect-sigma-six.vercel.app',
-    'http://localhost:5173',
-    'http://localhost:3000',
-    'http://localhost:5000',
-    'http://127.0.0.1:5173',
-    'http://127.0.0.1:3000'
-  ];
+  const defaultOrigins = DEFAULT_ALLOWED_ORIGINS;
 
   const envOrigins = (process.env.ALLOWED_ORIGINS || '')
     .split(',')

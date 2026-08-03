@@ -3,6 +3,15 @@ const dotenv = require('dotenv');
 
 dotenv.config({ path: path.join(__dirname, '../../.env') });
 
+const DEFAULT_ALLOWED_ORIGINS = [
+  'https://campus-connect-sigma-six.vercel.app',
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://localhost:5000',
+  'http://127.0.0.1:5173',
+  'http://127.0.0.1:3000'
+];
+
 const validateEnv = () => {
   const requiredVars = ['JWT_SECRET'];
   const missing = requiredVars.filter(key => !process.env[key]);
@@ -23,8 +32,8 @@ const validateEnv = () => {
 
   // Define default allowed origins for CORS
   if (!process.env.ALLOWED_ORIGINS) {
-    process.env.ALLOWED_ORIGINS = 'https://campus-connect-sigma-six.vercel.app,http://localhost:5173,http://localhost:3000';
+    process.env.ALLOWED_ORIGINS = DEFAULT_ALLOWED_ORIGINS.join(',');
   }
 };
 
-module.exports = { validateEnv };
+module.exports = { validateEnv, DEFAULT_ALLOWED_ORIGINS };

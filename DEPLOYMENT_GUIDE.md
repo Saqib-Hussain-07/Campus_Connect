@@ -38,7 +38,7 @@ Render is free and excellent for deploying Node.js/Express servers.
     *   **Start Command:** `node index.js`
 5.  Click **Advanced**, and add the following **Environment Variables**:
     *   `MONGODB_URI` = *Your MongoDB Atlas connection string (from Step 1)*
-    *   `JWT_SECRET` = *A strong random string (e.g., `supersecretkey123!`)*
+    *   `JWT_SECRET` = *Generate a cryptographically secure 256-bit secret via `openssl rand -hex 32` or `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` (Do NOT use simple text phrases; e.g. `YOUR_UNIQUE_SECURE_64_CHARACTER_HEX_STRING`)*
     *   `PORT` = `5000`
 6.  Click **Create Web Service**. 
 7.  Once deployed, copy your backend URL from the top of the Render dashboard (e.g., `https://campusconnect-backend.onrender.com`).

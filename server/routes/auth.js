@@ -294,7 +294,8 @@ router.post('/forgot-password', forgotPasswordRules, asyncHandler(async (req, re
     const origin = req.get('origin') || `${req.protocol}://${req.get('host')}`;
     resetUrl = `${origin}/reset-password?email=${encodeURIComponent(user.email)}&token=${token}`;
 
-    console.log(`[AUTH LOG] Password reset token generated for ${email}: ${token}`);
+    // Password reset token generated successfully
+    // Note: Do not log sensitive reset tokens in application logs
   }
 
   return sendSuccess(
