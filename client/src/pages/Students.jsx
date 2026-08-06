@@ -93,7 +93,7 @@ export default function Students() {
     <div>
       <Navbar />
 
-      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
+      <main id="main-content" tabIndex="-1" style={{ outline: 'none', marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0">
           
 
@@ -383,7 +383,7 @@ export default function Students() {
             </div>
           </div>
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );

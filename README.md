@@ -71,7 +71,7 @@ cp .env.example .env
 Ensure your database URI, port, and security keys are set inside `.env`:
 ```env
 MONGO_URI=mongodb://127.0.0.1:27017/campusconnect
-JWT_SECRET=campusconnectsecret
+JWT_SECRET=YOUR_SECURE_JWT_SECRET_KEY
 PORT=5000
 ```
 

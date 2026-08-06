@@ -2790,3 +2790,26 @@ section {
 .cc-footer-legal-link:hover {
   color: var(--rust);
 }
+
+/* Accessibility Skip Link */
+.cc-skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+  padding: 10px 16px;
+  background: var(--ink, #111111);
+  color: var(--paper, #fcfbf7);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 2px solid var(--rust, #e15b34);
+  text-decoration: none;
+  transition: top 0.2s ease-in-out;
+}
+
+.cc-skip-link:focus {
+  top: 16px;
+  outline: 3px solid var(--rust, #e15b34);
+  outline-offset: 2px;
+}
