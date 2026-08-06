@@ -2813,3 +2813,41 @@ section {
   outline: 3px solid var(--rust, #e15b34);
   outline-offset: 2px;
 }
+
+/* ==========================================
+   WCAG 2.2 AA Global Accessibility Overrides
+   ========================================== */
+
+/* 1. Universal Focus Ring for Keyboard Navigation */
+:focus-visible {
+  outline: 3px solid var(--rust, #e15b34) !important;
+  outline-offset: 2px !important;
+}
+
+/* 2. Global Prefers-Reduced-Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 3. Global High Contrast Mode Adjustments */
+@media (prefers-contrast: high) {
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    border-width: 2px !important;
+  }
+  
+  :focus-visible {
+    outline: 4px solid #000000 !important;
+    outline-offset: 3px !important;
+  }
+}

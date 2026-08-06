@@ -123,7 +123,7 @@ export default function DashboardIndex() {
                         <img
                           src={getAvatarUrl(req.fromUser)}
                           style={{ width: '40px', height: '40px', objectFit: 'cover', border: '1.5px solid var(--ink)' }}
-                          alt={req.fromUser.name}
+                          alt=""
                         />
                         <div className="flex-grow-1">
                           <div style={{ fontWeight: '700', fontSize: '.86rem', color: 'var(--ink)' }}>{req.fromUser.name}</div>
@@ -221,7 +221,7 @@ export default function DashboardIndex() {
                           <img
                             src={getAvatarUrl(s)}
                             style={{ width: '36px', height: '36px', objectFit: 'cover', border: '1.5px solid var(--ink)', flexShrink: 0 }}
-                            alt={s.name}
+                            alt=""
                           />
                           <div className="flex-grow-1 min-width-0">
                             <h6 style={{ fontWeight: '700', fontSize: '.84rem', margin: 0, color: 'var(--ink)' }}>

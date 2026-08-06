@@ -320,7 +320,7 @@ export default function Groups() {
                                     marginLeft: idx > 0 ? '-8px' : '0',
                                     objectFit: 'cover'
                                   }}
-                                  alt="Member"
+                                  alt=""
                                 />
                               ))}
                               {(group.members?.length || 0) > 3 && (
