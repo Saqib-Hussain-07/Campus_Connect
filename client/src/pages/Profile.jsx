@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Loader from '../components/Loader';
 import { getAvatarUrl } from '../utils/avatar';
+import { useAuth } from '../context/AuthContext';
 
 const DEPT_COURSES = {
   'Computer Science Engineering': [
@@ -83,6 +84,7 @@ for (const [grp, courses] of Object.entries(DEPT_COURSES)) {
 
 export default function Profile() {
   const navigate = useNavigate();
+  const { updateUser } = useAuth();
   const token = localStorage.getItem('campusconnect_token');
 
   const [form, setForm] = useState({
@@ -194,8 +196,9 @@ export default function Profile() {
       if (!res.ok) throw new Error(data.message || 'Failed to update profile');
 
       setSuccess('Profile updated successfully!');
-      // Update local storage user
-      localStorage.setItem('campusconnect_user', JSON.stringify(data.user));
+      if (data.data) {
+        updateUser(data.data);
+      }
     } catch (err) {
       setError(err.message || 'Something went wrong.');
     } finally {
