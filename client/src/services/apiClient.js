@@ -52,7 +52,15 @@ export const apiClient = async (endpoint, options = {}) => {
   let data = await res.json().catch(() => ({}));
 
   // Automatic 401 TOKEN_EXPIRED interceptor to auto-refresh access token seamlessly
-  if (res.status === 401 && (data.code === 'TOKEN_EXPIRED' || data.errors?.code === 'TOKEN_EXPIRED' || data.message?.includes('expired'))) {
+  const isTokenExpired =
+    res.status === 401 &&
+    (data.error?.code === 'TOKEN_EXPIRED' ||
+      data.code === 'TOKEN_EXPIRED' ||
+      data.errors?.code === 'TOKEN_EXPIRED' ||
+      data.message?.includes('expired') ||
+      data.error?.message?.includes('expired'));
+
+  if (isTokenExpired) {
     if (!options._isRetry) {
       try {
         if (!refreshPromise) {
@@ -97,9 +105,15 @@ export const apiClient = async (endpoint, options = {}) => {
   }
 
   if (!res.ok) {
-    const errorMsg = data.message || data.error || `HTTP error ${res.status}`;
+    const errorMsg =
+      data.error?.message ||
+      (typeof data.error === 'string' ? data.error : null) ||
+      data.message ||
+      `HTTP error ${res.status}`;
     const err = new Error(errorMsg);
     err.status = res.status;
+    err.code = data.error?.code || data.code || null;
+    err.details = data.error?.details || data.errors || null;
     err.data = data;
     throw err;
   }
