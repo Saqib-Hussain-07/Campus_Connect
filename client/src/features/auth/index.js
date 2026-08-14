@@ -1,6 +1,9 @@
 export { AuthProvider, useAuth } from './context/AuthContext';
 export { authService } from './services/authService';
 export { useProfile } from './hooks/useProfile';
+export { default as ProfileHeader } from './components/ProfileHeader';
+export { default as ProfilePreviewCard } from './components/ProfilePreviewCard';
+export { default as ProfileForm } from './components/ProfileForm';
 export { default as Login } from './pages/Login';
 export { default as Register } from './pages/Register';
 export { default as ForgotPassword } from './pages/ForgotPassword';
