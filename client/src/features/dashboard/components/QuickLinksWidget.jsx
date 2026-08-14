@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function QuickLinksWidget() {
+function QuickLinksWidget() {
   const links = [
     { to: '/projects', label: 'Explore Projects', icon: 'fa-cubes', color: 'var(--rust)' },
     { to: '/groups', label: 'Study Circles & Clubs', icon: 'fa-users', color: 'var(--sky)' },
@@ -66,3 +66,5 @@ export default function QuickLinksWidget() {
     </div>
   );
 }
+
+export default React.memo(QuickLinksWidget);

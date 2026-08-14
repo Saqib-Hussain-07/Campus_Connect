@@ -6,6 +6,7 @@ import { ToastProvider } from './context/ToastContext';
 import Loader from './components/Loader';
 import PwaInstallBanner from './components/PwaInstallBanner';
 import ProtectedRoute from './components/ProtectedRoute';
+import DashboardLayout from './components/layout/DashboardLayout';
 
 import './styles.css';
 
@@ -57,8 +58,6 @@ const Notifications = lazyWithRetry(() => import('./features/notifications/pages
 const Profile = lazyWithRetry(() => import('./features/auth/pages/Profile'));
 const Contact = lazyWithRetry(() => import('./features/marketing/pages/Contact'));
 const Search = lazyWithRetry(() => import('./features/search/pages/Search'));
-
-import DashboardLayout from './components/layout/DashboardLayout';
 
 export default function App() {
   return (

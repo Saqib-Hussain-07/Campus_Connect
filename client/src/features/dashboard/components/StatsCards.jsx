@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function StatsCards({ stats = {} }) {
+function StatsCards({ stats = {} }) {
   const statCards = useMemo(() => [
     {
       value: stats.connCount || 0,
@@ -112,3 +112,5 @@ export default function StatsCards({ stats = {} }) {
     </div>
   );
 }
+
+export default React.memo(StatsCards);

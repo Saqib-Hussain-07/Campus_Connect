@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function RecentEvents({ stEvents = [] }) {
+function RecentEvents({ stEvents = [] }) {
   return (
     <div
       style={{
@@ -105,3 +105,5 @@ export default function RecentEvents({ stEvents = [] }) {
     </div>
   );
 }
+
+export default React.memo(RecentEvents);

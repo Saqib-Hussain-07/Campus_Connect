@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Badge from '../../../components/ui/Badge';
 import Card from '../../../components/ui/Card';
 
-export default function RecentProjects({ myProjects = [] }) {
+function RecentProjects({ myProjects = [] }) {
   const catColors = { web: 'sky', mobile: 'moss', ml: 'rust', hardware: 'gold', research: 'dark', other: 'rust' };
   const catIcons = { web: 'fa-globe', mobile: 'fa-mobile-screen', ml: 'fa-brain', hardware: 'fa-microchip', research: 'fa-flask', other: 'fa-code' };
 
@@ -11,7 +11,7 @@ export default function RecentProjects({ myProjects = [] }) {
     <Card style={{ padding: '28px', marginBottom: '24px' }}>
       <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '.62rem', letterSpacing: '.12em', textTransform: 'uppercase', color: '#aaa' }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '.62rem', letterSpacing: '.12em', textTransform: 'uppercase', color: '#4b5563' }}>
             Builds Showcase
           </div>
           <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: 'var(--ink)', margin: 0 }}>
@@ -52,10 +52,12 @@ export default function RecentProjects({ myProjects = [] }) {
           })}
         </div>
       ) : (
-        <div className="text-center py-4" style={{ color: '#aaa', fontSize: '.84rem' }}>
+        <div className="text-center py-4" style={{ color: '#4b5563', fontSize: '.84rem' }}>
           You haven't posted any projects yet. <Link to="/add-project" style={{ color: 'var(--rust)' }}>Create your first listing.</Link>
         </div>
       )}
     </Card>
   );
 }
+
+export default React.memo(RecentProjects);

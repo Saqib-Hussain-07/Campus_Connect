@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function QuickActionsHub({ unreadCount = 0, pendingCount = 0 }) {
+function QuickActionsHub({ unreadCount = 0, pendingCount = 0 }) {
   const actions = [
     {
       to: '/add-project',
@@ -128,3 +128,5 @@ export default function QuickActionsHub({ unreadCount = 0, pendingCount = 0 }) {
     </div>
   );
 }
+
+export default React.memo(QuickActionsHub);

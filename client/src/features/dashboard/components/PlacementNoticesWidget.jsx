@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function PlacementNoticesWidget({ notices = [] }) {
+function PlacementNoticesWidget({ notices = [] }) {
   const categoryColors = {
     placement: { bg: '#eef2ff', text: '#3730a3', border: '#c7d2fe', icon: 'fa-briefcase' },
     internship: { bg: '#fff7ed', text: '#9a3412', border: '#fed7aa', icon: 'fa-user-graduate' },
@@ -105,3 +105,5 @@ export default function PlacementNoticesWidget({ notices = [] }) {
     </div>
   );
 }
+
+export default React.memo(PlacementNoticesWidget);
