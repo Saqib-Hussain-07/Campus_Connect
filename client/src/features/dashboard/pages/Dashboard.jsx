@@ -6,8 +6,11 @@ import { getAvatarUrl } from '../../../utils/avatar';
 
 import DashboardHeader from '../components/DashboardHeader';
 import StatsCards from '../components/StatsCards';
+import QuickActionsHub from '../components/QuickActionsHub';
 import RecentProjects from '../components/RecentProjects';
 import RecentEvents from '../components/RecentEvents';
+import PlacementNoticesWidget from '../components/PlacementNoticesWidget';
+import QuickLinksWidget from '../components/QuickLinksWidget';
 import { useDashboard } from '../hooks/useDashboard';
 
 export default function DashboardIndex() {
@@ -58,49 +61,63 @@ export default function DashboardIndex() {
     endorsed: { icon: 'fa-award', color: 'var(--gold)' }
   };
 
-  const nCatClr = { opportunity: 'var(--moss)', academic: 'var(--sky)', internship: 'var(--rust)', placement: 'var(--gold)', general: '#888', urgent: '#dc3545' };
-
   return (
     <div className="row g-0">
       <Sidebar />
 
       {/* Main Dashboard Content Landmark */}
-      <main id="main-content" tabIndex="-1" className="col-xl-10 col-lg-9 cc-dash-content" style={{ outline: 'none' }}>
+      <main id="main-content" tabIndex="-1" className="col-xl-10 col-lg-9 cc-dash-content" style={{ outline: 'none', padding: '32px' }}>
+        {/* 1. Identity & Greeting */}
         <DashboardHeader user={user} />
+
+        {/* 2. Key Metrics Overview */}
         <StatsCards stats={stats} />
 
+        {/* 3. Primary Quick Actions Hub */}
+        <QuickActionsHub unreadCount={stats?.unreadCount} pendingCount={stats?.pendingCount} />
+
         <div className="row g-4">
-          {/* LEFT Column */}
-          <div className="col-xl-8">
-            {/* Pending Requests */}
+          {/* LEFT Column: Projects, Feed & Requests */}
+          <div className="col-xl-7">
+            {/* Attention Center: Pending Requests */}
             {requests && requests.length > 0 && (
-              <div style={{ border: '1.5px solid var(--rust)', background: 'var(--white)', padding: '24px', marginBottom: '20px' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '.6rem', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--rust)', marginBottom: '14px' }}>
-                  <i className="fas fa-user-clock me-1"></i>Pending Requests ({requests.length})
+              <div
+                style={{
+                  border: '2px solid var(--rust)',
+                  background: 'var(--white)',
+                  padding: '24px',
+                  marginBottom: '24px',
+                  boxShadow: '3px 3px 0 var(--rust)'
+                }}
+              >
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '.68rem', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--rust)', marginBottom: '14px', fontWeight: 'bold' }}>
+                  <i className="fas fa-bell me-1"></i>Action Required: Connection Requests ({requests.length})
                 </div>
                 {requests.map((req) => (
                   <div key={req._id} className="d-flex align-items-center gap-3 mb-3 pb-3" style={{ borderBottom: '1px solid var(--cream)' }}>
                     <img
                       src={getAvatarUrl(req.fromUser)}
-                      style={{ width: '40px', height: '40px', objectFit: 'cover', border: '1.5px solid var(--ink)' }}
+                      style={{ width: '42px', height: '42px', objectFit: 'cover', border: '1.5px solid var(--ink)' }}
                       alt=""
                     />
-                    <div className="flex-grow-1">
-                      <div style={{ fontWeight: '700', fontSize: '.86rem', color: 'var(--ink)' }}>{req.fromUser.name}</div>
-                      <div style={{ fontSize: '.66rem', color: '#888', fontFamily: 'var(--font-mono)' }}>{req.fromUser.department || 'Student'}</div>
+                    <div className="flex-grow-1 min-width-0">
+                      <div style={{ fontWeight: '700', fontSize: '.9rem', color: 'var(--ink)' }}>{req.fromUser?.name}</div>
+                      <div style={{ fontSize: '.7rem', color: '#666', fontFamily: 'var(--font-mono)' }}>
+                        {req.fromUser?.department || 'Student'} {req.fromUser?.university ? `• ${req.fromUser.university}` : ''}
+                      </div>
                     </div>
                     <div className="d-flex gap-2">
                       <button
                         onClick={() => handleConnectionResponse(req._id, 'accept')}
-                        style={{ padding: '6px 14px', background: 'var(--moss)', border: 'none', color: '#fff', fontSize: '.7rem', fontWeight: '600', cursor: 'pointer', textTransform: 'uppercase' }}
+                        style={{ padding: '7px 16px', background: 'var(--moss)', border: 'none', color: '#fff', fontSize: '.72rem', fontWeight: '700', cursor: 'pointer', textTransform: 'uppercase' }}
                       >
                         Accept
                       </button>
                       <button
                         onClick={() => handleConnectionResponse(req._id, 'reject')}
-                        style={{ padding: '6px 10px', background: 'transparent', border: '1px solid #ccc', color: '#888', fontSize: '.7rem', cursor: 'pointer' }}
+                        style={{ padding: '7px 12px', background: 'transparent', border: '1px solid #ccc', color: '#888', fontSize: '.72rem', cursor: 'pointer' }}
                       >
-                        ✕
+                        Ignore
                       </button>
                     </div>
                   </div>
@@ -108,54 +125,65 @@ export default function DashboardIndex() {
               </div>
             )}
 
-            {/* My Projects Modular Component */}
+            {/* My Active Projects Component */}
             <RecentProjects myProjects={myProjects} />
 
-            {/* Global Activity Feed */}
-            <div style={{ border: '1.5px solid var(--ink)', background: 'var(--white)', padding: '28px' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '.62rem', letterSpacing: '.12em', textTransform: 'uppercase', color: '#aaa', marginBottom: '4px' }}>Real-time logs</div>
-              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: 'var(--ink)', marginBottom: '24px' }}>Activity Feed</h4>
+            {/* Real-time Global Activity Feed */}
+            <div style={{ border: '2px solid var(--ink)', background: 'var(--white)', padding: '28px', boxShadow: '3px 3px 0 var(--ink)' }}>
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '.62rem', letterSpacing: '.12em', textTransform: 'uppercase', color: '#888' }}>
+                    Campus Pulse
+                  </div>
+                  <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: 'var(--ink)', margin: 0 }}>
+                    Activity Stream
+                  </h4>
+                </div>
+                <span style={{ fontSize: '.68rem', fontFamily: 'var(--font-mono)', color: 'var(--moss)', fontWeight: 'bold' }}>
+                  <i className="fas fa-circle-dot me-1"></i>Live Updates
+                </span>
+              </div>
 
               {feed && feed.length > 0 ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {feed.map((act) => {
                     const iconSet = feedIcons[act.type] || { icon: 'fa-circle', color: '#888' };
                     return (
-                      <div key={act._id} className="d-flex align-items-start gap-3">
+                      <div key={act._id} className="d-flex align-items-start gap-3 p-2" style={{ borderBottom: '1px solid #f0eae1' }}>
                         <div
                           style={{
-                            width: '32px',
-                            height: '32px',
+                            width: '34px',
+                            height: '34px',
                             background: iconSet.color,
                             color: '#fff',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            fontSize: '12px',
+                            fontSize: '13px',
                             flexShrink: 0
                           }}
                         >
                           <i className={`fas ${iconSet.icon}`}></i>
                         </div>
                         <div className="flex-grow-1">
-                          <span style={{ fontWeight: '700', fontSize: '.84rem', color: 'var(--ink)' }}>
-                            {act.userId?.name || 'Someone'}
+                          <span style={{ fontWeight: '700', fontSize: '.86rem', color: 'var(--ink)' }}>
+                            {act.userId?.name || 'A student'}
                           </span>{' '}
                           <span style={{ fontSize: '.84rem', color: '#555' }}>
-                            {act.type === 'project_added' && 'added a new project'}
+                            {act.type === 'project_added' && 'published a new project'}
                             {act.type === 'event_created' && 'organized a campus event'}
-                            {act.type === 'notice_posted' && 'posted a notice'}
+                            {act.type === 'notice_posted' && 'posted an announcement'}
                             {act.type === 'resource_shared' && 'shared a study resource'}
-                            {act.type === 'connected' && 'connected with a new student'}
+                            {act.type === 'connected' && 'connected with a peer'}
                             {act.type === 'joined_group' && 'joined a study circle'}
-                            {act.type === 'endorsed' && 'endorsed a skill for'}
+                            {act.type === 'endorsed' && 'received a skill endorsement'}
                           </span>{' '}
                           {act.refTitle && (
                             <strong style={{ fontSize: '.84rem', color: 'var(--rust)' }}>
-                              {act.refTitle}
+                              "{act.refTitle}"
                             </strong>
                           )}
-                          <div style={{ fontSize: '.62rem', color: '#999', fontFamily: 'var(--font-mono)', marginTop: '2px' }}>
+                          <div style={{ fontSize: '.64rem', color: '#999', fontFamily: 'var(--font-mono)', marginTop: '2px' }}>
                             {new Date(act.createdAt).toLocaleDateString()}
                           </div>
                         </div>
@@ -169,31 +197,58 @@ export default function DashboardIndex() {
             </div>
           </div>
 
-          {/* RIGHT Column */}
-          <div className="col-xl-4">
-            {/* Suggestions */}
-            <div style={{ border: '1.5px solid var(--ink)', background: 'var(--white)', padding: '24px', marginBottom: '24px' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '.6rem', letterSpacing: '.12em', textTransform: 'uppercase', color: '#aaa', marginBottom: '14px' }}>Suggested Network</div>
+          {/* RIGHT Column: Widgets & Discovery */}
+          <div className="col-xl-5">
+            {/* 1. Upcoming Events & Hackathons */}
+            <RecentEvents stEvents={stEvents} />
+
+            {/* 2. Notices & Placement Announcements */}
+            <PlacementNoticesWidget notices={recentNotices} />
+
+            {/* 3. Suggested Peers Network */}
+            <div
+              style={{
+                border: '2px solid var(--ink)',
+                background: 'var(--white)',
+                padding: '24px',
+                boxShadow: '3px 3px 0 var(--ink)',
+                marginBottom: '24px'
+              }}
+            >
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '.62rem', letterSpacing: '.12em', textTransform: 'uppercase', color: '#888' }}>
+                    Grow Your Circle
+                  </div>
+                  <h5 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--ink)', margin: 0 }}>
+                    Suggested Peers
+                  </h5>
+                </div>
+                <Link to="/students" style={{ fontSize: '.72rem', fontFamily: 'var(--font-mono)', color: 'var(--rust)', textTransform: 'uppercase', fontWeight: 'bold', textDecoration: 'none' }}>
+                  Explore All →
+                </Link>
+              </div>
+
               {suggestions && suggestions.length > 0 ? (
                 <div className="d-flex flex-column gap-3">
                   {suggestions.map((s) => (
-                    <div key={s._id} className="d-flex align-items-center gap-3">
+                    <div key={s._id} className="d-flex align-items-center gap-3 p-2" style={{ border: '1px solid #e0d8c8', background: 'var(--paper)' }}>
                       <img
                         src={getAvatarUrl(s)}
-                        style={{ width: '36px', height: '36px', objectFit: 'cover', border: '1.5px solid var(--ink)', flexShrink: 0 }}
+                        style={{ width: '40px', height: '40px', objectFit: 'cover', border: '1.5px solid var(--ink)', flexShrink: 0 }}
                         alt=""
                       />
                       <div className="flex-grow-1 min-width-0">
-                        <h6 style={{ fontWeight: '700', fontSize: '.84rem', margin: 0, color: 'var(--ink)' }}>
-                          <Link to={`/students/${s._id}`} style={{ color: 'var(--ink)' }}>{s.name}</Link>
+                        <h6 style={{ fontWeight: '700', fontSize: '.86rem', margin: 0, color: 'var(--ink)' }}>
+                          <Link to={`/students/${s._id}`} style={{ color: 'var(--ink)', textDecoration: 'none' }}>{s.name}</Link>
                         </h6>
-                        <div style={{ fontSize: '.64rem', color: '#888', fontFamily: 'var(--font-mono)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                          {s.department || 'Student'}
+                        <div style={{ fontSize: '.66rem', color: '#777', fontFamily: 'var(--font-mono)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {s.department || 'Student'} {s.skills && s.skills.length > 0 ? `• ${s.skills.slice(0, 2).join(', ')}` : ''}
                         </div>
                       </div>
                       <button
                         onClick={() => handleConnect(s._id)}
-                        style={{ padding: '6px 12px', background: 'var(--ink)', border: 'none', color: '#fff', fontSize: '.68rem', fontWeight: '600', cursor: 'pointer', textTransform: 'uppercase' }}
+                        style={{ padding: '6px 14px', background: 'var(--ink)', border: 'none', color: '#fff', fontSize: '.7rem', fontWeight: '700', cursor: 'pointer', textTransform: 'uppercase' }}
                       >
                         Connect
                       </button>
@@ -201,39 +256,12 @@ export default function DashboardIndex() {
                   ))}
                 </div>
               ) : (
-                <div style={{ fontSize: '.8rem', color: '#aaa' }}>No suggestions at this time.</div>
+                <div style={{ fontSize: '.8rem', color: '#aaa' }}>No suggestions available at this time.</div>
               )}
             </div>
 
-            {/* Modular RecentEvents Component */}
-            <RecentEvents stEvents={stEvents} />
-
-            {/* Recent Notices */}
-            <div style={{ border: '1.5px solid var(--ink)', background: 'var(--white)', padding: '24px' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '.6rem', letterSpacing: '.12em', textTransform: 'uppercase', color: '#aaa', marginBottom: '14px' }}>Notice Board</div>
-              {recentNotices && recentNotices.length > 0 ? (
-                <div className="d-flex flex-column gap-3">
-                  {recentNotices.map((n, idx) => {
-                    const clr = nCatClr[n.category] || '#888';
-                    return (
-                      <div key={idx} className="pb-3" style={{ borderBottom: idx < recentNotices.length - 1 ? '1px solid var(--cream)' : 'none' }}>
-                        <div className="d-flex justify-content-between align-items-center mb-1">
-                          <span style={{ fontSize: '.5rem', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', color: clr, border: `1px solid ${clr}`, padding: '1px 6px' }}>
-                            {n.category}
-                          </span>
-                          {n.isPinned && <i className="fas fa-thumbtack text-rust" style={{ fontSize: '10px' }}></i>}
-                        </div>
-                        <h6 style={{ fontWeight: '700', fontSize: '.82rem', margin: '0 0 2px', color: 'var(--ink)' }}>
-                          <Link to="/notices" style={{ color: 'var(--ink)' }}>{n.title}</Link>
-                        </h6>
-                      </div>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div style={{ fontSize: '.8rem', color: '#aaa' }}>No notices posted recently.</div>
-              )}
-            </div>
+            {/* 4. Campus Navigation Quick Links */}
+            <QuickLinksWidget />
           </div>
         </div>
       </main>
