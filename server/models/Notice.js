@@ -52,6 +52,10 @@ const noticeSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 noticeSchema.index({ isPinned: -1, createdAt: -1 });
+noticeSchema.index({ category: 1, createdAt: -1 });
+noticeSchema.index({ userId: 1, createdAt: -1 });
+noticeSchema.index({ expiresAt: 1 });
 noticeSchema.index({ isDeleted: 1, expiresAt: 1, isPinned: -1, createdAt: -1 });
+noticeSchema.index({ isDeleted: 1, category: 1, isPinned: -1, createdAt: -1 });
 
 module.exports = mongoose.model('Notice', noticeSchema);

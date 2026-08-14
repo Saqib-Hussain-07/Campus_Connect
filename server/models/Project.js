@@ -79,8 +79,10 @@ const projectSchema = new mongoose.Schema({
 
 projectSchema.index({ userId: 1, createdAt: -1 });
 projectSchema.index({ category: 1, createdAt: -1 });
+projectSchema.index({ status: 1, createdAt: -1 });
+projectSchema.index({ createdAt: -1 });
 projectSchema.index({ isDeleted: 1, createdAt: -1 });
+projectSchema.index({ isDeleted: 1, category: 1, status: 1, createdAt: -1 });
 projectSchema.index({ userId: 1, isDeleted: 1, createdAt: -1 });
-projectSchema.index({ category: 1, isDeleted: 1 });
 
 module.exports = mongoose.model('Project', projectSchema);

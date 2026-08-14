@@ -57,6 +57,12 @@ const eventSchema = new mongoose.Schema({
   deletedAt: Date
 }, { timestamps: true });
 
+eventSchema.index({ eventDate: 1 });
+eventSchema.index({ eventDate: -1 });
 eventSchema.index({ category: 1, eventDate: 1 });
+eventSchema.index({ userId: 1, createdAt: -1 });
+eventSchema.index({ isDeleted: 1, eventDate: 1 });
+eventSchema.index({ isDeleted: 1, category: 1, eventDate: 1 });
+eventSchema.index({ isDeleted: 1, createdAt: -1 });
 
 module.exports = mongoose.model('Event', eventSchema);

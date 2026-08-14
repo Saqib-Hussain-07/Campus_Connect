@@ -12,4 +12,8 @@ const activitySchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
+activitySchema.index({ createdAt: -1 });
+activitySchema.index({ userId: 1, createdAt: -1 });
+activitySchema.index({ type: 1, createdAt: -1 });
+
 module.exports = mongoose.model('Activity', activitySchema);
