@@ -34,6 +34,20 @@ export default function Navbar() {
   const notifTimer = useRef(null);
   const userTimer = useRef(null);
 
+  // Close open dropdowns and menus on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setShowExploreMenu(false);
+        setShowNotifMenu(false);
+        setShowUserMenu(false);
+        setIsNavCollapsed(true);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const handleMouseEnterExplore = () => {
     if (exploreTimer.current) clearTimeout(exploreTimer.current);
     setShowExploreMenu(true);
@@ -294,12 +308,13 @@ export default function Navbar() {
             </ul>
 
             {/* Global Search */}
-            <form onSubmit={handleSearchSubmit} className="d-flex gap-0 ms-auto me-3" style={{ minWidth: '180px' }}>
+            <form onSubmit={handleSearchSubmit} className="d-flex gap-0 ms-auto me-3" style={{ minWidth: '180px' }} role="search">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search…"
+                aria-label="Search campus network"
                 style={{
                   padding: '7px 12px',
                   border: '1.5px solid var(--cream)',
@@ -314,6 +329,7 @@ export default function Navbar() {
               />
               <button
                 type="submit"
+                aria-label="Submit search"
                 style={{
                   padding: '7px 12px',
                   background: 'var(--ink)',
@@ -323,7 +339,7 @@ export default function Navbar() {
                   flexShrink: 0
                 }}
               >
-                <i className="fas fa-search" style={{ fontSize: '12px' }}></i>
+                <i className="fas fa-search" style={{ fontSize: '12px' }} aria-hidden="true"></i>
               </button>
             </form>
 
@@ -332,10 +348,17 @@ export default function Navbar() {
               {token && user ? (
                 <>
                   {/* Messages Icon Button */}
-                  <Link className="cc-icon-btn position-relative" to="/messages" title="Messages">
-                    <i className="fas fa-comment-dots"></i>
+                  <Link
+                    className="cc-icon-btn position-relative"
+                    to="/messages"
+                    title="Messages"
+                    aria-label={`Direct messages ${msgCount > 0 ? `(${msgCount} unread)` : ''}`}
+                  >
+                    <i className="fas fa-comment-dots" aria-hidden="true"></i>
                     {msgCount > 0 && (
-                      <span className="cc-badge cc-msg-badge">{msgCount > 9 ? '9+' : msgCount}</span>
+                      <span className="cc-badge cc-msg-badge" aria-label={`${msgCount} unread messages`}>
+                        {msgCount > 9 ? '9+' : msgCount}
+                      </span>
                     )}
                   </Link>
 
@@ -345,10 +368,19 @@ export default function Navbar() {
                     onMouseEnter={handleMouseEnterNotif}
                     onMouseLeave={handleMouseLeaveNotif}
                   >
-                    <button className="cc-icon-btn position-relative" title="Notifications">
-                      <i className="fas fa-bell"></i>
+                    <button
+                      className="cc-icon-btn position-relative"
+                      title="Notifications"
+                      aria-label="Open notifications menu"
+                      aria-haspopup="true"
+                      aria-expanded={showNotifMenu}
+                      onClick={() => setShowNotifMenu(!showNotifMenu)}
+                    >
+                      <i className="fas fa-bell" aria-hidden="true"></i>
                       {notifCount > 0 && (
-                        <span className="cc-badge cc-notif-badge">{notifCount > 9 ? '9+' : notifCount}</span>
+                        <span className="cc-badge cc-notif-badge" aria-label={`${notifCount} new notifications`}>
+                          {notifCount > 9 ? '9+' : notifCount}
+                        </span>
                       )}
                     </button>
                     <div
@@ -356,12 +388,14 @@ export default function Navbar() {
                         showNotifMenu ? 'show' : ''
                       }`}
                       style={{ minWidth: '300px', maxWidth: '340px' }}
+                      role="menu"
                     >
                       <div className="cc-notif-header d-flex justify-content-between align-items-center">
                         <span>Notifications</span>
                         {notifCount > 0 && (
                           <button
                             onClick={onMarkAllReadClick}
+                            aria-label="Mark all notifications as read"
                             style={{
                               background: 'none',
                               border: 'none',
@@ -403,7 +437,7 @@ export default function Navbar() {
                                     fontSize: '11px'
                                   }}
                                 >
-                                  <i className={`fas ${map.icon}`}></i>
+                                  <i className={`fas ${map.icon}`} aria-hidden="true"></i>
                                 </div>
                                 <div className="flex-grow-1 min-width-0">
                                   <div className="cc-notif-msg" style={{ fontSize: '.78rem', color: 'var(--ink)' }}>
@@ -411,7 +445,7 @@ export default function Navbar() {
                                   </div>
                                   <div
                                     className="cc-notif-time"
-                                    style={{ fontSize: '.6rem', color: '#999', marginTop: '2px' }}
+                                    style={{ fontSize: '.6rem', color: '#4b5563', marginTop: '2px' }}
                                   >
                                     {new Date(n.createdAt).toLocaleDateString()} ·{' '}
                                     {new Date(n.createdAt).toLocaleTimeString([], {
@@ -420,13 +454,13 @@ export default function Navbar() {
                                     })}
                                   </div>
                                 </div>
-                                {!n.isRead && <div className="cc-notif-dot flex-shrink-0"></div>}
+                                {!n.isRead && <div className="cc-notif-dot flex-shrink-0" aria-label="Unread"></div>}
                               </Link>
                             );
                           })
                         ) : (
-                          <div className="text-center py-4" style={{ color: '#aaa', fontSize: '.82rem' }}>
-                            <i className="fas fa-bell-slash d-block mb-2" style={{ fontSize: '1.4rem' }}></i>
+                          <div className="text-center py-4" style={{ color: '#4b5563', fontSize: '.82rem' }}>
+                            <i className="fas fa-bell-slash d-block mb-2" style={{ fontSize: '1.4rem' }} aria-hidden="true"></i>
                             No notifications yet
                           </div>
                         )}
@@ -443,16 +477,23 @@ export default function Navbar() {
                     onMouseEnter={handleMouseEnterUser}
                     onMouseLeave={handleMouseLeaveUser}
                   >
-                    <button className="cc-user-btn d-flex align-items-center gap-2">
+                    <button
+                      className="cc-user-btn d-flex align-items-center gap-2"
+                      aria-label="User account menu"
+                      aria-haspopup="true"
+                      aria-expanded={showUserMenu}
+                      onClick={() => setShowUserMenu(!showUserMenu)}
+                    >
                       <img
                         src={avatarUrl(user)}
                         style={{ width: '28px', height: '28px', objectFit: 'cover', border: '1.5px solid var(--ink)' }}
-                        alt={user?.name || 'User'}
+                        alt=""
+                        aria-hidden="true"
                       />
                       <span className="d-none d-xxl-inline">{user?.name ? user.name.split(' ')[0] : 'User'}</span>
-                      <i className="fas fa-chevron-down" style={{ fontSize: '.55rem', color: '#888' }}></i>
+                      <i className="fas fa-chevron-down" style={{ fontSize: '.55rem', color: '#888' }} aria-hidden="true"></i>
                     </button>
-                    <ul className={`dropdown-menu cc-dropdown-menu dropdown-menu-end shadow-lg p-2 ${showUserMenu ? 'show' : ''}`} style={{ minWidth: '210px' }}>
+                    <ul className={`dropdown-menu cc-dropdown-menu dropdown-menu-end shadow-lg p-2 ${showUserMenu ? 'show' : ''}`} style={{ minWidth: '210px' }} role="menu">
                       <li className="px-3 py-2" style={{ borderBottom: '1px solid var(--cream)' }}>
                         <div style={{ fontWeight: '700', fontSize: '.84rem', color: 'var(--ink)' }}>{user?.name || 'User'}</div>
                         <div style={{ fontSize: '.68rem', color: '#888', textOverflow: 'ellipsis', overflow: 'hidden' }}>
