@@ -110,6 +110,16 @@ router.post('/login', authLimiter, loginRules, asyncHandler(async (req, res) => 
   if (lockoutStatus.isLocked) {
     return res.status(429).json({
       success: false,
+      error: {
+        code: 'ACCOUNT_LOCKED',
+        message: lockoutStatus.message,
+        details: {
+          locked: true,
+          retryAfterSeconds: lockoutStatus.retryAfterSeconds,
+          lockoutUntil: lockoutStatus.lockoutUntil,
+          lockoutMinutes: lockoutStatus.lockoutMinutes
+        }
+      },
       message: lockoutStatus.message,
       locked: true,
       retryAfterSeconds: lockoutStatus.retryAfterSeconds,
@@ -131,6 +141,16 @@ router.post('/login', authLimiter, loginRules, asyncHandler(async (req, res) => 
     if (failedResult.isLocked) {
       return res.status(429).json({
         success: false,
+        error: {
+          code: 'ACCOUNT_LOCKED',
+          message: failedResult.message,
+          details: {
+            locked: true,
+            retryAfterSeconds: failedResult.retryAfterSeconds,
+            lockoutUntil: failedResult.lockoutUntil,
+            lockoutMinutes: failedResult.lockoutMinutes
+          }
+        },
         message: failedResult.message,
         locked: true,
         retryAfterSeconds: failedResult.retryAfterSeconds,
@@ -138,8 +158,15 @@ router.post('/login', authLimiter, loginRules, asyncHandler(async (req, res) => 
         lockoutMinutes: failedResult.lockoutMinutes
       });
     }
-    return res.status(400).json({
+    return res.status(401).json({
       success: false,
+      error: {
+        code: 'INVALID_CREDENTIALS',
+        message: failedResult.message,
+        details: {
+          remainingAttempts: failedResult.remainingAttempts
+        }
+      },
       message: failedResult.message,
       remainingAttempts: failedResult.remainingAttempts
     });

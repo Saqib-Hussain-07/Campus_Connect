@@ -77,9 +77,19 @@ const userSchema = new mongoose.Schema({
   },
   deletedAt: Date,
   verifyToken: String,
-  verifyExpires: Date,
-  resetToken: String,
   resetExpires: Date,
+  failedLoginAttempts: {
+    type: Number,
+    default: 0
+  },
+  lockoutUntil: {
+    type: Date,
+    default: null
+  },
+  lastFailedLogin: {
+    type: Date,
+    default: null
+  },
   endorsements: [{
     skill: { type: String, required: true, trim: true, maxlength: 50 },
     endorserId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
