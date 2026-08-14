@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../../../components/Navbar';
 
-import Footer from '../../../components/Footer';
 
 export default function ChangePassword() {
   const token = localStorage.getItem('campusconnect_token');
@@ -57,7 +55,6 @@ export default function ChangePassword() {
 
   return (
     <div>
-      <Navbar />
 
       <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0">
@@ -117,7 +114,6 @@ export default function ChangePassword() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

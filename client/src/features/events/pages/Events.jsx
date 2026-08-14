@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
 import { useEvents } from '../hooks/useEvents';
 
 export default function Events() {
@@ -37,15 +35,9 @@ export default function Events() {
   };
 
   return (
-    <div>
-      <Navbar />
-
-      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
-        <div className="row g-0">
-          
-
-          <div className="col-12 cc-dash-content">
-            <div className={token ? "" : "container py-4"}>
+    <div className="row g-0">
+      <div className="col-12 cc-dash-content">
+        <div className={token ? "" : "container py-4"}>
               
               {/* Header */}
               <div style={{ background: 'var(--ink)', padding: '24px 40px', color: '#fff', marginBottom: '30px' }}>
@@ -218,8 +210,5 @@ export default function Events() {
             </div>
           </div>
         </div>
-      </div>
-      <Footer />
-    </div>
   );
 }

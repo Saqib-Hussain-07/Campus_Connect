@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
 import { useAuth } from '../../auth';
 import { authService } from '../../../services/authService';
 
@@ -43,7 +41,6 @@ export default function DeleteAccount() {
 
   return (
     <div>
-      <Navbar />
 
       <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0">
@@ -114,7 +111,6 @@ export default function DeleteAccount() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

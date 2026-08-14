@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
 import { getAvatarUrl } from '../../../utils/avatar';
 import { useProjects } from '../hooks/useProjects';
 
@@ -25,7 +23,6 @@ export default function Projects() {
 
   return (
     <div>
-      <Navbar />
 
       <main id="main-content" tabIndex="-1" style={{ outline: 'none', marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
           <div className="col-12" style={{ minHeight: '100vh' }}>
@@ -429,7 +426,6 @@ export default function Projects() {
             </div>
           </div>
         </main>
-      <Footer />
     </div>
   );
 }

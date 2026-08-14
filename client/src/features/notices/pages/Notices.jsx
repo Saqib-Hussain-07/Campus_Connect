@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
 import { getAvatarUrl } from '../../../utils/avatar';
 import { useNotices } from '../hooks/useNotices';
 
@@ -59,7 +57,6 @@ export default function Notices() {
 
   return (
     <div>
-      <Navbar />
 
       <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0">
@@ -263,8 +260,6 @@ export default function Notices() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

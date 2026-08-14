@@ -58,6 +58,8 @@ const Profile = lazyWithRetry(() => import('./features/auth/pages/Profile'));
 const Contact = lazyWithRetry(() => import('./features/marketing/pages/Contact'));
 const Search = lazyWithRetry(() => import('./features/search/pages/Search'));
 
+import DashboardLayout from './components/layout/DashboardLayout';
+
 export default function App() {
   return (
     <AuthProvider>
@@ -67,33 +69,38 @@ export default function App() {
             <PwaInstallBanner />
             <Suspense fallback={<Loader message="Loading CampusConnect..." />}>
               <Routes>
+                {/* Standalone Landing & Auth Routes */}
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/reset-password" element={<ResetPassword />} />
-                <Route path="/change-password" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
-                <Route path="/delete-account" element={<ProtectedRoute><DeleteAccount /></ProtectedRoute>} />
-                <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-                <Route path="/students" element={<Students />} />
-                <Route path="/students/:id" element={<ViewStudent />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/projects/:id" element={<ViewProject />} />
-                <Route path="/add-project" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
-                <Route path="/groups" element={<Groups />} />
-                <Route path="/create-group" element={<ProtectedRoute><CreateGroup /></ProtectedRoute>} />
-                <Route path="/events" element={<Events />} />
-                <Route path="/create-event" element={<ProtectedRoute><CreateEvent /></ProtectedRoute>} />
-                <Route path="/notices" element={<Notices />} />
-                <Route path="/post-notice" element={<ProtectedRoute><PostNotice /></ProtectedRoute>} />
-                <Route path="/resources" element={<Resources />} />
-                <Route path="/post-resource" element={<ProtectedRoute><PostResource /></ProtectedRoute>} />
-                <Route path="/leaderboard" element={<Leaderboard />} />
-                <Route path="/messages" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
-                <Route path="/notifications" element={<ProtectedRoute><Notifications /></ProtectedRoute>} />
-                <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/search" element={<Search />} />
+
+                {/* Shared Application & Dashboard Layout */}
+                <Route element={<DashboardLayout />}>
+                  <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+                  <Route path="/students" element={<Students />} />
+                  <Route path="/students/:id" element={<ViewStudent />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/projects/:id" element={<ViewProject />} />
+                  <Route path="/add-project" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
+                  <Route path="/groups" element={<Groups />} />
+                  <Route path="/create-group" element={<ProtectedRoute><CreateGroup /></ProtectedRoute>} />
+                  <Route path="/events" element={<Events />} />
+                  <Route path="/create-event" element={<ProtectedRoute><CreateEvent /></ProtectedRoute>} />
+                  <Route path="/notices" element={<Notices />} />
+                  <Route path="/post-notice" element={<ProtectedRoute><PostNotice /></ProtectedRoute>} />
+                  <Route path="/resources" element={<Resources />} />
+                  <Route path="/post-resource" element={<ProtectedRoute><PostResource /></ProtectedRoute>} />
+                  <Route path="/leaderboard" element={<Leaderboard />} />
+                  <Route path="/messages" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
+                  <Route path="/notifications" element={<ProtectedRoute><Notifications /></ProtectedRoute>} />
+                  <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+                  <Route path="/change-password" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
+                  <Route path="/delete-account" element={<ProtectedRoute><DeleteAccount /></ProtectedRoute>} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/search" element={<Search />} />
+                </Route>
               </Routes>
             </Suspense>
           </BrowserRouter>

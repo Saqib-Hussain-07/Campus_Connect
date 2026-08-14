@@ -1,7 +1,5 @@
 import React from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
 import { getAvatarUrl } from '../../../utils/avatar';
 import { useMessages } from '../hooks/useMessages';
 
@@ -23,12 +21,8 @@ export default function Messages() {
   const avatarUrl = (name, avatar) => getAvatarUrl(avatar, name);
 
   return (
-    <div>
-      <Navbar />
-
-      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
-        <div className="container-fluid p-0" style={{ minHeight: 'calc(100vh - 92px)' }}>
-          <div className="row g-0" style={{ minHeight: 'calc(100vh - 92px)' }}>
+    <div className="container-fluid p-0" style={{ minHeight: 'calc(100vh - 92px)' }}>
+      <div className="row g-0" style={{ minHeight: 'calc(100vh - 92px)' }}>
             
             {/* Conversations Sidebar (3 cols) */}
             <div className="col-lg-3 col-md-4" style={{ borderRight: '1.5px solid var(--ink)', background: 'var(--white)', display: 'flex', flexDirection: 'column' }}>
@@ -241,7 +235,5 @@ export default function Messages() {
 
           </div>
         </div>
-      </div>
-    </div>
   );
 }

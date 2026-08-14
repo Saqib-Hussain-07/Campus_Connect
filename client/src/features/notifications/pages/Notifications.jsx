@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../../../components/Navbar';
 
-import Footer from '../../../components/Footer';
 
 export default function Notifications() {
   const token = localStorage.getItem('campusconnect_token');
@@ -50,7 +48,6 @@ export default function Notifications() {
 
   return (
     <div>
-      <Navbar />
 
       <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0">
@@ -148,8 +145,6 @@ export default function Notifications() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

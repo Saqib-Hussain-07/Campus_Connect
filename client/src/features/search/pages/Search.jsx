@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
 import { getAvatarUrl } from '../../../utils/avatar';
 import { useSearch } from '../hooks/useSearch';
 
@@ -15,7 +13,6 @@ export default function Search() {
 
   return (
     <div>
-      <Navbar />
 
       <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0">
@@ -150,8 +147,6 @@ export default function Search() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

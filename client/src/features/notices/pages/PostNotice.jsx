@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
 
 export default function PostNotice() {
   const navigate = useNavigate();
@@ -76,7 +74,6 @@ export default function PostNotice() {
 
   return (
     <div>
-      <Navbar />
 
       <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
         <div className="row g-0">
@@ -178,8 +175,6 @@ export default function PostNotice() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

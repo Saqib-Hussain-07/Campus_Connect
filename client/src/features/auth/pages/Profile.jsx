@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
 import Loader from '../../../components/Loader';
 import { COURSE_META } from '../constants/departments';
 import { useProfile } from '../hooks/useProfile';
@@ -25,39 +23,31 @@ export default function Profile() {
   if (loading) return <Loader message="Loading Profile Settings..." />;
 
   return (
-    <div>
-      <Navbar />
+    <div className="row g-0">
+      <div className="col-12 cc-dash-content">
+        <ProfileHeader />
+        <div className="row g-4">
+          {/* Left Profile Card Preview */}
+          <div className="col-lg-3">
+            <ProfilePreviewCard form={form} />
+          </div>
 
-      <div style={{ marginTop: '0px', background: 'var(--paper)', minHeight: 'calc(100vh - 92px)' }}>
-        <div className="row g-0">
-          <div className="col-12 cc-dash-content">
-            <ProfileHeader />
-            <div className="row g-4">
-              {/* Left Profile Card Preview */}
-              <div className="col-lg-3">
-                <ProfilePreviewCard form={form} />
-              </div>
-
-              {/* Edit form */}
-              <div className="col-lg-9">
-                <ProfileForm
-                  form={form}
-                  saving={saving}
-                  error={error}
-                  success={success}
-                  handleChange={handleChange}
-                  handleDeptGroupChange={handleDeptGroupChange}
-                  handleCourseChange={handleCourseChange}
-                  handleAvatarChange={handleAvatarChange}
-                  handleSubmit={handleSubmit}
-                />
-              </div>
-            </div>
+          {/* Edit form */}
+          <div className="col-lg-9">
+            <ProfileForm
+              form={form}
+              saving={saving}
+              error={error}
+              success={success}
+              handleChange={handleChange}
+              handleDeptGroupChange={handleDeptGroupChange}
+              handleCourseChange={handleCourseChange}
+              handleAvatarChange={handleAvatarChange}
+              handleSubmit={handleSubmit}
+            />
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }
