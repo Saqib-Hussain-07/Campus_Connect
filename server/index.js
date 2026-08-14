@@ -33,25 +33,10 @@ const PORT = process.env.PORT || 5000;
 app.use(compression());
 
 const cookieParser = require('./middleware/cookieParser');
+const helmetConfig = require('./config/helmetConfig');
 
 // Security Middlewares
-app.use(helmet({
-  crossOriginResourcePolicy: { policy: "cross-origin" },
-  crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" },
-  referrerPolicy: { policy: "strict-origin-when-cross-origin" },
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com", "data:"],
-      imgSrc: ["'self'", "data:", "blob:", "https:"],
-      connectSrc: ["'self'", "https://campus-connect-backend-qeqy.onrender.com", "https:"],
-      frameAncestors: ["'none'"],
-      objectSrc: ["'none'"]
-    }
-  }
-}));
+app.use(helmet(helmetConfig));
 app.use(getCorsOptions());
 app.use(cookieParser);
 
