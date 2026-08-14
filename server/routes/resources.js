@@ -4,7 +4,7 @@ const Activity = require('../models/Activity');
 const auth = require('../middleware/auth');
 const asyncHandler = require('../utils/asyncHandler');
 const { sendSuccess, sendPaginated, sendError } = require('../utils/apiResponse');
-const { resourceRules } = require('../middleware/validators');
+const { createResourceRules } = require('../validators/resource.validator');
 const { cache, cacheMiddleware } = require('../utils/cache');
 const { buildSafeRegexQuery } = require('../utils/regex');
 
@@ -47,7 +47,7 @@ router.get('/', cacheMiddleware(60), asyncHandler(async (req, res) => {
 }));
 
 // Share Resource
-router.post('/', auth, resourceRules, asyncHandler(async (req, res) => {
+router.post('/', auth, createResourceRules, asyncHandler(async (req, res) => {
   const { title, description, subject, type, url, department, semester } = req.body;
   const userId = req.user.id;
 

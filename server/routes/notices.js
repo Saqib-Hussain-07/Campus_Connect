@@ -6,6 +6,8 @@ const asyncHandler = require('../utils/asyncHandler');
 const { sendSuccess, sendPaginated, sendError } = require('../utils/apiResponse');
 const { cache, cacheMiddleware } = require('../utils/cache');
 
+const { createNoticeRules } = require('../validators/notice.validator');
+
 const router = express.Router();
 
 // List notices with pagination & caching
@@ -38,16 +40,15 @@ router.get('/', cacheMiddleware(60), asyncHandler(async (req, res) => {
 }));
 
 // Post Notice
-router.post('/', auth, asyncHandler(async (req, res) => {
-  const { title, body, category, tags, expiresAt, isPinned } = req.body;
-  if (!title || !body) return sendError(res, 'Title and notice body are required', 400);
-
+router.post('/', auth, createNoticeRules, asyncHandler(async (req, res) => {
+  const { title, body, content, category, tags, expiresAt, isPinned } = req.body;
+  const noticeBody = (body || content).trim();
   const userId = req.user.id;
 
   const notice = await Notice.create({
     userId,
     title: title.trim(),
-    body: body.trim(),
+    body: noticeBody,
     category: category || 'general',
     tags: Array.isArray(tags)
       ? tags

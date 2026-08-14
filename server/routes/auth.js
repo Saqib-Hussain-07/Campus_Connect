@@ -24,7 +24,7 @@ const {
   forgotPasswordRules,
   resetPasswordRules,
   changePasswordRules
-} = require('../middleware/validators');
+} = require('../validators/auth.validator');
 
 const router = express.Router();
 

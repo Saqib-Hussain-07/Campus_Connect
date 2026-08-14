@@ -11,6 +11,8 @@ const asyncHandler = require('../utils/asyncHandler');
 const { sendSuccess, sendPaginated, sendError } = require('../utils/apiResponse');
 const { buildSafeRegexQuery } = require('../utils/regex');
 
+const { updateProfileRules } = require('../validators/auth.validator');
+
 const router = express.Router();
 
 // Get users list (with safe query filters: search, department, university, skill, and pagination)
@@ -82,7 +84,7 @@ router.put('/avatar', auth, upload.single('avatar'), asyncHandler(async (req, re
 }));
 
 // Update Profile
-router.put('/profile', auth, asyncHandler(async (req, res) => {
+router.put('/profile', auth, updateProfileRules, asyncHandler(async (req, res) => {
   const { name, department, semester, university, skills, bio, avatar } = req.body;
   const user = await User.findById(req.user.id);
   if (!user) return sendError(res, 'User not found', 404);

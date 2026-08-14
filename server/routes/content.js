@@ -9,7 +9,9 @@ const Activity = require('../models/Activity');
 const auth = require('../middleware/auth');
 const asyncHandler = require('../utils/asyncHandler');
 const { sendSuccess, sendPaginated, sendError } = require('../utils/apiResponse');
-const { projectRules } = require('../middleware/validators');
+const { projectRules, commentProjectRules } = require('../validators/project.validator');
+const { createGroupRules } = require('../validators/group.validator');
+const { createEventRules, rsvpEventRules } = require('../validators/event.validator');
 const { buildSafeRegexQuery } = require('../utils/regex');
 
 const router = express.Router();
@@ -170,9 +172,8 @@ router.post('/projects/:id/like', auth, asyncHandler(async (req, res) => {
 }));
 
 // Comment on Project
-router.post('/projects/:id/comment', auth, asyncHandler(async (req, res) => {
-  const { body } = req.body;
-  if (!body || body.trim() === '') return sendError(res, 'Comment body is required', 400);
+router.post('/projects/:id/comment', auth, commentProjectRules, asyncHandler(async (req, res) => {
+  const commentText = (req.body.body || req.body.text).trim();
 
   const project = await Project.findOne({ _id: req.params.id, isDeleted: { $ne: true } });
   if (!project) return sendError(res, 'Project not found', 404);
@@ -233,10 +234,8 @@ router.get('/groups', asyncHandler(async (req, res) => {
 }));
 
 // Create Group
-router.post('/groups', auth, asyncHandler(async (req, res) => {
+router.post('/groups', auth, createGroupRules, asyncHandler(async (req, res) => {
   const { name, description, type, status } = req.body;
-  if (!name || name.trim() === '') return sendError(res, 'Group name is required', 400);
-
   const userId = req.user.id;
 
   const group = await Group.create({
@@ -369,10 +368,8 @@ router.get('/events', asyncHandler(async (req, res) => {
 }));
 
 // Create Event
-router.post('/events', auth, asyncHandler(async (req, res) => {
+router.post('/events', auth, createEventRules, asyncHandler(async (req, res) => {
   const { title, description, category, venue, eventDate, registrationDeadline, maxAttendees, isOnline, bannerSeed } = req.body;
-  if (!title || !eventDate) return sendError(res, 'Title and event date are required', 400);
-
   const userId = req.user.id;
 
   const event = await Event.create({

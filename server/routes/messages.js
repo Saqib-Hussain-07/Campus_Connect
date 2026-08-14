@@ -6,7 +6,7 @@ const User = require('../models/User');
 const auth = require('../middleware/auth');
 const asyncHandler = require('../utils/asyncHandler');
 const { sendSuccess, sendError } = require('../utils/apiResponse');
-const { messageRules } = require('../middleware/validators');
+const { messageRules } = require('../validators/message.validator');
 
 const router = express.Router();
 

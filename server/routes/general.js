@@ -12,7 +12,7 @@ const { buildSafeRegexQuery } = require('../utils/regex');
 const cache = require('../utils/cache');
 
 const { contactLimiter, newsletterLimiter } = require('../middleware/rateLimiter');
-const { contactRules, newsletterRules } = require('../middleware/validators');
+const { contactRules, newsletterRules } = require('../validators/contact.validator');
 
 const router = express.Router();
 
