@@ -1,79 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../../components/Navbar';
-
 import Footer from '../../../components/Footer';
+import { useEvents } from '../hooks/useEvents';
 
 export default function Events() {
-  const navigate = useNavigate();
   const token = localStorage.getItem('campusconnect_token');
-  const loggedInUser = JSON.parse(localStorage.getItem('campusconnect_user'));
+  const loggedInUser = JSON.parse(localStorage.getItem('campusconnect_user') || 'null');
 
-  const [events, setEvents] = useState([]);
-  const [search, setSearch] = useState('');
-  const [category, setCategory] = useState('');
-  const [loading, setLoading] = useState(true);
-
-  const fetchEvents = () => {
-    setLoading(true);
-    const query = new URLSearchParams();
-    if (category) query.append('category', category);
-    if (search) query.append('search', search);
-
-    fetch(`/api/content/events?${query.toString()}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data)) {
-          setEvents(data);
-        }
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  };
-
-  useEffect(() => {
-    fetchEvents();
-  }, [category]); // reload on category switch
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    fetchEvents();
-  };
-
-  const handleReset = () => {
-    setSearch('');
-    setCategory('');
-    setLoading(true);
-    fetch(`/api/content/events`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data)) {
-          setEvents(data);
-        }
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  };
-
-  const handleRsvp = async (eventId, status) => {
-    if (!token) {
-      navigate('/login');
-      return;
-    }
-    try {
-      const res = await fetch(`/api/content/events/${eventId}/rsvp`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({ status })
-      });
-      if (res.ok) {
-        fetchEvents();
-      }
-    } catch (err) {}
-  };
+  const {
+    events,
+    loading,
+    search,
+    setSearch,
+    category,
+    setCategory,
+    handleSearchSubmit,
+    handleReset,
+    handleRsvp
+  } = useEvents();
 
   const bannerImages = {
     ev1: 'https://picsum.photos/seed/event1/600/300',

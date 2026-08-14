@@ -35,5 +35,12 @@ export const projectService = {
       method: 'POST',
       body: JSON.stringify({ message })
     });
+  },
+
+  moderateJoinRequest: async (projectId, reqId, action) => {
+    return apiClient(`/api/content/projects/${projectId}/request/${reqId}`, {
+      method: 'POST',
+      body: JSON.stringify({ action })
+    });
   }
 };

@@ -1,65 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import { getAvatarUrl } from '../../../utils/avatar';
+import { useLeaderboard } from '../hooks/useLeaderboard';
 
 export default function Leaderboard() {
-  const token = localStorage.getItem('campusconnect_token');
-  const [activeTab, setActiveTab] = useState('connections');
-  const [data, setData] = useState({ connections: [], builders: [], endorsed: [], groupers: [] });
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/api/general/leaderboard')
-      .then((res) => res.json())
-      .then((json) => {
-        setData(json);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
-
-  const getActiveList = () => {
-    return data[activeTab] || [];
-  };
-
-  const getScoreLabel = (item) => {
-    if (activeTab === 'connections') {
-      return `${item.conn_count} connection${item.conn_count !== 1 ? 's' : ''}`;
-    }
-    if (activeTab === 'builders') {
-      return `${item.total_likes} like${item.total_likes !== 1 ? 's' : ''} on ${item.project_count} project${item.project_count !== 1 ? 's' : ''}`;
-    }
-    if (activeTab === 'endorsed') {
-      return `${item.endorse_count} endorsement${item.endorse_count !== 1 ? 's' : ''}`;
-    }
-    if (activeTab === 'groupers') {
-      return `${item.group_count} group${item.group_count !== 1 ? 's' : ''}`;
-    }
-    return '';
-  };
-
-  const getShortScore = (item) => {
-    if (activeTab === 'connections') return `${item.conn_count} connects`;
-    if (activeTab === 'builders') return `${item.total_likes} likes`;
-    if (activeTab === 'endorsed') return `${item.endorse_count} endorsements`;
-    if (activeTab === 'groupers') return `${item.group_count} groups`;
-    return '';
-  };
-
-  const getSubLabel = (item) => {
-    if (activeTab === 'connections') {
-      return item.department || '';
-    }
-    if (activeTab === 'builders') {
-      return item.department || '';
-    }
-    if (activeTab === 'endorsed' && item.endorsed_skills) {
-      return `Skills: ${item.endorsed_skills}`;
-    }
-    return item.department || '';
-  };
+  const {
+    activeTab,
+    setActiveTab,
+    loading,
+    getActiveList,
+    getScoreLabel,
+    getShortScore,
+    getSubLabel
+  } = useLeaderboard();
 
   const tabs = [
     { id: 'connections', icon: 'fa-user-check', label: 'Most Connected' },

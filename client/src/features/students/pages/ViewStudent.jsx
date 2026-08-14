@@ -1,96 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import Loader from '../../../components/Loader';
 import { getAvatarUrl } from '../../../utils/avatar';
+import { useStudentDetails } from '../hooks/useStudentDetails';
 
 export default function ViewStudent() {
   const { id } = useParams();
-  const navigate = useNavigate();
-  const token = localStorage.getItem('campusconnect_token');
-  const loggedInUser = JSON.parse(localStorage.getItem('campusconnect_user'));
+  const {
+    studentData,
+    connection,
+    loading,
+    error,
+    loggedInUser,
+    token,
+    handleConnect,
+    handleEndorse,
+    handleRespond
+  } = useStudentDetails(id);
 
-  const [studentData, setStudentData] = useState(null);
-  const [connection, setConnection] = useState(null); // { status, connectionId, fromUser }
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-
-  const fetchStudentDetails = async () => {
-    try {
-      // 1. Fetch details
-      const res = await fetch(`/api/users/${id}`);
-      if (!res.ok) throw new Error('Student not found');
-      const data = await res.json();
-      setStudentData(data);
-
-      // 2. Fetch connection status if logged in
-      if (token && loggedInUser && loggedInUser.id !== id) {
-        const connRes = await fetch(`/api/users/connections/status/${id}`, {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        const connData = await connRes.json();
-        setConnection(connData);
-      }
-      setLoading(false);
-    } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchStudentDetails();
-  }, [id, token]);
-
-  const handleConnect = async () => {
-    if (!token) {
-      navigate('/login');
-      return;
-    }
-    try {
-      const res = await fetch(`/api/users/${id}/connect`, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      if (res.ok) {
-        fetchStudentDetails();
-      }
-    } catch (err) {}
-  };
-
-  const handleEndorse = async (skill) => {
-    if (!token) return;
-    try {
-      const res = await fetch(`/api/users/${id}/endorse`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({ skill })
-      });
-      if (res.ok) {
-        fetchStudentDetails();
-      }
-    } catch (err) {}
-  };
-
-  const handleAcceptRequest = async (connId) => {
-    try {
-      const res = await fetch(`/api/users/connections/${connId}/respond`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({ action: 'accept' })
-      });
-      if (res.ok) {
-        fetchStudentDetails();
-      }
-    } catch (err) {}
-  };
+  const handleAcceptRequest = (connId) => handleRespond('accept');
 
   if (loading) return <Loader message="Loading Student Profile..." />;
   if (error) {

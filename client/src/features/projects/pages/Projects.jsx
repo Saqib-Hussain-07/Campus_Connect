@@ -1,53 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import { getAvatarUrl } from '../../../utils/avatar';
+import { useProjects } from '../hooks/useProjects';
 
 export default function Projects() {
   const token = localStorage.getItem('campusconnect_token');
-  const [projects, setProjects] = useState([]);
-  const [search, setSearch] = useState('');
-  const [category, setCategory] = useState('');
-  const [status, setStatus] = useState('');
-  const [loading, setLoading] = useState(true);
-
-  const fetchProjects = () => {
-    setLoading(true);
-    const query = new URLSearchParams({
-      search,
-      category,
-      status
-    }).toString();
-
-    fetch(`/api/content/projects?${query}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProjects(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  };
-
-  useEffect(() => {
-    fetchProjects();
-  }, [category, status]); // fetch on filter selection changes
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    fetchProjects();
-  };
-
-  const handleReset = () => {
-    setSearch('');
-    setCategory('');
-    setStatus('');
-    setTimeout(() => {
-      fetch('/api/content/projects')
-        .then((res) => res.json())
-        .then((data) => setProjects(data));
-    }, 50);
-  };
+  const {
+    projects,
+    loading,
+    search,
+    setSearch,
+    category,
+    setCategory,
+    status,
+    setStatus,
+    handleSearchSubmit,
+    handleReset
+  } = useProjects();
 
   const catColors = { web: 'var(--sky)', mobile: 'var(--moss)', ml: 'var(--rust)', hardware: 'var(--gold)', research: '#7c3aed', other: '#888' };
   const catIcons = { web: 'fa-globe', mobile: 'fa-mobile-screen', ml: 'fa-brain', hardware: 'fa-microchip', research: 'fa-flask', other: 'fa-code' };

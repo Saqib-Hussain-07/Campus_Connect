@@ -1,60 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
 import Navbar from '../../../components/Navbar';
 import Sidebar from '../../../components/Sidebar';
 import Footer from '../../../components/Footer';
 import Loader from '../../../components/Loader';
-import { useAuth } from '../../auth';
-import { apiClient } from '../../../services/apiClient';
 import { getAvatarUrl } from '../../../utils/avatar';
 
 import DashboardHeader from '../components/DashboardHeader';
 import StatsCards from '../components/StatsCards';
 import RecentProjects from '../components/RecentProjects';
 import RecentEvents from '../components/RecentEvents';
+import { useDashboard } from '../hooks/useDashboard';
 
 export default function DashboardIndex() {
-  const navigate = useNavigate();
-  const { user, token } = useAuth();
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    if (!token) {
-      navigate('/login');
-      return;
-    }
-
-    apiClient('/api/dashboard')
-      .then((resData) => {
-        setData(resData);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message || 'Failed to load dashboard');
-        setLoading(false);
-      });
-  }, [token, navigate]);
-
-  const handleConnectionResponse = async (connId, action) => {
-    try {
-      await apiClient(`/api/users/connections/${connId}/respond`, {
-        method: 'POST',
-        body: JSON.stringify({ action })
-      });
-      const refreshData = await apiClient('/api/dashboard');
-      setData(refreshData);
-    } catch (err) {}
-  };
-
-  const handleConnect = async (userId) => {
-    try {
-      await apiClient(`/api/users/${userId}/connect`, { method: 'POST' });
-      const refreshData = await apiClient('/api/dashboard');
-      setData(refreshData);
-    } catch (err) {}
-  };
+  const {
+    user,
+    data,
+    loading,
+    error,
+    handleConnectionResponse,
+    handleConnect
+  } = useDashboard();
 
   if (loading) return <Loader message="Loading CampusConnect Dashboard..." />;
   if (error) {

@@ -19,6 +19,13 @@ export const authService = {
     return apiClient('/api/auth/me');
   },
 
+  updateUserProfile: async (profileData) => {
+    return apiClient('/api/users/profile', {
+      method: 'PUT',
+      body: JSON.stringify(profileData)
+    });
+  },
+
   logout: async () => {
     try {
       await apiClient('/api/auth/logout', { method: 'POST' });

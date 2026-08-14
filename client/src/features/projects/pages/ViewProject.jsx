@@ -1,119 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import Loader from '../../../components/Loader';
 import { getAvatarUrl } from '../../../utils/avatar';
+import { useProjectDetails } from '../hooks/useProjectDetails';
 
 export default function ViewProject() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const token = localStorage.getItem('campusconnect_token');
-  const loggedInUser = JSON.parse(localStorage.getItem('campusconnect_user'));
+  const loggedInUser = JSON.parse(localStorage.getItem('campusconnect_user') || 'null');
 
-  const [project, setProject] = useState(null);
-  const [commentText, setCommentText] = useState('');
-  const [requestText, setRequestText] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-  const [requestSuccess, setRequestSuccess] = useState('');
-
-  const fetchProjectDetails = () => {
-    fetch(`/api/content/projects/${id}`)
-      .then((res) => {
-        if (!res.ok) throw new Error('Project not found');
-        return res.json();
-      })
-      .then((data) => {
-        setProject(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  };
-
-  useEffect(() => {
-    fetchProjectDetails();
-  }, [id]);
-
-  const handleLike = async () => {
-    if (!token) {
-      navigate('/login');
-      return;
-    }
-    try {
-      const res = await fetch(`/api/content/projects/${id}/like`, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      if (res.ok) {
-        fetchProjectDetails();
-      }
-    } catch (err) {}
-  };
-
-  const handleCommentSubmit = async (e) => {
-    e.preventDefault();
-    if (!commentText.trim() || !token) return;
-
-    try {
-      const res = await fetch(`/api/content/projects/${id}/comment`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({ body: commentText })
-      });
-      if (res.ok) {
-        setCommentText('');
-        fetchProjectDetails();
-      }
-    } catch (err) {}
-  };
-
-  const handleJoinRequestSubmit = async (e) => {
-    e.preventDefault();
-    if (!token) return;
-    setRequestSuccess('');
-
-    try {
-      const res = await fetch(`/api/content/projects/${id}/request`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({ message: requestText })
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setRequestText('');
-        setRequestSuccess('Your team join request has been sent!');
-        fetchProjectDetails();
-      } else {
-        alert(data.message || 'Failed to submit request');
-      }
-    } catch (err) {}
-  };
-
-  const handleModerateRequest = async (reqId, action) => {
-    try {
-      const res = await fetch(`/api/content/projects/${id}/request/${reqId}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({ action })
-      });
-      if (res.ok) {
-        fetchProjectDetails();
-      }
-    } catch (err) {}
-  };
+  const {
+    project,
+    loading,
+    error,
+    commentText,
+    setCommentText,
+    requestText,
+    setRequestText,
+    requestSuccess,
+    handleLike,
+    handleCommentSubmit,
+    handleJoinRequestSubmit,
+    handleModerateRequest
+  } = useProjectDetails(id);
 
   if (loading) return <Loader message="Loading Project Details..." />;
   if (error) {

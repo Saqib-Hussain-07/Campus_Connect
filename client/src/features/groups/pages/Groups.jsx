@@ -1,69 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import { getAvatarUrl, getBannerUrl } from '../../../utils/avatar';
+import { useGroups } from '../hooks/useGroups';
 
 export default function Groups() {
-  const navigate = useNavigate();
-  const token = localStorage.getItem('campusconnect_token');
-  const loggedInUser = JSON.parse(localStorage.getItem('campusconnect_user'));
-
-  const [groups, setGroups] = useState([]);
-  const [search, setSearch] = useState('');
-  const [type, setType] = useState('');
-  const [loading, setLoading] = useState(true);
-
-  const fetchGroups = () => {
-    setLoading(true);
-    const query = new URLSearchParams({
-      search,
-      type
-    }).toString();
-
-    fetch(`/api/content/groups?${query}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setGroups(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  };
-
-  useEffect(() => {
-    fetchGroups();
-  }, [type]); // Fetch automatically when type changes
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    fetchGroups();
-  };
-
-  const handleReset = () => {
-    setSearch('');
-    setType('');
-    setTimeout(() => {
-      fetch('/api/content/groups')
-        .then((res) => res.json())
-        .then((data) => setGroups(data));
-    }, 50);
-  };
-
-  const handleJoinGroup = async (groupId) => {
-    if (!token) {
-      navigate('/login');
-      return;
-    }
-    try {
-      const res = await fetch(`/api/content/groups/${groupId}/join`, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      if (res.ok) {
-        fetchGroups();
-      }
-    } catch (err) {}
-  };
+  const {
+    groups,
+    loading,
+    search,
+    setSearch,
+    type,
+    setType,
+    handleSearchSubmit,
+    handleReset,
+    handleJoinGroup,
+    loggedInUser,
+    token
+  } = useGroups();
 
   const typeIcons = { study: 'fa-book-open', project: 'fa-code-branch', forum: 'fa-comments' };
   const typeColors = { study: 'var(--sky)', project: 'var(--rust)', forum: 'var(--gold)' };

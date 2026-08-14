@@ -1,77 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import { getAvatarUrl } from '../../../utils/avatar';
+import { useStudents } from '../hooks/useStudents';
 
 export default function Students() {
-  const token = localStorage.getItem('campusconnect_token');
-  const [students, setStudents] = useState([]);
-  const [search, setSearch] = useState('');
-  const [department, setDepartment] = useState('');
-  const [university, setUniversity] = useState('');
-  const [semester, setSemester] = useState('');
-  const [skill, setSkill] = useState('');
-  const [loading, setLoading] = useState(true);
-
-  const fetchStudents = () => {
-    setLoading(true);
-    const query = new URLSearchParams({
-      search,
-      department,
-      university,
-      semester,
-      skill
-    }).toString();
-
-    fetch(`/api/users?${query}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setStudents(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  };
-
-  useEffect(() => {
-    fetchStudents();
-  }, [department, semester]); // Fetch automatically on select dropdown changes
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    fetchStudents();
-  };
-
-  const handleReset = () => {
-    setSearch('');
-    setDepartment('');
-    setUniversity('');
-    setSemester('');
-    setSkill('');
-    // Trigger list fetch
-    setTimeout(() => {
-      fetch(`/api/users`)
-        .then((res) => res.json())
-        .then((data) => setStudents(data));
-    }, 50);
-  };
-
-  const handleConnect = async (studentId) => {
-    if (!token) return;
-    try {
-      const res = await fetch(`/api/users/${studentId}/connect`, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      if (res.ok) {
-        alert('Connection request sent!');
-        fetchStudents();
-      } else {
-        const d = await res.json();
-        alert(d.message || 'Failed to send request');
-      }
-    } catch (err) {}
-  };
+  const {
+    students,
+    loading,
+    search,
+    setSearch,
+    department,
+    setDepartment,
+    university,
+    setUniversity,
+    semester,
+    setSemester,
+    skill,
+    setSkill,
+    handleSearchSubmit,
+    handleReset,
+    handleConnect,
+    token
+  } = useStudents();
 
   const avatarUrl = (u) => getAvatarUrl(u);
 

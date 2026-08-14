@@ -1,33 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import { getAvatarUrl } from '../../../utils/avatar';
+import { useSearch } from '../hooks/useSearch';
 
 export default function Search() {
-  const [searchParams] = useSearchParams();
-  const query = searchParams.get('q') || '';
-  const token = localStorage.getItem('campusconnect_token');
-
-  const [results, setResults] = useState({ students: [], projects: [], groups: [], events: [] });
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (!query) {
-      setResults({ students: [], projects: [], groups: [], events: [] });
-      setLoading(false);
-      return;
-    }
-
-    setLoading(true);
-    fetch(`/api/general/search?q=${encodeURIComponent(query)}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setResults(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, [query]);
+  const {
+    query,
+    results,
+    loading,
+    token
+  } = useSearch();
 
   return (
     <div>

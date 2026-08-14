@@ -1,51 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import { getAvatarUrl } from '../../../utils/avatar';
+import { useNotices } from '../hooks/useNotices';
 
 export default function Notices() {
-  const token = localStorage.getItem('campusconnect_token');
-  const loggedInUser = JSON.parse(localStorage.getItem('campusconnect_user'));
-
-  const [notices, setNotices] = useState([]);
-  const [search, setSearch] = useState('');
-  const [category, setCategory] = useState('all');
-  const [loading, setLoading] = useState(true);
-
-  const fetchNotices = () => {
-    setLoading(true);
-    fetch('/api/notices')
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data)) {
-          setNotices(data);
-        }
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  };
-
-  useEffect(() => {
-    fetchNotices();
-  }, []);
-
-  const handlePinToggle = async (noticeId) => {
-    if (!token) return;
-    try {
-      const res = await fetch(`/api/notices/${noticeId}/pin`, {
-        method: 'PUT',
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      if (res.ok) {
-        fetchNotices();
-      }
-    } catch (err) {}
-  };
-
-  const handleSearchClear = () => {
-    setSearch('');
-  };
+  const {
+    notices,
+    loading,
+    search,
+    setSearch,
+    category,
+    setCategory,
+    handlePinToggle,
+    handleSearchClear,
+    loggedInUser,
+    token
+  } = useNotices();
 
   const catLabels = {
     all: 'All',

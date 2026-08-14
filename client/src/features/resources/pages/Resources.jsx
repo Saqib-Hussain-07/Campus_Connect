@@ -1,76 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../../components/Navbar';
-
 import Footer from '../../../components/Footer';
+import { useResources } from '../hooks/useResources';
 
 export default function Resources() {
-  const navigate = useNavigate();
-  const token = localStorage.getItem('campusconnect_token');
-  const loggedInUser = JSON.parse(localStorage.getItem('campusconnect_user'));
-
-  const [resources, setResources] = useState([]);
-  const [search, setSearch] = useState('');
-  const [department, setDepartment] = useState('');
-  const [semester, setSemester] = useState('');
-  const [type, setType] = useState('');
-  const [loading, setLoading] = useState(true);
-
-  const fetchResources = () => {
-    setLoading(true);
-    const queryParams = {
-      search,
-      department,
-      semester
-    };
-    if (type) queryParams.type = type;
-    const query = new URLSearchParams(queryParams).toString();
-
-    fetch(`/api/resources?${query}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setResources(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  };
-
-  useEffect(() => {
-    fetchResources();
-  }, [department, semester, type]); // fetch automatically on select filter updates
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    fetchResources();
-  };
-
-  const handleReset = () => {
-    setSearch('');
-    setDepartment('');
-    setSemester('');
-    setType('');
-    setTimeout(() => {
-      fetch('/api/resources')
-        .then((res) => res.json())
-        .then((data) => setResources(data));
-    }, 50);
-  };
-
-  const handleLike = async (resourceId) => {
-    if (!token) {
-      navigate('/login');
-      return;
-    }
-    try {
-      const res = await fetch(`/api/resources/${resourceId}/like`, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      if (res.ok) {
-        fetchResources();
-      }
-    } catch (err) {}
-  };
+  const {
+    resources,
+    loading,
+    search,
+    setSearch,
+    department,
+    setDepartment,
+    semester,
+    setSemester,
+    type,
+    setType,
+    handleSearchSubmit,
+    handleReset,
+    handleLike,
+    loggedInUser,
+    token
+  } = useResources();
 
   const departments = [
     'Computer Science Engineering',
