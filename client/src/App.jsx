@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import { NotificationProvider } from './context/NotificationContext';
+import { AuthProvider } from './features/auth';
+import { NotificationProvider } from './features/notifications';
 import { ToastProvider } from './context/ToastContext';
 import Loader from './components/Loader';
 import PwaInstallBanner from './components/PwaInstallBanner';
@@ -29,34 +29,34 @@ const lazyWithRetry = (componentImport) =>
     }
   });
 
-// Lazy loaded page components with automatic ChunkLoadError protection
-const Home = lazyWithRetry(() => import('./pages/Home'));
-const Login = lazyWithRetry(() => import('./pages/Login'));
-const Register = lazyWithRetry(() => import('./pages/Register'));
-const ForgotPassword = lazyWithRetry(() => import('./pages/ForgotPassword'));
-const ResetPassword = lazyWithRetry(() => import('./pages/ResetPassword'));
-const ChangePassword = lazyWithRetry(() => import('./pages/ChangePassword'));
-const DeleteAccount = lazyWithRetry(() => import('./pages/DeleteAccount'));
-const Dashboard = lazyWithRetry(() => import('./pages/Dashboard'));
-const Students = lazyWithRetry(() => import('./pages/Students'));
-const ViewStudent = lazyWithRetry(() => import('./pages/ViewStudent'));
-const Projects = lazyWithRetry(() => import('./pages/Projects'));
-const ViewProject = lazyWithRetry(() => import('./pages/ViewProject'));
-const AddProject = lazyWithRetry(() => import('./pages/AddProject'));
-const Groups = lazyWithRetry(() => import('./pages/Groups'));
-const CreateGroup = lazyWithRetry(() => import('./pages/CreateGroup'));
-const Events = lazyWithRetry(() => import('./pages/Events'));
-const CreateEvent = lazyWithRetry(() => import('./pages/CreateEvent'));
-const Notices = lazyWithRetry(() => import('./pages/Notices'));
-const PostNotice = lazyWithRetry(() => import('./pages/PostNotice'));
-const Resources = lazyWithRetry(() => import('./pages/Resources'));
-const PostResource = lazyWithRetry(() => import('./pages/PostResource'));
-const Leaderboard = lazyWithRetry(() => import('./pages/Leaderboard'));
-const Messages = lazyWithRetry(() => import('./pages/Messages'));
-const Notifications = lazyWithRetry(() => import('./pages/Notifications'));
-const Profile = lazyWithRetry(() => import('./pages/Profile'));
-const Contact = lazyWithRetry(() => import('./pages/Contact'));
-const Search = lazyWithRetry(() => import('./pages/Search'));
+// Lazy loaded feature page components with automatic ChunkLoadError protection
+const Home = lazyWithRetry(() => import('./features/marketing/pages/Home'));
+const Login = lazyWithRetry(() => import('./features/auth/pages/Login'));
+const Register = lazyWithRetry(() => import('./features/auth/pages/Register'));
+const ForgotPassword = lazyWithRetry(() => import('./features/auth/pages/ForgotPassword'));
+const ResetPassword = lazyWithRetry(() => import('./features/auth/pages/ResetPassword'));
+const ChangePassword = lazyWithRetry(() => import('./features/auth/pages/ChangePassword'));
+const DeleteAccount = lazyWithRetry(() => import('./features/auth/pages/DeleteAccount'));
+const Dashboard = lazyWithRetry(() => import('./features/dashboard/pages/Dashboard'));
+const Students = lazyWithRetry(() => import('./features/students/pages/Students'));
+const ViewStudent = lazyWithRetry(() => import('./features/students/pages/ViewStudent'));
+const Projects = lazyWithRetry(() => import('./features/projects/pages/Projects'));
+const ViewProject = lazyWithRetry(() => import('./features/projects/pages/ViewProject'));
+const AddProject = lazyWithRetry(() => import('./features/projects/pages/AddProject'));
+const Groups = lazyWithRetry(() => import('./features/groups/pages/Groups'));
+const CreateGroup = lazyWithRetry(() => import('./features/groups/pages/CreateGroup'));
+const Events = lazyWithRetry(() => import('./features/events/pages/Events'));
+const CreateEvent = lazyWithRetry(() => import('./features/events/pages/CreateEvent'));
+const Notices = lazyWithRetry(() => import('./features/notices/pages/Notices'));
+const PostNotice = lazyWithRetry(() => import('./features/notices/pages/PostNotice'));
+const Resources = lazyWithRetry(() => import('./features/resources/pages/Resources'));
+const PostResource = lazyWithRetry(() => import('./features/resources/pages/PostResource'));
+const Leaderboard = lazyWithRetry(() => import('./features/leaderboard/pages/Leaderboard'));
+const Messages = lazyWithRetry(() => import('./features/chat/pages/Messages'));
+const Notifications = lazyWithRetry(() => import('./features/notifications/pages/Notifications'));
+const Profile = lazyWithRetry(() => import('./features/auth/pages/Profile'));
+const Contact = lazyWithRetry(() => import('./features/marketing/pages/Contact'));
+const Search = lazyWithRetry(() => import('./features/search/pages/Search'));
 
 export default function App() {
   return (

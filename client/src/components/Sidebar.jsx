@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useNotifications } from '../context/NotificationContext';
+import { useNotifications } from '../features/notifications';
 import { getAvatarUrl } from '../utils/avatar';
 
 export default function Sidebar() {

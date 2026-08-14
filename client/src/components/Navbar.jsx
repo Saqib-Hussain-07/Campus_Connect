@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { useNotifications } from '../context/NotificationContext';
+import { useAuth } from '../features/auth';
+import { useNotifications } from '../features/notifications';
 import { getAvatarUrl } from '../utils/avatar';
 
 export default function Navbar() {
