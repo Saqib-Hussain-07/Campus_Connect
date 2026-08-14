@@ -2881,3 +2881,66 @@ section {
     outline-offset: 3px !important;
   }
 }
+
+/* ============================================================
+   Mobile Responsive & Touch Optimization (WCAG 2.5.5 >= 44x44px)
+   ============================================================ */
+
+/* 1. Mobile Safe Area & Bottom Nav Spacing */
+@media (max-width: 767.98px) {
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .cc-dash-content {
+    padding: 16px !important;
+  }
+
+  /* 44x44px Minimum Touch Target Size for mobile touch accessibility */
+  button,
+  .btn,
+  .cc-btn,
+  .nav-link,
+  .cc-nav-link,
+  .dropdown-item,
+  .cc-icon-btn,
+  .cc-bottom-nav-item,
+  .form-check-input {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .cc-navbar {
+    height: 56px;
+  }
+}
+
+/* 2. Extra Small Screen Breakpoints (320px - 375px) */
+@media (max-width: 375px) {
+  .cc-dash-stat-num {
+    font-size: 1.8rem !important;
+  }
+
+  .cc-brand {
+    font-size: 1rem !important;
+  }
+
+  h1, .h1 {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* 3. Medium Screen Breakpoints (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .cc-dash-content {
+    padding: 24px !important;
+  }
+}
+
+/* 4. Large Desktop Breakpoint (>= 1440px) */
+@media (min-width: 1440px) {
+  .container-fluid {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}

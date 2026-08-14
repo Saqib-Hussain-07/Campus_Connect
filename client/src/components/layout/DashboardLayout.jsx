@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import BottomNav from './BottomNav';
 
 export default function DashboardLayout() {
   return (
@@ -11,6 +12,7 @@ export default function DashboardLayout() {
         <Outlet />
       </div>
       <Footer />
+      <BottomNav />
     </div>
   );
 }
