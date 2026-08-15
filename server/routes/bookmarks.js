@@ -70,10 +70,22 @@ router.get('/', auth, async (req, res) => {
     const resourceIds = bookmarks.filter((b) => b.itemType === 'resource').map((b) => b.itemId);
 
     const [projects, events, groups, resources] = await Promise.all([
-      Project.find({ _id: { $in: projectIds } }).populate('author', 'name department avatar').lean(),
-      Event.find({ _id: { $in: eventIds } }).populate('creator', 'name department avatar').lean(),
-      Group.find({ _id: { $in: groupIds } }).populate('creator', 'name department avatar').lean(),
-      Resource.find({ _id: { $in: resourceIds } }).populate('uploadedBy', 'name department avatar').lean()
+      Project.find({ _id: { $in: projectIds } })
+        .populate('userId', 'name department avatar')
+        .lean()
+        .then((docs) => docs.map((d) => ({ ...d, author: d.userId }))),
+      Event.find({ _id: { $in: eventIds } })
+        .populate('userId', 'name department avatar')
+        .lean()
+        .then((docs) => docs.map((d) => ({ ...d, creator: d.userId }))),
+      Group.find({ _id: { $in: groupIds } })
+        .populate('createdBy', 'name department avatar')
+        .lean()
+        .then((docs) => docs.map((d) => ({ ...d, creator: d.createdBy }))),
+      Resource.find({ _id: { $in: resourceIds } })
+        .populate('userId', 'name department avatar')
+        .lean()
+        .then((docs) => docs.map((d) => ({ ...d, uploadedBy: d.userId })))
     ]);
 
     const projectMap = new Map(projects.map((p) => [p._id.toString(), p]));

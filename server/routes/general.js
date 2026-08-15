@@ -250,4 +250,13 @@ router.get('/search', asyncHandler(async (req, res) => {
   return sendSuccess(res, { students, projects, groups, events }, 'Search results');
 }));
 
+// Health Check Endpoint
+router.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    uptime: Math.floor(process.uptime()),
+    version: require('../../package.json').version || '1.0.0'
+  });
+});
+
 module.exports = router;

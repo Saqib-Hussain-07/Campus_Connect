@@ -56,6 +56,15 @@ app.use(helmet(helmetConfig));
 app.use(getCorsOptions());
 app.use(cookieParser);
 
+// Root Health Check Endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    uptime: Math.floor(process.uptime()),
+    version: require('../package.json').version || '1.0.0'
+  });
+});
+
 // HTTP Request Logging
 app.use(morgan('combined', {
   stream: {

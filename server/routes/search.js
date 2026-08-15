@@ -63,18 +63,22 @@ router.get('/', async (req, res) => {
     if (category === 'all' || category === 'projects') {
       promises.push(
         Project.find({
+          isDeleted: { $ne: true },
           $or: [
             { title: regex },
             { description: regex },
             { category: regex },
-            { tags: { $in: [regex] } }
+            { techStack: { $in: [regex] } }
           ]
         })
-          .populate('author', 'name department avatar')
-          .select('_id title description category tags likes views author createdAt status')
+          .populate('userId', 'name department avatar')
+          .select('_id title description category techStack likes views userId createdAt status')
           .limit(maxLimit)
           .lean()
-          .then((docs) => ({ type: 'projects', data: docs }))
+          .then((docs) => ({
+            type: 'projects',
+            data: docs.map((d) => ({ ...d, author: d.userId }))
+          }))
       );
     }
 
@@ -82,6 +86,7 @@ router.get('/', async (req, res) => {
     if (category === 'all' || category === 'events') {
       promises.push(
         Event.find({
+          isDeleted: { $ne: true },
           $or: [
             { title: regex },
             { description: regex },
@@ -89,11 +94,14 @@ router.get('/', async (req, res) => {
             { venue: regex }
           ]
         })
-          .populate('creator', 'name department avatar')
-          .select('_id title description category venue eventDate isOnline creator rsvps')
+          .populate('userId', 'name department avatar')
+          .select('_id title description category venue eventDate isOnline userId')
           .limit(maxLimit)
           .lean()
-          .then((docs) => ({ type: 'events', data: docs }))
+          .then((docs) => ({
+            type: 'events',
+            data: docs.map((d) => ({ ...d, creator: d.userId }))
+          }))
       );
     }
 
@@ -101,18 +109,21 @@ router.get('/', async (req, res) => {
     if (category === 'all' || category === 'groups') {
       promises.push(
         Group.find({
+          isDeleted: { $ne: true },
           $or: [
             { name: regex },
             { description: regex },
-            { category: regex },
-            { tags: { $in: [regex] } }
+            { type: regex }
           ]
         })
-          .populate('creator', 'name department avatar')
-          .select('_id name description category tags members banner creator')
+          .populate('createdBy', 'name department avatar')
+          .select('_id name description type members createdBy')
           .limit(maxLimit)
           .lean()
-          .then((docs) => ({ type: 'groups', data: docs }))
+          .then((docs) => ({
+            type: 'groups',
+            data: docs.map((d) => ({ ...d, category: d.type, creator: d.createdBy }))
+          }))
       );
     }
 
@@ -120,6 +131,7 @@ router.get('/', async (req, res) => {
     if (category === 'all' || category === 'resources') {
       promises.push(
         Resource.find({
+          isDeleted: { $ne: true },
           $or: [
             { title: regex },
             { description: regex },
@@ -127,11 +139,14 @@ router.get('/', async (req, res) => {
             { department: regex }
           ]
         })
-          .populate('uploadedBy', 'name department avatar')
-          .select('_id title description subject department fileType upvotes downloads uploadedBy createdAt')
+          .populate('userId', 'name department avatar')
+          .select('_id title description subject department type likes userId createdAt')
           .limit(maxLimit)
           .lean()
-          .then((docs) => ({ type: 'resources', data: docs }))
+          .then((docs) => ({
+            type: 'resources',
+            data: docs.map((d) => ({ ...d, fileType: d.type, uploadedBy: d.userId }))
+          }))
       );
     }
 
@@ -139,17 +154,21 @@ router.get('/', async (req, res) => {
     if (category === 'all' || category === 'notices') {
       promises.push(
         Notice.find({
+          isDeleted: { $ne: true },
           $or: [
             { title: regex },
-            { content: regex },
+            { body: regex },
             { category: regex }
           ]
         })
-          .populate('author', 'name department avatar')
-          .select('_id title content category priority author createdAt')
+          .populate('userId', 'name department avatar')
+          .select('_id title body category isPinned userId createdAt')
           .limit(maxLimit)
           .lean()
-          .then((docs) => ({ type: 'notices', data: docs }))
+          .then((docs) => ({
+            type: 'notices',
+            data: docs.map((d) => ({ ...d, content: d.body, author: d.userId }))
+          }))
       );
     }
 
