@@ -506,6 +506,18 @@ export default function Navbar() {
                         </Link>
                       </li>
                       <li>
+                        <Link className="dropdown-item" to="/saved">
+                          <i className="fas fa-bookmark me-2 text-rust"></i>Saved Items
+                        </Link>
+                      </li>
+                      {user?.role === 'admin' && (
+                        <li>
+                          <Link className="dropdown-item" to="/admin" style={{ fontWeight: 'bold', color: 'var(--rust)' }}>
+                            <i className="fas fa-shield-halved me-2"></i>Admin Dashboard
+                          </Link>
+                        </li>
+                      )}
+                      <li>
                         <Link className="dropdown-item" to="/profile">
                           <i className="fas fa-user-pen me-2"></i>Edit Profile
                         </Link>

@@ -25,6 +25,10 @@ const messagesRoutes = require('./routes/messages');
 const notificationsRoutes = require('./routes/notifications');
 const compression = require('compression');
 const generalRoutes = require('./routes/general');
+const searchRoutes = require('./routes/search');
+const reportRoutes = require('./routes/reports');
+const bookmarkRoutes = require('./routes/bookmarks');
+const adminRoutes = require('./routes/admin');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -143,6 +147,10 @@ app.use('/api/resources', resourcesRoutes);
 app.use('/api/messages', messagesRoutes);
 app.use('/api/notifications', notificationsRoutes);
 app.use('/api/general', generalRoutes);
+app.use('/api/search', searchRoutes);
+app.use('/api/reports', reportRoutes);
+app.use('/api/bookmarks', bookmarkRoutes);
+app.use('/api/admin', adminRoutes);
 
 const http = require('http');
 const { initSocket } = require('./socket');

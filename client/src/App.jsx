@@ -60,6 +60,8 @@ const Notifications = lazyWithRetry(() => import('./features/notifications/pages
 const Profile = lazyWithRetry(() => import('./features/auth/pages/Profile'));
 const Contact = lazyWithRetry(() => import('./features/marketing/pages/Contact'));
 const Search = lazyWithRetry(() => import('./features/search/pages/Search'));
+const SavedItems = lazyWithRetry(() => import('./features/bookmarks/pages/SavedItems'));
+const AdminDashboard = lazyWithRetry(() => import('./features/admin/pages/AdminDashboard'));
 
 export default function App() {
   return (
@@ -97,6 +99,8 @@ export default function App() {
                     <Route path="/leaderboard" element={<Leaderboard />} />
                     <Route path="/messages" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
                     <Route path="/notifications" element={<ProtectedRoute><Notifications /></ProtectedRoute>} />
+                    <Route path="/saved" element={<ProtectedRoute><SavedItems /></ProtectedRoute>} />
+                    <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
                     <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
                     <Route path="/change-password" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
                     <Route path="/delete-account" element={<ProtectedRoute><DeleteAccount /></ProtectedRoute>} />

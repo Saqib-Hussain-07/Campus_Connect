@@ -32,6 +32,26 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
+      // Listen for background sync triggers from ServiceWorker
+      navigator.serviceWorker.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'PROCESS_OFFLINE_QUEUE') {
+          import('./utils/offlineQueue').then(({ processOfflineQueue }) => {
+            import('./services/apiClient').then(({ default: apiClient }) => {
+              processOfflineQueue(apiClient);
+            });
+          });
+        }
+      });
+
+      // Also auto-process queue on window online event
+      window.addEventListener('online', () => {
+        import('./utils/offlineQueue').then(({ processOfflineQueue }) => {
+          import('./services/apiClient').then(({ default: apiClient }) => {
+            processOfflineQueue(apiClient);
+          });
+        });
+      });
+
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {

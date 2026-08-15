@@ -144,3 +144,27 @@ export const invalidateCacheByPattern = (pattern) => {
 export const clearApiCache = () => {
   apiCache.clear();
 };
+
+apiClient.get = (endpoint, options = {}) => apiClient(endpoint, { ...options, method: 'GET' });
+apiClient.post = (endpoint, body, options = {}) =>
+  apiClient(endpoint, {
+    ...options,
+    method: 'POST',
+    body: body instanceof FormData ? body : JSON.stringify(body)
+  });
+apiClient.put = (endpoint, body, options = {}) =>
+  apiClient(endpoint, {
+    ...options,
+    method: 'PUT',
+    body: body instanceof FormData ? body : JSON.stringify(body)
+  });
+apiClient.patch = (endpoint, body, options = {}) =>
+  apiClient(endpoint, {
+    ...options,
+    method: 'PATCH',
+    body: body instanceof FormData ? body : JSON.stringify(body)
+  });
+apiClient.delete = (endpoint, options = {}) =>
+  apiClient(endpoint, { ...options, method: 'DELETE' });
+
+export default apiClient;

@@ -1,6 +1,7 @@
-const CACHE_NAME = 'campusconnect-v2';
-const DYNAMIC_CACHE = 'campusconnect-dynamic-v2';
-const FONT_CACHE = 'campusconnect-fonts-v2';
+const CACHE_NAME = 'campusconnect-v3';
+const DYNAMIC_CACHE = 'campusconnect-dynamic-v3';
+const FONT_CACHE = 'campusconnect-fonts-v3';
+const MAX_DYNAMIC_ITEMS = 60;
 
 const STATIC_ASSETS = [
   '/',
@@ -14,30 +15,68 @@ const STATIC_ASSETS = [
   '/apple-touch-icon.png'
 ];
 
-// Install Event - Pre-cache core static shell
+// Core SPA shell routes to pre-cache for offline availability
+const OFFLINE_ROUTES = [
+  '/dashboard',
+  '/projects',
+  '/events',
+  '/groups',
+  '/resources',
+  '/notices',
+  '/leaderboard',
+  '/saved',
+  '/search'
+];
+
+// Helper: Trim cache to limit max stored entries (LRU eviction)
+async function trimCache(cacheName, maxItems) {
+  try {
+    const cache = await caches.open(cacheName);
+    const keys = await cache.keys();
+    if (keys.length > maxItems) {
+      await cache.delete(keys[0]);
+      await trimCache(cacheName, maxItems);
+    }
+  } catch (e) {}
+}
+
+// Install Event - Pre-cache core static shell & offline routes
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('[ServiceWorker] Pre-caching app shell & static assets');
-      return cache.addAll(STATIC_ASSETS);
-    }).then(() => self.skipWaiting())
+    caches
+      .open(CACHE_NAME)
+      .then((cache) => {
+        console.log('[ServiceWorker] Pre-caching app shell & static assets (v3)');
+        return cache.addAll([...STATIC_ASSETS, ...OFFLINE_ROUTES]);
+      })
+      .then(() => self.skipWaiting())
   );
 });
 
 // Activate Event - Clean up stale cache versions
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cache) => {
-          if (cache !== CACHE_NAME && cache !== DYNAMIC_CACHE && cache !== FONT_CACHE) {
-            console.log('[ServiceWorker] Removing old cache:', cache);
-            return caches.delete(cache);
-          }
-        })
-      );
-    }).then(() => self.clients.claim())
+    caches
+      .keys()
+      .then((cacheNames) => {
+        return Promise.all(
+          cacheNames.map((cache) => {
+            if (cache !== CACHE_NAME && cache !== DYNAMIC_CACHE && cache !== FONT_CACHE) {
+              console.log('[ServiceWorker] Purging stale cache version:', cache);
+              return caches.delete(cache);
+            }
+          })
+        );
+      })
+      .then(() => self.clients.claim())
   );
+});
+
+// Message Event - Handle SKIP_WAITING from client
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
 
 // Fetch Event - Strategic Caching Strategies
@@ -55,24 +94,26 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 1. External CDN Fonts & Stylesheets (Google Fonts, FontAwesome, Bootstrap) -> Stale-While-Revalidate Strategy
+  // 1. External CDN Fonts & Stylesheets -> Stale-While-Revalidate Strategy
   if (
     url.origin.includes('fonts.googleapis.com') ||
     url.origin.includes('fonts.gstatic.com') ||
     url.origin.includes('cdnjs.cloudflare.com') ||
-    url.origin.includes('jsdelivr.net')
+    url.origin.includes('jsdelivr.net') ||
+    url.origin.includes('images.unsplash.com')
   ) {
     event.respondWith(
       caches.open(FONT_CACHE).then(async (cache) => {
         const cachedResponse = await cache.match(request);
-        const fetchPromise = fetch(request).then((networkResponse) => {
-          if (networkResponse && (networkResponse.status === 200 || networkResponse.status === 0)) {
-            cache.put(request, networkResponse.clone());
-          }
-          return networkResponse;
-        }).catch(() => null);
+        const fetchPromise = fetch(request)
+          .then((networkResponse) => {
+            if (networkResponse && (networkResponse.status === 200 || networkResponse.status === 0)) {
+              cache.put(request, networkResponse.clone());
+            }
+            return networkResponse;
+          })
+          .catch(() => null);
 
-        // Return cached font immediately if present, otherwise wait for network fetch
         return cachedResponse || fetchPromise;
       })
     );
@@ -86,7 +127,10 @@ self.addEventListener('fetch', (event) => {
         .then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             const responseToCache = networkResponse.clone();
-            caches.open(DYNAMIC_CACHE).then((cache) => cache.put(request, responseToCache));
+            caches.open(DYNAMIC_CACHE).then((cache) => {
+              cache.put(request, responseToCache);
+              trimCache(DYNAMIC_CACHE, MAX_DYNAMIC_ITEMS);
+            });
           }
           return networkResponse;
         })
@@ -109,16 +153,20 @@ self.addEventListener('fetch', (event) => {
 
   // 3. API Requests -> Network First, fallback to Dynamic Cache (excluding sensitive auth endpoints)
   if (url.pathname.startsWith('/api/')) {
-    const isSensitiveAuth = url.pathname.startsWith('/api/auth/me') ||
-                            url.pathname.startsWith('/api/auth/logout') ||
-                            url.pathname.startsWith('/api/auth/login');
+    const isSensitiveAuth =
+      url.pathname.startsWith('/api/auth/me') ||
+      url.pathname.startsWith('/api/auth/logout') ||
+      url.pathname.startsWith('/api/auth/login');
 
     event.respondWith(
       fetch(request)
         .then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200 && !isSensitiveAuth) {
             const responseToCache = networkResponse.clone();
-            caches.open(DYNAMIC_CACHE).then((cache) => cache.put(request, responseToCache));
+            caches.open(DYNAMIC_CACHE).then((cache) => {
+              cache.put(request, responseToCache);
+              trimCache(DYNAMIC_CACHE, MAX_DYNAMIC_ITEMS);
+            });
           }
           return networkResponse;
         })
@@ -138,51 +186,90 @@ self.addEventListener('fetch', (event) => {
       if (cachedResponse) {
         return cachedResponse;
       }
-      return fetch(request).then((networkResponse) => {
-        if (
-          networkResponse &&
-          networkResponse.status === 200 &&
-          (request.destination === 'style' ||
-           request.destination === 'script' ||
-           request.destination === 'image' ||
-           request.destination === 'font')
-        ) {
-          const responseToCache = networkResponse.clone();
-          caches.open(DYNAMIC_CACHE).then((cache) => cache.put(request, responseToCache));
-        }
-        return networkResponse;
-      }).catch(() => {
-        if (request.destination === 'image' && !url.pathname.includes('logo192.png')) {
-          return caches.match('/logo192.png');
-        }
-      });
+      return fetch(request)
+        .then((networkResponse) => {
+          if (
+            networkResponse &&
+            networkResponse.status === 200 &&
+            (request.destination === 'style' ||
+              request.destination === 'script' ||
+              request.destination === 'image' ||
+              request.destination === 'font')
+          ) {
+            const responseToCache = networkResponse.clone();
+            caches.open(DYNAMIC_CACHE).then((cache) => {
+              cache.put(request, responseToCache);
+              trimCache(DYNAMIC_CACHE, MAX_DYNAMIC_ITEMS);
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => {
+          if (request.destination === 'image' && !url.pathname.includes('logo192.png')) {
+            return caches.match('/logo192.png');
+          }
+        });
     })
   );
 });
 
-// Background sync handler for mobile network recovery
+// Background Sync Handler
 self.addEventListener('sync', (event) => {
-  if (event.tag === 'sync-campusconnect-data') {
-    console.log('[ServiceWorker] Background sync triggered for CampusConnect');
+  if (event.tag === 'sync-offline-queue' || event.tag === 'sync-campusconnect-data') {
+    console.log('[ServiceWorker] Background Sync: Replaying queued offline actions');
+    event.waitUntil(
+      self.clients.matchAll().then((clients) => {
+        clients.forEach((client) => {
+          client.postMessage({ type: 'PROCESS_OFFLINE_QUEUE' });
+        });
+      })
+    );
   }
 });
 
 // Push notification event handlers
 self.addEventListener('push', (event) => {
-  const data = event.data ? event.data.json() : { title: 'CampusConnect', body: 'New campus updates available!' };
+  let data = { title: 'CampusConnect', body: 'New campus updates available!', url: '/' };
+  if (event.data) {
+    try {
+      data = event.data.json();
+    } catch (e) {
+      data.body = event.data.text();
+    }
+  }
+
   const options = {
     body: data.body,
     icon: '/logo192.png',
     badge: '/logo192.png',
     vibrate: [100, 50, 100],
-    data: { url: data.url || '/' }
+    data: { url: data.url || '/' },
+    actions: [
+      { action: 'open', title: 'Open CampusConnect' },
+      { action: 'close', title: 'Dismiss' }
+    ]
   };
+
   event.waitUntil(self.registration.showNotification(data.title, options));
 });
 
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
+
+  if (event.action === 'close') return;
+
+  const targetUrl = event.notification.data?.url || '/';
   event.waitUntil(
-    clients.openWindow(event.notification.data.url || '/')
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windowClients) => {
+      for (const client of windowClients) {
+        if (client.url.includes(self.location.origin) && 'focus' in client) {
+          client.navigate(targetUrl);
+          return client.focus();
+        }
+      }
+      if (clients.openWindow) {
+        return clients.openWindow(targetUrl);
+      }
+    })
   );
 });
