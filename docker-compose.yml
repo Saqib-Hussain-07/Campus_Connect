@@ -1,0 +1,101 @@
+version: '3.8'
+
+services:
+  # -------------------------------------------------------------
+  # MongoDB Database Service
+  # -------------------------------------------------------------
+  mongo:
+    image: mongo:7-jammy
+    container_name: campusconnect-mongo
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=campusconnect
+    healthcheck:
+      test: ['CMD', 'mongosh', '--eval', 'db.adminCommand("ping")']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - campusconnect-network
+
+  # -------------------------------------------------------------
+  # Redis Cache & Socket.IO Clustering Adapter
+  # -------------------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: campusconnect-redis
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - campusconnect-network
+
+  # -------------------------------------------------------------
+  # CampusConnect Backend Server (Express + Socket.IO)
+  # -------------------------------------------------------------
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: campusconnect-server
+    restart: unless-stopped
+    ports:
+      - '5000:5000'
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - MONGO_URI=mongodb://mongo:27017/campusconnect
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=production_jwt_secret_campusconnect_super_secure_key_2026
+      - CLIENT_URL=http://localhost:3000
+    depends_on:
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - uploads_data:/app/assets/uploads
+    networks:
+      - campusconnect-network
+
+  # -------------------------------------------------------------
+  # CampusConnect Frontend Client (React SPA + Nginx)
+  # -------------------------------------------------------------
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: campusconnect-client
+    restart: unless-stopped
+    ports:
+      - '3000:80'
+    depends_on:
+      - server
+    networks:
+      - campusconnect-network
+
+volumes:
+  mongo_data:
+    name: campusconnect_mongo_data
+  redis_data:
+    name: campusconnect_redis_data
+  uploads_data:
+    name: campusconnect_uploads_data
+
+networks:
+  campusconnect-network:
+    name: campusconnect_network
+    driver: bridge

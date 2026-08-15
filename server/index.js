@@ -29,9 +29,21 @@ const searchRoutes = require('./routes/search');
 const reportRoutes = require('./routes/reports');
 const bookmarkRoutes = require('./routes/bookmarks');
 const adminRoutes = require('./routes/admin');
+const { initSentry } = require('./config/sentry');
+const { initTelemetry } = require('./config/telemetry');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Initialize OpenTelemetry
+initTelemetry();
+
+// Initialize Sentry error tracking
+const sentry = initSentry(app);
+if (sentry.isEnabled) {
+  app.use(sentry.requestHandler);
+  app.use(sentry.tracingHandler);
+}
 
 // Response Compression (Gzip / Brotli)
 app.use(compression());
@@ -154,6 +166,11 @@ app.use('/api/admin', adminRoutes);
 
 const http = require('http');
 const { initSocket } = require('./socket');
+
+// Sentry Error Handler
+if (sentry.isEnabled) {
+  app.use(sentry.errorHandler);
+}
 
 // Centralized Error Handling Middleware
 app.use(errorHandler);

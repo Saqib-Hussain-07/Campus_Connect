@@ -9,6 +9,9 @@
     "build": "cd client && npm run build"
   },
   "dependencies": {
+    "@logtail/node": "^0.5.8",
+    "@logtail/winston": "^0.5.8",
+    "@sentry/node": "^10.70.0",
     "@socket.io/redis-adapter": "^8.3.0",
     "bcryptjs": "^3.0.3",
     "compression": "^1.8.1",
