@@ -176,6 +176,54 @@ const scanForMalware = async (buffer, filename) => {
   return { isClean: true };
 };
 
+/**
+ * Full multi-layer validation runner for uploaded file object
+ */
+const validateUploadedFile = async (file, type = 'image') => {
+  if (!file) {
+    return { isValid: false, error: 'No file provided' };
+  }
+
+  const config = type === 'document' ? ALLOWED_DOCUMENT_TYPES : ALLOWED_IMAGE_TYPES;
+
+  // 1. Check size limit
+  if (file.size && file.size > config.maxSize) {
+    return {
+      isValid: false,
+      error: `File size exceeds maximum allowed size of ${Math.round(config.maxSize / (1024 * 1024))}MB`
+    };
+  }
+
+  // 2. Validate Extension & Double-extension check
+  const extCheck = validateFileExtension(file.originalname, config.extensions);
+  if (!extCheck.isValid) {
+    return { isValid: false, error: extCheck.message };
+  }
+
+  // 3. Validate MIME type
+  const mimeCheck = validateMimeType(file.mimetype, config.mimes);
+  if (!mimeCheck.isValid) {
+    return { isValid: false, error: mimeCheck.message };
+  }
+
+  // 4. Validate Magic Byte Signature (if buffer is present)
+  if (file.buffer) {
+    const magicCheck = validateMagicBytes(file.buffer, file.mimetype);
+    if (!magicCheck.isValid) {
+      return { isValid: false, error: magicCheck.message };
+    }
+
+    // 5. Scan for embedded malware/script payloads
+    const scan = await scanForMalware(file.buffer, file.originalname);
+    if (!scan.isClean) {
+      return { isValid: false, error: scan.message };
+    }
+  }
+
+  const sanitizedName = sanitizeFileName(file.originalname);
+  return { isValid: true, sanitizedName };
+};
+
 module.exports = {
   ALLOWED_IMAGE_TYPES,
   ALLOWED_DOCUMENT_TYPES,
@@ -183,5 +231,6 @@ module.exports = {
   validateFileExtension,
   validateMimeType,
   validateMagicBytes,
-  scanForMalware
+  scanForMalware,
+  validateUploadedFile
 };

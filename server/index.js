@@ -211,14 +211,16 @@ const startServer = (port = normalizePort(PORT), attempt = 1) => {
 
 const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campusconnect';
 
-mongoose.connect(mongoUri, { serverSelectionTimeoutMS: 5000 })
-  .then(() => {
-    logger.info('MongoDB connected');
-  })
-  .catch((err) => {
-    logger.error(`MongoDB connection failed: ${err.message || err.toString()}`);
-  });
+if (process.env.NODE_ENV !== 'test') {
+  mongoose.connect(mongoUri, { serverSelectionTimeoutMS: 5000 })
+    .then(() => {
+      logger.info('MongoDB connected');
+    })
+    .catch((err) => {
+      logger.error(`MongoDB connection failed: ${err.message || err.toString()}`);
+    });
 
-startServer();
+  startServer();
+}
 
 module.exports = { app, httpServer, startServer };
