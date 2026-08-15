@@ -8,6 +8,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.18.1",
     "react-scripts": "5.0.1",
+    "socket.io-client": "^4.8.3",
     "zustand": "^5.0.15"
   },
   "scripts": {

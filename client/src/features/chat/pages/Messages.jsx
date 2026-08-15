@@ -11,6 +11,8 @@ export default function Messages() {
     thread,
     newMessage,
     setNewMessage,
+    handleTyping,
+    partnerIsTyping,
     error,
     activeWithId,
     chatEndRef,
@@ -143,10 +145,12 @@ export default function Messages() {
                     </div>
                   </div>
 
-                  {/* Messages box */}
+                    {/* Messages box */}
                   <div style={{ flex: 1, overflowY: 'auto', padding: '24px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
                     {thread.map((msg) => {
-                      const isMe = msg.fromUser === loggedInUser.id;
+                      const isMe =
+                        msg.fromUser === loggedInUser?.id ||
+                        msg.fromUser?._id === loggedInUser?.id;
                       return (
                         <div
                           key={msg._id}
@@ -163,7 +167,8 @@ export default function Messages() {
                               color: isMe ? 'var(--paper)' : 'var(--ink)',
                               border: isMe ? '1px solid var(--ink)' : '1px solid var(--cream)',
                               fontFamily: 'var(--font-body)',
-                              fontSize: '.9rem'
+                              fontSize: '.9rem',
+                              boxShadow: '2px 2px 0 rgba(0,0,0,0.05)'
                             }}
                           >
                             {msg.body}
@@ -172,7 +177,7 @@ export default function Messages() {
                             style={{
                               fontSize: '.6rem',
                               fontFamily: 'var(--font-mono)',
-                              color: '#999',
+                              color: '#4b5563',
                               marginTop: '4px',
                               textAlign: isMe ? 'right' : 'left',
                               display: 'flex',
@@ -181,9 +186,20 @@ export default function Messages() {
                               gap: '4px'
                             }}
                           >
-                            <span>{new Date(msg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                            <span>
+                              {new Date(msg.createdAt).toLocaleTimeString([], {
+                                hour: '2-digit',
+                                minute: '2-digit'
+                              })}
+                            </span>
                             {isMe && (
-                              <span style={{ color: msg.isRead ? 'var(--moss)' : '#888', fontWeight: 'bold' }} title={msg.isRead ? 'Read' : 'Sent'}>
+                              <span
+                                style={{
+                                  color: msg.isRead ? 'var(--moss)' : '#888',
+                                  fontWeight: 'bold'
+                                }}
+                                title={msg.isRead ? 'Read' : 'Sent'}
+                              >
                                 {msg.isRead ? '✓✓' : '✓'}
                               </span>
                             )}
@@ -191,6 +207,28 @@ export default function Messages() {
                         </div>
                       );
                     })}
+
+                    {/* Live Typing Indicator */}
+                    {partnerIsTyping && (
+                      <div
+                        style={{
+                          alignSelf: 'flex-start',
+                          background: 'var(--paper)',
+                          border: '1px dashed #d3c9b9',
+                          padding: '6px 14px',
+                          fontSize: '.72rem',
+                          fontFamily: 'var(--font-mono)',
+                          color: 'var(--rust)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px'
+                        }}
+                      >
+                        <i className="fas fa-keyboard fa-bounce"></i>
+                        <span>{activePartner?.name ? `${activePartner.name} is typing...` : 'Typing...'}</span>
+                      </div>
+                    )}
+
                     <div ref={chatEndRef} />
                   </div>
 
@@ -208,16 +246,18 @@ export default function Messages() {
                       <input
                         type="text"
                         value={newMessage}
-                        onChange={(e) => setNewMessage(e.target.value)}
+                        onChange={(e) => handleTyping(e.target.value)}
                         placeholder="Type your message here..."
                         className="cc-form-input"
                         style={{ height: '44px', flex: 1 }}
                         required
+                        aria-label="Message input text"
                       />
                       <button
                         type="submit"
                         className="cc-btn-fill px-4"
                         style={{ height: '44px', border: 'none', fontSize: '.76rem' }}
+                        aria-label="Send message"
                       >
                         Send <i className="fas fa-paper-plane ms-1"></i>
                       </button>

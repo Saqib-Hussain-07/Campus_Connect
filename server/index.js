@@ -144,6 +144,9 @@ app.use('/api/messages', messagesRoutes);
 app.use('/api/notifications', notificationsRoutes);
 app.use('/api/general', generalRoutes);
 
+const http = require('http');
+const { initSocket } = require('./socket');
+
 // Centralized Error Handling Middleware
 app.use(errorHandler);
 
@@ -152,12 +155,15 @@ const normalizePort = (value) => {
   return Number.isInteger(port) && port > 0 && port < 65536 ? port : 5000;
 };
 
+const httpServer = http.createServer(app);
+initSocket(httpServer);
+
 const startServer = (port = normalizePort(PORT), attempt = 1) => {
-  const server = app.listen(port, '0.0.0.0', () => {
-    logger.info(`Server running on port ${port}`);
+  httpServer.listen(port, '0.0.0.0', () => {
+    logger.info(`Server running on port ${port} with Socket.IO real-time engine`);
   });
 
-  server.on('error', (err) => {
+  httpServer.on('error', (err) => {
     if (err.code === 'EADDRINUSE' && attempt < 10) {
       const fallbackPort = normalizePort(port + 1);
       logger.warn(`Port ${port} is busy, trying ${fallbackPort} instead.`);
@@ -181,4 +187,4 @@ mongoose.connect(mongoUri, { serverSelectionTimeoutMS: 5000 })
 
 startServer();
 
-module.exports = { app, startServer };
+module.exports = { app, httpServer, startServer };
