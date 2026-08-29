@@ -33,7 +33,7 @@ const projectSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ['web', 'mobile', 'ai_ml', 'iot_hardware', 'research', 'other'],
+    enum: ['web', 'mobile', 'ai_ml', 'ml', 'iot_hardware', 'hardware', 'research', 'other'],
     default: 'other',
     index: true
   },

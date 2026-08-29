@@ -110,7 +110,6 @@ const userSchema = new mongoose.Schema({
   }]
 }, { timestamps: true });
 
-userSchema.index({ email: 1 });
 userSchema.index({ name: 1 });
 userSchema.index({ createdAt: -1 });
 userSchema.index({ department: 1, semester: 1 });

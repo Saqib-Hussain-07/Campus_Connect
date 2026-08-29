@@ -31,8 +31,7 @@ const eventSchema = new mongoose.Schema({
   },
   eventDate: {
     type: Date,
-    required: true,
-    index: true
+    required: true
   },
   registrationDeadline: Date,
   maxAttendees: {

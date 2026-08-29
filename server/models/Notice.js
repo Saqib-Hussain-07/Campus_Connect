@@ -31,8 +31,7 @@ const noticeSchema = new mongoose.Schema({
     maxlength: 50
   }],
   expiresAt: {
-    type: Date,
-    index: true
+    type: Date
   },
   isPinned: {
     type: Boolean,
