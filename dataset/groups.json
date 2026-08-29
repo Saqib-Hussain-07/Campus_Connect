@@ -1,0 +1,977 @@
+[
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876859"
+    },
+    "name": "AI & Deep Learning Research Group",
+    "description": "Reading group and hands-on lab working on Transformers, Vision, and LLM fine-tuning.",
+    "type": "project",
+    "status": "recruiting",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c8767f5"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767f5"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767f6"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767f7"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767f8"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767f9"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fa"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87685a"
+    },
+    "name": "Competitive Programming Elite (CP-Hub)",
+    "description": "Daily LeetCode & Codeforces problem discussion, contest post-mortems, and ICPC prep.",
+    "type": "study",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c8767f6"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767f6"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767f9"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fa"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fb"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fc"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fd"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87685b"
+    },
+    "name": "Full-Stack & Open Source Guild",
+    "description": "Collaborative repository maintenance, MERN stack hackathons, and Google Summer of Code prep.",
+    "type": "project",
+    "status": "recruiting",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c8767f7"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767f7"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fc"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fd"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fe"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767ff"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876800"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87685c"
+    },
+    "name": "Robotics & Embedded Systems Lab",
+    "description": "Hands-on building of drones, rovers, IoT sensors, and ROS simulation pipelines.",
+    "type": "club",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c8767f8"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767f8"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767ff"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876800"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876801"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876802"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876803"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87685d"
+    },
+    "name": "Product Design & UI/UX Sprint Club",
+    "description": "Weekly Figma design teardowns, usability testing sessions, and portfolio reviews.",
+    "type": "study",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c8767f9"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767f9"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876802"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876803"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876804"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876805"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876806"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87685e"
+    },
+    "name": "FinTech & Quant Trading Society",
+    "description": "Algorithmic trading models, backtesting with Python, and macroeconomic case studies.",
+    "type": "forum",
+    "status": "open",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c8767fa"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fa"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876805"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876806"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876807"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876808"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876809"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87685f"
+    },
+    "name": "Cloud & DevOps Practitioners",
+    "description": "Practical labs on Docker containerization, Kubernetes orchestration, AWS architectures, and CI/CD.",
+    "type": "study",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c8767fb"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fb"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876808"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876809"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680a"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680b"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680c"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876860"
+    },
+    "name": "Campus Startup Incubator & Pitch Club",
+    "description": "Pitch practice, mentor matching, seed grant applications, and investor networking.",
+    "type": "forum",
+    "status": "open",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c8767fc"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fc"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680b"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680c"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680d"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680e"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680f"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876861"
+    },
+    "name": "AI & Deep Learning Research Group - Cohort 2",
+    "description": "Reading group and hands-on lab working on Transformers, Vision, and LLM fine-tuning.",
+    "type": "project",
+    "status": "recruiting",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c8767fd"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fd"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680e"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680f"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876810"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876811"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876812"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876862"
+    },
+    "name": "Competitive Programming Elite (CP-Hub) - Cohort 2",
+    "description": "Daily LeetCode & Codeforces problem discussion, contest post-mortems, and ICPC prep.",
+    "type": "study",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c8767fe"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fe"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876811"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876812"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876813"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876814"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876815"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876863"
+    },
+    "name": "Full-Stack & Open Source Guild - Cohort 2",
+    "description": "Collaborative repository maintenance, MERN stack hackathons, and Google Summer of Code prep.",
+    "type": "project",
+    "status": "recruiting",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c8767ff"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767ff"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876814"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876815"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876816"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876817"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876818"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876864"
+    },
+    "name": "Robotics & Embedded Systems Lab - Cohort 2",
+    "description": "Hands-on building of drones, rovers, IoT sensors, and ROS simulation pipelines.",
+    "type": "club",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c876800"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c876800"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876817"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876818"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876819"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681a"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681b"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876865"
+    },
+    "name": "Product Design & UI/UX Sprint Club - Cohort 2",
+    "description": "Weekly Figma design teardowns, usability testing sessions, and portfolio reviews.",
+    "type": "study",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c876801"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c876801"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681a"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681b"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681c"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681d"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681e"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876866"
+    },
+    "name": "FinTech & Quant Trading Society - Cohort 2",
+    "description": "Algorithmic trading models, backtesting with Python, and macroeconomic case studies.",
+    "type": "forum",
+    "status": "open",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c876802"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c876802"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681d"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681e"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681f"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876820"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876821"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876867"
+    },
+    "name": "Cloud & DevOps Practitioners - Cohort 2",
+    "description": "Practical labs on Docker containerization, Kubernetes orchestration, AWS architectures, and CI/CD.",
+    "type": "study",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c876803"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c876803"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876820"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876821"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876822"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876823"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876824"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876868"
+    },
+    "name": "Campus Startup Incubator & Pitch Club - Cohort 2",
+    "description": "Pitch practice, mentor matching, seed grant applications, and investor networking.",
+    "type": "forum",
+    "status": "open",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c876804"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c876804"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876823"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876824"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876825"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876826"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876827"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876869"
+    },
+    "name": "AI & Deep Learning Research Group - Cohort 3",
+    "description": "Reading group and hands-on lab working on Transformers, Vision, and LLM fine-tuning.",
+    "type": "project",
+    "status": "recruiting",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c876805"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c876805"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876826"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876827"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876828"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876829"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87682a"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87686a"
+    },
+    "name": "Competitive Programming Elite (CP-Hub) - Cohort 3",
+    "description": "Daily LeetCode & Codeforces problem discussion, contest post-mortems, and ICPC prep.",
+    "type": "study",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c876806"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c876806"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876829"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87682a"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87682b"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87682c"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87682d"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87686b"
+    },
+    "name": "Full-Stack & Open Source Guild - Cohort 3",
+    "description": "Collaborative repository maintenance, MERN stack hackathons, and Google Summer of Code prep.",
+    "type": "project",
+    "status": "recruiting",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c876807"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c876807"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87682c"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87682d"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87682e"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87682f"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876830"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87686c"
+    },
+    "name": "Robotics & Embedded Systems Lab - Cohort 3",
+    "description": "Hands-on building of drones, rovers, IoT sensors, and ROS simulation pipelines.",
+    "type": "club",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c876808"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c876808"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87682f"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876830"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876831"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876832"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876833"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87686d"
+    },
+    "name": "Product Design & UI/UX Sprint Club - Cohort 3",
+    "description": "Weekly Figma design teardowns, usability testing sessions, and portfolio reviews.",
+    "type": "study",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c876809"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c876809"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876832"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876833"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876834"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876835"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876836"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87686e"
+    },
+    "name": "FinTech & Quant Trading Society - Cohort 3",
+    "description": "Algorithmic trading models, backtesting with Python, and macroeconomic case studies.",
+    "type": "forum",
+    "status": "open",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c87680a"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680a"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876835"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876836"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876837"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876838"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876839"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87686f"
+    },
+    "name": "Cloud & DevOps Practitioners - Cohort 3",
+    "description": "Practical labs on Docker containerization, Kubernetes orchestration, AWS architectures, and CI/CD.",
+    "type": "study",
+    "status": "active",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c87680b"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680b"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876838"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876839"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87683a"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87683b"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87683c"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876870"
+    },
+    "name": "Campus Startup Incubator & Pitch Club - Cohort 3",
+    "description": "Pitch practice, mentor matching, seed grant applications, and investor networking.",
+    "type": "forum",
+    "status": "open",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c87680c"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680c"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87683b"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87683c"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87683d"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87683e"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87683f"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876871"
+    },
+    "name": "AI & Deep Learning Research Group - Cohort 4",
+    "description": "Reading group and hands-on lab working on Transformers, Vision, and LLM fine-tuning.",
+    "type": "project",
+    "status": "recruiting",
+    "createdBy": {
+      "$oid": "6a9274e6af2e864a6c87680d"
+    },
+    "members": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680d"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87683e"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87683f"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876840"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876841"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876842"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  }
+]

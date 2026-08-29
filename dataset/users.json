@@ -1,0 +1,4829 @@
+[
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8767f5"
+    },
+    "name": "Aarav Sharma",
+    "email": "aarav.sharma@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "admin",
+    "department": "Computer Science & Engineering",
+    "semester": 1,
+    "university": "IIT Bombay",
+    "skills": [
+      "React",
+      "Machine Learning",
+      "Next.js"
+    ],
+    "bio": "Computer Science & Engineering student at IIT Bombay. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "React",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767f6"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Machine Learning",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767fa"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8767f6"
+    },
+    "name": "Aditi Verma",
+    "email": "aditi.verma@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Artificial Intelligence & Data Science",
+    "semester": 2,
+    "university": "IIT Delhi",
+    "skills": [
+      "Node.js",
+      "Docker",
+      "TypeScript"
+    ],
+    "bio": "Artificial Intelligence & Data Science student at IIT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Node.js",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767f7"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Docker",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767fb"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8767f7"
+    },
+    "name": "Advait Patel",
+    "email": "advait.patel@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Information Technology",
+    "semester": 3,
+    "university": "IIT Madras",
+    "skills": [
+      "Python",
+      "Kubernetes",
+      "PostgreSQL"
+    ],
+    "bio": "Information Technology student at IIT Madras. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Python",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767f8"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Kubernetes",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767fc"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8767f8"
+    },
+    "name": "Aishwarya Reddy",
+    "email": "aishwarya.reddy@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electronics & Communication Engineering",
+    "semester": 4,
+    "university": "IIT Kharagpur",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Electronics & Communication Engineering student at IIT Kharagpur. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767f9"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767fd"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8767f9"
+    },
+    "name": "Akash Nair",
+    "email": "akash.nair@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electrical Engineering",
+    "semester": 5,
+    "university": "IIT Roorkee",
+    "skills": [
+      "MATLAB",
+      "ROS",
+      "Python"
+    ],
+    "bio": "Electrical Engineering student at IIT Roorkee. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "MATLAB",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767fa"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "ROS",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767fe"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8767fa"
+    },
+    "name": "Amara Iyer",
+    "email": "amara.iyer@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Mechanical Engineering",
+    "semester": 6,
+    "university": "NIT Trichy",
+    "skills": [
+      "AutoCAD",
+      "Circuit Design",
+      "Python"
+    ],
+    "bio": "Mechanical Engineering student at NIT Trichy. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "AutoCAD",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767fb"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Circuit Design",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767ff"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8767fb"
+    },
+    "name": "Amit Gupta",
+    "email": "amit.gupta@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Civil Engineering",
+    "semester": 7,
+    "university": "NIT Surathkal",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Civil Engineering student at NIT Surathkal. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767fc"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876800"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8767fc"
+    },
+    "name": "Ananya Singh",
+    "email": "ananya.singh@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Biotechnology & Bioinformatics",
+    "semester": 8,
+    "university": "NIT Warangal",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Biotechnology & Bioinformatics student at NIT Warangal. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767fd"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876801"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8767fd"
+    },
+    "name": "Anik Kumar",
+    "email": "anik.kumar@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Business Administration (BBA/MBA)",
+    "semester": 1,
+    "university": "NIT Rourkela",
+    "skills": [
+      "Valuation",
+      "Financial Modeling",
+      "Data Analysis"
+    ],
+    "bio": "Business Administration (BBA/MBA) student at NIT Rourkela. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Valuation",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767fe"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Financial Modeling",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876802"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8767fe"
+    },
+    "name": "Ananya Mehta",
+    "email": "ananya.mehta@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "UX & Interaction Design",
+    "semester": 2,
+    "university": "BITS Pilani",
+    "skills": [
+      "Prototyping",
+      "UI/UX Design",
+      "CSS"
+    ],
+    "bio": "UX & Interaction Design student at BITS Pilani. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Prototyping",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767ff"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "UI/UX Design",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876803"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8767ff"
+    },
+    "name": "Anmol Chopra",
+    "email": "anmol.chopra@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Aerospace & Robotics Engineering",
+    "semester": 3,
+    "university": "BITS Goa",
+    "skills": [
+      "PLC",
+      "Arduino",
+      "Python"
+    ],
+    "bio": "Aerospace & Robotics Engineering student at BITS Goa. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "PLC",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876800"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Arduino",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876804"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876800"
+    },
+    "name": "Anushka Malhotra",
+    "email": "anushka.malhotra@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "university": "IIIT Hyderabad",
+    "skills": [
+      "GraphQL",
+      "Rust",
+      "TensorFlow"
+    ],
+    "bio": "Computer Science & Engineering student at IIIT Hyderabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "GraphQL",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876801"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Rust",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876805"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876801"
+    },
+    "name": "Arjun Bhatia",
+    "email": "arjun.bhatia@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Artificial Intelligence & Data Science",
+    "semester": 5,
+    "university": "DTU Delhi",
+    "skills": [
+      "FastAPI",
+      "Redis",
+      "PyTorch"
+    ],
+    "bio": "Artificial Intelligence & Data Science student at DTU Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "FastAPI",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876802"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Redis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876806"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876802"
+    },
+    "name": "Arya Deshmukh",
+    "email": "arya.deshmukh@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Information Technology",
+    "semester": 6,
+    "university": "NSUT Delhi",
+    "skills": [
+      "Golang",
+      "TailwindCSS",
+      "React"
+    ],
+    "bio": "Information Technology student at NSUT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Golang",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876803"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "TailwindCSS",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876807"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876803"
+    },
+    "name": "Aryan Kulkarni",
+    "email": "aryan.kulkarni@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electronics & Communication Engineering",
+    "semester": 7,
+    "university": "VIT Vellore",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Electronics & Communication Engineering student at VIT Vellore. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876804"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876808"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876804"
+    },
+    "name": "Ayush Banerjee",
+    "email": "ayush.banerjee@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electrical Engineering",
+    "semester": 8,
+    "university": "Manipal Institute of Tech",
+    "skills": [
+      "SolidWorks",
+      "AutoCAD",
+      "Python"
+    ],
+    "bio": "Electrical Engineering student at Manipal Institute of Tech. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "SolidWorks",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876805"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "AutoCAD",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876809"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876805"
+    },
+    "name": "Bhavna Chatterjee",
+    "email": "bhavna.chatterjee@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Mechanical Engineering",
+    "semester": 1,
+    "university": "Thapar University",
+    "skills": [
+      "MATLAB",
+      "ROS",
+      "Python"
+    ],
+    "bio": "Mechanical Engineering student at Thapar University. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "MATLAB",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876806"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "ROS",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680a"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876806"
+    },
+    "name": "Chetan Das",
+    "email": "chetan.das@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Civil Engineering",
+    "semester": 2,
+    "university": "SRM University",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Civil Engineering student at SRM University. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876807"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680b"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876807"
+    },
+    "name": "Devansh Roy",
+    "email": "devansh.roy@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Biotechnology & Bioinformatics",
+    "semester": 3,
+    "university": "SPJIMR Mumbai",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Biotechnology & Bioinformatics student at SPJIMR Mumbai. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876808"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680c"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876808"
+    },
+    "name": "Dia Menon",
+    "email": "dia.menon@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Business Administration (BBA/MBA)",
+    "semester": 4,
+    "university": "IIM Ahmedabad",
+    "skills": [
+      "Content Strategy",
+      "Market Research",
+      "Data Analysis"
+    ],
+    "bio": "Business Administration (BBA/MBA) student at IIM Ahmedabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Content Strategy",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876809"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Market Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680d"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876809"
+    },
+    "name": "Dhruv Rao",
+    "email": "dhruv.rao@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "alumni",
+    "department": "UX & Interaction Design",
+    "semester": 5,
+    "university": "NIFT Delhi",
+    "skills": [
+      "Figma",
+      "User Research",
+      "CSS"
+    ],
+    "bio": "UX & Interaction Design student at NIFT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Figma",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680a"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "User Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680e"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87680a"
+    },
+    "name": "Diya Shetty",
+    "email": "diya.shetty@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Aerospace & Robotics Engineering",
+    "semester": 6,
+    "university": "NID Ahmedabad",
+    "skills": [
+      "IoT Protocols",
+      "FPGA",
+      "Python"
+    ],
+    "bio": "Aerospace & Robotics Engineering student at NID Ahmedabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "IoT Protocols",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680b"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "FPGA",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680f"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87680b"
+    },
+    "name": "Divyansh Hegde",
+    "email": "divyansh.hegde@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Computer Science & Engineering",
+    "semester": 7,
+    "university": "IIT Bombay",
+    "skills": [
+      "Python",
+      "Kubernetes",
+      "PostgreSQL"
+    ],
+    "bio": "Computer Science & Engineering student at IIT Bombay. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Python",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680c"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Kubernetes",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876810"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87680c"
+    },
+    "name": "Eesha Saxena",
+    "email": "eesha.saxena@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Artificial Intelligence & Data Science",
+    "semester": 8,
+    "university": "IIT Delhi",
+    "skills": [
+      "Machine Learning",
+      "AWS",
+      "MongoDB"
+    ],
+    "bio": "Artificial Intelligence & Data Science student at IIT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Machine Learning",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680d"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "AWS",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876811"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87680d"
+    },
+    "name": "Farhan Kapoor",
+    "email": "farhan.kapoor@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Information Technology",
+    "semester": 1,
+    "university": "IIT Madras",
+    "skills": [
+      "Docker",
+      "Next.js",
+      "GraphQL"
+    ],
+    "bio": "Information Technology student at IIT Madras. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Docker",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680e"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Next.js",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876812"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87680e"
+    },
+    "name": "Gaurav Khanna",
+    "email": "gaurav.khanna@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "faculty",
+    "department": "Electronics & Communication Engineering",
+    "semester": 2,
+    "university": "IIT Kharagpur",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Electronics & Communication Engineering student at IIT Kharagpur. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87680f"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876813"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87680f"
+    },
+    "name": "Gayatri Agarwal",
+    "email": "gayatri.agarwal@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electrical Engineering",
+    "semester": 3,
+    "university": "IIT Roorkee",
+    "skills": [
+      "Embedded C",
+      "MATLAB",
+      "Python"
+    ],
+    "bio": "Electrical Engineering student at IIT Roorkee. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Embedded C",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876810"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "MATLAB",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876814"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876810"
+    },
+    "name": "Harsh Mishra",
+    "email": "harsh.mishra@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Mechanical Engineering",
+    "semester": 4,
+    "university": "NIT Trichy",
+    "skills": [
+      "SolidWorks",
+      "AutoCAD",
+      "Python"
+    ],
+    "bio": "Mechanical Engineering student at NIT Trichy. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "SolidWorks",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876811"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "AutoCAD",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876815"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876811"
+    },
+    "name": "Ila Sharma",
+    "email": "ila.sharma@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Civil Engineering",
+    "semester": 5,
+    "university": "NIT Surathkal",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Civil Engineering student at NIT Surathkal. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876812"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876816"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876812"
+    },
+    "name": "Ishaan Verma",
+    "email": "ishaan.verma@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Biotechnology & Bioinformatics",
+    "semester": 6,
+    "university": "NIT Warangal",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Biotechnology & Bioinformatics student at NIT Warangal. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876813"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876817"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876813"
+    },
+    "name": "Ishita Reddy",
+    "email": "ishita.reddy@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Business Administration (BBA/MBA)",
+    "semester": 7,
+    "university": "NIT Rourkela",
+    "skills": [
+      "Financial Modeling",
+      "Agile/Scrum",
+      "Data Analysis"
+    ],
+    "bio": "Business Administration (BBA/MBA) student at NIT Rourkela. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Financial Modeling",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876814"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Agile/Scrum",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876818"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876814"
+    },
+    "name": "Jatin Nair",
+    "email": "jatin.nair@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "UX & Interaction Design",
+    "semester": 8,
+    "university": "BITS Pilani",
+    "skills": [
+      "UI/UX Design",
+      "Wireframing",
+      "CSS"
+    ],
+    "bio": "UX & Interaction Design student at BITS Pilani. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "UI/UX Design",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876815"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Wireframing",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876819"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876815"
+    },
+    "name": "Kabir Iyer",
+    "email": "kabir.iyer@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Aerospace & Robotics Engineering",
+    "semester": 1,
+    "university": "BITS Goa",
+    "skills": [
+      "3D Printing",
+      "PLC",
+      "Python"
+    ],
+    "bio": "Aerospace & Robotics Engineering student at BITS Goa. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "3D Printing",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876816"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "PLC",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681a"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876816"
+    },
+    "name": "Kavya Gupta",
+    "email": "kavya.gupta@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Computer Science & Engineering",
+    "semester": 2,
+    "university": "IIIT Hyderabad",
+    "skills": [
+      "Golang",
+      "TailwindCSS",
+      "React"
+    ],
+    "bio": "Computer Science & Engineering student at IIIT Hyderabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Golang",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876817"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "TailwindCSS",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681b"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876817"
+    },
+    "name": "Karan Singh",
+    "email": "karan.singh@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Artificial Intelligence & Data Science",
+    "semester": 3,
+    "university": "DTU Delhi",
+    "skills": [
+      "Rust",
+      "Flutter",
+      "Node.js"
+    ],
+    "bio": "Artificial Intelligence & Data Science student at DTU Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Rust",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876818"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Flutter",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681c"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876818"
+    },
+    "name": "Khushi Kumar",
+    "email": "khushi.kumar@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Information Technology",
+    "semester": 4,
+    "university": "NSUT Delhi",
+    "skills": [
+      "Redis",
+      "TensorFlow",
+      "Python"
+    ],
+    "bio": "Information Technology student at NSUT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Redis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876819"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "TensorFlow",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681d"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876819"
+    },
+    "name": "Kiran Mehta",
+    "email": "kiran.mehta@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electronics & Communication Engineering",
+    "semester": 5,
+    "university": "VIT Vellore",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Electronics & Communication Engineering student at VIT Vellore. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681a"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681e"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87681a"
+    },
+    "name": "Kunal Joshi",
+    "email": "kunal.joshi@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electrical Engineering",
+    "semester": 6,
+    "university": "Manipal Institute of Tech",
+    "skills": [
+      "Raspberry Pi",
+      "SolidWorks",
+      "Python"
+    ],
+    "bio": "Electrical Engineering student at Manipal Institute of Tech. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Raspberry Pi",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681b"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "SolidWorks",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681f"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87681b"
+    },
+    "name": "Lakshay Chopra",
+    "email": "lakshay.chopra@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Mechanical Engineering",
+    "semester": 7,
+    "university": "Thapar University",
+    "skills": [
+      "Embedded C",
+      "MATLAB",
+      "Python"
+    ],
+    "bio": "Mechanical Engineering student at Thapar University. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Embedded C",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681c"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "MATLAB",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876820"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87681c"
+    },
+    "name": "Lavanya Malhotra",
+    "email": "lavanya.malhotra@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Civil Engineering",
+    "semester": 8,
+    "university": "SRM University",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Civil Engineering student at SRM University. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681d"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876821"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87681d"
+    },
+    "name": "Madhav Deshmukh",
+    "email": "madhav.deshmukh@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "alumni",
+    "department": "Biotechnology & Bioinformatics",
+    "semester": 1,
+    "university": "SPJIMR Mumbai",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Biotechnology & Bioinformatics student at SPJIMR Mumbai. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681e"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876822"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87681e"
+    },
+    "name": "Manish Kulkarni",
+    "email": "manish.kulkarni@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Business Administration (BBA/MBA)",
+    "semester": 2,
+    "university": "IIM Ahmedabad",
+    "skills": [
+      "Market Research",
+      "Product Management",
+      "Data Analysis"
+    ],
+    "bio": "Business Administration (BBA/MBA) student at IIM Ahmedabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Market Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87681f"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Product Management",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876823"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87681f"
+    },
+    "name": "Mayank Banerjee",
+    "email": "mayank.banerjee@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "UX & Interaction Design",
+    "semester": 3,
+    "university": "NIFT Delhi",
+    "skills": [
+      "User Research",
+      "Adobe Illustrator",
+      "CSS"
+    ],
+    "bio": "UX & Interaction Design student at NIFT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "User Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876820"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Adobe Illustrator",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876824"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876820"
+    },
+    "name": "Meera Chatterjee",
+    "email": "meera.chatterjee@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Aerospace & Robotics Engineering",
+    "semester": 4,
+    "university": "NID Ahmedabad",
+    "skills": [
+      "Circuit Design",
+      "IoT Protocols",
+      "Python"
+    ],
+    "bio": "Aerospace & Robotics Engineering student at NID Ahmedabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Circuit Design",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876821"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "IoT Protocols",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876825"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876821"
+    },
+    "name": "Mihir Das",
+    "email": "mihir.das@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Computer Science & Engineering",
+    "semester": 5,
+    "university": "IIT Bombay",
+    "skills": [
+      "Docker",
+      "Next.js",
+      "GraphQL"
+    ],
+    "bio": "Computer Science & Engineering student at IIT Bombay. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Docker",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876822"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Next.js",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876826"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876822"
+    },
+    "name": "Mohit Roy",
+    "email": "mohit.roy@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Artificial Intelligence & Data Science",
+    "semester": 6,
+    "university": "IIT Delhi",
+    "skills": [
+      "Kubernetes",
+      "TypeScript",
+      "FastAPI"
+    ],
+    "bio": "Artificial Intelligence & Data Science student at IIT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Kubernetes",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876823"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "TypeScript",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876827"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876823"
+    },
+    "name": "Nakul Menon",
+    "email": "nakul.menon@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Information Technology",
+    "semester": 7,
+    "university": "IIT Madras",
+    "skills": [
+      "AWS",
+      "PostgreSQL",
+      "Golang"
+    ],
+    "bio": "Information Technology student at IIT Madras. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "AWS",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876824"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "PostgreSQL",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876828"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876824"
+    },
+    "name": "Navya Pillai",
+    "email": "navya.pillai@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electronics & Communication Engineering",
+    "semester": 8,
+    "university": "IIT Kharagpur",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Electronics & Communication Engineering student at IIT Kharagpur. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876825"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876829"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876825"
+    },
+    "name": "Neha Rao",
+    "email": "neha.rao@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electrical Engineering",
+    "semester": 1,
+    "university": "IIT Roorkee",
+    "skills": [
+      "Arduino",
+      "Embedded C",
+      "Python"
+    ],
+    "bio": "Electrical Engineering student at IIT Roorkee. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Arduino",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876826"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Embedded C",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682a"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876826"
+    },
+    "name": "Nikhil Shetty",
+    "email": "nikhil.shetty@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Mechanical Engineering",
+    "semester": 2,
+    "university": "NIT Trichy",
+    "skills": [
+      "Raspberry Pi",
+      "SolidWorks",
+      "Python"
+    ],
+    "bio": "Mechanical Engineering student at NIT Trichy. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Raspberry Pi",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876827"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "SolidWorks",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682b"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876827"
+    },
+    "name": "Nisha Saxena",
+    "email": "nisha.saxena@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "faculty",
+    "department": "Civil Engineering",
+    "semester": 3,
+    "university": "NIT Surathkal",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Civil Engineering student at NIT Surathkal. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876828"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682c"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876828"
+    },
+    "name": "Om Kapoor",
+    "email": "om.kapoor@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Biotechnology & Bioinformatics",
+    "semester": 4,
+    "university": "NIT Warangal",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Biotechnology & Bioinformatics student at NIT Warangal. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876829"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682d"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876829"
+    },
+    "name": "Palak Khanna",
+    "email": "palak.khanna@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Business Administration (BBA/MBA)",
+    "semester": 5,
+    "university": "NIT Rourkela",
+    "skills": [
+      "Agile/Scrum",
+      "Excel/VBA",
+      "Data Analysis"
+    ],
+    "bio": "Business Administration (BBA/MBA) student at NIT Rourkela. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Agile/Scrum",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682a"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Excel/VBA",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682e"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87682a"
+    },
+    "name": "Parth Agarwal",
+    "email": "parth.agarwal@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "UX & Interaction Design",
+    "semester": 6,
+    "university": "BITS Pilani",
+    "skills": [
+      "Wireframing",
+      "Design Systems",
+      "CSS"
+    ],
+    "bio": "UX & Interaction Design student at BITS Pilani. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Wireframing",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682b"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Design Systems",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682f"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87682b"
+    },
+    "name": "Pooja Mishra",
+    "email": "pooja.mishra@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Aerospace & Robotics Engineering",
+    "semester": 7,
+    "university": "BITS Goa",
+    "skills": [
+      "ROS",
+      "3D Printing",
+      "Python"
+    ],
+    "bio": "Aerospace & Robotics Engineering student at BITS Goa. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "ROS",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682c"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "3D Printing",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876830"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87682c"
+    },
+    "name": "Pranav Sharma",
+    "email": "pranav.sharma@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Computer Science & Engineering",
+    "semester": 8,
+    "university": "IIIT Hyderabad",
+    "skills": [
+      "Redis",
+      "TensorFlow",
+      "Python"
+    ],
+    "bio": "Computer Science & Engineering student at IIIT Hyderabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Redis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682d"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "TensorFlow",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876831"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87682d"
+    },
+    "name": "Pranay Verma",
+    "email": "pranay.verma@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Artificial Intelligence & Data Science",
+    "semester": 1,
+    "university": "DTU Delhi",
+    "skills": [
+      "TailwindCSS",
+      "PyTorch",
+      "Machine Learning"
+    ],
+    "bio": "Artificial Intelligence & Data Science student at DTU Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "TailwindCSS",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682e"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "PyTorch",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876832"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87682e"
+    },
+    "name": "Prashant Patel",
+    "email": "prashant.patel@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Information Technology",
+    "semester": 2,
+    "university": "NSUT Delhi",
+    "skills": [
+      "Flutter",
+      "React",
+      "Docker"
+    ],
+    "bio": "Information Technology student at NSUT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Flutter",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87682f"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "React",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876833"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87682f"
+    },
+    "name": "Priya Reddy",
+    "email": "priya.reddy@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electronics & Communication Engineering",
+    "semester": 3,
+    "university": "VIT Vellore",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Electronics & Communication Engineering student at VIT Vellore. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876830"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876834"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876830"
+    },
+    "name": "Rahul Nair",
+    "email": "rahul.nair@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electrical Engineering",
+    "semester": 4,
+    "university": "Manipal Institute of Tech",
+    "skills": [
+      "FPGA",
+      "Raspberry Pi",
+      "Python"
+    ],
+    "bio": "Electrical Engineering student at Manipal Institute of Tech. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "FPGA",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876831"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Raspberry Pi",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876835"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876831"
+    },
+    "name": "Rhea Gupta",
+    "email": "rhea.gupta@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "alumni",
+    "department": "Mechanical Engineering",
+    "semester": 5,
+    "university": "Thapar University",
+    "skills": [
+      "Arduino",
+      "Embedded C",
+      "Python"
+    ],
+    "bio": "Mechanical Engineering student at Thapar University. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Arduino",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876832"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Embedded C",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876836"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876832"
+    },
+    "name": "Rishi Singh",
+    "email": "rishi.singh@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Civil Engineering",
+    "semester": 6,
+    "university": "SRM University",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Civil Engineering student at SRM University. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876833"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876837"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876833"
+    },
+    "name": "Ritika Kumar",
+    "email": "ritika.kumar@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Biotechnology & Bioinformatics",
+    "semester": 7,
+    "university": "SPJIMR Mumbai",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Biotechnology & Bioinformatics student at SPJIMR Mumbai. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876834"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876838"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876834"
+    },
+    "name": "Rohan Mehta",
+    "email": "rohan.mehta@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Business Administration (BBA/MBA)",
+    "semester": 8,
+    "university": "IIM Ahmedabad",
+    "skills": [
+      "Product Management",
+      "Power BI",
+      "Data Analysis"
+    ],
+    "bio": "Business Administration (BBA/MBA) student at IIM Ahmedabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Product Management",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876835"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Power BI",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876839"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876835"
+    },
+    "name": "Rohit Joshi",
+    "email": "rohit.joshi@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "UX & Interaction Design",
+    "semester": 1,
+    "university": "NIFT Delhi",
+    "skills": [
+      "Adobe Illustrator",
+      "Motion Design",
+      "CSS"
+    ],
+    "bio": "UX & Interaction Design student at NIFT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Adobe Illustrator",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876836"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Motion Design",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683a"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876836"
+    },
+    "name": "Roshni Chopra",
+    "email": "roshni.chopra@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Aerospace & Robotics Engineering",
+    "semester": 2,
+    "university": "NID Ahmedabad",
+    "skills": [
+      "AutoCAD",
+      "Circuit Design",
+      "Python"
+    ],
+    "bio": "Aerospace & Robotics Engineering student at NID Ahmedabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "AutoCAD",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876837"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Circuit Design",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683b"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876837"
+    },
+    "name": "Rudra Malhotra",
+    "email": "rudra.malhotra@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Computer Science & Engineering",
+    "semester": 3,
+    "university": "IIT Bombay",
+    "skills": [
+      "AWS",
+      "PostgreSQL",
+      "Golang"
+    ],
+    "bio": "Computer Science & Engineering student at IIT Bombay. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "AWS",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876838"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "PostgreSQL",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683c"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876838"
+    },
+    "name": "Saahil Bhatia",
+    "email": "saahil.bhatia@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Artificial Intelligence & Data Science",
+    "semester": 4,
+    "university": "IIT Delhi",
+    "skills": [
+      "Next.js",
+      "MongoDB",
+      "Rust"
+    ],
+    "bio": "Artificial Intelligence & Data Science student at IIT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Next.js",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876839"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "MongoDB",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683d"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876839"
+    },
+    "name": "Sakshi Deshmukh",
+    "email": "sakshi.deshmukh@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Information Technology",
+    "semester": 5,
+    "university": "IIT Madras",
+    "skills": [
+      "TypeScript",
+      "GraphQL",
+      "Redis"
+    ],
+    "bio": "Information Technology student at IIT Madras. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "TypeScript",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683a"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "GraphQL",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683e"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87683a"
+    },
+    "name": "Sameer Kulkarni",
+    "email": "sameer.kulkarni@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electronics & Communication Engineering",
+    "semester": 6,
+    "university": "IIT Kharagpur",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Electronics & Communication Engineering student at IIT Kharagpur. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683b"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683f"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87683b"
+    },
+    "name": "Samarth Chatterjee",
+    "email": "samarth.chatterjee@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electrical Engineering",
+    "semester": 7,
+    "university": "IIT Roorkee",
+    "skills": [
+      "PLC",
+      "Arduino",
+      "Python"
+    ],
+    "bio": "Electrical Engineering student at IIT Roorkee. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "PLC",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683c"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Arduino",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876840"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87683c"
+    },
+    "name": "Sana Das",
+    "email": "sana.das@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Mechanical Engineering",
+    "semester": 8,
+    "university": "NIT Trichy",
+    "skills": [
+      "FPGA",
+      "Raspberry Pi",
+      "Python"
+    ],
+    "bio": "Mechanical Engineering student at NIT Trichy. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "FPGA",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683d"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Raspberry Pi",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876841"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87683d"
+    },
+    "name": "Sanjay Roy",
+    "email": "sanjay.roy@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Civil Engineering",
+    "semester": 1,
+    "university": "NIT Surathkal",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Civil Engineering student at NIT Surathkal. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683e"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876842"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87683e"
+    },
+    "name": "Sanvi Menon",
+    "email": "sanvi.menon@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Biotechnology & Bioinformatics",
+    "semester": 2,
+    "university": "NIT Warangal",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Biotechnology & Bioinformatics student at NIT Warangal. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87683f"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876843"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87683f"
+    },
+    "name": "Sarthak Pillai",
+    "email": "sarthak.pillai@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Business Administration (BBA/MBA)",
+    "semester": 3,
+    "university": "NIT Rourkela",
+    "skills": [
+      "Excel/VBA",
+      "Pitch Decks",
+      "Data Analysis"
+    ],
+    "bio": "Business Administration (BBA/MBA) student at NIT Rourkela. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Excel/VBA",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876840"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Pitch Decks",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876844"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876840"
+    },
+    "name": "Shaurya Rao",
+    "email": "shaurya.rao@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "faculty",
+    "department": "UX & Interaction Design",
+    "semester": 4,
+    "university": "BITS Pilani",
+    "skills": [
+      "Design Systems",
+      "Typography",
+      "CSS"
+    ],
+    "bio": "UX & Interaction Design student at BITS Pilani. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Design Systems",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876841"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Typography",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876845"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876841"
+    },
+    "name": "Shivani Shetty",
+    "email": "shivani.shetty@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Aerospace & Robotics Engineering",
+    "semester": 5,
+    "university": "BITS Goa",
+    "skills": [
+      "MATLAB",
+      "ROS",
+      "Python"
+    ],
+    "bio": "Aerospace & Robotics Engineering student at BITS Goa. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "MATLAB",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876842"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "ROS",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876846"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876842"
+    },
+    "name": "Shlok Hegde",
+    "email": "shlok.hegde@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Computer Science & Engineering",
+    "semester": 6,
+    "university": "IIIT Hyderabad",
+    "skills": [
+      "Flutter",
+      "React",
+      "Docker"
+    ],
+    "bio": "Computer Science & Engineering student at IIIT Hyderabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Flutter",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876843"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "React",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876847"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876843"
+    },
+    "name": "Shreya Saxena",
+    "email": "shreya.saxena@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Artificial Intelligence & Data Science",
+    "semester": 7,
+    "university": "DTU Delhi",
+    "skills": [
+      "TensorFlow",
+      "Node.js",
+      "Kubernetes"
+    ],
+    "bio": "Artificial Intelligence & Data Science student at DTU Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "TensorFlow",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876844"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Node.js",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876848"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876844"
+    },
+    "name": "Siddharth Kapoor",
+    "email": "siddharth.kapoor@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Information Technology",
+    "semester": 8,
+    "university": "NSUT Delhi",
+    "skills": [
+      "PyTorch",
+      "Python",
+      "AWS"
+    ],
+    "bio": "Information Technology student at NSUT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "PyTorch",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876845"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Python",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876849"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876845"
+    },
+    "name": "Sneha Agarwal",
+    "email": "sneha.agarwal@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "alumni",
+    "department": "Electronics & Communication Engineering",
+    "semester": 1,
+    "university": "VIT Vellore",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Electronics & Communication Engineering student at VIT Vellore. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876846"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684a"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876846"
+    },
+    "name": "Soham Mishra",
+    "email": "soham.mishra@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electrical Engineering",
+    "semester": 2,
+    "university": "Manipal Institute of Tech",
+    "skills": [
+      "IoT Protocols",
+      "FPGA",
+      "Python"
+    ],
+    "bio": "Electrical Engineering student at Manipal Institute of Tech. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "IoT Protocols",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876847"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "FPGA",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684b"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876847"
+    },
+    "name": "Sparsh Sharma",
+    "email": "sparsh.sharma@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Mechanical Engineering",
+    "semester": 3,
+    "university": "Thapar University",
+    "skills": [
+      "PLC",
+      "Arduino",
+      "Python"
+    ],
+    "bio": "Mechanical Engineering student at Thapar University. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "PLC",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876848"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Arduino",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684c"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876848"
+    },
+    "name": "Tanvi Verma",
+    "email": "tanvi.verma@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Civil Engineering",
+    "semester": 4,
+    "university": "SRM University",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Civil Engineering student at SRM University. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876849"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684d"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876849"
+    },
+    "name": "Tarun Patel",
+    "email": "tarun.patel@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Biotechnology & Bioinformatics",
+    "semester": 5,
+    "university": "SPJIMR Mumbai",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Biotechnology & Bioinformatics student at SPJIMR Mumbai. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684a"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684e"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87684a"
+    },
+    "name": "Tejas Reddy",
+    "email": "tejas.reddy@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Business Administration (BBA/MBA)",
+    "semester": 6,
+    "university": "IIM Ahmedabad",
+    "skills": [
+      "Power BI",
+      "SEO Marketing",
+      "Data Analysis"
+    ],
+    "bio": "Business Administration (BBA/MBA) student at IIM Ahmedabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Power BI",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684b"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "SEO Marketing",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684f"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87684b"
+    },
+    "name": "Trisha Nair",
+    "email": "trisha.nair@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "UX & Interaction Design",
+    "semester": 7,
+    "university": "NIFT Delhi",
+    "skills": [
+      "Motion Design",
+      "Storybook",
+      "CSS"
+    ],
+    "bio": "UX & Interaction Design student at NIFT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Motion Design",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684c"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Storybook",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876850"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87684c"
+    },
+    "name": "Utkarsh Iyer",
+    "email": "utkarsh.iyer@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Aerospace & Robotics Engineering",
+    "semester": 8,
+    "university": "NID Ahmedabad",
+    "skills": [
+      "SolidWorks",
+      "AutoCAD",
+      "Python"
+    ],
+    "bio": "Aerospace & Robotics Engineering student at NID Ahmedabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "SolidWorks",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684d"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "AutoCAD",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876851"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87684d"
+    },
+    "name": "Vaibhav Gupta",
+    "email": "vaibhav.gupta@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Computer Science & Engineering",
+    "semester": 1,
+    "university": "IIT Bombay",
+    "skills": [
+      "TypeScript",
+      "GraphQL",
+      "Redis"
+    ],
+    "bio": "Computer Science & Engineering student at IIT Bombay. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "TypeScript",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684e"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "GraphQL",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876852"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87684e"
+    },
+    "name": "Vandana Singh",
+    "email": "vandana.singh@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Artificial Intelligence & Data Science",
+    "semester": 2,
+    "university": "IIT Delhi",
+    "skills": [
+      "PostgreSQL",
+      "FastAPI",
+      "TailwindCSS"
+    ],
+    "bio": "Artificial Intelligence & Data Science student at IIT Delhi. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "PostgreSQL",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c87684f"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "FastAPI",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876853"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87684f"
+    },
+    "name": "Varun Mehta",
+    "email": "varun.mehta@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Information Technology",
+    "semester": 3,
+    "university": "IIT Madras",
+    "skills": [
+      "MongoDB",
+      "Golang",
+      "Flutter"
+    ],
+    "bio": "Information Technology student at IIT Madras. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "MongoDB",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876850"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Golang",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876854"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876850"
+    },
+    "name": "Vedant Joshi",
+    "email": "vedant.joshi@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electronics & Communication Engineering",
+    "semester": 4,
+    "university": "IIT Kharagpur",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Electronics & Communication Engineering student at IIT Kharagpur. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876851"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876855"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876851"
+    },
+    "name": "Vidhi Chopra",
+    "email": "vidhi.chopra@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Electrical Engineering",
+    "semester": 5,
+    "university": "IIT Roorkee",
+    "skills": [
+      "3D Printing",
+      "PLC",
+      "Python"
+    ],
+    "bio": "Electrical Engineering student at IIT Roorkee. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "3D Printing",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876852"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "PLC",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876856"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876852"
+    },
+    "name": "Vihan Malhotra",
+    "email": "vihan.malhotra@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Mechanical Engineering",
+    "semester": 6,
+    "university": "NIT Trichy",
+    "skills": [
+      "IoT Protocols",
+      "FPGA",
+      "Python"
+    ],
+    "bio": "Mechanical Engineering student at NIT Trichy. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "IoT Protocols",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876853"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "FPGA",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876857"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876853"
+    },
+    "name": "Vikram Bhatia",
+    "email": "vikram.bhatia@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Civil Engineering",
+    "semester": 7,
+    "university": "NIT Surathkal",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Civil Engineering student at NIT Surathkal. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876854"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876858"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876854"
+    },
+    "name": "Vipin Deshmukh",
+    "email": "vipin.deshmukh@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Biotechnology & Bioinformatics",
+    "semester": 8,
+    "university": "NIT Warangal",
+    "skills": [
+      "Research",
+      "Data Analysis",
+      "Python",
+      "Communication"
+    ],
+    "bio": "Biotechnology & Bioinformatics student at NIT Warangal. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Research",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876855"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Data Analysis",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767f5"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876855"
+    },
+    "name": "Vishal Kulkarni",
+    "email": "vishal.kulkarni@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Business Administration (BBA/MBA)",
+    "semester": 1,
+    "university": "NIT Rourkela",
+    "skills": [
+      "Pitch Decks",
+      "Valuation",
+      "Data Analysis"
+    ],
+    "bio": "Business Administration (BBA/MBA) student at NIT Rourkela. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Pitch Decks",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876856"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Valuation",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767f6"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876856"
+    },
+    "name": "Yash Banerjee",
+    "email": "yash.banerjee@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "UX & Interaction Design",
+    "semester": 2,
+    "university": "BITS Pilani",
+    "skills": [
+      "Typography",
+      "Prototyping",
+      "CSS"
+    ],
+    "bio": "UX & Interaction Design student at BITS Pilani. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Typography",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876857"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Prototyping",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767f7"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876857"
+    },
+    "name": "Yukta Chatterjee",
+    "email": "yukta.chatterjee@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Aerospace & Robotics Engineering",
+    "semester": 3,
+    "university": "BITS Goa",
+    "skills": [
+      "Embedded C",
+      "MATLAB",
+      "Python"
+    ],
+    "bio": "Aerospace & Robotics Engineering student at BITS Goa. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": false,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "Embedded C",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c876858"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "MATLAB",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767f8"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876858"
+    },
+    "name": "Zaid Das",
+    "email": "zaid.das@campus.edu",
+    "password": "$2b$10$6N911cE8zpW4b6hAH2g1eeZlE6HhqLrOdVZbJEJg2pAbLfHuYxGGi",
+    "role": "student",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "university": "IIIT Hyderabad",
+    "skills": [
+      "PyTorch",
+      "Python",
+      "AWS"
+    ],
+    "bio": "Computer Science & Engineering student at IIIT Hyderabad. Active in tech clubs, hackathons, and project development.",
+    "avatar": "default.jpg",
+    "isVerified": true,
+    "isOnline": true,
+    "isDeleted": false,
+    "endorsements": [
+      {
+        "skill": "PyTorch",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767f5"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      },
+      {
+        "skill": "Python",
+        "endorserId": {
+          "$oid": "6a9274e6af2e864a6c8767f9"
+        },
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  }
+]

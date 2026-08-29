@@ -1,0 +1,1955 @@
+[
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876872"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f5"
+    },
+    "title": "SmartCampus AI Navigator",
+    "description": "An intelligent campus assistant that answers questions about hostel rules, professor office hours, and timetables using RAG.",
+    "techStack": [
+      "Python",
+      "FastAPI",
+      "React",
+      "GPT-4",
+      "PostgreSQL"
+    ],
+    "githubUrl": "https://github.com/campus-demo/smartcampus-ai-navigator",
+    "liveUrl": "https://smartcampusainavigator.demo.app",
+    "category": "ai_ml",
+    "status": "completed",
+    "teamSize": 1,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767f7"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767f9"
+      }
+    ],
+    "views": 45,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767f6"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876873"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f6"
+    },
+    "title": "Autonomous Agri-Drone Swarm",
+    "description": "Drone coordination system that captures spectral imagery over crops to detect plant disease and automate pesticide delivery.",
+    "techStack": [
+      "ROS",
+      "Python",
+      "C++",
+      "Raspberry Pi",
+      "Computer Vision"
+    ],
+    "githubUrl": "https://github.com/campus-demo/autonomous-agri-drone-swarm",
+    "liveUrl": "",
+    "category": "iot_hardware",
+    "status": "in_progress",
+    "teamSize": 2,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767f8"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fa"
+      }
+    ],
+    "views": 90,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767f7"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876874"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f7"
+    },
+    "title": "Peer-to-Peer Campus Marketplace",
+    "description": "A verified student marketplace to buy, sell, and rent textbooks, bicycles, calculators, and lab gear safely on campus.",
+    "techStack": [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Socket.IO"
+    ],
+    "githubUrl": "https://github.com/campus-demo/peer-to-peer-campus-marketplace",
+    "liveUrl": "https://peertopeercampusmarketplace.demo.app",
+    "category": "web",
+    "status": "in_progress",
+    "teamSize": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767f9"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fb"
+      }
+    ],
+    "views": 135,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767f8"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876875"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f8"
+    },
+    "title": "CampusRide — Carpooling & Shuttle Tracker",
+    "description": "Real-time shuttle tracking and verified campus ride-sharing mobile app for university commuters and day-scholars.",
+    "techStack": [
+      "Flutter",
+      "Firebase",
+      "Google Maps API",
+      "Node.js"
+    ],
+    "githubUrl": "https://github.com/campus-demo/campusride---carpooling---shuttle-tracker",
+    "liveUrl": "",
+    "category": "mobile",
+    "status": "completed",
+    "teamSize": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fa"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fc"
+      }
+    ],
+    "views": 180,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767f9"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876876"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f9"
+    },
+    "title": "Decentralized Academic Credential Vault",
+    "description": "Tamper-proof blockchain platform enabling universities to issue cryptographically verifiable degrees and transcripts.",
+    "techStack": [
+      "Solidity",
+      "Ethereum",
+      "IPFS",
+      "Next.js",
+      "Web3.js"
+    ],
+    "githubUrl": "https://github.com/campus-demo/decentralized-academic-credential-vault",
+    "liveUrl": "https://decentralizedacademiccredentialvault.demo.app",
+    "category": "research",
+    "status": "in_progress",
+    "teamSize": 1,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fb"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fd"
+      }
+    ],
+    "views": 225,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767fa"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876877"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fa"
+    },
+    "title": "MindPulse — Student Mental Wellbeing Tracker",
+    "description": "Daily mood logger and AI wellbeing assistant offering confidential counseling bookings and stress analytics.",
+    "techStack": [
+      "React Native",
+      "FastAPI",
+      "PyTorch",
+      "TailwindCSS"
+    ],
+    "githubUrl": "https://github.com/campus-demo/mindpulse---student-mental-wellbeing-tracker",
+    "liveUrl": "",
+    "category": "mobile",
+    "status": "in_progress",
+    "teamSize": 2,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fc"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767fe"
+      }
+    ],
+    "views": 270,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767fb"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876878"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fb"
+    },
+    "title": "Automated Smart Greenhouse with IoT",
+    "description": "Closed-loop environmental control system that monitors humidity, soil moisture, and lux levels with automated irrigation.",
+    "techStack": [
+      "Arduino",
+      "NodeMCU",
+      "MQTT",
+      "React",
+      "Chart.js"
+    ],
+    "githubUrl": "https://github.com/campus-demo/automated-smart-greenhouse-with-iot",
+    "liveUrl": "https://automatedsmartgreenhousewithiot.demo.app",
+    "category": "iot_hardware",
+    "status": "completed",
+    "teamSize": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fd"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c8767ff"
+      }
+    ],
+    "views": 315,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767fc"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876879"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fc"
+    },
+    "title": "CodeReviewer AI GitHub Bot",
+    "description": "An automated pull request reviewer that comments with security vulnerability warnings and style optimization suggestions.",
+    "techStack": [
+      "TypeScript",
+      "Node.js",
+      "OpenAI API",
+      "GitHub Actions",
+      "Docker"
+    ],
+    "githubUrl": "https://github.com/campus-demo/codereviewer-ai-github-bot",
+    "liveUrl": "",
+    "category": "ai_ml",
+    "status": "in_progress",
+    "teamSize": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fe"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876800"
+      }
+    ],
+    "views": 360,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767fd"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87687a"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fd"
+    },
+    "title": "Kavach — Campus Women Safety Guardian",
+    "description": "Emergency SOS alert app with real-time location sharing, ambient audio recording, and automated dispatch to campus security.",
+    "techStack": [
+      "Flutter",
+      "Node.js",
+      "Socket.IO",
+      "Twilio API",
+      "MongoDB"
+    ],
+    "githubUrl": "https://github.com/campus-demo/kavach---campus-women-safety-guardian",
+    "liveUrl": "https://kavachcampuswomensafetyguardian.demo.app",
+    "category": "mobile",
+    "status": "in_progress",
+    "teamSize": 1,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767ff"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876801"
+      }
+    ],
+    "views": 405,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767fe"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87687b"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fe"
+    },
+    "title": "EcoBin — Smart Waste Segregator",
+    "description": "AI-enabled trash bin that uses computer vision to classify recyclable, organic, and electronic waste automatically.",
+    "techStack": [
+      "Raspberry Pi",
+      "OpenCV",
+      "TensorFlow Lite",
+      "Python",
+      "Servo Motors"
+    ],
+    "githubUrl": "https://github.com/campus-demo/ecobin---smart-waste-segregator",
+    "liveUrl": "",
+    "category": "iot_hardware",
+    "status": "completed",
+    "teamSize": 2,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876800"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876802"
+      }
+    ],
+    "views": 450,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767ff"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87687c"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767ff"
+    },
+    "title": "AlumniMentorship & Referral Portal",
+    "description": "Platform connecting university alumni at top tech firms with students for 1-on-1 resume reviews and mock interviews.",
+    "techStack": [
+      "React",
+      "GraphQL",
+      "Express",
+      "PostgreSQL",
+      "AWS S3"
+    ],
+    "githubUrl": "https://github.com/campus-demo/alumnimentorship---referral-portal",
+    "liveUrl": "https://alumnimentorshipreferralportal.demo.app",
+    "category": "web",
+    "status": "in_progress",
+    "teamSize": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876801"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876803"
+      }
+    ],
+    "views": 495,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876800"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87687d"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876800"
+    },
+    "title": "CloudDeploy CLI for Students",
+    "description": "One-command CLI tool that containerizes and deploys student applications to AWS Free Tier with zero DevOps config.",
+    "techStack": [
+      "Golang",
+      "Docker",
+      "AWS SDK",
+      "Kubernetes",
+      "Terraform"
+    ],
+    "githubUrl": "https://github.com/campus-demo/clouddeploy-cli-for-students",
+    "liveUrl": "",
+    "category": "research",
+    "status": "in_progress",
+    "teamSize": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876802"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876804"
+      }
+    ],
+    "views": 540,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876801"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87687e"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876801"
+    },
+    "title": "SmartCampus AI Navigator v2",
+    "description": "An intelligent campus assistant that answers questions about hostel rules, professor office hours, and timetables using RAG.",
+    "techStack": [
+      "Python",
+      "FastAPI",
+      "React",
+      "GPT-4",
+      "PostgreSQL"
+    ],
+    "githubUrl": "https://github.com/campus-demo/smartcampus-ai-navigator",
+    "liveUrl": "https://smartcampusainavigator.demo.app",
+    "category": "ai_ml",
+    "status": "completed",
+    "teamSize": 1,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876803"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876805"
+      }
+    ],
+    "views": 585,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876802"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87687f"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876802"
+    },
+    "title": "Autonomous Agri-Drone Swarm v2",
+    "description": "Drone coordination system that captures spectral imagery over crops to detect plant disease and automate pesticide delivery.",
+    "techStack": [
+      "ROS",
+      "Python",
+      "C++",
+      "Raspberry Pi",
+      "Computer Vision"
+    ],
+    "githubUrl": "https://github.com/campus-demo/autonomous-agri-drone-swarm",
+    "liveUrl": "",
+    "category": "iot_hardware",
+    "status": "in_progress",
+    "teamSize": 2,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876804"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876806"
+      }
+    ],
+    "views": 630,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876803"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876880"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876803"
+    },
+    "title": "Peer-to-Peer Campus Marketplace v2",
+    "description": "A verified student marketplace to buy, sell, and rent textbooks, bicycles, calculators, and lab gear safely on campus.",
+    "techStack": [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Socket.IO"
+    ],
+    "githubUrl": "https://github.com/campus-demo/peer-to-peer-campus-marketplace",
+    "liveUrl": "https://peertopeercampusmarketplace.demo.app",
+    "category": "web",
+    "status": "in_progress",
+    "teamSize": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876805"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876807"
+      }
+    ],
+    "views": 675,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876804"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876881"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876804"
+    },
+    "title": "CampusRide — Carpooling & Shuttle Tracker v2",
+    "description": "Real-time shuttle tracking and verified campus ride-sharing mobile app for university commuters and day-scholars.",
+    "techStack": [
+      "Flutter",
+      "Firebase",
+      "Google Maps API",
+      "Node.js"
+    ],
+    "githubUrl": "https://github.com/campus-demo/campusride---carpooling---shuttle-tracker",
+    "liveUrl": "",
+    "category": "mobile",
+    "status": "completed",
+    "teamSize": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876806"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876808"
+      }
+    ],
+    "views": 720,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876805"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876882"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876805"
+    },
+    "title": "Decentralized Academic Credential Vault v2",
+    "description": "Tamper-proof blockchain platform enabling universities to issue cryptographically verifiable degrees and transcripts.",
+    "techStack": [
+      "Solidity",
+      "Ethereum",
+      "IPFS",
+      "Next.js",
+      "Web3.js"
+    ],
+    "githubUrl": "https://github.com/campus-demo/decentralized-academic-credential-vault",
+    "liveUrl": "https://decentralizedacademiccredentialvault.demo.app",
+    "category": "research",
+    "status": "in_progress",
+    "teamSize": 1,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876807"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876809"
+      }
+    ],
+    "views": 765,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876806"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876883"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876806"
+    },
+    "title": "MindPulse — Student Mental Wellbeing Tracker v2",
+    "description": "Daily mood logger and AI wellbeing assistant offering confidential counseling bookings and stress analytics.",
+    "techStack": [
+      "React Native",
+      "FastAPI",
+      "PyTorch",
+      "TailwindCSS"
+    ],
+    "githubUrl": "https://github.com/campus-demo/mindpulse---student-mental-wellbeing-tracker",
+    "liveUrl": "",
+    "category": "mobile",
+    "status": "in_progress",
+    "teamSize": 2,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876808"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680a"
+      }
+    ],
+    "views": 810,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876807"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876884"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876807"
+    },
+    "title": "Automated Smart Greenhouse with IoT v2",
+    "description": "Closed-loop environmental control system that monitors humidity, soil moisture, and lux levels with automated irrigation.",
+    "techStack": [
+      "Arduino",
+      "NodeMCU",
+      "MQTT",
+      "React",
+      "Chart.js"
+    ],
+    "githubUrl": "https://github.com/campus-demo/automated-smart-greenhouse-with-iot",
+    "liveUrl": "https://automatedsmartgreenhousewithiot.demo.app",
+    "category": "iot_hardware",
+    "status": "completed",
+    "teamSize": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876809"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680b"
+      }
+    ],
+    "views": 855,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876808"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876885"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876808"
+    },
+    "title": "CodeReviewer AI GitHub Bot v2",
+    "description": "An automated pull request reviewer that comments with security vulnerability warnings and style optimization suggestions.",
+    "techStack": [
+      "TypeScript",
+      "Node.js",
+      "OpenAI API",
+      "GitHub Actions",
+      "Docker"
+    ],
+    "githubUrl": "https://github.com/campus-demo/codereviewer-ai-github-bot",
+    "liveUrl": "",
+    "category": "ai_ml",
+    "status": "in_progress",
+    "teamSize": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680a"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680c"
+      }
+    ],
+    "views": 900,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876809"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876886"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876809"
+    },
+    "title": "Kavach — Campus Women Safety Guardian v2",
+    "description": "Emergency SOS alert app with real-time location sharing, ambient audio recording, and automated dispatch to campus security.",
+    "techStack": [
+      "Flutter",
+      "Node.js",
+      "Socket.IO",
+      "Twilio API",
+      "MongoDB"
+    ],
+    "githubUrl": "https://github.com/campus-demo/kavach---campus-women-safety-guardian",
+    "liveUrl": "https://kavachcampuswomensafetyguardian.demo.app",
+    "category": "mobile",
+    "status": "in_progress",
+    "teamSize": 1,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680b"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680d"
+      }
+    ],
+    "views": 945,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87680a"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876887"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680a"
+    },
+    "title": "EcoBin — Smart Waste Segregator v2",
+    "description": "AI-enabled trash bin that uses computer vision to classify recyclable, organic, and electronic waste automatically.",
+    "techStack": [
+      "Raspberry Pi",
+      "OpenCV",
+      "TensorFlow Lite",
+      "Python",
+      "Servo Motors"
+    ],
+    "githubUrl": "https://github.com/campus-demo/ecobin---smart-waste-segregator",
+    "liveUrl": "",
+    "category": "iot_hardware",
+    "status": "completed",
+    "teamSize": 2,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680c"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680e"
+      }
+    ],
+    "views": 990,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87680b"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876888"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680b"
+    },
+    "title": "AlumniMentorship & Referral Portal v2",
+    "description": "Platform connecting university alumni at top tech firms with students for 1-on-1 resume reviews and mock interviews.",
+    "techStack": [
+      "React",
+      "GraphQL",
+      "Express",
+      "PostgreSQL",
+      "AWS S3"
+    ],
+    "githubUrl": "https://github.com/campus-demo/alumnimentorship---referral-portal",
+    "liveUrl": "https://alumnimentorshipreferralportal.demo.app",
+    "category": "web",
+    "status": "in_progress",
+    "teamSize": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680d"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87680f"
+      }
+    ],
+    "views": 1035,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87680c"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876889"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680c"
+    },
+    "title": "CloudDeploy CLI for Students v2",
+    "description": "One-command CLI tool that containerizes and deploys student applications to AWS Free Tier with zero DevOps config.",
+    "techStack": [
+      "Golang",
+      "Docker",
+      "AWS SDK",
+      "Kubernetes",
+      "Terraform"
+    ],
+    "githubUrl": "https://github.com/campus-demo/clouddeploy-cli-for-students",
+    "liveUrl": "",
+    "category": "research",
+    "status": "in_progress",
+    "teamSize": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680e"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876810"
+      }
+    ],
+    "views": 1080,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87680d"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87688a"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680d"
+    },
+    "title": "SmartCampus AI Navigator v3",
+    "description": "An intelligent campus assistant that answers questions about hostel rules, professor office hours, and timetables using RAG.",
+    "techStack": [
+      "Python",
+      "FastAPI",
+      "React",
+      "GPT-4",
+      "PostgreSQL"
+    ],
+    "githubUrl": "https://github.com/campus-demo/smartcampus-ai-navigator",
+    "liveUrl": "https://smartcampusainavigator.demo.app",
+    "category": "ai_ml",
+    "status": "completed",
+    "teamSize": 1,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680f"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876811"
+      }
+    ],
+    "views": 1125,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87680e"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87688b"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680e"
+    },
+    "title": "Autonomous Agri-Drone Swarm v3",
+    "description": "Drone coordination system that captures spectral imagery over crops to detect plant disease and automate pesticide delivery.",
+    "techStack": [
+      "ROS",
+      "Python",
+      "C++",
+      "Raspberry Pi",
+      "Computer Vision"
+    ],
+    "githubUrl": "https://github.com/campus-demo/autonomous-agri-drone-swarm",
+    "liveUrl": "",
+    "category": "iot_hardware",
+    "status": "in_progress",
+    "teamSize": 2,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876810"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876812"
+      }
+    ],
+    "views": 1170,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87680f"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87688c"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680f"
+    },
+    "title": "Peer-to-Peer Campus Marketplace v3",
+    "description": "A verified student marketplace to buy, sell, and rent textbooks, bicycles, calculators, and lab gear safely on campus.",
+    "techStack": [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Socket.IO"
+    ],
+    "githubUrl": "https://github.com/campus-demo/peer-to-peer-campus-marketplace",
+    "liveUrl": "https://peertopeercampusmarketplace.demo.app",
+    "category": "web",
+    "status": "in_progress",
+    "teamSize": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876811"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876813"
+      }
+    ],
+    "views": 1215,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876810"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87688d"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876810"
+    },
+    "title": "CampusRide — Carpooling & Shuttle Tracker v3",
+    "description": "Real-time shuttle tracking and verified campus ride-sharing mobile app for university commuters and day-scholars.",
+    "techStack": [
+      "Flutter",
+      "Firebase",
+      "Google Maps API",
+      "Node.js"
+    ],
+    "githubUrl": "https://github.com/campus-demo/campusride---carpooling---shuttle-tracker",
+    "liveUrl": "",
+    "category": "mobile",
+    "status": "completed",
+    "teamSize": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876812"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876814"
+      }
+    ],
+    "views": 1260,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876811"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87688e"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876811"
+    },
+    "title": "Decentralized Academic Credential Vault v3",
+    "description": "Tamper-proof blockchain platform enabling universities to issue cryptographically verifiable degrees and transcripts.",
+    "techStack": [
+      "Solidity",
+      "Ethereum",
+      "IPFS",
+      "Next.js",
+      "Web3.js"
+    ],
+    "githubUrl": "https://github.com/campus-demo/decentralized-academic-credential-vault",
+    "liveUrl": "https://decentralizedacademiccredentialvault.demo.app",
+    "category": "research",
+    "status": "in_progress",
+    "teamSize": 1,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876813"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876815"
+      }
+    ],
+    "views": 1305,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876812"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87688f"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876812"
+    },
+    "title": "MindPulse — Student Mental Wellbeing Tracker v3",
+    "description": "Daily mood logger and AI wellbeing assistant offering confidential counseling bookings and stress analytics.",
+    "techStack": [
+      "React Native",
+      "FastAPI",
+      "PyTorch",
+      "TailwindCSS"
+    ],
+    "githubUrl": "https://github.com/campus-demo/mindpulse---student-mental-wellbeing-tracker",
+    "liveUrl": "",
+    "category": "mobile",
+    "status": "in_progress",
+    "teamSize": 2,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876814"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876816"
+      }
+    ],
+    "views": 1350,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876813"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876890"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876813"
+    },
+    "title": "Automated Smart Greenhouse with IoT v3",
+    "description": "Closed-loop environmental control system that monitors humidity, soil moisture, and lux levels with automated irrigation.",
+    "techStack": [
+      "Arduino",
+      "NodeMCU",
+      "MQTT",
+      "React",
+      "Chart.js"
+    ],
+    "githubUrl": "https://github.com/campus-demo/automated-smart-greenhouse-with-iot",
+    "liveUrl": "https://automatedsmartgreenhousewithiot.demo.app",
+    "category": "iot_hardware",
+    "status": "completed",
+    "teamSize": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876815"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876817"
+      }
+    ],
+    "views": 1395,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876814"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876891"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876814"
+    },
+    "title": "CodeReviewer AI GitHub Bot v3",
+    "description": "An automated pull request reviewer that comments with security vulnerability warnings and style optimization suggestions.",
+    "techStack": [
+      "TypeScript",
+      "Node.js",
+      "OpenAI API",
+      "GitHub Actions",
+      "Docker"
+    ],
+    "githubUrl": "https://github.com/campus-demo/codereviewer-ai-github-bot",
+    "liveUrl": "",
+    "category": "ai_ml",
+    "status": "in_progress",
+    "teamSize": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876816"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876818"
+      }
+    ],
+    "views": 1440,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876815"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876892"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876815"
+    },
+    "title": "Kavach — Campus Women Safety Guardian v3",
+    "description": "Emergency SOS alert app with real-time location sharing, ambient audio recording, and automated dispatch to campus security.",
+    "techStack": [
+      "Flutter",
+      "Node.js",
+      "Socket.IO",
+      "Twilio API",
+      "MongoDB"
+    ],
+    "githubUrl": "https://github.com/campus-demo/kavach---campus-women-safety-guardian",
+    "liveUrl": "https://kavachcampuswomensafetyguardian.demo.app",
+    "category": "mobile",
+    "status": "in_progress",
+    "teamSize": 1,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876817"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876819"
+      }
+    ],
+    "views": 1485,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876816"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876893"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876816"
+    },
+    "title": "EcoBin — Smart Waste Segregator v3",
+    "description": "AI-enabled trash bin that uses computer vision to classify recyclable, organic, and electronic waste automatically.",
+    "techStack": [
+      "Raspberry Pi",
+      "OpenCV",
+      "TensorFlow Lite",
+      "Python",
+      "Servo Motors"
+    ],
+    "githubUrl": "https://github.com/campus-demo/ecobin---smart-waste-segregator",
+    "liveUrl": "",
+    "category": "iot_hardware",
+    "status": "completed",
+    "teamSize": 2,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876818"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681a"
+      }
+    ],
+    "views": 1530,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876817"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876894"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876817"
+    },
+    "title": "AlumniMentorship & Referral Portal v3",
+    "description": "Platform connecting university alumni at top tech firms with students for 1-on-1 resume reviews and mock interviews.",
+    "techStack": [
+      "React",
+      "GraphQL",
+      "Express",
+      "PostgreSQL",
+      "AWS S3"
+    ],
+    "githubUrl": "https://github.com/campus-demo/alumnimentorship---referral-portal",
+    "liveUrl": "https://alumnimentorshipreferralportal.demo.app",
+    "category": "web",
+    "status": "in_progress",
+    "teamSize": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876819"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681b"
+      }
+    ],
+    "views": 1575,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876818"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876895"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876818"
+    },
+    "title": "CloudDeploy CLI for Students v3",
+    "description": "One-command CLI tool that containerizes and deploys student applications to AWS Free Tier with zero DevOps config.",
+    "techStack": [
+      "Golang",
+      "Docker",
+      "AWS SDK",
+      "Kubernetes",
+      "Terraform"
+    ],
+    "githubUrl": "https://github.com/campus-demo/clouddeploy-cli-for-students",
+    "liveUrl": "",
+    "category": "research",
+    "status": "in_progress",
+    "teamSize": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87681a"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681c"
+      }
+    ],
+    "views": 1620,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876819"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876896"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876819"
+    },
+    "title": "SmartCampus AI Navigator v4",
+    "description": "An intelligent campus assistant that answers questions about hostel rules, professor office hours, and timetables using RAG.",
+    "techStack": [
+      "Python",
+      "FastAPI",
+      "React",
+      "GPT-4",
+      "PostgreSQL"
+    ],
+    "githubUrl": "https://github.com/campus-demo/smartcampus-ai-navigator",
+    "liveUrl": "https://smartcampusainavigator.demo.app",
+    "category": "ai_ml",
+    "status": "completed",
+    "teamSize": 1,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87681b"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681d"
+      }
+    ],
+    "views": 1665,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87681a"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876897"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87681a"
+    },
+    "title": "Autonomous Agri-Drone Swarm v4",
+    "description": "Drone coordination system that captures spectral imagery over crops to detect plant disease and automate pesticide delivery.",
+    "techStack": [
+      "ROS",
+      "Python",
+      "C++",
+      "Raspberry Pi",
+      "Computer Vision"
+    ],
+    "githubUrl": "https://github.com/campus-demo/autonomous-agri-drone-swarm",
+    "liveUrl": "",
+    "category": "iot_hardware",
+    "status": "in_progress",
+    "teamSize": 2,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87681c"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681e"
+      }
+    ],
+    "views": 1710,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87681b"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876898"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87681b"
+    },
+    "title": "Peer-to-Peer Campus Marketplace v4",
+    "description": "A verified student marketplace to buy, sell, and rent textbooks, bicycles, calculators, and lab gear safely on campus.",
+    "techStack": [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Socket.IO"
+    ],
+    "githubUrl": "https://github.com/campus-demo/peer-to-peer-campus-marketplace",
+    "liveUrl": "https://peertopeercampusmarketplace.demo.app",
+    "category": "web",
+    "status": "in_progress",
+    "teamSize": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87681d"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c87681f"
+      }
+    ],
+    "views": 1755,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87681c"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876899"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87681c"
+    },
+    "title": "CampusRide — Carpooling & Shuttle Tracker v4",
+    "description": "Real-time shuttle tracking and verified campus ride-sharing mobile app for university commuters and day-scholars.",
+    "techStack": [
+      "Flutter",
+      "Firebase",
+      "Google Maps API",
+      "Node.js"
+    ],
+    "githubUrl": "https://github.com/campus-demo/campusride---carpooling---shuttle-tracker",
+    "liveUrl": "",
+    "category": "mobile",
+    "status": "completed",
+    "teamSize": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87681e"
+      },
+      {
+        "$oid": "6a9274e6af2e864a6c876820"
+      }
+    ],
+    "views": 1800,
+    "comments": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87681d"
+        },
+        "body": "Great initiative! The architectural clarity is top-notch.",
+        "createdAt": {
+          "$date": "2026-08-29T05:57:58.167Z"
+        }
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  }
+]

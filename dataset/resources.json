@@ -1,0 +1,812 @@
+[
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768cc"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f6"
+    },
+    "title": "Complete Operating Systems & Linux Kernel Notes",
+    "description": "Detailed 90-page handwritten and typed notes on process scheduling, virtual memory, paging, concurrency, and semaphores.",
+    "subject": "Operating Systems",
+    "type": "notes",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-1",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767f7"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768cd"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f8"
+    },
+    "title": "System Design Interview Comprehensive Roadmap",
+    "description": "Curated architectural patterns covering CDN, load balancing, caching, database sharding, CAP theorem, and event-driven architecture.",
+    "subject": "Software Architecture",
+    "type": "article",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-2",
+    "department": "Computer Science & Engineering",
+    "semester": 7,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767f8"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768ce"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fa"
+    },
+    "title": "Data Structures & Algorithms in Java & C++ (Cheat Sheet)",
+    "description": "Quick reference sheet with asymptotic time/space complexities and implementations for trees, graphs, and dynamic programming.",
+    "subject": "Data Structures",
+    "type": "tool",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-3",
+    "department": "Computer Science & Engineering",
+    "semester": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767f9"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768cf"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fc"
+    },
+    "title": "Thermodynamics & Heat Transfer Formula Handbook",
+    "description": "Consolidated formula sheet and 50 solved numerical problems for midterms and GATE exam preparation.",
+    "subject": "Thermodynamics",
+    "type": "book",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-4",
+    "department": "Mechanical Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fa"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768d0"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fe"
+    },
+    "title": "Complete Operating Systems & Linux Kernel Notes — Part 2",
+    "description": "Detailed 90-page handwritten and typed notes on process scheduling, virtual memory, paging, concurrency, and semaphores.",
+    "subject": "Operating Systems",
+    "type": "notes",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-5",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fb"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768d1"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876800"
+    },
+    "title": "System Design Interview Comprehensive Roadmap — Part 2",
+    "description": "Curated architectural patterns covering CDN, load balancing, caching, database sharding, CAP theorem, and event-driven architecture.",
+    "subject": "Software Architecture",
+    "type": "article",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-6",
+    "department": "Computer Science & Engineering",
+    "semester": 7,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fc"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768d2"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876802"
+    },
+    "title": "Data Structures & Algorithms in Java & C++ (Cheat Sheet) — Part 2",
+    "description": "Quick reference sheet with asymptotic time/space complexities and implementations for trees, graphs, and dynamic programming.",
+    "subject": "Data Structures",
+    "type": "tool",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-7",
+    "department": "Computer Science & Engineering",
+    "semester": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fd"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768d3"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876804"
+    },
+    "title": "Thermodynamics & Heat Transfer Formula Handbook — Part 2",
+    "description": "Consolidated formula sheet and 50 solved numerical problems for midterms and GATE exam preparation.",
+    "subject": "Thermodynamics",
+    "type": "book",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-8",
+    "department": "Mechanical Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767fe"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768d4"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876806"
+    },
+    "title": "Complete Operating Systems & Linux Kernel Notes — Part 3",
+    "description": "Detailed 90-page handwritten and typed notes on process scheduling, virtual memory, paging, concurrency, and semaphores.",
+    "subject": "Operating Systems",
+    "type": "notes",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-9",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c8767ff"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768d5"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876808"
+    },
+    "title": "System Design Interview Comprehensive Roadmap — Part 3",
+    "description": "Curated architectural patterns covering CDN, load balancing, caching, database sharding, CAP theorem, and event-driven architecture.",
+    "subject": "Software Architecture",
+    "type": "article",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-10",
+    "department": "Computer Science & Engineering",
+    "semester": 7,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876800"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768d6"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680a"
+    },
+    "title": "Data Structures & Algorithms in Java & C++ (Cheat Sheet) — Part 3",
+    "description": "Quick reference sheet with asymptotic time/space complexities and implementations for trees, graphs, and dynamic programming.",
+    "subject": "Data Structures",
+    "type": "tool",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-11",
+    "department": "Computer Science & Engineering",
+    "semester": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876801"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768d7"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680c"
+    },
+    "title": "Thermodynamics & Heat Transfer Formula Handbook — Part 3",
+    "description": "Consolidated formula sheet and 50 solved numerical problems for midterms and GATE exam preparation.",
+    "subject": "Thermodynamics",
+    "type": "book",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-12",
+    "department": "Mechanical Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876802"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768d8"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680e"
+    },
+    "title": "Complete Operating Systems & Linux Kernel Notes — Part 4",
+    "description": "Detailed 90-page handwritten and typed notes on process scheduling, virtual memory, paging, concurrency, and semaphores.",
+    "subject": "Operating Systems",
+    "type": "notes",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-13",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876803"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768d9"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876810"
+    },
+    "title": "System Design Interview Comprehensive Roadmap — Part 4",
+    "description": "Curated architectural patterns covering CDN, load balancing, caching, database sharding, CAP theorem, and event-driven architecture.",
+    "subject": "Software Architecture",
+    "type": "article",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-14",
+    "department": "Computer Science & Engineering",
+    "semester": 7,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876804"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768da"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876812"
+    },
+    "title": "Data Structures & Algorithms in Java & C++ (Cheat Sheet) — Part 4",
+    "description": "Quick reference sheet with asymptotic time/space complexities and implementations for trees, graphs, and dynamic programming.",
+    "subject": "Data Structures",
+    "type": "tool",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-15",
+    "department": "Computer Science & Engineering",
+    "semester": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876805"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768db"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876814"
+    },
+    "title": "Thermodynamics & Heat Transfer Formula Handbook — Part 4",
+    "description": "Consolidated formula sheet and 50 solved numerical problems for midterms and GATE exam preparation.",
+    "subject": "Thermodynamics",
+    "type": "book",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-16",
+    "department": "Mechanical Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876806"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768dc"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876816"
+    },
+    "title": "Complete Operating Systems & Linux Kernel Notes — Part 5",
+    "description": "Detailed 90-page handwritten and typed notes on process scheduling, virtual memory, paging, concurrency, and semaphores.",
+    "subject": "Operating Systems",
+    "type": "notes",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-17",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876807"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768dd"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876818"
+    },
+    "title": "System Design Interview Comprehensive Roadmap — Part 5",
+    "description": "Curated architectural patterns covering CDN, load balancing, caching, database sharding, CAP theorem, and event-driven architecture.",
+    "subject": "Software Architecture",
+    "type": "article",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-18",
+    "department": "Computer Science & Engineering",
+    "semester": 7,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876808"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768de"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87681a"
+    },
+    "title": "Data Structures & Algorithms in Java & C++ (Cheat Sheet) — Part 5",
+    "description": "Quick reference sheet with asymptotic time/space complexities and implementations for trees, graphs, and dynamic programming.",
+    "subject": "Data Structures",
+    "type": "tool",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-19",
+    "department": "Computer Science & Engineering",
+    "semester": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876809"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768df"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87681c"
+    },
+    "title": "Thermodynamics & Heat Transfer Formula Handbook — Part 5",
+    "description": "Consolidated formula sheet and 50 solved numerical problems for midterms and GATE exam preparation.",
+    "subject": "Thermodynamics",
+    "type": "book",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-20",
+    "department": "Mechanical Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680a"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768e0"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87681e"
+    },
+    "title": "Complete Operating Systems & Linux Kernel Notes — Part 6",
+    "description": "Detailed 90-page handwritten and typed notes on process scheduling, virtual memory, paging, concurrency, and semaphores.",
+    "subject": "Operating Systems",
+    "type": "notes",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-21",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680b"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768e1"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876820"
+    },
+    "title": "System Design Interview Comprehensive Roadmap — Part 6",
+    "description": "Curated architectural patterns covering CDN, load balancing, caching, database sharding, CAP theorem, and event-driven architecture.",
+    "subject": "Software Architecture",
+    "type": "article",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-22",
+    "department": "Computer Science & Engineering",
+    "semester": 7,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680c"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768e2"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876822"
+    },
+    "title": "Data Structures & Algorithms in Java & C++ (Cheat Sheet) — Part 6",
+    "description": "Quick reference sheet with asymptotic time/space complexities and implementations for trees, graphs, and dynamic programming.",
+    "subject": "Data Structures",
+    "type": "tool",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-23",
+    "department": "Computer Science & Engineering",
+    "semester": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680d"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768e3"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876824"
+    },
+    "title": "Thermodynamics & Heat Transfer Formula Handbook — Part 6",
+    "description": "Consolidated formula sheet and 50 solved numerical problems for midterms and GATE exam preparation.",
+    "subject": "Thermodynamics",
+    "type": "book",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-24",
+    "department": "Mechanical Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680e"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768e4"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876826"
+    },
+    "title": "Complete Operating Systems & Linux Kernel Notes — Part 7",
+    "description": "Detailed 90-page handwritten and typed notes on process scheduling, virtual memory, paging, concurrency, and semaphores.",
+    "subject": "Operating Systems",
+    "type": "notes",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-25",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c87680f"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768e5"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876828"
+    },
+    "title": "System Design Interview Comprehensive Roadmap — Part 7",
+    "description": "Curated architectural patterns covering CDN, load balancing, caching, database sharding, CAP theorem, and event-driven architecture.",
+    "subject": "Software Architecture",
+    "type": "article",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-26",
+    "department": "Computer Science & Engineering",
+    "semester": 7,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876810"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768e6"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87682a"
+    },
+    "title": "Data Structures & Algorithms in Java & C++ (Cheat Sheet) — Part 7",
+    "description": "Quick reference sheet with asymptotic time/space complexities and implementations for trees, graphs, and dynamic programming.",
+    "subject": "Data Structures",
+    "type": "tool",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-27",
+    "department": "Computer Science & Engineering",
+    "semester": 3,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876811"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768e7"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87682c"
+    },
+    "title": "Thermodynamics & Heat Transfer Formula Handbook — Part 7",
+    "description": "Consolidated formula sheet and 50 solved numerical problems for midterms and GATE exam preparation.",
+    "subject": "Thermodynamics",
+    "type": "book",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-28",
+    "department": "Mechanical Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876812"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768e8"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87682e"
+    },
+    "title": "Complete Operating Systems & Linux Kernel Notes — Part 8",
+    "description": "Detailed 90-page handwritten and typed notes on process scheduling, virtual memory, paging, concurrency, and semaphores.",
+    "subject": "Operating Systems",
+    "type": "notes",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-29",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876813"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768e9"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876830"
+    },
+    "title": "System Design Interview Comprehensive Roadmap — Part 8",
+    "description": "Curated architectural patterns covering CDN, load balancing, caching, database sharding, CAP theorem, and event-driven architecture.",
+    "subject": "Software Architecture",
+    "type": "article",
+    "url": "https://drive.google.com/drive/folders/campus-demo-resource-30",
+    "department": "Computer Science & Engineering",
+    "semester": 7,
+    "likes": [
+      {
+        "$oid": "6a9274e6af2e864a6c876814"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  }
+]

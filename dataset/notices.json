@@ -1,0 +1,774 @@
+[
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768ae"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f5"
+    },
+    "title": "Summer Research Fellowship 2026 — Applications Open",
+    "body": "Undergraduate research assistant positions available in AI, Robotics, and Quantum Computing. Paid stipend ₹25,000/month.",
+    "category": "opportunity",
+    "tags": [
+      "research",
+      "stipend",
+      "summer",
+      "internship"
+    ],
+    "isPinned": true,
+    "views": 32,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768af"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f8"
+    },
+    "title": "Google Summer of Code (GSoC) 2026 Orientation Session",
+    "body": "Learn how to write winning project proposals and connect with open-source mentors. Session this Saturday at 4 PM.",
+    "category": "academic",
+    "tags": [
+      "gsoc",
+      "opensource",
+      "mentorship"
+    ],
+    "isPinned": true,
+    "views": 64,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768b0"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fb"
+    },
+    "title": "Campus Placement Season: Resume Verification Deadline",
+    "body": "All final year and pre-final year students must update their verified resume on the portal before Friday 11:59 PM.",
+    "category": "placement",
+    "tags": [
+      "placement",
+      "jobs",
+      "mandatory",
+      "resume"
+    ],
+    "isPinned": true,
+    "views": 96,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768b1"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fe"
+    },
+    "title": "Microsoft & Amazon Off-Campus Drive SDE-1 Hiring",
+    "body": "Software Engineering roles for graduating batch of 2026. CTC: 24-44 LPA. Apply through the referral links attached.",
+    "category": "internship",
+    "tags": [
+      "placement",
+      "sde",
+      "faang",
+      "hiring"
+    ],
+    "isPinned": false,
+    "views": 128,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768b2"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876801"
+    },
+    "title": "[Update #5] Summer Research Fellowship 2026 — Applications Open",
+    "body": "Undergraduate research assistant positions available in AI, Robotics, and Quantum Computing. Paid stipend ₹25,000/month.",
+    "category": "opportunity",
+    "tags": [
+      "research",
+      "stipend",
+      "summer",
+      "internship"
+    ],
+    "isPinned": false,
+    "views": 160,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768b3"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876804"
+    },
+    "title": "[Update #6] Google Summer of Code (GSoC) 2026 Orientation Session",
+    "body": "Learn how to write winning project proposals and connect with open-source mentors. Session this Saturday at 4 PM.",
+    "category": "academic",
+    "tags": [
+      "gsoc",
+      "opensource",
+      "mentorship"
+    ],
+    "isPinned": false,
+    "views": 192,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768b4"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876807"
+    },
+    "title": "[Update #7] Campus Placement Season: Resume Verification Deadline",
+    "body": "All final year and pre-final year students must update their verified resume on the portal before Friday 11:59 PM.",
+    "category": "placement",
+    "tags": [
+      "placement",
+      "jobs",
+      "mandatory",
+      "resume"
+    ],
+    "isPinned": false,
+    "views": 224,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768b5"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680a"
+    },
+    "title": "[Update #8] Microsoft & Amazon Off-Campus Drive SDE-1 Hiring",
+    "body": "Software Engineering roles for graduating batch of 2026. CTC: 24-44 LPA. Apply through the referral links attached.",
+    "category": "internship",
+    "tags": [
+      "placement",
+      "sde",
+      "faang",
+      "hiring"
+    ],
+    "isPinned": false,
+    "views": 256,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768b6"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680d"
+    },
+    "title": "[Update #9] Summer Research Fellowship 2026 — Applications Open",
+    "body": "Undergraduate research assistant positions available in AI, Robotics, and Quantum Computing. Paid stipend ₹25,000/month.",
+    "category": "opportunity",
+    "tags": [
+      "research",
+      "stipend",
+      "summer",
+      "internship"
+    ],
+    "isPinned": false,
+    "views": 288,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768b7"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876810"
+    },
+    "title": "[Update #10] Google Summer of Code (GSoC) 2026 Orientation Session",
+    "body": "Learn how to write winning project proposals and connect with open-source mentors. Session this Saturday at 4 PM.",
+    "category": "academic",
+    "tags": [
+      "gsoc",
+      "opensource",
+      "mentorship"
+    ],
+    "isPinned": false,
+    "views": 320,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768b8"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876813"
+    },
+    "title": "[Update #11] Campus Placement Season: Resume Verification Deadline",
+    "body": "All final year and pre-final year students must update their verified resume on the portal before Friday 11:59 PM.",
+    "category": "placement",
+    "tags": [
+      "placement",
+      "jobs",
+      "mandatory",
+      "resume"
+    ],
+    "isPinned": false,
+    "views": 352,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768b9"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876816"
+    },
+    "title": "[Update #12] Microsoft & Amazon Off-Campus Drive SDE-1 Hiring",
+    "body": "Software Engineering roles for graduating batch of 2026. CTC: 24-44 LPA. Apply through the referral links attached.",
+    "category": "internship",
+    "tags": [
+      "placement",
+      "sde",
+      "faang",
+      "hiring"
+    ],
+    "isPinned": false,
+    "views": 384,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768ba"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876819"
+    },
+    "title": "[Update #13] Summer Research Fellowship 2026 — Applications Open",
+    "body": "Undergraduate research assistant positions available in AI, Robotics, and Quantum Computing. Paid stipend ₹25,000/month.",
+    "category": "opportunity",
+    "tags": [
+      "research",
+      "stipend",
+      "summer",
+      "internship"
+    ],
+    "isPinned": false,
+    "views": 416,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768bb"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87681c"
+    },
+    "title": "[Update #14] Google Summer of Code (GSoC) 2026 Orientation Session",
+    "body": "Learn how to write winning project proposals and connect with open-source mentors. Session this Saturday at 4 PM.",
+    "category": "academic",
+    "tags": [
+      "gsoc",
+      "opensource",
+      "mentorship"
+    ],
+    "isPinned": false,
+    "views": 448,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768bc"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87681f"
+    },
+    "title": "[Update #15] Campus Placement Season: Resume Verification Deadline",
+    "body": "All final year and pre-final year students must update their verified resume on the portal before Friday 11:59 PM.",
+    "category": "placement",
+    "tags": [
+      "placement",
+      "jobs",
+      "mandatory",
+      "resume"
+    ],
+    "isPinned": false,
+    "views": 480,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768bd"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876822"
+    },
+    "title": "[Update #16] Microsoft & Amazon Off-Campus Drive SDE-1 Hiring",
+    "body": "Software Engineering roles for graduating batch of 2026. CTC: 24-44 LPA. Apply through the referral links attached.",
+    "category": "internship",
+    "tags": [
+      "placement",
+      "sde",
+      "faang",
+      "hiring"
+    ],
+    "isPinned": false,
+    "views": 512,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768be"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876825"
+    },
+    "title": "[Update #17] Summer Research Fellowship 2026 — Applications Open",
+    "body": "Undergraduate research assistant positions available in AI, Robotics, and Quantum Computing. Paid stipend ₹25,000/month.",
+    "category": "opportunity",
+    "tags": [
+      "research",
+      "stipend",
+      "summer",
+      "internship"
+    ],
+    "isPinned": false,
+    "views": 544,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768bf"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876828"
+    },
+    "title": "[Update #18] Google Summer of Code (GSoC) 2026 Orientation Session",
+    "body": "Learn how to write winning project proposals and connect with open-source mentors. Session this Saturday at 4 PM.",
+    "category": "academic",
+    "tags": [
+      "gsoc",
+      "opensource",
+      "mentorship"
+    ],
+    "isPinned": false,
+    "views": 576,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768c0"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87682b"
+    },
+    "title": "[Update #19] Campus Placement Season: Resume Verification Deadline",
+    "body": "All final year and pre-final year students must update their verified resume on the portal before Friday 11:59 PM.",
+    "category": "placement",
+    "tags": [
+      "placement",
+      "jobs",
+      "mandatory",
+      "resume"
+    ],
+    "isPinned": false,
+    "views": 608,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768c1"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87682e"
+    },
+    "title": "[Update #20] Microsoft & Amazon Off-Campus Drive SDE-1 Hiring",
+    "body": "Software Engineering roles for graduating batch of 2026. CTC: 24-44 LPA. Apply through the referral links attached.",
+    "category": "internship",
+    "tags": [
+      "placement",
+      "sde",
+      "faang",
+      "hiring"
+    ],
+    "isPinned": false,
+    "views": 640,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768c2"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876831"
+    },
+    "title": "[Update #21] Summer Research Fellowship 2026 — Applications Open",
+    "body": "Undergraduate research assistant positions available in AI, Robotics, and Quantum Computing. Paid stipend ₹25,000/month.",
+    "category": "opportunity",
+    "tags": [
+      "research",
+      "stipend",
+      "summer",
+      "internship"
+    ],
+    "isPinned": false,
+    "views": 672,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768c3"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876834"
+    },
+    "title": "[Update #22] Google Summer of Code (GSoC) 2026 Orientation Session",
+    "body": "Learn how to write winning project proposals and connect with open-source mentors. Session this Saturday at 4 PM.",
+    "category": "academic",
+    "tags": [
+      "gsoc",
+      "opensource",
+      "mentorship"
+    ],
+    "isPinned": false,
+    "views": 704,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768c4"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876837"
+    },
+    "title": "[Update #23] Campus Placement Season: Resume Verification Deadline",
+    "body": "All final year and pre-final year students must update their verified resume on the portal before Friday 11:59 PM.",
+    "category": "placement",
+    "tags": [
+      "placement",
+      "jobs",
+      "mandatory",
+      "resume"
+    ],
+    "isPinned": false,
+    "views": 736,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768c5"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87683a"
+    },
+    "title": "[Update #24] Microsoft & Amazon Off-Campus Drive SDE-1 Hiring",
+    "body": "Software Engineering roles for graduating batch of 2026. CTC: 24-44 LPA. Apply through the referral links attached.",
+    "category": "internship",
+    "tags": [
+      "placement",
+      "sde",
+      "faang",
+      "hiring"
+    ],
+    "isPinned": false,
+    "views": 768,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768c6"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87683d"
+    },
+    "title": "[Update #25] Summer Research Fellowship 2026 — Applications Open",
+    "body": "Undergraduate research assistant positions available in AI, Robotics, and Quantum Computing. Paid stipend ₹25,000/month.",
+    "category": "opportunity",
+    "tags": [
+      "research",
+      "stipend",
+      "summer",
+      "internship"
+    ],
+    "isPinned": false,
+    "views": 800,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768c7"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876840"
+    },
+    "title": "[Update #26] Google Summer of Code (GSoC) 2026 Orientation Session",
+    "body": "Learn how to write winning project proposals and connect with open-source mentors. Session this Saturday at 4 PM.",
+    "category": "academic",
+    "tags": [
+      "gsoc",
+      "opensource",
+      "mentorship"
+    ],
+    "isPinned": false,
+    "views": 832,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768c8"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876843"
+    },
+    "title": "[Update #27] Campus Placement Season: Resume Verification Deadline",
+    "body": "All final year and pre-final year students must update their verified resume on the portal before Friday 11:59 PM.",
+    "category": "placement",
+    "tags": [
+      "placement",
+      "jobs",
+      "mandatory",
+      "resume"
+    ],
+    "isPinned": false,
+    "views": 864,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768c9"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876846"
+    },
+    "title": "[Update #28] Microsoft & Amazon Off-Campus Drive SDE-1 Hiring",
+    "body": "Software Engineering roles for graduating batch of 2026. CTC: 24-44 LPA. Apply through the referral links attached.",
+    "category": "internship",
+    "tags": [
+      "placement",
+      "sde",
+      "faang",
+      "hiring"
+    ],
+    "isPinned": false,
+    "views": 896,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768ca"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876849"
+    },
+    "title": "[Update #29] Summer Research Fellowship 2026 — Applications Open",
+    "body": "Undergraduate research assistant positions available in AI, Robotics, and Quantum Computing. Paid stipend ₹25,000/month.",
+    "category": "opportunity",
+    "tags": [
+      "research",
+      "stipend",
+      "summer",
+      "internship"
+    ],
+    "isPinned": false,
+    "views": 928,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768cb"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87684c"
+    },
+    "title": "[Update #30] Google Summer of Code (GSoC) 2026 Orientation Session",
+    "body": "Learn how to write winning project proposals and connect with open-source mentors. Session this Saturday at 4 PM.",
+    "category": "academic",
+    "tags": [
+      "gsoc",
+      "opensource",
+      "mentorship"
+    ],
+    "isPinned": false,
+    "views": 960,
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  }
+]

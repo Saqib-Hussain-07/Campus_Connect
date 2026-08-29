@@ -1,0 +1,1602 @@
+[
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87694e"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c8767f5"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c8767f6"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87694f"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c8767f6"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c8767f7"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876950"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c8767f7"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c8767f8"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876951"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c8767f8"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c8767f9"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876952"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c8767f9"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c8767fa"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876953"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c8767fa"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c8767fb"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876954"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c8767fb"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c8767fc"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876955"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c8767fc"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c8767fd"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876956"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c8767fd"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c8767fe"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876957"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c8767fe"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c8767ff"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876958"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c8767ff"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876800"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876959"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876800"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876801"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87695a"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876801"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876802"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87695b"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876802"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876803"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87695c"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876803"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876804"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87695d"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876804"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876805"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87695e"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876805"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876806"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87695f"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876806"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876807"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876960"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876807"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876808"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876961"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876808"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876809"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876962"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876809"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87680a"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876963"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87680a"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87680b"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876964"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87680b"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87680c"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876965"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87680c"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87680d"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876966"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87680d"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87680e"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876967"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87680e"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87680f"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876968"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87680f"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876810"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876969"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876810"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876811"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87696a"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876811"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876812"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87696b"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876812"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876813"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87696c"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876813"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876814"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87696d"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876814"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876815"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87696e"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876815"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876816"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87696f"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876816"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876817"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876970"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876817"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876818"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876971"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876818"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876819"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876972"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876819"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87681a"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876973"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87681a"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87681b"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876974"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87681b"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87681c"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876975"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87681c"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87681d"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876976"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87681d"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87681e"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876977"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87681e"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87681f"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876978"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87681f"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876820"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876979"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876820"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876821"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87697a"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876821"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876822"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87697b"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876822"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876823"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87697c"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876823"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876824"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87697d"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876824"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876825"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87697e"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876825"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876826"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87697f"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876826"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876827"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876980"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876827"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876828"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876981"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876828"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876829"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876982"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876829"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87682a"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876983"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87682a"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87682b"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876984"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87682b"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87682c"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876985"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87682c"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87682d"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876986"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87682d"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87682e"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876987"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87682e"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87682f"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876988"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87682f"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876830"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876989"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876830"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876831"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87698a"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876831"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876832"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87698b"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876832"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876833"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87698c"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876833"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876834"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87698d"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876834"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876835"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87698e"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876835"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876836"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87698f"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876836"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876837"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876990"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876837"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876838"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876991"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876838"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876839"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876992"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876839"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87683a"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876993"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87683a"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87683b"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876994"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87683b"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87683c"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876995"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87683c"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87683d"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876996"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87683d"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87683e"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876997"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87683e"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87683f"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876998"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87683f"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876840"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c876999"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876840"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876841"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87699a"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876841"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876842"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87699b"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876842"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876843"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87699c"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876843"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876844"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87699d"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876844"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876845"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87699e"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876845"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876846"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87699f"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876846"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876847"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769a0"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876847"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876848"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769a1"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876848"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876849"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769a2"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876849"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87684a"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769a3"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87684a"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87684b"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769a4"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87684b"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87684c"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769a5"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87684c"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87684d"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769a6"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87684d"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87684e"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769a7"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87684e"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c87684f"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769a8"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c87684f"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876850"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769a9"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876850"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876851"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769aa"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876851"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876852"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769ab"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876852"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876853"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769ac"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876853"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876854"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769ad"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876854"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876855"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769ae"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876855"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876856"
+    },
+    "body": "Hey! Are you working on the hackathon project tonight?",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769af"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876856"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876857"
+    },
+    "body": "Yes, I just pushed the latest Docker Compose and Redis adapter updates.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769b0"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876857"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c876858"
+    },
+    "body": "Awesome! I will test the WebSocket notification subscriptions now.",
+    "isRead": true,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8769b1"
+    },
+    "fromUser": {
+      "$oid": "6a9274e6af2e864a6c876858"
+    },
+    "toUser": {
+      "$oid": "6a9274e6af2e864a6c8767f5"
+    },
+    "body": "Let me know if you want to pair program on the UI design components.",
+    "isRead": false,
+    "sentAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  }
+]

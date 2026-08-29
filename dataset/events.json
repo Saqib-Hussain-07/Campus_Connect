@@ -1,0 +1,842 @@
+[
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87689a"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f5"
+    },
+    "title": "InnovateX 2026 — 48-Hour Inter-College Hackathon",
+    "description": "Build revolutionary AI, Web3, and HealthTech solutions. Cash prizes worth ₹3,50,000 + VC incubation offers.",
+    "category": "hackathon",
+    "venue": "Auditorium Hall 1 & Virtual",
+    "eventDate": {
+      "$date": "2026-09-03T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-01T05:57:58.169Z"
+    },
+    "maxAttendees": 30,
+    "isOnline": false,
+    "bannerSeed": "ev1",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767f6"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767f7"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87689b"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f7"
+    },
+    "title": "Modern Cloud Architecture & Kubernetes Masterclass",
+    "description": "Hands-on workshop building fault-tolerant microservices on AWS with Docker and Kubernetes. Free certification included.",
+    "category": "workshop",
+    "venue": "Online via Zoom",
+    "eventDate": {
+      "$date": "2026-09-04T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-02T05:57:58.169Z"
+    },
+    "maxAttendees": 60,
+    "isOnline": true,
+    "bannerSeed": "ev2",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767f9"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767fa"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87689c"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767f9"
+    },
+    "title": "Startup Spark: Angel Investor & Founder Panel",
+    "description": "Top tier seed investors and YC alumni discuss zero-to-one growth, term sheets, and product market fit.",
+    "category": "seminar",
+    "venue": "Management Block Auditorium",
+    "eventDate": {
+      "$date": "2026-09-05T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-03T05:57:58.169Z"
+    },
+    "maxAttendees": 90,
+    "isOnline": false,
+    "bannerSeed": "ev3",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767fc"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767fd"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87689d"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fb"
+    },
+    "title": "National Autonomous Robotics Grand Prix",
+    "description": "Line follower, maze solver, and battle bot competitions. High adrenaline engineering showdown.",
+    "category": "competition",
+    "venue": "Indoor Sports Complex",
+    "eventDate": {
+      "$date": "2026-09-06T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-04T05:57:58.169Z"
+    },
+    "maxAttendees": 120,
+    "isOnline": false,
+    "bannerSeed": "ev4",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c8767ff"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876800"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87689e"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767fd"
+    },
+    "title": "InnovateX 2026 — 48-Hour Inter-College Hackathon (Vol 5)",
+    "description": "Build revolutionary AI, Web3, and HealthTech solutions. Cash prizes worth ₹3,50,000 + VC incubation offers.",
+    "category": "hackathon",
+    "venue": "Auditorium Hall 1 & Virtual",
+    "eventDate": {
+      "$date": "2026-09-07T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-05T05:57:58.169Z"
+    },
+    "maxAttendees": 150,
+    "isOnline": false,
+    "bannerSeed": "ev5",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876802"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876803"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c87689f"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c8767ff"
+    },
+    "title": "Modern Cloud Architecture & Kubernetes Masterclass (Vol 6)",
+    "description": "Hands-on workshop building fault-tolerant microservices on AWS with Docker and Kubernetes. Free certification included.",
+    "category": "workshop",
+    "venue": "Online via Zoom",
+    "eventDate": {
+      "$date": "2026-09-08T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-06T05:57:58.169Z"
+    },
+    "maxAttendees": 180,
+    "isOnline": true,
+    "bannerSeed": "ev6",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876805"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876806"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768a0"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876801"
+    },
+    "title": "Startup Spark: Angel Investor & Founder Panel (Vol 7)",
+    "description": "Top tier seed investors and YC alumni discuss zero-to-one growth, term sheets, and product market fit.",
+    "category": "seminar",
+    "venue": "Management Block Auditorium",
+    "eventDate": {
+      "$date": "2026-09-09T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-07T05:57:58.169Z"
+    },
+    "maxAttendees": 210,
+    "isOnline": false,
+    "bannerSeed": "ev1",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876808"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876809"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768a1"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876803"
+    },
+    "title": "National Autonomous Robotics Grand Prix (Vol 8)",
+    "description": "Line follower, maze solver, and battle bot competitions. High adrenaline engineering showdown.",
+    "category": "competition",
+    "venue": "Indoor Sports Complex",
+    "eventDate": {
+      "$date": "2026-09-10T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-08T05:57:58.169Z"
+    },
+    "maxAttendees": 240,
+    "isOnline": false,
+    "bannerSeed": "ev2",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87680b"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87680c"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768a2"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876805"
+    },
+    "title": "InnovateX 2026 — 48-Hour Inter-College Hackathon (Vol 9)",
+    "description": "Build revolutionary AI, Web3, and HealthTech solutions. Cash prizes worth ₹3,50,000 + VC incubation offers.",
+    "category": "hackathon",
+    "venue": "Auditorium Hall 1 & Virtual",
+    "eventDate": {
+      "$date": "2026-09-11T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-09T05:57:58.169Z"
+    },
+    "maxAttendees": 270,
+    "isOnline": false,
+    "bannerSeed": "ev3",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87680e"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87680f"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768a3"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876807"
+    },
+    "title": "Modern Cloud Architecture & Kubernetes Masterclass (Vol 10)",
+    "description": "Hands-on workshop building fault-tolerant microservices on AWS with Docker and Kubernetes. Free certification included.",
+    "category": "workshop",
+    "venue": "Online via Zoom",
+    "eventDate": {
+      "$date": "2026-09-12T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-10T05:57:58.169Z"
+    },
+    "maxAttendees": 300,
+    "isOnline": true,
+    "bannerSeed": "ev4",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876811"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876812"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768a4"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876809"
+    },
+    "title": "Startup Spark: Angel Investor & Founder Panel (Vol 11)",
+    "description": "Top tier seed investors and YC alumni discuss zero-to-one growth, term sheets, and product market fit.",
+    "category": "seminar",
+    "venue": "Management Block Auditorium",
+    "eventDate": {
+      "$date": "2026-09-13T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-11T05:57:58.169Z"
+    },
+    "maxAttendees": 330,
+    "isOnline": false,
+    "bannerSeed": "ev5",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876814"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876815"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768a5"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680b"
+    },
+    "title": "National Autonomous Robotics Grand Prix (Vol 12)",
+    "description": "Line follower, maze solver, and battle bot competitions. High adrenaline engineering showdown.",
+    "category": "competition",
+    "venue": "Indoor Sports Complex",
+    "eventDate": {
+      "$date": "2026-09-14T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-12T05:57:58.169Z"
+    },
+    "maxAttendees": 360,
+    "isOnline": false,
+    "bannerSeed": "ev6",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876817"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876818"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768a6"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680d"
+    },
+    "title": "InnovateX 2026 — 48-Hour Inter-College Hackathon (Vol 13)",
+    "description": "Build revolutionary AI, Web3, and HealthTech solutions. Cash prizes worth ₹3,50,000 + VC incubation offers.",
+    "category": "hackathon",
+    "venue": "Auditorium Hall 1 & Virtual",
+    "eventDate": {
+      "$date": "2026-09-15T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-13T05:57:58.169Z"
+    },
+    "maxAttendees": 390,
+    "isOnline": false,
+    "bannerSeed": "ev1",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87681a"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87681b"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768a7"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87680f"
+    },
+    "title": "Modern Cloud Architecture & Kubernetes Masterclass (Vol 14)",
+    "description": "Hands-on workshop building fault-tolerant microservices on AWS with Docker and Kubernetes. Free certification included.",
+    "category": "workshop",
+    "venue": "Online via Zoom",
+    "eventDate": {
+      "$date": "2026-09-16T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-14T05:57:58.169Z"
+    },
+    "maxAttendees": 420,
+    "isOnline": true,
+    "bannerSeed": "ev2",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87681d"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87681e"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768a8"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876811"
+    },
+    "title": "Startup Spark: Angel Investor & Founder Panel (Vol 15)",
+    "description": "Top tier seed investors and YC alumni discuss zero-to-one growth, term sheets, and product market fit.",
+    "category": "seminar",
+    "venue": "Management Block Auditorium",
+    "eventDate": {
+      "$date": "2026-09-17T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-15T05:57:58.169Z"
+    },
+    "maxAttendees": 450,
+    "isOnline": false,
+    "bannerSeed": "ev3",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876820"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876821"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768a9"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876813"
+    },
+    "title": "National Autonomous Robotics Grand Prix (Vol 16)",
+    "description": "Line follower, maze solver, and battle bot competitions. High adrenaline engineering showdown.",
+    "category": "competition",
+    "venue": "Indoor Sports Complex",
+    "eventDate": {
+      "$date": "2026-09-18T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-16T05:57:58.169Z"
+    },
+    "maxAttendees": 480,
+    "isOnline": false,
+    "bannerSeed": "ev4",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876823"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876824"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768aa"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876815"
+    },
+    "title": "InnovateX 2026 — 48-Hour Inter-College Hackathon (Vol 17)",
+    "description": "Build revolutionary AI, Web3, and HealthTech solutions. Cash prizes worth ₹3,50,000 + VC incubation offers.",
+    "category": "hackathon",
+    "venue": "Auditorium Hall 1 & Virtual",
+    "eventDate": {
+      "$date": "2026-09-19T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-17T05:57:58.169Z"
+    },
+    "maxAttendees": 510,
+    "isOnline": false,
+    "bannerSeed": "ev5",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876826"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876827"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768ab"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876817"
+    },
+    "title": "Modern Cloud Architecture & Kubernetes Masterclass (Vol 18)",
+    "description": "Hands-on workshop building fault-tolerant microservices on AWS with Docker and Kubernetes. Free certification included.",
+    "category": "workshop",
+    "venue": "Online via Zoom",
+    "eventDate": {
+      "$date": "2026-09-20T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-18T05:57:58.169Z"
+    },
+    "maxAttendees": 540,
+    "isOnline": true,
+    "bannerSeed": "ev6",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876829"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87682a"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768ac"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c876819"
+    },
+    "title": "Startup Spark: Angel Investor & Founder Panel (Vol 19)",
+    "description": "Top tier seed investors and YC alumni discuss zero-to-one growth, term sheets, and product market fit.",
+    "category": "seminar",
+    "venue": "Management Block Auditorium",
+    "eventDate": {
+      "$date": "2026-09-21T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-19T05:57:58.169Z"
+    },
+    "maxAttendees": 570,
+    "isOnline": false,
+    "bannerSeed": "ev1",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87682c"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87682d"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a9274e6af2e864a6c8768ad"
+    },
+    "userId": {
+      "$oid": "6a9274e6af2e864a6c87681b"
+    },
+    "title": "National Autonomous Robotics Grand Prix (Vol 20)",
+    "description": "Line follower, maze solver, and battle bot competitions. High adrenaline engineering showdown.",
+    "category": "competition",
+    "venue": "Indoor Sports Complex",
+    "eventDate": {
+      "$date": "2026-09-22T05:57:58.169Z"
+    },
+    "registrationDeadline": {
+      "$date": "2026-09-20T05:57:58.169Z"
+    },
+    "maxAttendees": 600,
+    "isOnline": false,
+    "bannerSeed": "ev2",
+    "rsvps": [
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c87682f"
+        },
+        "status": "going"
+      },
+      {
+        "userId": {
+          "$oid": "6a9274e6af2e864a6c876830"
+        },
+        "status": "interested"
+      }
+    ],
+    "isDeleted": false,
+    "createdAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-29T05:57:58.167Z"
+    }
+  }
+]
