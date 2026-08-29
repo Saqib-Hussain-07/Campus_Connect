@@ -79,7 +79,7 @@ services:
     container_name: campusconnect-client
     restart: unless-stopped
     ports:
-      - '3000:80'
+      - '80:80'
     depends_on:
       - server
     networks:
