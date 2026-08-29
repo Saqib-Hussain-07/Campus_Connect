@@ -14,9 +14,11 @@ COPY package*.json ./
 # Install production dependencies
 RUN npm ci --only=production
 
-# Copy server application source code and assets
+# Copy server application source code
 COPY server/ ./server/
-COPY assets/ ./assets/
+
+# Create uploads directory structure
+RUN mkdir -p assets/uploads/avatars
 
 # Set environment variables
 ENV NODE_ENV=production
